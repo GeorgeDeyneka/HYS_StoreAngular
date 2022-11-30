@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/reset.scss";
+@import "./styles/typography.scss";
+
+body {
+  font-family: "Raleway";
+  font-weight: 400;
+  background-color: #1b1c22;
+  color: #fff;
+}
+
+.btn {
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  padding-bottom: 2px;
+}
