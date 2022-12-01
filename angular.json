@@ -33,6 +33,9 @@
             "scripts": []
           },
           "configurations": {
+            "github-pages": {
+              "baseHref": "/HYS_StoreAngular/"
+            },
             "production": {
               "budgets": [
                 {
