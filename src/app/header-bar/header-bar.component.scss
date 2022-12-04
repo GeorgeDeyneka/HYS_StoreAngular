@@ -1,0 +1,17 @@
+.header {
+  background-color: #0f0f10;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__nav-list {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    gap: 40px;
+  }
+}

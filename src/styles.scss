@@ -27,3 +27,23 @@ a {
 .material-symbols-outlined {
   padding-bottom: 2px;
 }
+
+@media (min-width: 320px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+    padding: 20px 50px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1300px) {
+  .container {
+    padding: 20px 0px;
+  }
+}

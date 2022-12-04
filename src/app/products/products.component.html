@@ -1,0 +1,17 @@
+<main class="main" role="main">
+  <div class="products__container container">
+    <h2 class="products__title">Products</h2>
+    <div class="products__wrapper">
+      <app-product-item [data]="data" *ngFor="let prod of data"></app-product-item>
+    </div>
+    <div class="products__btn-wrapper">
+      <button
+        *ngIf="data"
+        class="products__btn-load btn__load btn"
+        type="button"
+      >
+        Load More
+      </button>
+    </div>
+  </div>
+</main>
