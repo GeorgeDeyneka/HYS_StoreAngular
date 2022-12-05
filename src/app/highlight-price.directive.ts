@@ -2,9 +2,9 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { Colors } from './models/enums/colors.enum';
 
 @Directive({
-  selector: '[appHighlight]',
+  selector: '[appHighlightPrice]',
 })
-export class HighlightDirective implements OnInit {
+export class HighlightPriceDirective implements OnInit {
   @Input() public price: number;
   private elem = this.el.nativeElement;
 

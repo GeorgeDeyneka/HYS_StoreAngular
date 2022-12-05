@@ -2,8 +2,8 @@
   <h3 class="product-item__title">
     {{ productItem.name }}
   </h3>
-  <h4 appHighlight [price]="productItem.price" class="product-item__price">
-    {{ productItem.price | hryvnia }}
+  <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
+    {{ productItem.price | UAH }}
   </h4>
-<app-add-button></app-add-button>
+  <app-add-button></app-add-button>
 </div>

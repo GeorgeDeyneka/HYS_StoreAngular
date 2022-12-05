@@ -8,8 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { AddButtonComponent } from './add-button/add-button.component';
-import { HryvniaPipe } from './hryvnia.pipe';
-import { HighlightDirective } from './highlight.directive';
+import { HryvniaPipe } from './uah.pipe';
+import { HighlightPriceDirective } from './highlight-price.directive';
 
 @NgModule({
   declarations: [
@@ -20,13 +20,10 @@ import { HighlightDirective } from './highlight.directive';
     ProductItemComponent,
     AddButtonComponent,
     HryvniaPipe,
-    HighlightDirective,
+    HighlightPriceDirective,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

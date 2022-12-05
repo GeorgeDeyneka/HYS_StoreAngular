@@ -1,6 +1,6 @@
 import { Product } from '../models/interfaces/products.interface';
 
-export const state: Product[] = [
+export const PRODUCTS_STATE: Product[] = [
   {
     id: 1,
     name: 'IPhone 14',

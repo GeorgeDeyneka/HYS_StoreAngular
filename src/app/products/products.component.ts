@@ -1,6 +1,6 @@
-import { state } from '../data/state';
+import { PRODUCTS_STATE } from './../data/state';
 import { Product } from '../models/interfaces/products.interface';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -9,12 +9,12 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  @Input() protected productsData: Product[];
-  
-  constructor(private productsService: ProductsService) {
-  }
-  
+  protected productsData: Product[];
+
+  constructor(private productsService: ProductsService) {}
+
   ngOnInit(): void {
-    this.productsData = state || this.productsService.createRandomData(8);
+    this.productsData =
+      PRODUCTS_STATE || this.productsService.createRandomData(8);
   }
 }
