@@ -11,19 +11,9 @@
     margin: 24px 0;
   }
 
-  &__btn-load {
-    margin: 0 auto;
-  }
-
   &__btn-wrapper {
     display: flex;
     align-items: center;
-  }
-}
-
-.btn {
-  &__load {
-    color: #1b1c22;
-    background-color: #5ec7ff;
+    justify-content: center;
   }
 }

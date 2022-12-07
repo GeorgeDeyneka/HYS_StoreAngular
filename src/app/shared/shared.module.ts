@@ -1,23 +1,23 @@
-import { ProductItemComponent } from '../landing/products/product-item/product-item.component';
-import { HighlightPriceDirective } from '../highlight-price.directive';
-import { UahPipe } from '../uah.pipe';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { HighlightPriceDirective } from './directives/highlight-price.directive';
+import { UahPipe } from './pipes/uah.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddButtonComponent } from '../landing/products/add-button/add-button.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
     UahPipe,
     HighlightPriceDirective,
     ProductItemComponent,
-    AddButtonComponent,
+    ButtonComponent,
   ],
   imports: [CommonModule],
   exports: [
     UahPipe,
     HighlightPriceDirective,
     ProductItemComponent,
-    AddButtonComponent,
+    ButtonComponent,
   ],
 })
 export class SharedModule {}

@@ -2,18 +2,13 @@
   <div class="products__container container">
     <h2 class="products__title">Products</h2>
     <div class="products__wrapper">
-      <ng-container *ngFor="let prod of productsData">
-        <app-product-item [productItem]="prod"></app-product-item>
-      </ng-container>
+      <app-product-item
+        *ngFor="let prod of productsData"
+        [productItem]="prod"
+      ></app-product-item>
     </div>
     <div class="products__btn-wrapper">
-      <button
-        *ngIf="productsData"
-        class="products__btn-load btn__load btn"
-        type="button"
-      >
-        Load More
-      </button>
+      <app-button [buttonClassName]="'btn__load btn'" *ngIf="productsData" [text]="'Load More'"></app-button>
     </div>
   </div>
 </main>

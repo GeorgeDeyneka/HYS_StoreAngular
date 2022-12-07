@@ -1,4 +1,4 @@
-import { ProductItemComponent } from './products/product-item/product-item.component';
+import { ProductItemComponent } from '../shared/components/product-item/product-item.component';
 import { LandingComponent } from './landing.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';

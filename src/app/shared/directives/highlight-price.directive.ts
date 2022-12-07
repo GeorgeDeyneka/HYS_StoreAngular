@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
-import { Colors } from './models/enums/colors.enum';
+import { Colors } from '../../models/enums/colors.enum';
 
 @Directive({
   selector: '[appHighlightPrice]',
@@ -11,9 +11,10 @@ export class HighlightPriceDirective implements OnInit {
   constructor(private el: ElementRef) {}
 
   setHighlight(firstCount: number, secondCount: number): void {
-    if (this.price > firstCount && this.price <= secondCount) {
+    if (this.price >= firstCount) {
       this.elem.style.color = Colors.greenPrice;
-    } else if (this.price > secondCount) {
+    }
+    if (this.price >= secondCount) {
       this.elem.style.color = Colors.redPrice;
     }
   }

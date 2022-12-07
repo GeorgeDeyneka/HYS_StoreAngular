@@ -23,6 +23,16 @@ app-products {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+
+  &__load {
+    color: #1b1c22;
+    background-color: #5ec7ff;
+  }
+
+  &__add {
+    color: #1b1c22;
+    background-color: #4949ff;
+  }
 }
 
 a {
