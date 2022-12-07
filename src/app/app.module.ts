@@ -9,7 +9,7 @@ import { FooterComponent } from './landing/footer/footer.component';
 import { ProductsComponent } from './landing/products/products.component';
 import { ProductItemComponent } from './landing/products/product-item/product-item.component';
 import { AddButtonComponent } from './landing/products/add-button/add-button.component';
-import { HryvniaPipe } from './uah.pipe';
+import { UahPipe } from './uah.pipe';
 import { HighlightPriceDirective } from './highlight-price.directive';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { HighlightPriceDirective } from './highlight-price.directive';
     ProductItemComponent,
     AddButtonComponent,
     LandingComponent,
-    HryvniaPipe,
+    UahPipe,
     HighlightPriceDirective,
   ],
   imports: [BrowserModule, AppRoutingModule],
