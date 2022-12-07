@@ -1,5 +1,5 @@
 import { PRODUCTS_STATE } from '../data/state';
-import { Product } from '../../models/interfaces/products.interface';
+import { Product } from '../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './products.service';
 

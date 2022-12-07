@@ -1,17 +1,12 @@
-import { ProductItemComponent } from '../shared/components/product-item/product-item.component';
-import { LandingComponent } from './landing.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProductsComponent } from './products.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent,
-  },
-  {
-    path: 'prod',
-    component: ProductItemComponent,
+    component: ProductsComponent,
   },
 ];
 
@@ -19,4 +14,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class LandingRoutingModule {}
+export class ProductsRoutingModule {}

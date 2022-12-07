@@ -1,3 +1,4 @@
+<app-header-bar></app-header-bar>
 <main class="main">
   <div class="products__container container">
     <h2 class="products__title">Products</h2>
@@ -8,7 +9,12 @@
       ></app-product-item>
     </div>
     <div class="products__btn-wrapper">
-      <app-button [buttonClassName]="'btn__load btn'" *ngIf="productsData" [text]="'Load More'"></app-button>
+      <app-button
+        [buttonClassName]="'btn__load btn'"
+        *ngIf="productsData"
+        [text]="'Load More'"
+      ></app-button>
     </div>
   </div>
 </main>
+<app-footer></app-footer>
