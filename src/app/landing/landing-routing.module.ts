@@ -1,12 +1,17 @@
+import { ProductItemComponent } from './products/product-item/product-item.component';
+import { LandingComponent } from './landing.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsComponent } from './products.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProductsComponent,
+    component: LandingComponent,
+  },
+  {
+    path: 'prod',
+    component: ProductItemComponent,
   },
 ];
 
@@ -14,4 +19,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class ProductsRoutingModule {}
+export class LandingRoutingModule {}
