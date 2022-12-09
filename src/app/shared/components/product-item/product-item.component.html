@@ -1,9 +1,14 @@
 <div class="product-item">
   <h3 class="product-item__title">
-    {{ productItem.name }}
+    <a (click)="setDataProd()" [routerLink]="[productItem.id]">
+      {{ productItem.name }}
+    </a>
   </h3>
   <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
     {{ productItem.price | UAH }}
   </h4>
-  <app-button [buttonClassName]="'btn__add btn'" [text]="'Add To Cart'"></app-button>
+  <app-button
+    [buttonClassName]="'btn__add btn'"
+    [text]="'Add To Cart'"
+  ></app-button>
 </div>

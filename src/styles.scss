@@ -8,13 +8,16 @@ body {
   color: #fff;
 }
 
-app-landing {
+app-products {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-app-products {
+app-products,
+app-product-list,
+app-product-details,
+app-page-not-found {
   flex: 1 1 auto;
 }
 
@@ -32,6 +35,11 @@ app-products {
   &__add {
     color: #1b1c22;
     background-color: #4949ff;
+  }
+
+  &__home {
+    color: #1b1c22;
+    background-color: #5ec7ff;
   }
 }
 

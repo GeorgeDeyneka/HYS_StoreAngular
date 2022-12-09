@@ -1,4 +1,3 @@
-import { ProductsRoutingModule } from './products/products-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +13,6 @@ import { ProductsModule } from './products/products.module';
     AppRoutingModule,
     SharedModule,
     ProductsModule,
-    ProductsRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

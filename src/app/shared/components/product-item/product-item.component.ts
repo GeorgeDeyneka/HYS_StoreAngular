@@ -1,3 +1,4 @@
+import { DetailsService } from './../../services/details.service';
 import { Product } from '../../../models/interfaces/products.interface';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,7 +10,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductItemComponent implements OnInit {
   @Input() public productItem: Product;
 
-  constructor() {}
+  constructor(private detailsService: DetailsService) {}
 
   ngOnInit(): void {}
+
+  setDataProd() {
+    this.detailsService.setData(this.productItem)
+  }
 }
