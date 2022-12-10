@@ -1,0 +1,22 @@
+<main class="container">
+  <h2 class="page__title">Products/Cart</h2>
+  <div class="cart__list" *ngIf="arrCart.length; else elseBlock">
+    <app-button class="cart__clear" [text]="'Remove All'"></app-button>
+    <div class="cart__item" *ngFor="let prod of arrCart">
+      <h4 class="item__title">
+        Product, which you want to buy:
+        <a class="item__link" [routerLink]="['/products', prod.id]">{{
+          prod.name
+        }}</a>
+      </h4>
+      <div class="item__footer">
+        <h4 class="item__currency">Currency:</h4>
+        <h4 class="item__cost">Cost:</h4>
+      </div>
+    </div>
+    <h2>Total Cost:</h2>
+  </div>
+  <ng-template #elseBlock
+    ><h2 class="page__alert">Your Cart Is Empty!</h2></ng-template
+  >
+</main>

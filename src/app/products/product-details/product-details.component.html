@@ -1,14 +1,12 @@
-<main class="main">
-  <div class="container">
-    <h2 class="page-title">Products/{{ prod.name }} #{{ prod.id }}</h2>
-    <div class="info">
-      <h1 class="title">{{ prod.name }}</h1>
-      <h4 class="description">About</h4>
-      <h2 class="price">Price: {{ prod.price | UAH }}</h2>
+<main class="container">
+    <h2 class="page__title">Products/{{ prod.name }} #{{ prod.id }}</h2>
+    <div class="item">
+      <h1 class="item__title">{{ prod.name }}</h1>
+      <h4 class="item__description">About</h4>
+      <h2 class="item__price">Price: {{ prod.price | UAH }}</h2>
       <app-button
         [buttonClassName]="'btn btn__add'"
         [text]="'Add To Cart'"
       ></app-button>
     </div>
-  </div>
 </main>

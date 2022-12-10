@@ -1,0 +1,6 @@
+- Add styles for added button
+- Add theme for button
+- Fix URL-details bug
+- ?Change name for prod
+- Add item counter in the cart
+- Separate cart-item component

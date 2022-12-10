@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { DetailsService } from './../../services/details.service';
 import { Product } from '../../../models/interfaces/products.interface';
 import { Component, Input, OnInit } from '@angular/core';
@@ -10,11 +11,18 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductItemComponent implements OnInit {
   @Input() public productItem: Product;
 
-  constructor(private detailsService: DetailsService) {}
+  constructor(
+    private detailsService: DetailsService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {}
 
   setDataProd() {
-    this.detailsService.setData(this.productItem)
+    this.detailsService.setData(this.productItem);
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.productItem)
   }
 }

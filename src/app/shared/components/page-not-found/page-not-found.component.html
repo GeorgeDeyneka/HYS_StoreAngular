@@ -1,11 +1,11 @@
-<main class="main">
-  <div class="container">
-      <h1 class="error-code">404</h1>
-      <h2>Ooops... This page not found</h2>
-      <app-button
-        [routerLink]="['/']"
-        [buttonClassName]="'btn btn__home'"
-        [text]="'Back To Home'"
-      ></app-button>
+<main class="container">
+  <div class="error__info">
+    <h1 class="error__code">404</h1>
+    <h2 class="error__description">Ooops... This page not found</h2>
+    <app-button
+      [routerLink]="['/']"
+      [buttonClassName]="'btn btn__home'"
+      [text]="'Back To Home'"
+    ></app-button>
   </div>
 </main>

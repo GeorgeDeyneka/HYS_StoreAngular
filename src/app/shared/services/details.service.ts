@@ -10,7 +10,7 @@ export class DetailsService {
   constructor() {}
 
   getData() {
-    if (!this.product && sessionStorage.getItem != null) {
+    if (!this.product && sessionStorage.getItem('details') != null) {
       return JSON.parse(sessionStorage.getItem('details')!);
     }
     return this.product;

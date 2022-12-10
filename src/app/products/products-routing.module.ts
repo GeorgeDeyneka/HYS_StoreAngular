@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsComponent } from './products.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: ProductListComponent,
+      },
+      {
+        path: 'cart',
+        pathMatch: 'full',
+        component: CartComponent,
       },
       {
         path: ':id',

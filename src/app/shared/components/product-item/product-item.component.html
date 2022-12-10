@@ -8,6 +8,7 @@
     {{ productItem.price | UAH }}
   </h4>
   <app-button
+  (click)="addToCart()"
     [buttonClassName]="'btn__add btn'"
     [text]="'Add To Cart'"
   ></app-button>
