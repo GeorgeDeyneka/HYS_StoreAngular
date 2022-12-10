@@ -1,7 +1,7 @@
 <main class="container">
   <h2 class="page__title">Products/Cart</h2>
   <div class="cart__list" *ngIf="arrCart.length; else elseBlock">
-    <app-button class="cart__clear" [text]="'Remove All'"></app-button>
+    <app-button class="cart__clear" (click)="clearCart()" [text]="'Remove All'"></app-button>
     <div class="cart__item" *ngFor="let prod of arrCart">
       <h4 class="item__title">
         Product, which you want to buy:

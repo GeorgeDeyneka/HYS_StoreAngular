@@ -7,13 +7,18 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   public arrCart: Product[] =
-    this.localStorageService.getData('cartData') || [];
+    this.localStorageService.getData<Product[]>('cartData') || [];
 
   constructor(private localStorageService: LocalStorageService) {}
 
-  addToCart(data: Product) {
+  addToCart(data: Product): void {
     this.arrCart.push(data);
-    this.localStorageService.setData('cartData', this.arrCart);
+    this.localStorageService.setData<Product[]>('cartData', this.arrCart);
+  }
+
+  clearCart(): Product[] {
+    this.localStorageService.removeAllData('cartData');
+    return this.arrCart = [];
   }
 
   deleteFromCart() {

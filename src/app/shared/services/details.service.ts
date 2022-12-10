@@ -9,14 +9,14 @@ export class DetailsService {
 
   constructor() {}
 
-  getData() {
+  getData(): Product {
     if (!this.product && sessionStorage.getItem('details') != null) {
       return JSON.parse(sessionStorage.getItem('details')!);
     }
     return this.product;
   }
 
-  setData(data: Product) {
+  setData(data: Product): void {
     sessionStorage.setItem('details', JSON.stringify(data));
     this.product = data;
   }

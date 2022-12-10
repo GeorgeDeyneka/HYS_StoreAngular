@@ -10,7 +10,11 @@ import { Component,  OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   public arrCart: Product[];
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) { }
+  
+  clearCart(): void {
+    this.arrCart = this.cartService.clearCart();
+  }
 
   ngOnInit(): void {
     this.arrCart = this.cartService.arrCart;
