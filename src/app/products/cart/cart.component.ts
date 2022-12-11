@@ -1,6 +1,6 @@
 import { CartService } from './../../shared/services/cart.service';
 import { Product } from './../../models/interfaces/products.interface';
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +10,8 @@ import { Component,  OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   public arrCart: Product[];
 
-  constructor(private cartService: CartService) { }
-  
+  constructor(private cartService: CartService) {}
+
   clearCart(): void {
     this.arrCart = this.cartService.clearCart();
   }

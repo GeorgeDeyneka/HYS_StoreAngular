@@ -1,6 +1,7 @@
 .header {
   background-color: #0f0f10;
 
+  
   &__nav {
     display: flex;
     justify-content: space-between;
@@ -14,4 +15,8 @@
     list-style-type: none;
     gap: 40px;
   }
+}
+
+.container {
+  position: relative;
 }

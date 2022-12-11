@@ -12,10 +12,10 @@ export class HighlightPriceDirective implements OnInit {
 
   setHighlight(firstCount: number, secondCount: number): void {
     if (this.price >= firstCount) {
-      this.elem.style.color = Colors.greenPrice;
+      this.elem.style.color = Colors.violetPrice;
     }
     if (this.price >= secondCount) {
-      this.elem.style.color = Colors.redPrice;
+      this.elem.style.color = Colors.greenPrice;
     }
   }
 

@@ -27,28 +27,6 @@ app-page-not-found, app-cart {
   display: flex;
 }
 
-.btn {
-  padding: 4px 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-
-  &__load {
-    color: #1b1c22;
-    background-color: #5ec7ff;
-  }
-
-  &__add {
-    color: #1b1c22;
-    background-color: #4949ff;
-  }
-
-  &__home {
-    color: #1b1c22;
-    background-color: #5ec7ff;
-  }
-}
-
 a {
   text-decoration: none;
   color: #fff;

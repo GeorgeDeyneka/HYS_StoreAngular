@@ -1,0 +1,21 @@
+<div [class]="className">
+  <ng-container *ngIf="!arrCart.length">Your cart is empty!</ng-container>
+  <div class="item" *ngFor="let prod of arrCart">
+    <div class="item__info">
+      <h4 class="item__title">{{ prod.name }} #{{ prod.id }}</h4>
+      <h4>
+        {{ prod.price | UAH }}
+      </h4>
+    </div>
+    <div class="counter">
+      <div class="counter__rate">+</div>
+      <div class="counter__count">1</div>
+      <div class="counter__rate">-</div>
+    </div>
+    <app-button
+      [size]="'small'"
+      [theme]="'violet'"
+      [text]="'Delete'"
+    ></app-button>
+  </div>
+</div>

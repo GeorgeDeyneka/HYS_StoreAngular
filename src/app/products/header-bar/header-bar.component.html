@@ -11,12 +11,13 @@
             >Products</a
           >
         </li>
-        <li class="header__nav-item">
+        <li (mouseenter)="onHover()" (mouseleave)="onLeave()" class="header__nav-item">
           <a [routerLink]="['/products/cart']" class="header__link"
             ><span class="material-symbols-outlined">
               shopping_cart_checkout</span
             >Cart</a
           >
+          <app-cart-modal [className]="modalClassName"></app-cart-modal>
         </li>
       </ul>
     </nav>

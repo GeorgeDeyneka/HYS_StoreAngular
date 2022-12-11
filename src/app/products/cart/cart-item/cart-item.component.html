@@ -1,0 +1,16 @@
+<div class="item">
+  <div class="item__header">
+
+    <h4 class="item__title">
+      Product, which you want to buy:
+      <a class="item__link" [routerLink]="['/products', productItem.id]">{{
+        productItem.name
+      }}</a>
+    </h4>
+    <app-button [theme]="'violet'" [text]="'Remove Product'"></app-button>
+  </div>
+  <div class="item__footer">
+    <h4 class="item__currency">Currency:</h4>
+    <h4 class="item__cost">Cost:</h4>
+  </div>
+</div>

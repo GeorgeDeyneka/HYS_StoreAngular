@@ -1,1 +1,8 @@
-  <button [className]="buttonClassName" type="button">{{ text }}</button>
+<button
+[ngStyle]="{ backgroundColor: changeTheme(theme),
+  padding: changeSize(size)
+ }"
+  type="button"
+>
+  {{ text }}
+</button>
