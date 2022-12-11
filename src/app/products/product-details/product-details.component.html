@@ -6,6 +6,8 @@
       <h2 class="item__price">Price: {{ prod.price | UAH }}</h2>
       <app-button
         [text]="'Add To Cart'"
+        [theme]="'violet'"
+        (click)="addToCart()"
       ></app-button>
     </div>
 </main>
