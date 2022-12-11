@@ -1,3 +1,4 @@
+import { PRODUCTS_STATE } from './../data/state';
 import { Product } from '../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
 
@@ -5,6 +6,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductsService {
+  public productsData: Product[] = PRODUCTS_STATE || this.createRandomData;
+
   constructor() {}
 
   createRandomData(n: number) {
@@ -24,5 +27,9 @@ export class ProductsService {
       arr.push(obj);
     }
     return arr;
+  }
+
+  getData() {
+    return this.productsData;
   }
 }

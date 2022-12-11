@@ -14,7 +14,6 @@ export class ProductListComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-        this.productsData =
-          PRODUCTS_STATE || this.productsService.createRandomData(8);
+    this.productsData = this.productsService.getData()
   }
 }

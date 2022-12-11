@@ -1,4 +1,4 @@
-<main class="container">
+<main *ngIf="prod" class="container">
     <h2 class="page__title">Products/{{ prod.name }} #{{ prod.id }}</h2>
     <div class="item">
       <h1 class="item__title">{{ prod.name }}</h1>
