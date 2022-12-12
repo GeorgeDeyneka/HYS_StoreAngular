@@ -35,6 +35,11 @@ export class CartService {
     return this.getData().reduce((acc, el) => (acc += el[0].price * el[1]), 0);
   }
 
+  checkProduct(prod: Product) {
+    const data = this.arrCart;
+    return data.filter((el) => el.id === prod.id).length;
+  }
+
   getData(): [Product, number][] {
     this.transformData();
     return this.countArr;

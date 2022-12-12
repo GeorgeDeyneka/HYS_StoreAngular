@@ -15,19 +15,16 @@ export class ProductItemComponent implements OnChanges, OnInit {
   constructor(private cartService: CartService) {}
 
   checkProduct() {
-    const data = this.cartService.arrCart;
-    if (data.filter((el) => el.id === this.productItem.id).length) {
-      this.buttonText = 'In Cart';
-    }
-    return this.buttonText = 'Add'
+    this.cartService.checkProduct(this.productItem) > 0
+      ? (this.buttonText = 'In Cart')
+      : (this.buttonText = 'Add To Cart');
   }
 
   ngOnInit(): void {
     this.checkProduct();
   }
 
-  ngOnChanges(): void {
-  }
+  ngOnChanges(): void {}
 
   addToCart(): void {
     this.cartService.addToCart(this.productItem);
