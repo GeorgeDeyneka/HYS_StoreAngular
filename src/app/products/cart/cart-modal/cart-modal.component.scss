@@ -38,9 +38,16 @@
     flex-grow: 1;
   }
 
-  &__title {
+  &__link {
     color: #b07eff;
   }
+}
+
+.total-sum {
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+  color: #b07eff;
 }
 
 .counter {

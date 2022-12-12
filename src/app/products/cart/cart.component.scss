@@ -19,6 +19,12 @@
     padding-bottom: 50px;
     flex-grow: 1;
   }
+
+  &__total {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px;
+  }
 }
 
 .cart {

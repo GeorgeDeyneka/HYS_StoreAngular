@@ -7,5 +7,5 @@
   <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
     {{ productItem.price | UAH }}
   </h4>
-  <app-button (click)="addToCart()" [theme]="'violet'" [text]="'Add To Cart'"></app-button>
+  <app-button (click)="addToCart()" [theme]="'violet'" [text]="buttonText"></app-button>
 </div>

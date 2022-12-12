@@ -2,15 +2,23 @@
   <ng-container *ngIf="!arrCart.length">Your cart is empty!</ng-container>
   <div class="item" *ngFor="let prod of arrCart">
     <div class="item__info">
-      <h4 class="item__title">{{ prod.name }} #{{ prod.id }}</h4>
+      <h4 class="item__title">
+        <a class="item__link" [routerLink]="['/products', prod[0].id]">
+          {{ prod[0].name }} #{{ prod[0].id }}
+        </a>
+      </h4>
       <h4>
-        {{ prod.price | UAH }}
+        {{ prod[0].price * prod[1] | UAH }}
       </h4>
     </div>
     <div class="counter">
-      <div class="counter__rate">+</div>
-      <div class="counter__count">1</div>
-      <div class="counter__rate">-</div>
+      <div (click)="changeCounter('plus', prod[0])" class="counter__rate">
+        +
+      </div>
+      <div class="counter__count">{{ prod[1] }}</div>
+      <div (click)="changeCounter('minus', prod[0])" class="counter__rate">
+        -
+      </div>
     </div>
     <app-button
       [size]="'small'"
@@ -18,4 +26,5 @@
       [text]="'Delete'"
     ></app-button>
   </div>
+  <h4 class="total-sum" *ngIf="arrCart.length">Total: {{ totalPrice | UAH }}</h4>
 </div>
