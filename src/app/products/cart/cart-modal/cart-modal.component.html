@@ -11,20 +11,14 @@
         {{ prod[0].price * prod[1] | UAH }}
       </h4>
     </div>
-    <div class="counter">
-      <div (click)="changeCounter('plus', prod[0])" class="counter__rate">
-        +
-      </div>
-      <div class="counter__count">{{ prod[1] }}</div>
-      <div (click)="changeCounter('minus', prod[0])" class="counter__rate">
-        -
-      </div>
-    </div>
+    <app-counter (countClick)="updateData()" [prod]="prod"></app-counter>
     <app-button
       [size]="'small'"
       [theme]="'violet'"
       [text]="'Delete'"
     ></app-button>
   </div>
-  <h4 class="total-sum" *ngIf="arrCart.length">Total: {{ totalPrice | UAH }}</h4>
+  <h4 class="total-sum" *ngIf="arrCart.length">
+    Total: {{ totalPrice | UAH }}
+  </h4>
 </div>

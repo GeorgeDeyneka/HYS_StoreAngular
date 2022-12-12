@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
   public arrCart: [Product, number][];
-  public totalPice: number = this.calcPrice()
+  public totalPrice: number;
 
   constructor(private cartService: CartService) {}
 
@@ -21,7 +21,12 @@ export class CartComponent implements OnInit {
     this.arrCart = this.cartService.clearCart();
   }
 
-  ngOnInit(): void {
+  updateData() {
     this.arrCart = this.cartService.getData();
+    this.totalPrice = this.calcPrice();
+  }
+
+  ngOnInit(): void {
+    this.updateData()
   }
 }

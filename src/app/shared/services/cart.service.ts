@@ -9,7 +9,7 @@ export class CartService {
   public arrCart: Product[] =
     this.localStorageService.getData<Product[]>('cartData') || [];
 
-  private countArr: [Product, number][];
+  public countArr: [Product, number][];
 
   constructor(private localStorageService: LocalStorageService) {}
 
@@ -29,15 +29,6 @@ export class CartService {
     this.countArr = [
       ...new Set(changeData.map((el) => JSON.stringify(el))),
     ].map((el) => JSON.parse(el));
-  }
-
-  // Exp
-  
-  checkProduct(elem: Product, text: string): string | void {
-    const data = this.arrCart;
-    if (data.find(() => JSON.stringify(elem))) {
-      return (text = 'In Cart');
-    }
   }
 
   calculateTotalPrice() {

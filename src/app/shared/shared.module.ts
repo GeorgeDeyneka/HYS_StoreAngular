@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ProductItemComponent,
     ButtonComponent,
     PageNotFoundComponent,
+    CounterComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -21,6 +23,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HighlightPriceDirective,
     ProductItemComponent,
     ButtonComponent,
+    CounterComponent,
     PageNotFoundComponent
   ],
 })

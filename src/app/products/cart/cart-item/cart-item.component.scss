@@ -1,19 +1,16 @@
 .item {
-  padding: 20px;
+  padding: 15px 20px;
   background-color: #23242a;
   border-radius: 10px;
   margin-bottom: 20px;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
 
   &__title {
     font-weight: 500;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
     gap: 10px;
   }
 
@@ -21,9 +18,22 @@
     font-weight: 600;
   }
 
-  &__footer {
+  &__prod-count {
     display: flex;
-    justify-content: flex-end;
+    gap: 15px;
+  }
+
+  &__interface-wrapper {
+    display: flex;
+    align-items: center;
     gap: 20px;
+  }
+
+  &__interface {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    min-width: 230px;
   }
 }

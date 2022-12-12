@@ -1,16 +1,20 @@
 <div class="item">
-  <div class="item__header">
-
-    <h4 class="item__title">
-      Product, which you want to buy:
-      <a class="item__link" [routerLink]="['/products', productItem[0].id]">{{
-        productItem[0].name
-      }}</a>
-    </h4>
-    <app-button [theme]="'violet'" [text]="'Remove Product'"></app-button>
-  </div>
-  <div class="item__footer">
-    <h4 class="item__currency">Currency: {{ productItem[1] }}</h4>
-    <h4 class="item__cost">Cost: {{ productItem[0].price * productItem[1] }}</h4>
+  <h4 class="item__title">
+    Product, which you want to buy:
+    <a class="item__link" [routerLink]="['/products', productItem[0].id]">{{
+      productItem[0].name
+    }}</a>
+  </h4>
+  <div class="item__interface-wrapper">
+    <app-counter [prod]="productItem" (countClick)="updateData()"></app-counter>
+    <div class="item__interface">
+      <app-button [theme]="'violet'" [text]="'Remove Product'"></app-button>
+      <div class="item__prod-count">
+        <h4 class="item__currency">Currency: {{ productItem[1] }}</h4>
+        <h4 class="item__cost">
+          Cost: {{ productItem[0].price * productItem[1] }}
+        </h4>
+      </div>
+    </div>
   </div>
 </div>

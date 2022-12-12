@@ -1,6 +1,6 @@
 import { Product } from './../../../models/interfaces/products.interface';
 import { CartService } from '../../../shared/services/cart.service';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-cart-modal',
@@ -16,21 +16,15 @@ export class CartModalComponent implements OnChanges {
   constructor(private cartService: CartService) {}
 
   ngOnChanges(): void {
+    this.updateData();
+  }
+
+  updateData() {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }
 
   calcPrice(): number {
     return this.cartService.calculateTotalPrice();
-  }
-
-  changeCounter(doing: 'plus' | 'minus', elem: Product) {
-    if (doing == 'plus') {
-      this.cartService.plusCounter(elem);
-    } else if (doing == 'minus') {
-      this.cartService.minusCounter(elem);
-    }
-    this.arrCart = this.cartService.getData();
-    this.totalPrice = this.calcPrice();
   }
 }

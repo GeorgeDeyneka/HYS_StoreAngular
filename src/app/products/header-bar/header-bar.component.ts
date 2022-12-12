@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-bar',
@@ -8,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderBarComponent implements OnInit {
   public modalClassName: string = 'unvisible';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   onHover() {
-    this.modalClassName = 'modal';
+    this.router.url === '/products/cart'
+      ? (this.modalClassName = 'unvisible')
+      : (this.modalClassName = 'modal');
   }
 
   onLeave() {
