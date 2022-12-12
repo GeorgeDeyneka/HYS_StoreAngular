@@ -1,0 +1,14 @@
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #23242a;
+  border-radius: 5px;
+  height: 200px;
+
+  &__title {
+    font-weight: 400;
+  }
+}

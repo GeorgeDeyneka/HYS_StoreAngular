@@ -1,6 +1,6 @@
-import { Product } from '../models/interfaces/products.interface';
+import { Product } from '../../models/interfaces/products.interface';
 
-export const state: Product[] = [
+export const PRODUCTS_STATE: Product[] = [
   {
     id: 1,
     name: 'IPhone 14',
@@ -14,7 +14,7 @@ export const state: Product[] = [
   {
     id: 3,
     name: 'IPhone SE',
-    price: 500,
+    price: 450,
   },
   {
     id: 4,
@@ -24,7 +24,7 @@ export const state: Product[] = [
   {
     id: 5,
     name: 'IPad Pro',
-    price: 1100,
+    price: 1120,
   },
   {
     id: 6,
@@ -34,7 +34,7 @@ export const state: Product[] = [
   {
     id: 7,
     name: 'MacBook Air',
-    price: 1100,
+    price: 1200,
   },
   {
     id: 8,

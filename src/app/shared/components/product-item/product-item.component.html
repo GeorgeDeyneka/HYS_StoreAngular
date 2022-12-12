@@ -1,0 +1,9 @@
+<div class="product-item">
+  <h3 class="product-item__title">
+    {{ productItem.name }}
+  </h3>
+  <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
+    {{ productItem.price | UAH }}
+  </h4>
+  <app-button [buttonClassName]="'btn__add btn'" [text]="'Add To Cart'"></app-button>
+</div>

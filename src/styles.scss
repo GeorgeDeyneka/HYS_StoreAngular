@@ -8,11 +8,31 @@ body {
   color: #fff;
 }
 
+app-landing {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+app-products {
+  flex: 1 1 auto;
+}
+
 .btn {
   padding: 4px 10px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+
+  &__load {
+    color: #1b1c22;
+    background-color: #5ec7ff;
+  }
+
+  &__add {
+    color: #1b1c22;
+    background-color: #4949ff;
+  }
 }
 
 a {
@@ -26,4 +46,24 @@ a {
 
 .material-symbols-outlined {
   padding-bottom: 2px;
+}
+
+@media (min-width: 320px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+    padding: 20px 50px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1300px) {
+  .container {
+    padding: 20px 0;
+  }
 }
