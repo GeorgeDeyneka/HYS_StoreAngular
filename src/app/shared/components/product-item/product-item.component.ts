@@ -1,7 +1,6 @@
 import { CartService } from './../../services/cart.service';
 import { Product } from '../../../models/interfaces/products.interface';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-item',

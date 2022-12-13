@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsComponent } from './products.component';
+import { StoreComponent } from './store.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -13,7 +13,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
-    ProductsComponent,
+    StoreComponent,
     HeaderBarComponent,
     FooterComponent,
     ProductDetailsComponent,
@@ -23,6 +23,6 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     CartItemComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule],
-  exports: [ProductsComponent],
+  exports: [StoreComponent],
 })
-export class ProductsModule {}
+export class StoreModule {}

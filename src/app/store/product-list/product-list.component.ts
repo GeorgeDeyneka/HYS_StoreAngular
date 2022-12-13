@@ -1,7 +1,6 @@
-import { PRODUCTS_STATE } from './../../data/state';
-import { Product } from './../../models/interfaces/products.interface';
+import { Product } from '../../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../products.service';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,9 +10,9 @@ import { ProductsService } from '../products.service';
 export class ProductListComponent implements OnInit {
   protected productsData: Product[];
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
-    this.productsData = this.productsService.getData();
+    this.productsData = this.storeService.getData();
   }
 }

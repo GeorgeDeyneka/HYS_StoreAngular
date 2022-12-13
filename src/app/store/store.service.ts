@@ -1,11 +1,11 @@
-import { PRODUCTS_STATE } from './../data/state';
+import { PRODUCTS_STATE } from '../data/state';
 import { Product } from '../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService {
+export class StoreService {
   public productsData: Product[] = PRODUCTS_STATE || this.createRandomData;
 
   constructor() {}

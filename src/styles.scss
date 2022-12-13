@@ -8,13 +8,24 @@ body {
   color: #fff;
 }
 
-app-products {
+app-store {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
 
-app-products,
+app-administration {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  grid-gap: 16px;
+  min-height: 100%;
+}
+
+app-side-bar {
+  background-color: #000;
+  height: 100%;
+}
+
 app-product-list,
 app-product-details,
 app-page-not-found,
@@ -23,7 +34,8 @@ app-cart {
   min-height: 100%;
 }
 
-app-page-not-found, app-cart {
+app-page-not-found,
+app-cart {
   display: flex;
 }
 

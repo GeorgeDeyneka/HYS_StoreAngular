@@ -1,4 +1,4 @@
-import { Product } from './../../../models/interfaces/products.interface';
+import { Product } from '../../../models/interfaces/products.interface';
 import { CartService } from '../../../shared/services/cart.service';
 import { Component, Input, OnChanges } from '@angular/core';
 
