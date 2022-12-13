@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
 
   deleteElem(elem: Product) {
     this.cartService.deleteProduct(elem);
-    this.arrCart = this.cartService.getData();
+    this.updateData();
   }
 
   updateData() {
