@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ElementRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -8,24 +15,25 @@ import { Component, Input, OnInit, ElementRef } from '@angular/core';
 export class ButtonComponent implements OnInit {
   @Input() text: string;
   @Input() theme: 'blue' | 'aqua' | 'violet';
-  @Input() size: 'small' | 'medium' | 'large'
+  @Input() size: 'small' | 'medium' | 'large';
+  @Output() clickHandler = new EventEmitter();
 
   protected color: string;
   protected padding: string;
 
-  constructor() { }
-  
+  constructor() {}
+
   changeSize(size: string = 'medium'): string {
-        switch (size) {
-          case 'small':
-            return (this.padding = '1px 4px');
+    switch (size) {
+      case 'small':
+        return (this.padding = '1px 4px');
 
-          case 'large':
-            return (this.color = '8px 20px');
+      case 'large':
+        return (this.color = '8px 20px');
 
-          default:
-            return (this.color = '4px 10px');
-        }
+      default:
+        return (this.color = '4px 10px');
+    }
   }
 
   changeTheme(theme: string = 'blue'): string {

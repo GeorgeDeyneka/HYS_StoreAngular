@@ -1,6 +1,5 @@
-import { CartComponent } from './../cart.component';
 import { Product } from './../../../models/interfaces/products.interface';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cart-item',
@@ -9,15 +8,10 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 })
 export class CartItemComponent implements OnInit {
   @Input() productItem: [Product, number];
-  // @Output()
+  @Output() countClick = new EventEmitter();
+  @Output() clickHandler = new EventEmitter();
 
-  constructor(
-    private cartComponent: CartComponent
-  ) {}
-
-  updateData() {
-    this.cartComponent.updateData();
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

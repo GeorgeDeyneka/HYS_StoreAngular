@@ -61,6 +61,11 @@ export class CartService {
     this.localStorageService.setData<Product[]>('cartData', this.arrCart);
   }
 
+  deleteProduct(prod: Product): void {
+    this.arrCart = this.arrCart.filter((el) => el.id !== prod.id);
+    this.localStorageService.setData<Product[]>('cartData', this.arrCart);
+  }
+
   addToCart(elem: Product): void {
     this.arrCart.push(elem);
     this.localStorageService.setData<Product[]>('cartData', this.arrCart);

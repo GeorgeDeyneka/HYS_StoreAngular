@@ -6,9 +6,16 @@
     }}</a>
   </h4>
   <div class="item__interface-wrapper">
-    <app-counter [prod]="productItem" (countClick)="updateData()"></app-counter>
+    <app-counter
+      [prod]="productItem"
+      (countClick)="countClick.emit()"
+    ></app-counter>
     <div class="item__interface">
-      <app-button [theme]="'violet'" [text]="'Remove Product'"></app-button>
+      <app-button
+        [theme]="'violet'"
+        [text]="'Remove Product'"
+        (clickHandler)="clickHandler.emit()"
+      ></app-button>
       <div class="item__prod-count">
         <h4 class="item__currency">Currency: {{ productItem[1] }}</h4>
         <h4 class="item__cost">

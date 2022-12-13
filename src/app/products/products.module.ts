@@ -20,7 +20,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     ProductListComponent,
     CartComponent,
     CartModalComponent,
-    CartItemComponent
+    CartItemComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule],
   exports: [ProductsComponent],

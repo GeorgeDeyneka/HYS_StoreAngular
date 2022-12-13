@@ -16,7 +16,7 @@ export class DetailsService {
 
   getData(id: any) {
     this.checkData(id);
-    return this.product
+    return this.product;
   }
 
   checkData(id: any) {

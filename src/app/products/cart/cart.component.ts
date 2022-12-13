@@ -21,12 +21,17 @@ export class CartComponent implements OnInit {
     this.arrCart = this.cartService.clearCart();
   }
 
+  deleteElem(elem: Product) {
+    this.cartService.deleteProduct(elem);
+    this.arrCart = this.cartService.getData();
+  }
+
   updateData() {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }
 
   ngOnInit(): void {
-    this.updateData()
+    this.updateData();
   }
 }

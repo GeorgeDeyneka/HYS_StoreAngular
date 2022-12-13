@@ -1,7 +1,6 @@
 #Required:
-- Add In Cart text (ngOnChanges, arrCart.includes?)
-- Clear and refactor code
 - Make NG Build!!!
+- Update main
 
 #Additional
 - Change README.md
