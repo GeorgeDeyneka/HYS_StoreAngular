@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  public data: Product[] = PRODUCTS_STATE
+  public data: Product[] = PRODUCTS_STATE;
+  public prod: Product
 
   constructor() { }
 
