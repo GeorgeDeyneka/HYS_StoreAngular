@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartModalComponent } from './cart/cart-modal/cart-modal.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     CartComponent,
     CartModalComponent,
     CartItemComponent,
+    WelcomePageComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule],
   exports: [StoreComponent],

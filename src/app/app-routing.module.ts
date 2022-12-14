@@ -4,11 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'products',
-  },
-  {
-    path: 'products',
     loadChildren: () =>
       import('./store/store-routing.module').then(
         (m) => m.StoreRoutingModule

@@ -6,6 +6,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { StoreComponent } from './store.component';
 import { CartComponent } from './cart/cart.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 const routes: Routes = [
   {
@@ -15,20 +16,25 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
+        component: WelcomePageComponent,
+      },
+      {
+        path: 'products',
+        pathMatch: 'full',
         component: ProductListComponent,
       },
       {
-        path: 'cart',
+        path: 'products/cart',
         pathMatch: 'full',
         component: CartComponent,
       },
       {
-        path: '404-page',
+        path: 'products/404-page',
         pathMatch: 'full',
         component: PageNotFoundComponent,
       },
       {
-        path: ':id',
+        path: 'products/:id',
         pathMatch: 'full',
         component: ProductDetailsComponent,
       },
