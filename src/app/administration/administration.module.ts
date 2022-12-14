@@ -5,12 +5,16 @@ import { CommonModule } from '@angular/common';
 
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SharedModule } from '../shared/shared.module';
+import { UsersComponent } from './users/users.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
   declarations: [
     AdministrationComponent,
-    SideBarComponent
+    SideBarComponent,
+    UsersComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,

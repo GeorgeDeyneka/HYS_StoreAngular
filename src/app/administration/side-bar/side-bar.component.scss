@@ -26,6 +26,7 @@
   }
 
   &__link-active {
+    transition: all 500ms ease;
     color: #b07eff;
     background-color: #23242a;
     border-radius: 5px;

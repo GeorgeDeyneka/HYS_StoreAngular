@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CounterComponent } from './components/counter/counter.component';
     ButtonComponent,
     PageNotFoundComponent,
     CounterComponent,
+    TableComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -25,6 +27,7 @@ import { CounterComponent } from './components/counter/counter.component';
     ButtonComponent,
     CounterComponent,
     PageNotFoundComponent,
+    TableComponent,
   ],
 })
 export class SharedModule {}

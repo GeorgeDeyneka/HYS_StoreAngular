@@ -8,6 +8,8 @@
   display: block;
   opacity: 0;
   animation: modal 300ms forwards;
+  max-height: 400px;
+  overflow: auto;
 }
 
 @keyframes modal {

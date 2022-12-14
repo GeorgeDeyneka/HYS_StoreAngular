@@ -15,15 +15,14 @@ app-store {
 }
 
 app-administration {
-  display: grid;
-  grid-template-columns: 270px 1fr;
-  grid-gap: 16px;
   min-height: 100%;
+  display: flex;
 }
 
 app-side-bar {
   background-color: #000;
-  height: 100%;
+  min-height: 100%;
+  width: 270px;
 }
 
 app-product-list,

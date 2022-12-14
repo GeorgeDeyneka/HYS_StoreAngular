@@ -1,11 +1,10 @@
 #Required:
-- Make NG Build!!!
-- Update main
+- Make the table reusable
+- Sync the counter with buttons "Add to Cart"
+- Add Subject
 
 #Additional
 - Change README.md
-- Add scroll on modal
-- Add delete functional in modal & cart page
 - Work with adaptive design
 - Add photos and description of products
 - Add points instead "Delete all" button
