@@ -27,7 +27,7 @@ export class DetailsService {
       }
     }
     if (!this.product) {
-      this.router.navigateByUrl('products/404-page');
+      this.router.navigateByUrl('404-page');
     }
   }
 }
