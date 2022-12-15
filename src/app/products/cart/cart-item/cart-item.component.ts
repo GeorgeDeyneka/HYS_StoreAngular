@@ -7,7 +7,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent implements OnInit {
-  @Input() productItem: [Product, number];
+  @Input() productItem: Product;
   @Output() countClick = new EventEmitter();
   @Output() clickHandler = new EventEmitter();
 

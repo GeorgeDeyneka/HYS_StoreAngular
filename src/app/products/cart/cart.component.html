@@ -13,7 +13,7 @@
       *ngFor="let prod of arrCart"
       [productItem]="prod"
       (countClick)="updateData()"
-      (clickHandler)="deleteElem(prod[0])"
+      (clickHandler)="deleteElem(prod)"
     ></app-cart-item>
     <div class="page__total-wrapper">
       <h2 class="page__total">Total Cost: {{ totalPrice | UAH }}</h2>
