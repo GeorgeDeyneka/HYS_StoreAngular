@@ -1,6 +1,6 @@
 import { Product } from './../../models/interfaces/products.interface';
-import { PRODUCTS_STATE } from './../../data/state';
 import { Component, OnInit } from '@angular/core';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-welcome-page',
@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
-  public data: Product[] = PRODUCTS_STATE;
+  public data: Product[] = this.storeService.data;
   public slicedData: Product[] = this.getCheapestProducts(3);
 
-  constructor() {}
+  constructor(private storeService: StoreService) {}
 
   getCheapestProducts(count: number): Product[] {
     return this.data

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class StoreService {
-  public productsData: Product[] = PRODUCTS_STATE || this.createRandomData;
+  private productsData: Product[] = PRODUCTS_STATE || this.createRandomData(8);
 
   constructor() {}
 
@@ -29,7 +29,7 @@ export class StoreService {
     return arr;
   }
 
-  getData() {
+  get data() {
     return this.productsData;
   }
 }

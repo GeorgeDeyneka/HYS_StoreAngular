@@ -20,7 +20,7 @@ export class DetailsService {
   }
 
   checkData(id: any) {
-    let date: Product[] = this.storeService.getData();
+    let date: Product[] = this.storeService.data;
     for (let i = 0; i < date.length; i++) {
       if (date[i].id === +id) {
         this.product = date[i];
