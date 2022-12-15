@@ -3,19 +3,19 @@
   <div class="item" *ngFor="let prod of arrCart">
     <div class="item__info">
       <h4 class="item__title">
-        <a class="item__link" [routerLink]="['/products', prod[0].id]">
-          {{ prod[0].name }} #{{ prod[0].id }}
+        <a class="item__link" [routerLink]="['/products', prod.id]">
+          {{ prod.name }} #{{ prod.id }}
         </a>
       </h4>
       <h4>
-        {{ prod[0].price * prod[1] | UAH }}
+        {{ prod.price * prod.count! | UAH }}
       </h4>
     </div>
     <app-counter (countClick)="updateData()" [prod]="prod"></app-counter>
     <app-button
       [size]="'small'"
       [text]="'Delete'"
-      (click)="deleteElem(prod[0])"
+      (click)="deleteElem(prod)"
     ></app-button>
   </div>
   <h4 class="total-sum" *ngIf="arrCart.length">

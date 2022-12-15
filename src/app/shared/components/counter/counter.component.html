@@ -1,13 +1,13 @@
 <div class="counter">
   <button
-    (click)="changeCounter('plus', prod[0]); countClick.emit()"
+    (click)="changeCounter('plus', prod); countClick.emit()"
     class="counter__rate"
   >
     +
   </button>
-  <div class="counter__count">{{ prod[1] }}</div>
+  <div class="counter__count">{{ prod.count }}</div>
   <button
-    (click)="changeCounter('minus', prod[0]); countClick.emit()"
+    (click)="changeCounter('minus', prod); countClick.emit()"
     class="counter__rate"
   >
     -

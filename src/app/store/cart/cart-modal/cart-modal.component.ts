@@ -8,7 +8,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./cart-modal.component.scss'],
 })
 export class CartModalComponent implements OnChanges {
-  public arrCart: [Product, number][] = [];
+  public arrCart: Product[] = [];
   public totalPrice: number;
 
   @Input() className: string;

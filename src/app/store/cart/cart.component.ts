@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  public arrCart: [Product, number][];
+  public arrCart: Product[];
   public totalPrice: number;
 
   constructor(private cartService: CartService) {}

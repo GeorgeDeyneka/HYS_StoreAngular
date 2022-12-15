@@ -10,7 +10,7 @@ export class CartService {
   public arrCart: Product[] =
     this.localStorageService.getData<Product[]>('cartData') || [];
 
-  public countArr: [Product, number][];
+  public arrCartCount: Product[];
 
   constructor(private localStorageService: LocalStorageService) {}
 
@@ -21,19 +21,18 @@ export class CartService {
   }
 
   transformData() {
-    let collection = new Map();
-    this.arrCart.forEach((item) => {
-      let count = this.arrCart.filter((elem) => elem.id === item.id).length;
-      collection.set(item, count);
-    });
-    const changeData: [Product, number][] = Array.from(collection);
-    this.countArr = [
-      ...new Set(changeData.map((el) => JSON.stringify(el))),
+    const copyArr = [...this.arrCart];
+    copyArr.forEach(
+      (el) =>
+        (el['count'] = this.arrCart.filter((item) => item.id === el.id).length)
+    );
+    this.arrCartCount = [
+      ...new Set(copyArr.map((el) => JSON.stringify(el))),
     ].map((el) => JSON.parse(el));
   }
 
   calculateTotalPrice() {
-    return this.getData().reduce((acc, el) => (acc += el[0].price * el[1]), 0);
+    return this.getData().reduce((acc, el) => (acc += el.price * el.count!), 0);
   }
 
   checkProduct(prod: Product) {
@@ -41,9 +40,9 @@ export class CartService {
     return data.filter((el) => el.id === prod.id).length;
   }
 
-  getData(): [Product, number][] {
+  getData(): Product[] {
     this.transformData();
-    return this.countArr;
+    return this.arrCartCount;
   }
 
   plusCounter(elem: Product) {

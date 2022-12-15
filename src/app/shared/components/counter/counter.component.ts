@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./counter.component.scss'],
 })
 export class CounterComponent implements OnInit {
-  @Input() prod: [Product, number];
+  @Input() prod: Product;
   @Output() countClick = new EventEmitter();
 
   constructor(private cartService: CartService) {}
