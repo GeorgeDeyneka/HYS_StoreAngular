@@ -1,5 +1,5 @@
 <button
-  [ngStyle]="{ backgroundColor: changeTheme(theme), padding: changeSize(size) }"
+  ngClass="{{ theme }} {{ size }}"
   type="button"
   (click)="clickHandler.emit()"
 >
