@@ -1,1 +1,7 @@
-  <button [className]="buttonClassName" type="button">{{ text }}</button>
+<button
+  ngClass="{{ theme }} {{ size }}"
+  type="button"
+  (click)="clickHandler.emit()"
+>
+  {{ text }}
+</button>

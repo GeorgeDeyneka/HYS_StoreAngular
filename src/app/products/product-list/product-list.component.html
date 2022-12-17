@@ -1,0 +1,16 @@
+<main class="container">
+  <h2 class="products__title">Products</h2>
+  <div class="products__wrapper">
+    <app-product-item
+      *ngFor="let prod of productsData"
+      [productItem]="prod"
+    ></app-product-item>
+  </div>
+  <div class="products__btn-wrapper">
+    <app-button
+      [theme]="'aqua'"
+      *ngIf="productsData"
+      [text]="'Load More'"
+    ></app-button>
+  </div>
+</main>

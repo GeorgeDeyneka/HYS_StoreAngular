@@ -1,0 +1,26 @@
+<div class="item">
+  <h4 class="item__title">
+    Product, which you want to buy:
+    <a class="item__link" [routerLink]="['/products', productItem.id]">{{
+      productItem.name
+    }}</a>
+  </h4>
+  <div class="item__interface-wrapper">
+    <app-counter
+      [prod]="productItem"
+      (countClick)="countClick.emit()"
+    ></app-counter>
+    <div class="item__interface">
+      <app-button
+        [text]="'Remove Product'"
+        (clickHandler)="clickHandler.emit()"
+      ></app-button>
+      <div class="item__prod-count">
+        <h4 class="item__currency">Currency: {{ productItem.count }}</h4>
+        <h4 class="item__cost">
+          Cost: {{ productItem.price * productItem.count! }}
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

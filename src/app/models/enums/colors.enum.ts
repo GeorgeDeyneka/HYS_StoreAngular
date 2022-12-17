@@ -1,4 +1,5 @@
 export enum Colors {
-  greenPrice = '#a2d767',
+  greenPrice = '#86ffdb',
   redPrice = '#ff7982',
+  violetPrice = '#b07eff',
 }

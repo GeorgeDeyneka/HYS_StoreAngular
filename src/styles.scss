@@ -8,31 +8,23 @@ body {
   color: #fff;
 }
 
-app-landing {
-  min-height: 100%;
+app-products {
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 }
 
-app-products {
+app-products,
+app-product-list,
+app-product-details,
+app-page-not-found,
+app-cart {
   flex: 1 1 auto;
+  min-height: 100%;
 }
 
-.btn {
-  padding: 4px 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-
-  &__load {
-    color: #1b1c22;
-    background-color: #5ec7ff;
-  }
-
-  &__add {
-    color: #1b1c22;
-    background-color: #4949ff;
-  }
+app-page-not-found, app-cart {
+  display: flex;
 }
 
 a {

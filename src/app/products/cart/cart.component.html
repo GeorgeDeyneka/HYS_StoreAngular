@@ -1,0 +1,25 @@
+<main class="container">
+  <div class="page__title">
+    <h2>Products/Cart</h2>
+    <app-button
+      *ngIf="arrCart.length"
+      (click)="clearCart()"
+      [theme]="'aqua'"
+      [text]="'Remove All'"
+    ></app-button>
+  </div>
+  <div class="cart__list" *ngIf="arrCart.length; else elseBlock">
+    <app-cart-item
+      *ngFor="let prod of arrCart"
+      [productItem]="prod"
+      (countClick)="updateData()"
+      (clickHandler)="deleteElem(prod)"
+    ></app-cart-item>
+    <div class="page__total-wrapper">
+      <h2 class="page__total">Total Cost: {{ totalPrice | UAH }}</h2>
+    </div>
+  </div>
+  <ng-template #elseBlock
+    ><h2 class="page__alert">Your Cart Is Empty!</h2></ng-template
+  >
+</main>

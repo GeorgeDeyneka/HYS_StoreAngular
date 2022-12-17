@@ -1,0 +1,15 @@
+<div class="counter">
+  <button
+    (click)="changeCounter('plus', prod); countClick.emit()"
+    class="counter__rate"
+  >
+    +
+  </button>
+  <div class="counter__count">{{ prod.count }}</div>
+  <button
+    (click)="changeCounter('minus', prod); countClick.emit()"
+    class="counter__rate"
+  >
+    -
+  </button>
+</div>
