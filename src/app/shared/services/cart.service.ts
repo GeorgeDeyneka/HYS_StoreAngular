@@ -16,7 +16,7 @@ export class CartService {
 
   setData(elem: Product): void {
     this.arrCart.push(elem);
-    this.transformData();
+    this.transformData()
     this.localStorageService.setData<Product[]>('cartData', this.arrCart);
   }
 
@@ -57,7 +57,7 @@ export class CartService {
       }
     });
     this.arrCart.splice(index, 1);
-    this.transformData();
+    this.transformData()
     this.localStorageService.setData<Product[]>('cartData', this.arrCart);
   }
 
