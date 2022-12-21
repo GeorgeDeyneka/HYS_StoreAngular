@@ -1,4 +1,7 @@
 <div class="container">
   <h2 class="products__title">Products</h2>
+    <div *ngIf="loading$ | async" class="spinner__wrapper">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
   <app-table [data]="data"></app-table>
 </div>

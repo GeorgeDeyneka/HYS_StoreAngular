@@ -1,6 +1,7 @@
 import { PRODUCTS_STATE } from '../data/state';
 import { Product } from '../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
+import { delay, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +30,7 @@ export class StoreService {
     return arr;
   }
 
-  get data() {
-    return this.productsData;
+  get data(): Observable<Product[]> {
+    return of(this.productsData).pipe(delay(400));
   }
 }

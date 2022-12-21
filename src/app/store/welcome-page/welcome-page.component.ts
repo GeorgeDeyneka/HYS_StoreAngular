@@ -1,3 +1,4 @@
+import { first, BehaviorSubject } from 'rxjs';
 import { Product } from './../../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
@@ -8,17 +9,23 @@ import { StoreService } from '../store.service';
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
-  public data: Product[] = this.storeService.data;
-  public slicedData: Product[] = this.getCheapestProducts(3);
+  public slicedData: Product[];
+  public loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private storeService: StoreService) {}
 
   getCheapestProducts(count: number): Product[] {
-    return this.data
-      .slice(0)
-      .sort((a, b) => a.price - b.price)
-      .slice(0, count);
+    this.storeService.data.pipe(first()).subscribe((data) => {
+      data.sort((a, b) => a.price - b.price);
+      data = data.slice(0, count);
+      this.slicedData = data;
+      if (this.slicedData.length) this.loading$.next(false);
+    });
+
+    return this.slicedData;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCheapestProducts(3);
+  }
 }
