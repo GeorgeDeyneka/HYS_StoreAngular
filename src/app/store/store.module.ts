@@ -1,3 +1,4 @@
+import { StoreRoutingModule } from './store-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,6 @@ import { CartModalComponent } from './cart/cart-modal/cart-modal.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
-
 @NgModule({
   declarations: [
     StoreComponent,
@@ -26,7 +26,13 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     CartItemComponent,
     WelcomePageComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule, MatProgressSpinnerModule],
+  imports: [
+    CommonModule,
+    StoreRoutingModule,
+    SharedModule,
+    RouterModule,
+    MatProgressSpinnerModule,
+  ],
   exports: [StoreComponent],
 })
 export class StoreModule {}

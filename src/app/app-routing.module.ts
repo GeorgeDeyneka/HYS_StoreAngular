@@ -4,15 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'administration',
-    loadChildren: () => import('./administration/administration-routing.module').then(
-      (m) => m.AdministrationRoutingModule
+    loadChildren: () => import('./administration/administration.module').then(
+      (m) => m.AdministrationModule
     )
   },
   {
     path: '',
     loadChildren: () =>
-      import('./store/store-routing.module').then(
-        (m) => m.StoreRoutingModule
+      import('./store/store.module').then(
+        (m) => m.StoreModule
       ),
   },
 ];
