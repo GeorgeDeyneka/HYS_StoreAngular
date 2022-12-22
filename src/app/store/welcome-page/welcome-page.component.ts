@@ -16,8 +16,9 @@ export class WelcomePageComponent implements OnInit {
 
   getCheapestProducts(count: number): Product[] {
     this.storeService.data.pipe(first()).subscribe((data) => {
-      data = data.slice(0, count);
-      this.slicedData = data.sort((a, b) => a.price - b.price);
+      this.slicedData = [...data]
+        .sort((a, b) => a.price - b.price)
+        .slice(0, count);
       if (this.slicedData.length) this.loading$.next(false);
     });
 
