@@ -5,6 +5,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedAdminModule } from '../shared-admin/shared-admin.module';
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -12,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     ProductsRoutingModule,
     MatProgressSpinnerModule,
+    SharedAdminModule,
     SharedModule,
   ],
 })

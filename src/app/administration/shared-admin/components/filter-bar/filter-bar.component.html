@@ -1,0 +1,19 @@
+<div class="filter-bar">
+  <mat-form-field class="filter__search">
+    <mat-label>Search</mat-label>
+    <input matInput 
+    #searchInput
+    type="text" placeholder="Search..." 
+    (input)="ngAfterViewInit()"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sort by...</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="price">Price</mat-option>
+      <mat-option value="id">Id</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

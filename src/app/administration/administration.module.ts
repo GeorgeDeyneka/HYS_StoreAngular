@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { UsersModule } from './users/users.module';
+import { FilterBarComponent } from './shared-admin/components/filter-bar/filter-bar.component';
+
 
 @NgModule({
   declarations: [AdministrationComponent, SideBarComponent],
