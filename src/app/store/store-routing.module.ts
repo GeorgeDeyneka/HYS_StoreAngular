@@ -1,4 +1,4 @@
-import { PageNotFoundComponent } from '../shared/components/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '../errors/page-not-found/page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -35,7 +35,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: '404-page'
+        redirectTo: '404-page',
       },
       {
         path: '404-page',
