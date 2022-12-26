@@ -1,0 +1,24 @@
+.table {
+  &__list {
+    margin: 25px 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #23242a;
+  }
+}
+
+.item {
+  &__info {
+    display: flex;
+    min-width: 250px;
+    justify-content: space-between;
+  }
+}

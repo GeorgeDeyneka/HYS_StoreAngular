@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="page__title">Welcome To The Shop!</h1>
+  <div class="products__list">
+    <h2 class="page__subtitle">Some of our many products...</h2>
+    <div class="products__wrapper">
+      <app-product-item
+        *ngFor="let prod of slicedData"
+        [productItem]="prod"
+      ></app-product-item>
+    </div>
+  </div>
+  <app-button
+  class="go-button"
+    [routerLink]="['/products']"
+    [text]="'Go Shopping!'"
+  ></app-button>
+</div>

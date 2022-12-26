@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item">
+        <div class="nav__logo"></div>
+      </li>
+      <li class="nav__item">
+        <a
+          class="nav__link"
+          [routerLink]="['/administration/users']"
+          [routerLinkActive]="'nav__link-active'"
+          >Users</a
+        >
+      </li>
+      <li class="nav__item">
+        <a
+          class="nav__link"
+          [routerLink]="['/administration/products']"
+          [routerLinkActive]="'nav__link-active'"
+          >Products</a
+        >
+      </li>
+    </ul>
+    <a [routerLink]="['/']"
+      ><span class="material-symbols-outlined"> login </span>Back To Store</a
+    >
+  </nav>
+</div>

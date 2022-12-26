@@ -1,0 +1,53 @@
+.modal {
+  position: absolute;
+  right: 0;
+  background-color: #23242a;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #5f5f5f;
+  display: block;
+  opacity: 0;
+  animation: modal 300ms forwards;
+  max-height: 400px;
+  overflow: auto;
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.unvisible {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+  display: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+
+  &__info {
+    background-color: #1b1c22;
+    border-radius: 4px;
+    padding: 8px;
+    flex-grow: 1;
+  }
+
+  &__link {
+    color: #b07eff;
+  }
+}
+
+.total-sum {
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+  color: #b07eff;
+}

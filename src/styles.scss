@@ -8,22 +8,38 @@ body {
   color: #fff;
 }
 
-app-products {
+app-store {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
 
-app-products,
+app-administration {
+  min-height: 100%;
+  display: flex;
+}
+
+app-products {
+  flex-grow: 1;
+}
+
+app-side-bar {
+  background-color: #000;
+  min-height: 100%;
+  width: 270px;
+}
+
 app-product-list,
 app-product-details,
 app-page-not-found,
+app-welcome-page,
 app-cart {
   flex: 1 1 auto;
   min-height: 100%;
 }
 
-app-page-not-found, app-cart {
+app-page-not-found,
+app-cart {
   display: flex;
 }
 

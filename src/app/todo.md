@@ -1,11 +1,13 @@
 #Required:
-- Make NG Build!!!
-- Update main
+- Sync the counter with buttons "Add to Cart"
+- Add Subject
+- Hide modal when it became empty
+- Change architecture
 
 #Additional
 - Change README.md
-- Add scroll on modal
-- Add delete functional in modal & cart page
 - Work with adaptive design
 - Add photos and description of products
+- Add more products
 - Add points instead "Delete all" button
+- Add spinner loader

@@ -1,6 +1,7 @@
 import { LocalStorageService } from './local-storage.service';
 import { Product } from './../../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +26,9 @@ export class CartService {
       (el) =>
         (el['count'] = this.arrCart.filter((item) => item.id === el.id).length)
     );
-    this.arrCartCount = [...new Set(copyArr.map((el) => JSON.stringify(el)))].map((el) =>
-      JSON.parse(el)
-    );
+    this.arrCartCount = [
+      ...new Set(copyArr.map((el) => JSON.stringify(el))),
+    ].map((el) => JSON.parse(el));
   }
 
   calculateTotalPrice() {
@@ -39,9 +40,8 @@ export class CartService {
     return data.filter((el) => el.id === prod.id).length;
   }
 
-  getData(): Product[]
-  {
-    this.transformData()
+  getData(): Product[] {
+    this.transformData();
     return this.arrCartCount;
   }
 
