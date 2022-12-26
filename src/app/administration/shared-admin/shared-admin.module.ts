@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [FilterBarComponent, SideBarComponent, TableComponent],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
     MatSelectModule,
     MatInputModule,

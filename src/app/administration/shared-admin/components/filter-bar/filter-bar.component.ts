@@ -1,6 +1,12 @@
 import { TableConfigurationService } from './../../services/table-configuration.service';
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { debounceTime, fromEvent, map, take } from 'rxjs';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  Input,
+} from '@angular/core';
+import { debounceTime, fromEvent, map } from 'rxjs';
 
 @Component({
   selector: 'app-filter-bar',
@@ -8,51 +14,54 @@ import { debounceTime, fromEvent, map, take } from 'rxjs';
   styleUrls: ['./filter-bar.component.scss'],
 })
 export class FilterBarComponent implements AfterViewInit {
-  public selected: string = '';
-  // @Input() param: param
-
-  // what is param?
-  // how to call function from input?
-  // how to view all list before searching?
+  @Input() param: 'products' | 'users';
 
   @ViewChild('searchInput') searchInput: ElementRef;
   @ViewChild('priceInput') priceInput: ElementRef;
   @ViewChild('dateInput') dateInput: ElementRef;
 
-  constructor(private tableConfigurationService: TableConfigurationService) {}
+  constructor(private tableConfigService: TableConfigurationService) {}
 
   setSelect(event: any) {
-    this.tableConfigurationService.setSelect(event.value);
+    this.priceInput.nativeElement.value = '';
+    this.tableConfigService.setPrice(0);
+    this.tableConfigService.setSelect(event.value);
+    this.checkDisabledPriceInput();
   }
 
-  // Rewrite that!
+  checkDisabledPriceInput() {
+    return (this.priceInput.nativeElement.disabled = this.tableConfigService
+      .DefaultConfig.select
+      ? false
+      : true);
+  }
 
   ngAfterViewInit() {
+    this.checkDisabledPriceInput();
+
     fromEvent(this.searchInput.nativeElement, 'input')
       .pipe(
-        take(1),
         debounceTime(1000),
         map((event: any) => event.target.value)
       )
-      .subscribe((data) => this.tableConfigurationService.setSearch(data));
+      .subscribe((data) => this.tableConfigService.setSearch(data));
 
     if (this.priceInput) {
       fromEvent(this.priceInput.nativeElement, 'input')
         .pipe(
-          take(1),
           debounceTime(1000),
           map((event: any) => event.target.value)
         )
-        .subscribe((data) => this.tableConfigurationService.setPrice(+data));
+        .subscribe((data) => this.tableConfigService.setPrice(+data));
     }
 
     if (this.dateInput) {
-      fromEvent(this.priceInput.nativeElement, 'input')
+      fromEvent(this.dateInput.nativeElement, 'input')
         .pipe(
           debounceTime(1000),
           map((event: any) => event.target.value)
         )
-        .subscribe((data) => this.tableConfigurationService.setDate(data));
+        .subscribe((data) => this.tableConfigService.setDate(data));
     }
   }
 }

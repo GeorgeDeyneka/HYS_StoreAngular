@@ -1,12 +1,9 @@
 #Required:
 - Hide modal when it became empty
-- Change architecture
-- Incapsulate functionality on service from component filter-bar
-- Refactor and optimize code on: filter-bar.html/.ts, products.html/.ts
 - Divide on components filter-bar
-- Type all vars & methods
-- DRY!!! (clear repeat functions)
 - Add styles for filter
+- Add sort for filter-bar
+- Add pagination
 
 #Additional
 - Change README.md

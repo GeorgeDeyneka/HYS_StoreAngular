@@ -1,19 +1,42 @@
 <div class="filter-bar">
   <mat-form-field class="filter__search">
     <mat-label>Search</mat-label>
-    <input matInput 
-    #searchInput
-    type="text" placeholder="Search..." 
-    (input)="ngAfterViewInit()"/>
+    <input matInput #searchInput type="text" placeholder="Search..." />
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="filter__option">
+    <mat-label>Price...</mat-label>
+    <mat-select (selectionChange)="setSelect($event)">
+      <mat-option>None</mat-option>
+      <mat-option value="More than">More than</mat-option>
+      <mat-option value="Less than">Less than</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="filter__params">
+    <input
+      #priceInput
+      *ngIf="param == 'products'"
+      matInput
+      type="number"
+      placeholder="Input value"
+    />
+    <input
+      #dateInput
+      *ngIf="param == 'users'"
+      matInput
+      type="date"
+      placeholder="Input value"
+    />
+  </mat-form-field>
+
+  <!-- <mat-form-field>
     <mat-label>Sort by...</mat-label>
-    <mat-select [(value)]="selected">
+    <mat-select>
       <mat-option>None</mat-option>
       <mat-option value="name">Name</mat-option>
       <mat-option value="price">Price</mat-option>
       <mat-option value="id">Id</mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
 </div>
