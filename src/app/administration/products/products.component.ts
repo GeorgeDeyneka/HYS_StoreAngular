@@ -1,4 +1,4 @@
-import { TableConfigurationService } from '../shared-admin/services/table-configuration.service';
+import { TableConfigService } from '../shared-admin/services/table-config.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Product } from './../../models/interfaces/products.interface';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     private storeService: StoreService,
-    private tableConfigService: TableConfigurationService
+    private tableConfigService: TableConfigService
   ) {}
 
   ngOnInit(): void {
@@ -56,19 +56,19 @@ export class ProductsComponent implements OnInit, OnDestroy {
     if (elem.sort && elem.sortFrom) {
       this.data = [...(elem.search || elem.price ? this.data : this.baseData)];
 
-      this.data.sort(byField(elem.sort, elem.sortFrom));
-
-      function byField(field: string, from: string) {
-        return (a: any, b: any) =>
-          from == 'less'
-            ? a[field] > b[field]
-              ? 1
-              : -1
-            : a[field] < b[field]
-            ? 1
-            : -1;
-      }
+      this.data.sort(this.byField(elem.sort, elem.sortFrom));
     }
+  }
+
+  byField(field: string, from: string) {
+    return (a: any, b: any) =>
+      from == 'less'
+        ? a[field] > b[field]
+          ? 1
+          : -1
+        : a[field] < b[field]
+        ? 1
+        : -1;
   }
 
   ngOnDestroy() {

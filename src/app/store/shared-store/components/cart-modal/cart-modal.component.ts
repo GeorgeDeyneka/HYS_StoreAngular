@@ -19,12 +19,12 @@ export class CartModalComponent implements OnChanges {
     this.updateData();
   }
 
-  deleteElem(elem: Product) {
+  deleteElem(elem: Product): void {
     this.cartService.deleteProduct(elem);
     this.arrCart = this.cartService.getData();
   }
 
-  updateData() {
+  updateData(): void {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }

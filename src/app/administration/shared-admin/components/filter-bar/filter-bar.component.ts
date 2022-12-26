@@ -1,4 +1,4 @@
-import { TableConfigurationService } from './../../services/table-configuration.service';
+import { TableConfigService } from '../../services/table-config.service';
 import {
   Component,
   ViewChild,
@@ -22,15 +22,15 @@ export class FilterBarComponent implements AfterViewInit {
 
   public sortDis: boolean = true;
   public priceInputDis: boolean = true;
+  public sortValue: string;
 
-  constructor(private tableConfigService: TableConfigurationService) {}
+  constructor(private tableConfigService: TableConfigService) {}
 
   setPriceSelect(event: any) {
     this.priceInput.nativeElement.value = '';
     this.tableConfigService.setPrice(0);
     this.tableConfigService.setPriceSelect(event.value);
-    this.priceInputDis =
-      !!!this.tableConfigService.DefaultConfig.priceSelect;
+    this.priceInputDis = !!!this.tableConfigService.DefaultConfig.priceSelect;
   }
 
   setSort(event: any) {
@@ -40,6 +40,7 @@ export class FilterBarComponent implements AfterViewInit {
   setSortFrom(event: any) {
     this.tableConfigService.setSortFrom(event.value);
     this.sortDis = !!!this.tableConfigService.DefaultConfig.sortFrom;
+    if (!event.value) this.sortValue = '';
   }
 
   ngAfterViewInit() {

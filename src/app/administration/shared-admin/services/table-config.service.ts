@@ -16,7 +16,7 @@ const DEFAULT_CONFIGURATION: filterConfig = {
 @Injectable({
   providedIn: 'root',
 })
-export class TableConfigurationService {
+export class TableConfigService {
   public configuration$: BehaviorSubject<filterConfig> = new BehaviorSubject(
     DEFAULT_CONFIGURATION
   );
