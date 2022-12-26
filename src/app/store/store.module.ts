@@ -1,3 +1,5 @@
+import { StoreRoutingModule } from './store-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -24,7 +26,13 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     CartItemComponent,
     WelcomePageComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule],
+  imports: [
+    CommonModule,
+    StoreRoutingModule,
+    SharedModule,
+    RouterModule,
+    MatProgressSpinnerModule,
+  ],
   exports: [StoreComponent],
 })
 export class StoreModule {}

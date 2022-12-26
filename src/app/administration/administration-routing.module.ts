@@ -1,5 +1,3 @@
-import { ProductsComponent } from './products/products.component';
-import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdministrationComponent } from './administration.component';
@@ -17,12 +15,14 @@ const routes: Routes = [
       {
         path: 'users',
         pathMatch: 'full',
-        component: UsersComponent,
+        loadChildren: () =>
+          import('./users/users.module').then((m) => m.UsersModule),
       },
       {
         path: 'products',
         pathMatch: 'full',
-        component: ProductsComponent,
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
     ],
   },

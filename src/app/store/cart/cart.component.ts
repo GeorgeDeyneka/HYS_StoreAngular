@@ -1,13 +1,13 @@
+import { Product } from './../../models/interfaces/products.interface';
 import { CartService } from '../../shared/services/cart.service';
-import { Product } from '../../models/interfaces/products.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit{
   public arrCart: Product[];
   public totalPrice: number;
 
@@ -30,6 +30,8 @@ export class CartComponent implements OnInit {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }
+
+  ngOnChanges() {}
 
   ngOnInit(): void {
     this.updateData();

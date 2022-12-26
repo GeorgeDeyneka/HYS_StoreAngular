@@ -1,5 +1,10 @@
 @import "./styles/reset.scss";
 @import "./styles/typography.scss";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+$purple: #9551ff;
+$aqua: #5ec7ff;
+$red: #f41a1a;
 
 body {
   font-family: "Raleway";
