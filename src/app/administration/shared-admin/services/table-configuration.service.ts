@@ -8,7 +8,9 @@ const DEFAULT_CONFIGURATION: filterConfig = {
   }-${new Date().getDate()}`,
   price: 0,
   search: '',
-  select: '',
+  priceSelect: '',
+  sort: '',
+  sortFrom: ''
 };
 
 @Injectable({
@@ -46,10 +48,24 @@ export class TableConfigurationService {
     });
   }
 
-  setSelect(select: string) {
+  setPriceSelect(priceSelect: string) {
     this.configuration$.next({
       ...this.DefaultConfig,
-      select,
+      priceSelect,
+    });
+  }
+
+  setSort(sort: string) {
+    this.configuration$.next({
+      ...this.DefaultConfig,
+      sort,
+    });
+  }
+
+  setSortFrom(sortFrom: string) {
+    this.configuration$.next({
+      ...this.DefaultConfig,
+      sortFrom,
     });
   }
 }

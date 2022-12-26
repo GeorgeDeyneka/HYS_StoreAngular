@@ -20,25 +20,29 @@ export class FilterBarComponent implements AfterViewInit {
   @ViewChild('priceInput') priceInput: ElementRef;
   @ViewChild('dateInput') dateInput: ElementRef;
 
+  public sortDis: boolean = true;
+  public priceInputDis: boolean = true;
+
   constructor(private tableConfigService: TableConfigurationService) {}
 
-  setSelect(event: any) {
+  setPriceSelect(event: any) {
     this.priceInput.nativeElement.value = '';
     this.tableConfigService.setPrice(0);
-    this.tableConfigService.setSelect(event.value);
-    this.checkDisabledPriceInput();
+    this.tableConfigService.setPriceSelect(event.value);
+    this.priceInputDis =
+      !!!this.tableConfigService.DefaultConfig.priceSelect;
   }
 
-  checkDisabledPriceInput() {
-    return (this.priceInput.nativeElement.disabled = this.tableConfigService
-      .DefaultConfig.select
-      ? false
-      : true);
+  setSort(event: any) {
+    this.tableConfigService.setSort(event.value);
+  }
+
+  setSortFrom(event: any) {
+    this.tableConfigService.setSortFrom(event.value);
+    this.sortDis = !!!this.tableConfigService.DefaultConfig.sortFrom;
   }
 
   ngAfterViewInit() {
-    this.checkDisabledPriceInput();
-
     fromEvent(this.searchInput.nativeElement, 'input')
       .pipe(
         debounceTime(1000),

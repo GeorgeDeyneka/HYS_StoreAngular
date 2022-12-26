@@ -47,10 +47,27 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     if (elem.price) {
       this.data = (elem.search ? this.data : this.baseData).filter((prod) =>
-        elem.select == 'More than'
+        elem.priceSelect == 'more'
           ? prod.price > elem.price
           : prod.price < elem.price
       );
+    }
+
+    if (elem.sort && elem.sortFrom) {
+      this.data = [...(elem.search || elem.price ? this.data : this.baseData)];
+
+      this.data.sort(byField(elem.sort, elem.sortFrom));
+
+      function byField(field: string, from: string) {
+        return (a: any, b: any) =>
+          from == 'less'
+            ? a[field] > b[field]
+              ? 1
+              : -1
+            : a[field] < b[field]
+            ? 1
+            : -1;
+      }
     }
   }
 

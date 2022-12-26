@@ -6,15 +6,16 @@
 
   <mat-form-field class="filter__option">
     <mat-label>Price...</mat-label>
-    <mat-select (selectionChange)="setSelect($event)">
+    <mat-select (selectionChange)="setPriceSelect($event)">
       <mat-option>None</mat-option>
-      <mat-option value="More than">More than</mat-option>
-      <mat-option value="Less than">Less than</mat-option>
+      <mat-option value="more">More than</mat-option>
+      <mat-option value="less">Less than</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field class="filter__params">
     <input
+      [disabled]="priceInputDis"
       #priceInput
       *ngIf="param == 'products'"
       matInput
@@ -30,13 +31,22 @@
     />
   </mat-form-field>
 
-  <!-- <mat-form-field>
+  <mat-form-field>
+    <mat-label>Sort from...</mat-label>
+    <mat-select (selectionChange)="setSortFrom($event)">
+      <mat-option>None</mat-option>
+      <mat-option value="less">Less</mat-option>
+      <mat-option value="more">More</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
     <mat-label>Sort by...</mat-label>
-    <mat-select>
+    <mat-select [disabled]="sortDis" (selectionChange)="setSort($event)">
       <mat-option>None</mat-option>
       <mat-option value="name">Name</mat-option>
       <mat-option value="price">Price</mat-option>
       <mat-option value="id">Id</mat-option>
     </mat-select>
-  </mat-form-field> -->
+  </mat-form-field>
 </div>
