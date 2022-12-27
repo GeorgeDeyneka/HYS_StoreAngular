@@ -1,5 +1,6 @@
 #Required:
-- Import functionality on filter-bar.service
+- Incapsulate logic for filter-bar.service for small methods
+- Hide pagination when it have less 5 elements
 
 #Additional
 - Change README.md
