@@ -11,11 +11,14 @@ import { filterConfig } from 'src/app/models/interfaces/default-config.interface
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  public data: Product[] = [];
+  public data$: Product[] = [];
+  public copyArr: Product[] = [];
   private baseData: Product[] = [];
   private filterSubj$: Subscription;
   private dataSubj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
+  public pageIndex: number = 0;
+  public dataLength: number;
 
   constructor(
     private storeService: StoreService,
@@ -24,9 +27,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dataSubj$ = this.storeService.data.subscribe((data) => {
-      this.data = [...data];
+      this.data$ = [...data];
       this.baseData = [...data];
-      if (this.data.length) this.loading$.next(false);
+      this.copyArr = [...data];
+      this.dataLength = data.length;
+
+      if (this.data$.length) this.loading$.next(false);
+
+      this.firstPage()
     });
 
     this.filterSubj$ = this.tableConfigService.configuration$.subscribe(
@@ -34,19 +42,37 @@ export class ProductsComponent implements OnInit, OnDestroy {
     );
   }
 
+  changePage(event: any) {
+    let index = event.pageIndex;
+    let lastIndex = event.previousPageIndex;
+    if (index > lastIndex) {
+      this.data$ = this.copyArr.slice((lastIndex + 1) * 5, (index + 1) * 5);
+      this.pageIndex++;
+    }
+    if (index < lastIndex) {
+      this.data$ = this.copyArr.slice(index * 5, lastIndex * 5);
+      this.pageIndex--;
+    }
+  }
+
+  firstPage() {
+    this.data$ = this.copyArr.slice(0, 5)
+  }
+
   changeData(elem: filterConfig) {
+
     if (elem.search) {
-      this.data = this.baseData.filter(
+      this.data$ = this.baseData.filter(
         (prod) => prod.name.toLowerCase().search(elem.search.toLowerCase()) >= 0
       );
     }
 
     if (!elem.search && !elem.price) {
-      this.data = this.baseData;
+      this.data$ = this.baseData;
     }
 
     if (elem.price) {
-      this.data = (elem.search ? this.data : this.baseData).filter((prod) =>
+      this.data$ = (elem.search ? this.data$ : this.baseData).filter((prod) =>
         elem.priceSelect == 'more'
           ? prod.price > elem.price
           : prod.price < elem.price
@@ -54,19 +80,25 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }
 
     if (elem.sort && elem.sortFrom) {
-      this.data = [...(elem.search || elem.price ? this.data : this.baseData)];
+      this.data$ = [
+        ...(elem.search || elem.price ? this.data$ : this.baseData),
+      ];
 
-      this.data.sort(this.byField(elem.sort, elem.sortFrom));
+      this.data$.sort(this.byField(elem.sort, elem.sortFrom));
     }
+    this.pageIndex = 0;
+    this.dataLength = this.data$.length;
+    this.copyArr = [...this.data$]
+    this.firstPage()
   }
 
   byField(field: string, from: string) {
     return (a: any, b: any) =>
-      from == 'less'
-        ? a[field] > b[field]
+      from == 'more'
+        ? a[field] < b[field]
           ? 1
           : -1
-        : a[field] < b[field]
+        : a[field] > b[field]
         ? 1
         : -1;
   }

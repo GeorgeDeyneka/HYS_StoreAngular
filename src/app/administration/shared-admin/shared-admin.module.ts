@@ -9,15 +9,9 @@ import { FilterBarComponent } from './components/filter-bar/filter-bar.component
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { TableComponent } from './components/table/table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
-  declarations: [
-    FilterBarComponent,
-    SideBarComponent,
-    TableComponent,
-    PaginatorComponent,
-  ],
+  declarations: [FilterBarComponent, SideBarComponent, TableComponent],
   imports: [
     CommonModule,
     FormsModule,
