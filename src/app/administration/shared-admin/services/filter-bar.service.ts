@@ -21,48 +21,55 @@ export class FilterBarService {
     this.copyArr = [...data];
     this.dataLength = data.length;
     this.num = num;
-    this.firstPage();
+    this.sliceForFirstPage();
 
     return this.data$;
   }
 
-  firstPage() {
-    this.data$ = this.copyArr.slice(0, this.num);
-  }
-
   changeData(elem: filterConfig) {
     if (elem.search) {
-      this.data$ = this.baseData.filter(
-        (prod) => prod.name.toLowerCase().search(elem.search.toLowerCase()) >= 0
-      );
+      this.setSearch(elem);
     }
 
     if (!elem.search && !elem.price) {
-      this.data$ = this.baseData;
+      this.resetFilterData();
     }
 
     if (elem.price) {
-      this.data$ = (elem.search ? this.data$ : this.baseData).filter((prod) =>
-        elem.priceSelect == 'more'
-          ? prod.price > elem.price
-          : prod.price < elem.price
-      );
+      this.setFilterPrice(elem);
     }
 
     if (elem.sort && elem.sortFrom) {
-      this.data$ = [
-        ...(elem.search || elem.price ? this.data$ : this.baseData),
-      ];
-
-      this.data$.sort(this.byField(elem.sort, elem.sortFrom));
+      this.setSortData(elem);
     }
 
     this.pageIndex = 0;
     this.dataLength = this.data$.length;
     this.copyArr = [...this.data$];
-    this.firstPage();
+    this.sliceForFirstPage();
 
-    return [this.data$, this.dataLength, this.pageIndex]
+    return [this.data$, this.dataLength, this.pageIndex];
+  }
+
+  setFilterPrice(el: filterConfig) {
+    this.data$ = (el.search ? this.data$ : this.baseData).filter((prod) =>
+      el.priceSelect == 'more' ? prod.price > el.price : prod.price < el.price
+    );
+  }
+
+  setSearch(el: filterConfig) {
+    this.data$ = this.baseData.filter(
+      (prod) => prod.name.toLowerCase().search(el.search.toLowerCase()) >= 0
+    );
+  }
+
+  setSortData(el: filterConfig) {
+    this.data$ = [...(el.search || el.price ? this.data$ : this.baseData)];
+    this.data$.sort(this.byField(el.sort, el.sortFrom));
+  }
+
+  resetFilterData() {
+    this.data$ = this.baseData;
   }
 
   changePage(event: any) {
@@ -78,7 +85,10 @@ export class FilterBarService {
     }
 
     return [this.data$, this.pageIndex];
+  }
 
+  sliceForFirstPage() {
+    this.data$ = this.copyArr.slice(0, this.num);
   }
 
   byField(field: string, from: string) {
