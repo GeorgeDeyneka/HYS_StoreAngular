@@ -6,6 +6,10 @@ import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../errors/page-not-found/page-not-found.component';
 import { CounterComponent } from './tooltip/counter/counter.component';
 import { ButtonComponent } from './tooltip/button/button.component';
+import { ModalComponent } from './modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -14,8 +18,9 @@ import { ButtonComponent } from './tooltip/button/button.component';
     PageNotFoundComponent,
     CounterComponent,
     ButtonComponent,
+    ModalComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatDialogModule, MatInputModule, FormsModule, ReactiveFormsModule],
   exports: [
     UahPipe,
     HighlightPriceDirective,

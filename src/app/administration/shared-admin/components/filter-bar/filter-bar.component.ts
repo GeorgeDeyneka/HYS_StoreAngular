@@ -23,6 +23,8 @@ export class FilterBarComponent implements AfterViewInit {
   public sortDis: boolean = true;
   public priceInputDis: boolean = true;
   public sortValue: string;
+  public sortFromVal: string;
+  public priceFromVal: string;
 
   constructor(private tableConfigService: TableConfigService) {}
 
@@ -35,6 +37,15 @@ export class FilterBarComponent implements AfterViewInit {
 
   setSort(event: any) {
     this.tableConfigService.setSort(event.value);
+  }
+
+  resetConfig() {
+    this.tableConfigService.resetConfig();
+    this.searchInput.nativeElement.value = '';
+    this.priceFromVal = '';
+    this.sortFromVal = '';
+    this.priceInput.nativeElement.value = '';
+    this.sortValue = '';
   }
 
   setSortFrom(event: any) {

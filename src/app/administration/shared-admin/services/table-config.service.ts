@@ -10,7 +10,7 @@ const DEFAULT_CONFIGURATION: filterConfig = {
   search: '',
   priceSelect: '',
   sort: '',
-  sortFrom: ''
+  sortFrom: '',
 };
 
 @Injectable({
@@ -25,6 +25,10 @@ export class TableConfigService {
 
   get DefaultConfig() {
     return this.configuration$.getValue();
+  }
+
+  resetConfig() {
+    this.configuration$.next(DEFAULT_CONFIGURATION);
   }
 
   setSearch(search: string) {

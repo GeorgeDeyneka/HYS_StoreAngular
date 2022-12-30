@@ -7,7 +7,7 @@
   <div class="filter__price">
     <mat-form-field class="filter__option">
       <mat-label>Price from...</mat-label>
-      <mat-select (selectionChange)="setPriceSelect($event)">
+      <mat-select [(value)]="priceFromVal" (selectionChange)="setPriceSelect($event)">
         <mat-option>None</mat-option>
         <mat-option value="more">More than</mat-option>
         <mat-option value="less">Less than</mat-option>
@@ -37,7 +37,7 @@
   <div class="filter__sort">
     <mat-form-field>
       <mat-label>Sort from...</mat-label>
-      <mat-select (selectionChange)="setSortFrom($event)">
+      <mat-select [(value)]="sortFromVal" (selectionChange)="setSortFrom($event)">
         <mat-option>None</mat-option>
         <mat-option value="less">Less</mat-option>
         <mat-option value="more">More</mat-option>
@@ -54,4 +54,5 @@
       </mat-select>
     </mat-form-field>
   </div>
+  <app-button [text]="'Reset'" (click)="resetConfig()"></app-button>
 </div>
