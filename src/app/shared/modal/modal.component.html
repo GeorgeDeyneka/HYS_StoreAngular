@@ -4,9 +4,9 @@
   </h1>
   <ng-template #deleteTitle>
     <div mat-dialog-title>
-        <svg class="modal__icon-warning">
-            <use href="assets/sprite.svg#icon-warning"></use>
-        </svg>
+      <svg class="modal__icon-warning">
+        <use href="assets/sprite.svg#icon-warning"></use>
+      </svg>
     </div>
   </ng-template>
   <div mat-dialog-content>
@@ -21,7 +21,9 @@
       </mat-form-field>
     </form>
     <ng-template #deleteContent>
-        <h1 mat-dialog-content>You will delete object #{{ data.id }}. Continue?</h1>
+      <h1 mat-dialog-content>
+        You will delete object #{{ data.id }}. Continue?
+      </h1>
     </ng-template>
     <div mat-dialog-actions>
       <app-button
@@ -30,8 +32,7 @@
         [text]="'Cancel'"
         (click)="onNoClick()"
       ></app-button>
-      <app-button mat-button [text]="'Okay'"></app-button>
-      <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+      <app-button mat-button [text]="'Okay'" (click)="onNoClick()"></app-button>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 #Required:
-- Incapsulate logic for filter-bar.service for small methods
-- Hide pagination when it have less 5 elements
+- Make modal for creating reusable
+- Add points on table
 
 #Additional
 - Change README.md
@@ -8,6 +8,7 @@
 - Sync the counter with buttons "Add to Cart"
 - Work with adaptive design
 - Add photos and description of products
+- Hide pagination when it have less 5 elements
 - Add points instead "Delete all" button
 - Add github pages!
 

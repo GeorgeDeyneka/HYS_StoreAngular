@@ -6,7 +6,9 @@ import {
   AfterViewInit,
   Input,
 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, fromEvent, map } from 'rxjs';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'app-filter-bar',
@@ -26,10 +28,35 @@ export class FilterBarComponent implements AfterViewInit {
   public sortFromVal: string;
   public priceFromVal: string;
 
-  constructor(private tableConfigService: TableConfigService) {}
+  constructor(
+    private tableConfigService: TableConfigService,
+    public matDialog: MatDialog
+  ) {}
+
+  openCreateDialog() {
+    const dialogRef =
+      this.param == 'products'
+        ? this.matDialog.open(ModalComponent, {
+            data: {
+              name: '',
+              price: '',
+              description: '',
+            },
+            height: '450px',
+            width: '400px',
+          })
+        : this.matDialog.open(ModalComponent, {
+            data: {
+              name: '',
+              description: '',
+            },
+            height: '400px',
+            width: '400px',
+          });
+  }
 
   setPriceSelect(event: any) {
-    this.priceInput.nativeElement.value = '';
+    if (this.priceInput) this.priceInput.nativeElement.value = '';
     this.tableConfigService.setPrice(0);
     this.tableConfigService.setPriceSelect(event.value);
     this.priceInputDis = !!!this.tableConfigService.DefaultConfig.priceSelect;
@@ -44,7 +71,7 @@ export class FilterBarComponent implements AfterViewInit {
     this.searchInput.nativeElement.value = '';
     this.priceFromVal = '';
     this.sortFromVal = '';
-    this.priceInput.nativeElement.value = '';
+    if (this.priceInput) this.priceInput.nativeElement.value = '';
     this.sortValue = '';
   }
 
