@@ -10,6 +10,8 @@ import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ButtonMenuComponent } from './tooltip/button-menu/button-menu.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,24 @@ import { MatInputModule } from '@angular/material/input';
     CounterComponent,
     ButtonComponent,
     ModalComponent,
+    ButtonMenuComponent,
   ],
-  imports: [CommonModule, RouterModule, MatDialogModule, MatInputModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatDialogModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     UahPipe,
     HighlightPriceDirective,
     CounterComponent,
     PageNotFoundComponent,
     ButtonComponent,
+    ButtonMenuComponent,
   ],
 })
 export class SharedModule {}

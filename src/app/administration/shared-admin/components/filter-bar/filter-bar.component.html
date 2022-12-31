@@ -75,28 +75,18 @@
     </mat-form-field>
   </div>
 
-  <button
-    mat-icon-button
+  <app-button-menu
     [matMenuTriggerFor]="menu"
     aria-label="menu"
-  >
-    <mat-icon>more_vert</mat-icon>
-  </button>
+  ></app-button-menu>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
+    <button (click)="resetConfig()" mat-menu-item>
+      <mat-icon>sort</mat-icon>
+      <span>Reset Filter</span>
     </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
+    <button (click)="openCreateDialog()" mat-menu-item>
+      <mat-icon>add</mat-icon>
+      <span>Create New</span>
     </button>
   </mat-menu>
-
-  <app-button [text]="'Reset'" (click)="resetConfig()"></app-button>
-  <app-button [text]="'+'" (click)="openCreateDialog()"></app-button>
 </div>
