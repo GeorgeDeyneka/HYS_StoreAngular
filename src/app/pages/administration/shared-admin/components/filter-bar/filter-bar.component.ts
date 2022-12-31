@@ -38,17 +38,23 @@ export class FilterBarComponent implements AfterViewInit {
       this.param == 'products'
         ? this.matDialog.open(ModalComponent, {
             data: {
-              name: '',
-              price: '',
-              description: '',
+              typeOfModal: 'create',
+              keys: {
+                name: '',
+                price: '',
+                description: '',
+              },
             },
             height: '450px',
             width: '400px',
           })
         : this.matDialog.open(ModalComponent, {
             data: {
-              name: '',
-              description: '',
+              typeOfModal: 'create',
+              keys: {
+                name: '',
+                description: '',
+              },
             },
             height: '400px',
             width: '400px',

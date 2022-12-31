@@ -1,5 +1,4 @@
 #Required:
-- Make modal for creating reusable
 
 #Additional
 - Change README.md
@@ -8,8 +7,7 @@
 - Work with adaptive design
 - Add photos and description of products
 - Hide pagination when it have less 5 elements
-- Add points instead "Delete all" button
 - Add github pages!
 
 #Questions
-- How to make three shared modules and import more than one in the module?
+- How to delete local-shared modules?

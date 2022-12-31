@@ -12,28 +12,21 @@ export class ModalComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Product
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  public keys: string[] = Object.keys(this.data);
+  public keys: string[] = Object.keys(this.data.keys);
   public form: FormGroup;
-  public modalType: string;
-
-  checkTypeModal() {
-    this.keys.includes('id')
-      ? (this.modalType = 'delete')
-      : (this.modalType = 'edit');
-  }
+  public modalType: string = this.data.typeOfModal;
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   ngOnInit(): void {
-    this.checkTypeModal();
-    if (this.modalType === 'edit') {
+    if (this.modalType === 'edit' || this.modalType === 'create') {
       this.form = this.fb.group({
-        ...this.data,
+        ...this.data.keys,
       });
     }
   }

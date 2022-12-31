@@ -1,30 +1,25 @@
 <div class="modal">
-  <h1 mat-dialog-title *ngIf="modalType === 'edit'; else deleteTitle">
-    Edit product
-  </h1>
-  <ng-template #deleteTitle>
-    <div mat-dialog-title>
-      <svg class="modal__icon-warning">
-        <use href="assets/sprite.svg#icon-warning"></use>
-      </svg>
-    </div>
-  </ng-template>
+  <h1 mat-dialog-title *ngIf="modalType === 'edit'">Edit object</h1>
+  <h1 mat-dialog-title *ngIf="modalType === 'create'">Create object</h1>
+
+  <div *ngIf="modalType === 'delete'" mat-dialog-title>
+    <svg class="modal__icon-warning">
+      <use href="assets/sprite.svg#icon-warning"></use>
+    </svg>
+  </div>
+
   <div mat-dialog-content>
-    <form
-      *ngIf="modalType === 'edit'; else deleteContent"
-      [formGroup]="form"
-      class="modal__form"
-    >
+    <form *ngIf="modalType !== 'delete'" [formGroup]="form" class="modal__form">
       <mat-form-field *ngFor="let key of keys">
         <mat-label>{{ key }}</mat-label>
         <input [formControlName]="key" matInput />
       </mat-form-field>
     </form>
-    <ng-template #deleteContent>
-      <h1 mat-dialog-content>
-        You will delete object #{{ data.id }}. Continue?
-      </h1>
-    </ng-template>
+
+    <h1 *ngIf="modalType === 'delete'" mat-dialog-content>
+      You will delete object #{{ data.id }}. Continue?
+    </h1>
+
     <div mat-dialog-actions>
       <app-button
         mat-button

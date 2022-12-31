@@ -16,9 +16,12 @@ export class TableComponent implements OnInit {
   openEditDialog(elem: Product) {
     const dialogRef = this.matDialog.open(ModalComponent, {
       data: {
-        name: elem.name,
-        price: elem.price,
-        description: '',
+        typeOfModal: 'edit',
+        keys: {
+          name: elem.name,
+          price: elem.price,
+          description: '',
+        }
       },
       height: '450px',
       width: '400px',
@@ -27,7 +30,12 @@ export class TableComponent implements OnInit {
 
   openWarnDialog(elem: Product) {
     const dialogRef = this.matDialog.open(ModalComponent, {
-      data: { id: elem.id },
+      data: {
+        typeOfModal: 'delete',
+        keys: {
+          id: elem.id,
+        }
+      },
       height: '380px',
       width: '400px',
     });
