@@ -1,5 +1,5 @@
 import { first, BehaviorSubject } from 'rxjs';
-import { Product } from './../../models/interfaces/products.interface';
+import { Product } from '../../../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
 

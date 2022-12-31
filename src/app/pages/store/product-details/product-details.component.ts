@@ -1,7 +1,7 @@
-import { ButtonTextEnum } from './../../models/enums/button-text.enum';
-import { CartService } from '../../shared/services/cart.service';
-import { DetailsService } from '../../shared/services/details.service';
-import { Product } from '../../models/interfaces/products.interface';
+import { ButtonTextEnum } from '../../../models/enums/button-text.enum';
+import { CartService } from '../../../shared/services/cart.service';
+import { DetailsService } from '../../../shared/services/details.service';
+import { Product } from '../../../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from '../store.service';

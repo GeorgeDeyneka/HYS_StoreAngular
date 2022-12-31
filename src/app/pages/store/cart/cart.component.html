@@ -1,12 +1,19 @@
 <main class="container">
   <div class="page__title">
     <h2>Products/Cart</h2>
-    <app-button
+
+    <app-button-menu
       *ngIf="arrCart.length"
-      (click)="clearCart()"
-      [theme]="'aqua'"
-      [text]="'Remove All'"
-    ></app-button>
+      [matMenuTriggerFor]="menu"
+      aria-label="menu"
+    ></app-button-menu>
+    <mat-menu #menu="matMenu">
+      <button (click)="clearCart()" mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Reset All Cart</span>
+      </button>
+    </mat-menu>
+
   </div>
   <div class="cart__list" *ngIf="arrCart.length; else elseBlock">
     <app-cart-item

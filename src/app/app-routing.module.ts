@@ -4,14 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'administration',
-    loadChildren: () => import('./administration/administration.module').then(
+    loadChildren: () => import('./pages/administration/administration.module').then(
       (m) => m.AdministrationModule
     )
   },
   {
     path: '',
     loadChildren: () =>
-      import('./store/store.module').then(
+      import('./pages/store/store.module').then(
         (m) => m.StoreModule
       ),
   },

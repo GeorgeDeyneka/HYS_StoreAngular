@@ -1,3 +1,5 @@
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 import { StoreRoutingModule } from './store-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
@@ -28,6 +30,8 @@ import { SharedStoreModule } from './shared-store/shared-store.module';
     SharedStoreModule,
     RouterModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    MatMenuModule
   ],
   exports: [StoreComponent],
 })

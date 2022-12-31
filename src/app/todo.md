@@ -1,6 +1,5 @@
 #Required:
 - Make modal for creating reusable
-- Add points on table
 
 #Additional
 - Change README.md

@@ -1,9 +1,9 @@
-import { FilterBarService } from './../shared-admin/services/filter-bar.service';
+import { FilterBarService } from '../shared-admin/services/filter-bar.service';
 import { TableConfigService } from '../shared-admin/services/table-config.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { Product } from './../../models/interfaces/products.interface';
+import { Product } from '../../../models/interfaces/products.interface';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { StoreService } from 'src/app/store/store.service';
+import { StoreService } from 'src/app/pages/store/store.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
 
 @Component({

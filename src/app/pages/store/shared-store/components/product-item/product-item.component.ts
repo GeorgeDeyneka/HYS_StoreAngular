@@ -1,6 +1,6 @@
-import { ButtonTextEnum } from './../../../../models/enums/button-text.enum';
-import { CartService } from '../../../../shared/services/cart.service';
-import { Product } from '../../../../models/interfaces/products.interface';
+import { ButtonTextEnum } from '../../../../../models/enums/button-text.enum';
+import { CartService } from '../../../../../shared/services/cart.service';
+import { Product } from '../../../../../models/interfaces/products.interface';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({

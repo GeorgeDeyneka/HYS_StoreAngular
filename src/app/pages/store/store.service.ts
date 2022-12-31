@@ -1,5 +1,5 @@
-import { PRODUCTS_STATE } from '../data/state';
-import { Product } from '../models/interfaces/products.interface';
+import { PRODUCTS_STATE } from '../../data/state';
+import { Product } from '../../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 
