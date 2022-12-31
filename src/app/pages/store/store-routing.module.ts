@@ -1,4 +1,4 @@
-import { PageNotFoundComponent } from '../errors/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '../errors-pages/page-not-found/page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

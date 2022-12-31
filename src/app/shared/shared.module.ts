@@ -3,7 +3,7 @@ import { HighlightPriceDirective } from './directives/highlight-price.directive'
 import { UahPipe } from './pipes/uah.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageNotFoundComponent } from '../pages/errors/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '../pages/errors-pages/page-not-found/page-not-found.component';
 import { CounterComponent } from './tooltip/counter/counter.component';
 import { ButtonComponent } from './tooltip/button/button.component';
 import { ModalComponent } from './modal/modal.component';
