@@ -1,3 +1,4 @@
+import { ButtonTextEnum } from './../../models/enums/button-text.enum';
 import { CartService } from '../../shared/services/cart.service';
 import { DetailsService } from '../../shared/services/details.service';
 import { Product } from '../../models/interfaces/products.interface';
@@ -12,7 +13,7 @@ import { StoreService } from '../store.service';
 })
 export class ProductDetailsComponent implements OnInit {
   public prod: Product;
-  public buttonText: string = 'Add To Cart';
+  public buttonText: string = ButtonTextEnum.add;
   public data: Product[] = [];
 
   constructor(
@@ -26,8 +27,8 @@ export class ProductDetailsComponent implements OnInit {
     const id = this.router.snapshot.paramMap.get('id');
     this.storeService.data.subscribe((items) => {
       this.data = items;
-      this.prod = this.detailsService.getData(id, this.data);
-      if (this.prod) {
+      if (id) {
+        this.prod = this.detailsService.getData(id, this.data);
         this.checkProduct();
       }
     });
@@ -35,8 +36,8 @@ export class ProductDetailsComponent implements OnInit {
 
   checkProduct() {
     this.cartService.checkProduct(this.prod) > 0
-      ? (this.buttonText = 'In Cart')
-      : (this.buttonText = 'Add To Cart');
+      ? (this.buttonText = ButtonTextEnum.inCart)
+      : (this.buttonText = ButtonTextEnum.add);
   }
 
   addToCart() {

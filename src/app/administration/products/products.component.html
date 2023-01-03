@@ -1,7 +1,21 @@
 <div class="container">
   <h2 class="products__title">Products</h2>
-    <div *ngIf="loading$ | async" class="spinner__wrapper">
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-  </div>
-  <app-table [data]="data"></app-table>
+  <ng-container *ngIf="loading$ | async; else table">
+    <div class="spinner__wrapper">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-container>
+  <ng-template #table>
+    <app-filter-bar [param]="'products'"></app-filter-bar>
+    <app-table [data]="data$"></app-table>
+    <mat-paginator
+      [pageIndex]="pageIndex"
+      [hidePageSize]="true"
+      [length]="dataLength"
+      (page)="changePage($event)"
+      [pageSize]="5"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </ng-template>
 </div>

@@ -1,8 +1,10 @@
 <div class="container">
   <h1 class="page__title">Welcome To The Shop!</h1>
-  <div *ngIf="loading$ | async" class="spinner__wrapper">
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-  </div>
+  <ng-container *ngIf="loading$ | async">
+    <div class="spinner__wrapper">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-container>
   <div class="products__list">
     <h2 class="page__subtitle">Some of our many products...</h2>
     <div class="products__wrapper">

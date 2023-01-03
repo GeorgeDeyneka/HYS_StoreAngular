@@ -11,13 +11,13 @@ export class DetailsService {
 
   constructor(private router: Router) {}
 
-  getData(id: any, data: Product[]): Product {
+  getData(id: string, data: Product[]): Product {
     this.data = data;
     this.checkData(id);
     return this.product;
   }
 
-  checkData(id: any) {
+  checkData(id: string) {
     if (this.data.length) {
       for (let i = 0; i < this.data.length; i++) {
         if (this.data[i].id === +id) {

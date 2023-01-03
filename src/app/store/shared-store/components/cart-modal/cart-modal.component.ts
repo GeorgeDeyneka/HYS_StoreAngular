@@ -1,5 +1,5 @@
-import { Product } from '../../../models/interfaces/products.interface';
-import { CartService } from '../../../shared/services/cart.service';
+import { Product } from '../../../../models/interfaces/products.interface';
+import { CartService } from '../../../../shared/services/cart.service';
 import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
@@ -19,12 +19,12 @@ export class CartModalComponent implements OnChanges {
     this.updateData();
   }
 
-  deleteElem(elem: Product) {
+  deleteElem(elem: Product): void {
     this.cartService.deleteProduct(elem);
     this.arrCart = this.cartService.getData();
   }
 
-  updateData() {
+  updateData(): void {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }

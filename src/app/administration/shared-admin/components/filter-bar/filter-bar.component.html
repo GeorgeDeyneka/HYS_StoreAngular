@@ -1,0 +1,57 @@
+<div class="filter__bar">
+  <mat-form-field class="filter__search">
+    <mat-label>Search</mat-label>
+    <input matInput #searchInput type="text" placeholder="Search..." />
+  </mat-form-field>
+
+  <div class="filter__price">
+    <mat-form-field class="filter__option">
+      <mat-label>Price from...</mat-label>
+      <mat-select (selectionChange)="setPriceSelect($event)">
+        <mat-option>None</mat-option>
+        <mat-option value="more">More than</mat-option>
+        <mat-option value="less">Less than</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter__params">
+      <input
+        [disabled]="priceInputDis"
+        class="price__input"
+        #priceInput
+        *ngIf="param == 'products'"
+        matInput
+        type="number"
+        placeholder="Price..."
+      />
+      <input
+        #dateInput
+        *ngIf="param == 'users'"
+        matInput
+        type="date"
+        placeholder="Price..."
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="filter__sort">
+    <mat-form-field>
+      <mat-label>Sort from...</mat-label>
+      <mat-select (selectionChange)="setSortFrom($event)">
+        <mat-option>None</mat-option>
+        <mat-option value="less">Less</mat-option>
+        <mat-option value="more">More</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sort by...</mat-label>
+      <mat-select [(value)]="sortValue" [disabled]="sortDis" (selectionChange)="setSort($event)">
+        <mat-option>None</mat-option>
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="price">Price</mat-option>
+        <mat-option value="id">Id</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
