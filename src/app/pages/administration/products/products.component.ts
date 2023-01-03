@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.dataSubj$ = this.storeService.data.subscribe((data) => {
+    this.dataSubj$ = this.storeService.getData<Product[]>().subscribe((data) => {
       if (data.length) {
         this.loading$.next(false);
         this.data$ = this.filterBarService.setData(data, 5);

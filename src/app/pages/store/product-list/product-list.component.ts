@@ -1,4 +1,4 @@
-import { BehaviorSubject, first } from 'rxjs';
+import { BehaviorSubject, first, Observable } from 'rxjs';
 import { Product } from '../../../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
-    this.storeService.data.pipe(first()).subscribe((data) => {
+    this.storeService.getData<Product[]>().pipe(first()).subscribe((data) => {
       this.productsData = data;
       if (this.productsData.length) this.loading$.next(false);
     });
