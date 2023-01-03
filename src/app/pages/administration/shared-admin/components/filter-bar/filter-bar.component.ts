@@ -7,7 +7,7 @@ import {
   Input,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { debounceTime, fromEvent, map } from 'rxjs';
+import { debounceTime, fromEvent, map, pluck } from 'rxjs';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
@@ -65,7 +65,7 @@ export class FilterBarComponent implements AfterViewInit {
     if (this.priceInput) this.priceInput.nativeElement.value = '';
     this.tableConfigService.setPrice(0);
     this.tableConfigService.setPriceSelect(event.value);
-    this.priceInputDis = !!!this.tableConfigService.DefaultConfig.priceSelect;
+    this.priceInputDis = !this.tableConfigService.DefaultConfig.priceSelect;
   }
 
   setSort(event: any) {
@@ -83,7 +83,7 @@ export class FilterBarComponent implements AfterViewInit {
 
   setSortFrom(event: any) {
     this.tableConfigService.setSortFrom(event.value);
-    this.sortDis = !!!this.tableConfigService.DefaultConfig.sortFrom;
+    this.sortDis = !this.tableConfigService.DefaultConfig.sortFrom;
     if (!event.value) this.sortValue = '';
   }
 
@@ -99,7 +99,7 @@ export class FilterBarComponent implements AfterViewInit {
       fromEvent(this.priceInput.nativeElement, 'input')
         .pipe(
           debounceTime(1000),
-          map((event: any) => event.target.value)
+          map((event: any) => event.target.value),
         )
         .subscribe((data) => this.tableConfigService.setPrice(+data));
     }
