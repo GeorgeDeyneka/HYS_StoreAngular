@@ -10,6 +10,7 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 })
 export class TableComponent implements OnInit {
   @Input() data: any[];
+  @Input() typeOfTable: 'users' | 'products'
 
   constructor(public matDialog: MatDialog) {}
 

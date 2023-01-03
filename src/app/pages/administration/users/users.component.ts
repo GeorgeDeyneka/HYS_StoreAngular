@@ -1,9 +1,10 @@
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { StoreService } from 'src/app/pages/store/store.service';
+
 import { Component, OnInit } from '@angular/core';
 import { TableConfigService } from '../shared-admin/services/table-config.service';
 import { FilterBarService } from '../shared-admin/services/filter-bar.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
+import { UsersService } from '../shared-admin/services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -19,21 +20,19 @@ export class UsersComponent implements OnInit {
   public dataLength: number;
 
   constructor(
-    private storeService: StoreService,
+    private usersService: UsersService,
     private tableConfigService: TableConfigService,
     private filterBarService: FilterBarService
   ) {}
 
   ngOnInit(): void {
-    this.dataSubj$ = this.storeService
-      .getList<any[]>()
-      .subscribe((data) => {
-        if (data.length) {
-          this.loading$.next(false);
-          this.data$ = this.filterBarService.setData(data, 5);
-          this.dataLength = data.length;
-        }
-      });
+    this.dataSubj$ = this.usersService.getList<any[]>().subscribe((data) => {
+      if (data.length) {
+        this.loading$.next(false);
+        this.data$ = this.filterBarService.setData(data, 5);
+        this.dataLength = data.length;
+      }
+    });
 
     this.filterSubj$ = this.tableConfigService.configuration$.subscribe(
       (elem) => this.changeData(elem)

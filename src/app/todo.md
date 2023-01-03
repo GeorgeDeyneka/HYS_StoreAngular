@@ -4,6 +4,9 @@
 - Add new http-type
 - Disable autopassword
 - Hide full id
+- Fix filter bar filtration
+- Make modal reusable for users
+- Fix view users table
 
 #Additional
 
