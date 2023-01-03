@@ -1,6 +1,12 @@
 #Required:
 
+- Clear code
+- Add new http-type
+- Disable autopassword
+- Hide full id
+
 #Additional
+
 - Change README.md
 - Hide modal when it became empty
 - Sync the counter with buttons "Add to Cart"
@@ -10,4 +16,3 @@
 - Add github pages!
 
 #Questions
-- How to delete local-shared modules?

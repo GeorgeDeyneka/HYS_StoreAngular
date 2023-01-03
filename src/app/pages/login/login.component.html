@@ -3,7 +3,7 @@
   <form [formGroup]="form" class="modal__form">
     <mat-form-field>
       <mat-label>Login</mat-label>
-      <input formControlName="login" matInput />
+      <input formControlName="username" matInput />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
@@ -14,7 +14,7 @@
   <div class="modal__buttons">
     <app-button (click)="onNoClose()" [text]="'Cancel'"></app-button>
     <app-button
-      (click)="onNoClose()"
+      (click)="makeAuthRequest()"
       [theme]="'aqua'"
       [text]="'Okay'"
     ></app-button>

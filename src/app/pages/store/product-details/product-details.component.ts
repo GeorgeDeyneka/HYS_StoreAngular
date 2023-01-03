@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.actRouter.snapshot.paramMap.get('id');
 
-    this.storeService.getElemById<Product>(id!).subscribe((item) => {
+    this.storeService.getById<Product>(id!).subscribe((item) => {
       if (!item) {
         this.router.navigateByUrl('/**');
       } else {

@@ -13,14 +13,15 @@ export class TableComponent implements OnInit {
 
   constructor(public matDialog: MatDialog) {}
 
-  openEditDialog(elem: Product) {
+  openEditDialog(elem: any) {
     const dialogRef = this.matDialog.open(ModalComponent, {
       data: {
         typeOfModal: 'edit',
+        id: elem.id,
         keys: {
           name: elem.name,
           price: elem.price,
-          description: '',
+          description: elem.description,
         }
       },
       height: '450px',

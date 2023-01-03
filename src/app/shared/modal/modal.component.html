@@ -25,9 +25,26 @@
         mat-button
         [theme]="'aqua'"
         [text]="'Cancel'"
-        (click)="onNoClick()"
+        (click)="closeModal()"
       ></app-button>
-      <app-button mat-button [text]="'Okay'" (click)="onNoClick()"></app-button>
+      <app-button
+        *ngIf="modalType === 'create'"
+        mat-button
+        [text]="'Okay'"
+        (click)="createElem()"
+      ></app-button>
+      <app-button
+        *ngIf="modalType === 'edit'"
+        mat-button
+        [text]="'Okay'"
+        (click)="updateElem()"
+      ></app-button>
+            <app-button
+        *ngIf="modalType === 'delete'"
+        mat-button
+        [text]="'Okay'"
+        (click)="deleteElem()"
+      ></app-button>
     </div>
   </div>
 </div>

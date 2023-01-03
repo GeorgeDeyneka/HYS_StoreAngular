@@ -1,3 +1,4 @@
+import { StoreService } from 'src/app/pages/store/store.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -11,6 +12,7 @@ export class ModalComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<ModalComponent>,
+    private storeService: StoreService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -18,7 +20,7 @@ export class ModalComponent implements OnInit {
   public form: FormGroup;
   public modalType: string = this.data.typeOfModal;
 
-  onNoClick(): void {
+  closeModal(): void {
     this.dialogRef.close();
   }
 
@@ -28,5 +30,37 @@ export class ModalComponent implements OnInit {
         ...this.data.keys,
       });
     }
+  }
+
+  createElem() {
+    if (this.form && this.modalType === 'create') {
+      let { name, price, description } = this.form.getRawValue();
+      this.storeService
+        .create({
+          name: name,
+          author: 'George',
+          price: +price,
+          description: description,
+        })
+        .subscribe();
+    }
+    this.closeModal();
+  }
+
+  deleteElem() {
+    this.storeService.delete(this.data.keys.id).subscribe();
+    this.closeModal();
+  }
+
+  updateElem() {
+    if (this.form && this.modalType === 'edit') {
+      this.storeService
+        .update(this.data.id, {
+          ...this.form.getRawValue(),
+          author: 'George',
+        })
+        .subscribe();
+    }
+    this.closeModal();
   }
 }

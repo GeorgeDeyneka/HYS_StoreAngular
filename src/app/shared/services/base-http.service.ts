@@ -11,11 +11,23 @@ export class BaseHttpService {
 
   constructor(private http: HttpClient) {}
 
-  getData<T>(): Observable<T> {
+  getList<T>(): Observable<T> {
     return this.http.get<T>(this.BASE_URL + this.path);
   }
 
-  getElemById<T>(id: string): Observable<T> {
+  getById<T>(id: string | number): Observable<T> {
     return this.http.get<T>(this.BASE_URL + this.path + id);
+  }
+
+  create<T>(data: T): Observable<T> {
+    return this.http.post<T>(this.BASE_URL + this.path, data);
+  }
+
+  delete<T>(id: string | number): Observable<T> {
+    return this.http.delete<T>(this.BASE_URL + this.path + id)
+  }
+
+  update<T>(id: string | number, data: T) {
+    return this.http.put<T>(this.BASE_URL + this.path + id, data)
   }
 }
