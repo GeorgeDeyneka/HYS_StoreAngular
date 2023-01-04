@@ -1,10 +1,11 @@
 #Required:
-
 - Fix sorted username by unicode
+- Make lazy load on button load more
+- Change login page
+- Ability to logout for admin
 
 #Additional
-- Make lazy load on button load more
-- Add routing for errors module
+- Add animation on buttons
 - Change README.md
 - Hide modal when it became empty
 - Sync the counter with buttons "Add to Cart"

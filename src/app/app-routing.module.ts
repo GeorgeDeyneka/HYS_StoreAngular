@@ -15,6 +15,11 @@ const routes: Routes = [
       import('./pages/store/store.module').then((m) => m.StoreModule),
   },
   {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
     path: '**',
     redirectTo: 'error',
   },

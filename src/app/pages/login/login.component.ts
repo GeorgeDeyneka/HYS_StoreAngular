@@ -1,7 +1,7 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -13,20 +13,17 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<LoginComponent>,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
-  onNoClose(): void {
-    this.dialogRef.close();
-  }
 
   makeAuthRequest() {
     this.authService
       .logIn<{ access_token: string }>(this.form.getRawValue())
       .subscribe((responce) => {
         this.authService.setAuthToken(responce.access_token);
-        this.dialogRef.close();
+        this.router.navigateByUrl('/administration')
       });
   }
 
