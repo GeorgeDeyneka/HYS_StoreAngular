@@ -14,3 +14,4 @@
 - Add github pages!
 
 #Questions
+- 404 page must have header & footer?
