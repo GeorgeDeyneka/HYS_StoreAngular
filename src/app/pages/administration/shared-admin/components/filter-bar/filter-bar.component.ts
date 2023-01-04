@@ -23,11 +23,10 @@ export class FilterBarComponent implements AfterViewInit {
   @ViewChild('dateInput') dateInput: ElementRef;
 
   public sortDis: boolean = true;
-  public priceInputDis: boolean = true;
-  public dateInputDis: boolean = true;
+  public priceOrDateInputDis: boolean = true;
   public sortValue: string;
   public sortFromVal: string;
-  public priceFromVal: string;
+  public priceOrDateFromVal: string;
 
   constructor(
     private tableConfigService: TableConfigService,
@@ -39,6 +38,7 @@ export class FilterBarComponent implements AfterViewInit {
       this.param == 'products'
         ? this.matDialog.open(ModalComponent, {
             data: {
+              typeOfData: this.param,
               typeOfModal: 'create',
               keys: {
                 name: '',
@@ -51,10 +51,10 @@ export class FilterBarComponent implements AfterViewInit {
           })
         : this.matDialog.open(ModalComponent, {
             data: {
+              typeOfData: this.param,
               typeOfModal: 'create',
               keys: {
-                name: '',
-                description: '',
+                username: '',
               },
             },
             height: '400px',
@@ -62,18 +62,19 @@ export class FilterBarComponent implements AfterViewInit {
           });
   }
 
-  setPriceSelect(event: any) {
-    if (this.priceInput) this.priceInput.nativeElement.value = '';
-    this.tableConfigService.setPrice(0);
-    this.tableConfigService.setPriceSelect(event.value);
-    this.priceInputDis = !!!this.tableConfigService.DefaultConfig.priceSelect;
-  }
-
-  setDateSelect(event: any) {
-    if (this.dateInput) this.dateInput.nativeElement.value = '';
-    this.tableConfigService.setDate('');
-    this.tableConfigService.setDateSelect(event.value);
-    this.dateInputDis = !this.tableConfigService.DefaultConfig.dateSelect;
+  setInputDisabled(event: any) {
+    if (this.priceInput) {
+      this.priceInput.nativeElement.value = '';
+      this.tableConfigService.setPrice(0);
+      this.tableConfigService.setPriceSelect(event.value);
+    } else if (this.dateInput) {
+      this.dateInput.nativeElement.value = '';
+      this.tableConfigService.setDate('');
+      this.tableConfigService.setDateSelect(event.value);
+    }
+    this.priceOrDateInputDis =
+      !this.tableConfigService.DefaultConfig.priceSelect &&
+      !this.tableConfigService.DefaultConfig.dateSelect;
   }
 
   setSort(event: any) {
@@ -83,7 +84,7 @@ export class FilterBarComponent implements AfterViewInit {
   resetConfig() {
     this.tableConfigService.resetConfig();
     this.searchInput.nativeElement.value = '';
-    this.priceFromVal = '';
+    this.priceOrDateFromVal = '';
     this.sortFromVal = '';
     if (this.priceInput) this.priceInput.nativeElement.value = '';
     this.sortValue = '';

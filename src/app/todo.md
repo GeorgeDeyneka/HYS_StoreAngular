@@ -1,12 +1,7 @@
 #Required:
 
-- Clear code
-- Disable autopassword in modal
 - Fix view users & products table (hide full id)
-- Make modal reusable for users
 - Fix sorted username by unicode
-- Clear placeholder on date input
-- Typing all in filter-bar service
 
 #Additional
 

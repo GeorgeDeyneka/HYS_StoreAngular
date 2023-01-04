@@ -10,33 +10,48 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 })
 export class TableComponent implements OnInit {
   @Input() data: any[];
-  @Input() typeOfTable: 'users' | 'products'
+  @Input() typeOfTable: 'users' | 'products';
 
   constructor(public matDialog: MatDialog) {}
 
   openEditDialog(elem: any) {
-    const dialogRef = this.matDialog.open(ModalComponent, {
-      data: {
-        typeOfModal: 'edit',
-        id: elem.id,
-        keys: {
-          name: elem.name,
-          price: elem.price,
-          description: elem.description,
-        }
-      },
-      height: '450px',
-      width: '400px',
-    });
+    if (this.typeOfTable === 'products') {
+      const dialogRef = this.matDialog.open(ModalComponent, {
+        data: {
+          typeOfData: this.typeOfTable,
+          typeOfModal: 'edit',
+          id: elem.id,
+          keys: {
+            name: elem.name,
+            price: elem.price,
+            description: elem.description,
+          },
+        },
+        height: '450px',
+        width: '400px',
+      });
+    } else if (this.typeOfTable === 'users') {
+      const dialogRef = this.matDialog.open(ModalComponent, {
+        data: {
+          typeOfData: this.typeOfTable,
+          typeOfModal: 'edit',
+          id: elem.id,
+          keys: {
+            password: elem.password,
+          },
+        },
+        height: '450px',
+        width: '400px',
+      });
+    }
   }
 
   openWarnDialog(elem: HttpProduct) {
     const dialogRef = this.matDialog.open(ModalComponent, {
       data: {
         typeOfModal: 'delete',
-        keys: {
-          id: elem.id,
-        }
+        typeOfData: this.typeOfTable,
+        id: elem.id,
       },
       height: '380px',
       width: '400px',

@@ -1,3 +1,4 @@
+import { UsersService } from './../../pages/administration/shared-admin/services/users.service';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -13,10 +14,13 @@ export class ModalComponent implements OnInit {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<ModalComponent>,
     private storeService: StoreService,
+    private usersService: UsersService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  public keys: string[] = Object.keys(this.data.keys);
+  public keys: string[] | null = this.data.keys
+    ? Object.keys(this.data.keys)
+    : null;
   public form: FormGroup;
   public modalType: string = this.data.typeOfModal;
 
@@ -25,7 +29,7 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.modalType === 'edit' || this.modalType === 'create') {
+    if (this.modalType !== 'delete') {
       this.form = this.fb.group({
         ...this.data.keys,
       });
@@ -34,32 +38,55 @@ export class ModalComponent implements OnInit {
 
   createElem() {
     if (this.form && this.modalType === 'create') {
-      let { name, price, description } = this.form.getRawValue();
-      this.storeService
-        .create({
-          name: name,
-          author: 'George',
-          price: +price,
-          description: description,
-        })
-        .subscribe();
+      if (this.data.typeOfData === 'products') {
+        let { name, price, description } = this.form.getRawValue();
+        this.storeService
+          .create({
+            name: name,
+            author: 'George',
+            price: +price,
+            description: description,
+          })
+          .subscribe();
+      } else {
+        this.usersService
+          .create({
+            password: '123123',
+            ...this.form.getRawValue(),
+          })
+          .subscribe();
+      }
     }
     this.closeModal();
   }
 
   deleteElem() {
-    this.storeService.delete(this.data.keys.id).subscribe();
+    if (this.modalType === 'delete') {
+      if (this.data.typeOfData === 'products') {
+        this.storeService.delete(this.data.id).subscribe();
+      } else if (this.data.typeOfData === 'users') {
+        this.usersService.delete(this.data.id).subscribe();
+      }
+    }
     this.closeModal();
   }
 
   updateElem() {
     if (this.form && this.modalType === 'edit') {
-      this.storeService
-        .update(this.data.id, {
-          ...this.form.getRawValue(),
-          author: 'George',
-        })
-        .subscribe();
+      if (this.data.typeOfData === 'products') {
+        this.storeService
+          .update(this.data.id, {
+            ...this.form.getRawValue(),
+            author: 'George',
+          })
+          .subscribe();
+      } else if (this.data.typeOfData === 'users') {
+        this.usersService
+          .update(this.data.id, {
+            ...this.form.getRawValue(),
+          })
+          .subscribe();
+      }
     }
     this.closeModal();
   }
