@@ -1,14 +1,15 @@
+import { Product } from './../../../../models/interfaces/products.interface';
+import { HttpUser } from './../../../../models/interfaces/http-user.interface';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
-import { Product } from '../../../../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilterBarService {
-  public data$: Product[] = [];
-  public copyArr: Product[] = [];
-  private baseData: Product[] = [];
+  public data$: Product[] | any[] = [];
+  public copyArr: Product[] | HttpUser[] = [];
+  private baseData: Product[] | any[] = [];
   public pageIndex: number = 0;
   public dataLength: number;
   private num: number;
@@ -26,17 +27,28 @@ export class FilterBarService {
     return this.data$;
   }
 
-  changeData(elem: filterConfig) {
+  changeData(elem: filterConfig, param: 'price' | 'createdAt') {
+    let typeOfName = '';
+    if (param === 'createdAt') typeOfName = 'username';
+    else typeOfName = 'name';
+
     if (elem.search) {
-      this.setSearch(elem);
+      this.setSearch(elem, typeOfName);
     }
 
-    if (!elem.search && !elem.price) {
+    if (
+      (param === 'price' && !elem.search && !elem.price) ||
+      (param === 'createdAt' && !elem.search && !elem.createdAt)
+    ) {
       this.resetFilterData();
     }
 
     if (elem.price) {
       this.setFilterPrice(elem);
+    }
+
+    if (elem.createdAt) {
+      this.setFilterDate(elem);
     }
 
     if (elem.sort && elem.sortFrom) {
@@ -57,9 +69,18 @@ export class FilterBarService {
     );
   }
 
-  setSearch(el: filterConfig) {
+  setFilterDate(el: filterConfig) {
+    this.data$ = (el.search ? this.data$ : this.baseData).filter((user) =>
+      el.dateSelect == 'more'
+        ? user.createdAt > el.createdAt
+        : user.createdAt < el.createdAt
+    );
+  }
+
+  setSearch(el: filterConfig, searchBy: string) {
     this.data$ = this.baseData.filter(
-      (prod) => prod.name.toLowerCase().search(el.search.toLowerCase()) >= 0
+      (prod) =>
+        prod[searchBy].toLowerCase().search(el.search.toLowerCase()) >= 0
     );
   }
 

@@ -1,8 +1,9 @@
 export interface filterConfig {
-  date: string;
+  createdAt: string;
   price: number;
   search: string;
   priceSelect: string;
+  dateSelect: string;
   sortFrom: string;
   sort: string;
 }

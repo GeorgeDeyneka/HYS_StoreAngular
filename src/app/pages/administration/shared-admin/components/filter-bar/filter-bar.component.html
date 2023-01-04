@@ -19,7 +19,10 @@
 
     <mat-form-field *ngIf="param == 'users'" class="filter__option">
       <mat-label>Date from...</mat-label>
-      <mat-select [(value)]="priceFromVal">
+      <mat-select
+        [(value)]="priceFromVal"
+        (selectionChange)="setDateSelect($event)"
+      >
         <mat-option>None</mat-option>
         <mat-option value="more">More than</mat-option>
         <mat-option value="less">Less than</mat-option>
@@ -38,6 +41,8 @@
         placeholder="Price..."
       />
       <input
+        [disabled]="dateInputDis"
+        class="price__input"
         #dateInput
         *ngIf="param == 'users'"
         matInput
@@ -68,8 +73,12 @@
         (selectionChange)="setSort($event)"
       >
         <mat-option>None</mat-option>
-        <mat-option value="name">Name</mat-option>
-        <mat-option value="price">Price</mat-option>
+        <mat-option *ngIf="param == 'products'" value="name">Name</mat-option>
+        <mat-option *ngIf="param == 'users'" value="username">Username</mat-option>
+        <mat-option *ngIf="param == 'products'" value="price">Price</mat-option>
+        <mat-option *ngIf="param == 'users'" value="createdAt"
+          >Date</mat-option
+        >
         <mat-option value="id">Id</mat-option>
       </mat-select>
     </mat-form-field>

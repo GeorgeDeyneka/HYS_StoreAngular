@@ -7,6 +7,8 @@
 - Fix filter bar filtration
 - Make modal reusable for users
 - Fix view users table
+- Fix sorted username by unicode
+- Clear placeholder on date input
 
 #Additional
 

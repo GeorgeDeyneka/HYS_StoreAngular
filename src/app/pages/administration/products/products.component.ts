@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   changeData(elem: filterConfig) {
-    let arr = this.filterBarService.changeData(elem);
+    let arr = this.filterBarService.changeData(elem, 'price');
 
     this.data$ = arr[0] as Product[];
     this.dataLength = arr[1] as number;
@@ -56,5 +56,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.filterSubj$.unsubscribe();
     this.dataSubj$.unsubscribe();
+    this.tableConfigService.resetConfig()
   }
 }

@@ -1,4 +1,4 @@
-export interface HttpObject {
+export interface HttpProduct {
   id: string;
   name: string;
   author: string;

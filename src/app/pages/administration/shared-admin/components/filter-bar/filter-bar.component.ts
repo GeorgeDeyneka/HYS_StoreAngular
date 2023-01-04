@@ -24,6 +24,7 @@ export class FilterBarComponent implements AfterViewInit {
 
   public sortDis: boolean = true;
   public priceInputDis: boolean = true;
+  public dateInputDis: boolean = true;
   public sortValue: string;
   public sortFromVal: string;
   public priceFromVal: string;
@@ -66,6 +67,13 @@ export class FilterBarComponent implements AfterViewInit {
     this.tableConfigService.setPrice(0);
     this.tableConfigService.setPriceSelect(event.value);
     this.priceInputDis = !!!this.tableConfigService.DefaultConfig.priceSelect;
+  }
+
+  setDateSelect(event: any) {
+    if (this.dateInput) this.dateInput.nativeElement.value = '';
+    this.tableConfigService.setDate('');
+    this.tableConfigService.setDateSelect(event.value);
+    this.dateInputDis = !this.tableConfigService.DefaultConfig.dateSelect;
   }
 
   setSort(event: any) {
