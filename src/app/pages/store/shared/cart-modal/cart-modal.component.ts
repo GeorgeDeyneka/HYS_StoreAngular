@@ -1,6 +1,6 @@
-import { HttpProduct } from './../../../../../models/interfaces/http-product.interface';
-import { CartService } from '../../../../../shared/services/cart.service';
 import { Component, Input, OnChanges } from '@angular/core';
+import { HttpProduct } from 'src/app/models/interfaces/http-product.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-cart-modal',

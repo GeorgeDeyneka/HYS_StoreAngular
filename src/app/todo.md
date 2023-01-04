@@ -4,6 +4,7 @@
 
 #Additional
 - Make lazy load on button load more
+- Add routing for errors module
 - Change README.md
 - Hide modal when it became empty
 - Sync the counter with buttons "Add to Cart"

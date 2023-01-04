@@ -1,7 +1,8 @@
-import { HttpProduct } from './../../../../../models/interfaces/http-product.interface';
-import { ButtonTextEnum } from '../../../../../models/enums/button-text.enum';
-import { CartService } from '../../../../../shared/services/cart.service';
+
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ButtonTextEnum } from 'src/app/models/enums/button-text.enum';
+import { HttpProduct } from 'src/app/models/interfaces/http-product.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-item',

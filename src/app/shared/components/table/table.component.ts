@@ -1,4 +1,4 @@
-import { HttpProduct } from './../../../../../models/interfaces/http-product.interface';
+import { HttpProduct } from '../../../models/interfaces/http-product.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';

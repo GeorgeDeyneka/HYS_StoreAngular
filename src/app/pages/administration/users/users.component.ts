@@ -1,10 +1,10 @@
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
-import { TableConfigService } from '../shared-admin/services/table-config.service';
-import { FilterBarService } from '../shared-admin/services/filter-bar.service';
+import { TableConfigService } from '../shared/services/table-config.service';
+import { FilterBarService } from '../shared/services/filter-bar.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
-import { UsersService } from '../shared-admin/services/users.service';
+import { UsersService } from '../shared/services/users.service';
 import { HttpUser } from 'src/app/models/interfaces/http-user.interface';
 
 @Component({

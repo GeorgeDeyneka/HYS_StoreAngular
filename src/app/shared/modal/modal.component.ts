@@ -1,4 +1,4 @@
-import { UsersService } from './../../pages/administration/shared-admin/services/users.service';
+import { UsersService } from '../../pages/administration/shared/services/users.service';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';

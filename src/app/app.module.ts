@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
+import { ErrorsPagesModule } from './pages/errors-pages/errors-pages.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,13 +22,16 @@ import { AuthInterceptorService } from './shared/services/auth-interceptor.servi
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    ErrorsPagesModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

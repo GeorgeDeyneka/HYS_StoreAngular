@@ -1,5 +1,5 @@
-import { FilterBarService } from '../shared-admin/services/filter-bar.service';
-import { TableConfigService } from '../shared-admin/services/table-config.service';
+import { FilterBarService } from '../shared/services/filter-bar.service';
+import { TableConfigService } from '../shared/services/table-config.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StoreService } from 'src/app/pages/store/store.service';

@@ -1,5 +1,4 @@
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SharedAdminModule } from '../shared-admin/shared-admin.module';
 import { UsersComponent } from './users.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,7 +13,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     UsersRoutingModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    SharedAdminModule,
     SharedModule,
   ],
 })

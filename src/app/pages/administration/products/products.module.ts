@@ -6,7 +6,6 @@ import { ProductsComponent } from './products.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SharedAdminModule } from '../shared-admin/shared-admin.module';
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -15,7 +14,6 @@ import { SharedAdminModule } from '../shared-admin/shared-admin.module';
     ProductsRoutingModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    SharedAdminModule,
     SharedModule,
   ],
 })

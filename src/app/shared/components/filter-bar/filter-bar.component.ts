@@ -1,4 +1,4 @@
-import { TableConfigService } from '../../services/table-config.service';
+import { TableConfigService } from '../../../pages/administration/shared/services/table-config.service';
 import {
   Component,
   ViewChild,
