@@ -31,6 +31,7 @@
     padding-right: 5px;
     text-overflow: ellipsis;
     position: absolute;
+    top: 0;
 
     &::after {
       content: "";
@@ -54,7 +55,6 @@
 
       animation: modal 300ms forwards;
       opacity: 0;
-      top: 0;
       z-index: 20;
       padding: 20px;
       background-color: #23242a;
