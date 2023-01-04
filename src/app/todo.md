@@ -1,10 +1,9 @@
 #Required:
 
-- Fix view users & products table (hide full id)
 - Fix sorted username by unicode
 
 #Additional
-
+- Make lazy load on button load more
 - Change README.md
 - Hide modal when it became empty
 - Sync the counter with buttons "Add to Cart"

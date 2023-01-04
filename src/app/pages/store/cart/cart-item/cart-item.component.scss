@@ -12,10 +12,41 @@
     align-items: center;
     margin-bottom: 20px;
     gap: 10px;
+    flex: 1 1 auto;
   }
 
   &__link {
     font-weight: 600;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 22%;
+    text-overflow: ellipsis;
+    position: relative;
+    transition: max-width 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 100%;
+
+      background: linear-gradient(
+        to right,
+        rgba(35, 36, 42, 0.2),
+        #23242a 100%
+      );
+    }
+
+    &:hover {
+      max-width: 70%;
+      &::after {
+        display: none;
+      }
+    }
   }
 
   &__prod-count {

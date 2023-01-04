@@ -1,9 +1,9 @@
 <div class="item">
   <h4 class="item__title">
     Product, which you want to buy:
-    <a class="item__link" [routerLink]="['/products', productItem.id]">{{
-      productItem.name
-    }}</a>
+    <a class="item__link" [routerLink]="['/products', productItem.id]"
+      >{{ productItem.name }} #{{ productItem.id }}</a
+    >
   </h4>
   <div class="item__interface-wrapper">
     <app-counter
@@ -18,7 +18,7 @@
       <div class="item__prod-count">
         <h4 class="item__currency">Currency: {{ productItem.count }}</h4>
         <h4 class="item__cost">
-          Cost: {{ productItem.price * productItem.count! }}
+          Cost: {{ productItem.price * productItem.count! | UAH }}
         </h4>
       </div>
     </div>
