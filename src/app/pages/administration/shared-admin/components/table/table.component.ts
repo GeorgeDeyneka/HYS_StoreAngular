@@ -1,4 +1,4 @@
-import { Product } from '../../../../../models/interfaces/products.interface';
+import { HttpProduct } from './../../../../../models/interfaces/http-product.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
@@ -30,7 +30,7 @@ export class TableComponent implements OnInit {
     });
   }
 
-  openWarnDialog(elem: Product) {
+  openWarnDialog(elem: HttpProduct) {
     const dialogRef = this.matDialog.open(ModalComponent, {
       data: {
         typeOfModal: 'delete',

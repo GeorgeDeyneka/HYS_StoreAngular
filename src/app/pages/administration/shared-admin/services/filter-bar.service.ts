@@ -1,22 +1,20 @@
-import { Product } from './../../../../models/interfaces/products.interface';
-import { HttpUser } from './../../../../models/interfaces/http-user.interface';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FilterBarService {
-  public data$: Product[] | any[] = [];
-  public copyArr: Product[] | HttpUser[] = [];
-  private baseData: Product[] | any[] = [];
+export class FilterBarService<T> {
+  public data$: T[] = [];
+  public copyArr: T[] = [];
+  private baseData: T[] = [];
   public pageIndex: number = 0;
   public dataLength: number;
   private num: number;
 
   constructor() {}
 
-  setData(data: Product[], num: number) {
+  setData(data: T[], num: number) {
     this.data$ = data;
     this.baseData = [...data];
     this.copyArr = [...data];
@@ -64,13 +62,13 @@ export class FilterBarService {
   }
 
   setFilterPrice(el: filterConfig) {
-    this.data$ = (el.search ? this.data$ : this.baseData).filter((prod) =>
+    this.data$ = (el.search ? this.data$ : this.baseData).filter((prod: any) =>
       el.priceSelect == 'more' ? prod.price > el.price : prod.price < el.price
     );
   }
 
   setFilterDate(el: filterConfig) {
-    this.data$ = (el.search ? this.data$ : this.baseData).filter((user) =>
+    this.data$ = (el.search ? this.data$ : this.baseData).filter((user: any) =>
       el.dateSelect == 'more'
         ? user.createdAt > el.createdAt
         : user.createdAt < el.createdAt
@@ -79,7 +77,7 @@ export class FilterBarService {
 
   setSearch(el: filterConfig, searchBy: string) {
     this.data$ = this.baseData.filter(
-      (prod) =>
+      (prod: any) =>
         prod[searchBy].toLowerCase().search(el.search.toLowerCase()) >= 0
     );
   }

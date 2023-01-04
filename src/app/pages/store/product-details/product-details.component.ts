@@ -1,6 +1,6 @@
+import { HttpProduct } from './../../../models/interfaces/http-product.interface';
 import { ButtonTextEnum } from '../../../models/enums/button-text.enum';
 import { CartService } from '../../../shared/services/cart.service';
-import { Product } from '../../../models/interfaces/products.interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from '../store.service';
@@ -11,7 +11,7 @@ import { StoreService } from '../store.service';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
-  public prod: Product;
+  public prod: HttpProduct;
   public buttonText: string = ButtonTextEnum.add;
 
   constructor(
@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.actRouter.snapshot.paramMap.get('id');
 
-    this.storeService.getById<Product>(id!).subscribe((item) => {
+    this.storeService.getById<HttpProduct>(id!).subscribe((item) => {
       if (!item) {
         this.router.navigateByUrl('/**');
       } else {
