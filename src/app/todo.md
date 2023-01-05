@@ -1,8 +1,7 @@
 #Required:
 - Fix sorted username by unicode
 - Make lazy load on button load more
-- Change login page
-- Ability to logout for admin
+- 403
 
 #Additional
 - Add animation on buttons

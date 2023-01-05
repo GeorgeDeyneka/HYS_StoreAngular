@@ -10,15 +10,19 @@
         <mat-label>Password</mat-label>
         <input formControlName="password" matInput />
       </mat-form-field>
+      <mat-label class="error__label" *ngIf="showLabel"
+        >Your login or password is incorrect. Please, retry.</mat-label
+      >
     </form>
 
     <div class="login__buttons">
       <app-button
-      routerLink="/products" [size]="'large'" [text]="'Cancel'"></app-button>
+        routerLink="/products"
+        [text]="'Cancel'"
+      ></app-button>
       <app-button
         (click)="makeAuthRequest()"
         [theme]="'aqua'"
-        [size]="'large'"
         [text]="'Login'"
       ></app-button>
     </div>

@@ -21,8 +21,11 @@
         >
       </li>
     </ul>
+    <a [routerLink]="['/']" (click)="removeToken()"
+      ><span class="material-symbols-outlined"> login </span>LogOut</a
+    >
     <a [routerLink]="['/']"
-      ><span class="material-symbols-outlined"> login </span>Back To Store</a
+      ><span class="material-symbols-outlined"> home </span>Go Back</a
     >
   </nav>
 </div>

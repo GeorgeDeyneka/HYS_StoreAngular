@@ -71,7 +71,7 @@ export class CartService {
   }
 
   clearCart() {
-    this.localStorageService.removeAllData('cartData');
+    this.localStorageService.removeData('cartData');
     return (this.arrCart = []);
   }
 }
