@@ -1,0 +1,42 @@
+.filter {
+  &__bar {
+    display: flex;
+    background-color: #23242a;
+    border-radius: 10px;
+    padding: 4px 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price,
+  &__search,
+  &__sort {
+    display: flex;
+    gap: 10px;
+    padding: 4px;
+    border-radius: 10px;
+  }
+}
+
+::ng-deep .mat-select-arrow,
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label,
+::ng-deep .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow,
+::ng-deep .mat-input-element::-webkit-input-placeholder {
+    color: #a1a1a1;
+}
+
+::ng-deep .mat-select-value {
+    color: #fff;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline,
+::ng-deep .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline {
+  background-color: #a1a1a1 !important;
+}
+
+.price__input::-webkit-outer-spin-button,
+.price__input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}

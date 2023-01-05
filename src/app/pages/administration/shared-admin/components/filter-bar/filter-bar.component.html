@@ -1,0 +1,92 @@
+<div class="filter__bar">
+  <mat-form-field class="filter__search">
+    <mat-label>Search</mat-label>
+    <input matInput #searchInput type="text" placeholder="Search..." />
+  </mat-form-field>
+
+  <div class="filter__price">
+    <mat-form-field *ngIf="param == 'products'" class="filter__option">
+      <mat-label>Price from...</mat-label>
+      <mat-select
+        [(value)]="priceFromVal"
+        (selectionChange)="setPriceSelect($event)"
+      >
+        <mat-option>None</mat-option>
+        <mat-option value="more">More than</mat-option>
+        <mat-option value="less">Less than</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="param == 'users'" class="filter__option">
+      <mat-label>Price from...</mat-label>
+      <mat-select [(value)]="priceFromVal">
+        <mat-option>None</mat-option>
+        <mat-option value="more">More than</mat-option>
+        <mat-option value="less">Less than</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter__params">
+      <input
+        [disabled]="priceInputDis"
+        class="price__input"
+        #priceInput
+        *ngIf="param == 'products'"
+        matInput
+        autocomplete="off"
+        type="number"
+        placeholder="Price..."
+      />
+      <input
+        #dateInput
+        *ngIf="param == 'users'"
+        matInput
+        type="date"
+        placeholder="Date..."
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="filter__sort">
+    <mat-form-field>
+      <mat-label>Sort from...</mat-label>
+      <mat-select
+        [(value)]="sortFromVal"
+        (selectionChange)="setSortFrom($event)"
+      >
+        <mat-option>None</mat-option>
+        <mat-option value="less">Less</mat-option>
+        <mat-option value="more">More</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sort by...</mat-label>
+      <mat-select
+        [(value)]="sortValue"
+        [disabled]="sortDis"
+        (selectionChange)="setSort($event)"
+      >
+        <mat-option>None</mat-option>
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="price">Price</mat-option>
+        <mat-option value="id">Id</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <app-button-menu
+    [matMenuTriggerFor]="menu"
+    aria-label="menu"
+  ></app-button-menu>
+  <mat-menu #menu="matMenu">
+    <button (click)="resetConfig()" mat-menu-item>
+      <mat-icon>sort</mat-icon>
+      <span>Reset Filter</span>
+    </button>
+    <button (click)="openCreateDialog()" mat-menu-item>
+      <mat-icon>add</mat-icon>
+      <span>Create New</span>
+    </button>
+  </mat-menu>
+</div>

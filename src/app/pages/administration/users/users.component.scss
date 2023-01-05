@@ -1,0 +1,12 @@
+.container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.users {
+  &__title {
+    padding: 12px;
+  }
+}
