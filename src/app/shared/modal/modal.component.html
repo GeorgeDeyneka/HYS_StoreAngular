@@ -1,6 +1,7 @@
 <div class="modal">
-  <h1 mat-dialog-title *ngIf="modalType === 'edit'">Edit object</h1>
-  <h1 mat-dialog-title *ngIf="modalType === 'create'">Create object</h1>
+  <h1 mat-dialog-title *ngIf="modalType !== 'delete'">
+    {{ modalText[modalType] }}
+  </h1>
 
   <div *ngIf="modalType === 'delete'" mat-dialog-title>
     <svg class="modal__icon-warning">
@@ -19,7 +20,7 @@
     </form>
 
     <h1 *ngIf="modalType === 'delete'" mat-dialog-content>
-      You will delete object #{{ data.id }}. Continue?
+      {{ modalText[modalType] }}{{ data.id }}. Continue?
     </h1>
 
     <div mat-dialog-actions>

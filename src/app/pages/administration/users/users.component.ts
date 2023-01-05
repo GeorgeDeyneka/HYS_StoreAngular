@@ -6,6 +6,7 @@ import { FilterBarService } from '../shared/services/filter-bar.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
 import { UsersService } from '../shared/services/users.service';
 import { HttpUser } from 'src/app/models/interfaces/http-user.interface';
+import { DataName } from 'src/app/models/enums/data-name.enum';
 
 @Component({
   selector: 'app-users',
@@ -13,6 +14,7 @@ import { HttpUser } from 'src/app/models/interfaces/http-user.interface';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
+  public dataName = DataName.users
   public data: HttpUser[] = [];
   private filterSubj$: Subscription;
   private dataSubj$: Subscription;
