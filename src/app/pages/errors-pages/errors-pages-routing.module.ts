@@ -13,6 +13,11 @@ const routes: Routes = [
         component: PageUnathorizedComponent,
       },
       {
+        path: 'error/403',
+        pathMatch: 'full',
+        component: PageNotFoundComponent,
+      },
+      {
         path: '**',
         pathMatch: 'full',
         redirectTo: 'error/404',
