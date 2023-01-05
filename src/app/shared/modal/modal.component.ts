@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UsersService } from '../../pages/administration/shared/services/users.service';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -15,6 +16,7 @@ export class ModalComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalComponent>,
     private storeService: StoreService,
     private usersService: UsersService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -47,14 +49,20 @@ export class ModalComponent implements OnInit {
             price: +price,
             description: description,
           })
-          .subscribe();
+          .subscribe({
+            next: (response) => {},
+            error: (error) => {},
+          });
       } else {
         this.usersService
           .create({
             password: '123123',
             ...this.form.getRawValue(),
           })
-          .subscribe();
+          .subscribe({
+            next: (response) => {},
+            error: (error) => {},
+          });
       }
     }
     this.closeModal();
@@ -62,31 +70,37 @@ export class ModalComponent implements OnInit {
 
   deleteElem() {
     if (this.modalType === 'delete') {
-      if (this.data.typeOfData === 'products') {
-        this.storeService.delete(this.data.id).subscribe();
-      } else if (this.data.typeOfData === 'users') {
-        this.usersService.delete(this.data.id).subscribe();
-      }
+      const del = (
+        this.data.typeOfData === 'products'
+          ? this.storeService.delete(this.data.id)
+          : this.usersService.delete(this.data.id)
+      ).subscribe({
+        next: (response) => {},
+        error: (error) => {
+          if (error.status === 403) {
+            this.router.navigateByUrl('error/403');
+          }
+        },
+      });
     }
     this.closeModal();
   }
 
   updateElem() {
     if (this.form && this.modalType === 'edit') {
-      if (this.data.typeOfData === 'products') {
-        this.storeService
-          .update(this.data.id, {
-            ...this.form.getRawValue(),
-            author: 'George',
-          })
-          .subscribe();
-      } else if (this.data.typeOfData === 'users') {
-        this.usersService
-          .update(this.data.id, {
-            ...this.form.getRawValue(),
-          })
-          .subscribe();
-      }
+      const upd = (
+        this.data.typeOfData === 'products'
+          ? this.storeService.update(this.data.id, {
+              ...this.form.getRawValue(),
+              author: 'George',
+            })
+          : this.usersService.update(this.data.id, {
+              ...this.form.getRawValue(),
+            })
+      ).subscribe({
+        next: (response) => {},
+        error: (error) => {},
+      });
     }
     this.closeModal();
   }

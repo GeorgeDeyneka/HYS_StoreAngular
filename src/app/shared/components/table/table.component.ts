@@ -53,7 +53,7 @@ export class TableComponent implements OnInit {
         typeOfData: this.typeOfTable,
         id: elem.id,
       },
-      height: '380px',
+      height: '520px',
       width: '400px',
     });
   }
