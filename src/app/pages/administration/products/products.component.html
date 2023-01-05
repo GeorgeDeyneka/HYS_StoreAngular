@@ -6,8 +6,7 @@
     </div>
   </ng-container>
   <ng-template #table>
-    <app-filter-bar [param]="'products'"></app-filter-bar>
-    <app-table [typeOfTable]="'products'" [data]="data$"></app-table>
+    <app-table [typeOfTable]="'products'" [data]="data"></app-table>
     <mat-paginator
       [pageIndex]="pageIndex"
       [hidePageSize]="true"

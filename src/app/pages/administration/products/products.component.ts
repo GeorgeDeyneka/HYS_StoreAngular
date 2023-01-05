@@ -12,7 +12,7 @@ import { HttpProduct } from 'src/app/models/interfaces/http-product.interface';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  public data$: HttpProduct[] = [];
+  public data: HttpProduct[] = [];
   private filterSubj$: Subscription;
   private dataSubj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
@@ -26,13 +26,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.dataSubj$ = this.storeService.getList<HttpProduct[]>().subscribe((data) => {
-      if (data.length) {
-        this.loading$.next(false);
-        this.data$ = this.filterBarService.setData(data, 5);
-        this.dataLength = data.length;
-      }
-    });
+    this.dataSubj$ = this.storeService
+      .getList<HttpProduct[]>()
+      .subscribe((data) => {
+        if (data.length) {
+          this.loading$.next(false);
+          this.data = this.filterBarService.setData(data, 5);
+          this.dataLength = data.length;
+        }
+      });
 
     this.filterSubj$ = this.tableConfigService.configuration$.subscribe(
       (elem) => this.changeData(elem)
@@ -40,22 +42,22 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   changePage(event: any) {
-    let arr = this.filterBarService.changePage(event);
-    this.data$ = arr[0] as HttpProduct[];
-    this.pageIndex = arr[1] as number;
+    let obj = this.filterBarService.changePage(event);
+    this.data = obj.data;
+    this.pageIndex = obj.index;
   }
 
   changeData(elem: filterConfig) {
-    let arr = this.filterBarService.changeData(elem, 'price');
+    let obj = this.filterBarService.changeData(elem, 'price');
 
-    this.data$ = arr[0] as HttpProduct[];
-    this.dataLength = arr[1] as number;
-    this.pageIndex = arr[2] as number;
+    this.data = obj.data;
+    this.dataLength = obj.length;
+    this.pageIndex = obj.index;
   }
 
   ngOnDestroy() {
     this.filterSubj$.unsubscribe();
     this.dataSubj$.unsubscribe();
-    this.tableConfigService.resetConfig()
+    this.tableConfigService.resetConfig();
   }
 }

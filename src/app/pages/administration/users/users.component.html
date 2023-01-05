@@ -7,7 +7,7 @@
   </ng-container>
   <ng-template #table>
     <app-filter-bar [param]="'users'"></app-filter-bar>
-    <app-table [typeOfTable]="'users'" [data]="data$"></app-table>
+    <app-table [typeOfTable]="'users'" [data]="data"></app-table>
     <mat-paginator
       [pageIndex]="pageIndex"
       [hidePageSize]="true"

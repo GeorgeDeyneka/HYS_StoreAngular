@@ -13,7 +13,7 @@ import { HttpUser } from 'src/app/models/interfaces/http-user.interface';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  public data$: HttpUser[] = [];
+  public data: HttpUser[] = [];
   private filterSubj$: Subscription;
   private dataSubj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
     this.dataSubj$ = this.usersService.getList<HttpUser[]>().subscribe((data) => {
       if (data.length) {
         this.loading$.next(false);
-        this.data$ = this.filterBarService.setData(data, 5);
+        this.data = this.filterBarService.setData(data, 5);
         this.dataLength = data.length;
       }
     });
@@ -41,17 +41,17 @@ export class UsersComponent implements OnInit {
   }
 
   changePage(event: any) {
-    let arr = this.filterBarService.changePage(event);
-    this.data$ = arr[0] as HttpUser[];
-    this.pageIndex = arr[1] as number;
+    let obj = this.filterBarService.changePage(event);
+    this.data = obj.data;
+    this.pageIndex = obj.index;
   }
 
   changeData(elem: filterConfig) {
-    let arr = this.filterBarService.changeData(elem, 'createdAt');
+    let obj = this.filterBarService.changeData(elem, 'createdAt');
 
-    this.data$ = arr[0] as HttpUser[];
-    this.dataLength = arr[1] as number;
-    this.pageIndex = arr[2] as number;
+    this.data = obj.data;
+    this.dataLength = obj.length;
+    this.pageIndex = obj.index;
   }
 
   ngOnDestroy() {
