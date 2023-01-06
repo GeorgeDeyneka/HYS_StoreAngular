@@ -1,10 +1,10 @@
-import { FilterBarService } from '../shared-admin/services/filter-bar.service';
-import { TableConfigService } from '../shared-admin/services/table-config.service';
+import { FilterBarService } from '../shared/services/filter-bar.service';
+import { TableConfigService } from '../shared/services/table-config.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { Product } from '../../../models/interfaces/products.interface';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
+import { HttpProduct } from 'src/app/models/interfaces/http-product.interface';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +12,7 @@ import { filterConfig } from 'src/app/models/interfaces/default-config.interface
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  public data: Product[] = [];
+  public data: HttpProduct[] = [];
   private filterSubj$: Subscription;
   private dataSubj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
@@ -22,17 +22,19 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     private storeService: StoreService,
     private tableConfigService: TableConfigService,
-    private filterBarService: FilterBarService
+    private filterBarService: FilterBarService<HttpProduct>
   ) {}
 
   ngOnInit(): void {
-    this.dataSubj$ = this.storeService.data.subscribe((data) => {
-      if (data) {
-        this.loading$.next(false);
-        this.data = this.filterBarService.setData(data, 5);
-        this.dataLength = data.length;
-      }
-    });
+    this.dataSubj$ = this.storeService
+      .getList<HttpProduct[]>()
+      .subscribe((data) => {
+        if (data.length) {
+          this.loading$.next(false);
+          this.data = this.filterBarService.setData(data, 5);
+          this.dataLength = data.length;
+        }
+      });
 
     this.filterSubj$ = this.tableConfigService.configuration$.subscribe(
       (elem) => this.changeData(elem)
@@ -46,7 +48,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   changeData(elem: filterConfig) {
-    let obj = this.filterBarService.changeData(elem);
+    let obj = this.filterBarService.changeData(elem, 'price');
 
     this.data = obj.data;
     this.dataLength = obj.length;
@@ -56,5 +58,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.filterSubj$.unsubscribe();
     this.dataSubj$.unsubscribe();
+    this.tableConfigService.resetConfig();
   }
 }

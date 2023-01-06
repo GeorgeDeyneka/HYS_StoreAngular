@@ -4,22 +4,15 @@
     <input matInput #searchInput type="text" placeholder="Search..." />
   </mat-form-field>
 
-  <div class="filter__price">
-    <mat-form-field *ngIf="param == 'products'" class="filter__option">
-      <mat-label>Price from...</mat-label>
+  <div class="filter__price-or-date">
+    <mat-form-field class="filter__option">
+      <mat-label>{{
+        param == "users" ? "Date From..." : "Price From..."
+      }}</mat-label>
       <mat-select
-        [(value)]="priceFromVal"
-        (selectionChange)="setPriceSelect($event)"
+        [(value)]="priceOrDateFromVal"
+        (selectionChange)="setInputDisabled($event)"
       >
-        <mat-option>None</mat-option>
-        <mat-option value="more">More than</mat-option>
-        <mat-option value="less">Less than</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field *ngIf="param == 'users'" class="filter__option">
-      <mat-label>Price from...</mat-label>
-      <mat-select [(value)]="priceFromVal">
         <mat-option>None</mat-option>
         <mat-option value="more">More than</mat-option>
         <mat-option value="less">Less than</mat-option>
@@ -28,8 +21,7 @@
 
     <mat-form-field class="filter__params">
       <input
-        [disabled]="priceInputDis"
-        class="price__input"
+        [disabled]="priceOrDateInputDis"
         #priceInput
         *ngIf="param == 'products'"
         matInput
@@ -38,6 +30,7 @@
         placeholder="Price..."
       />
       <input
+        [disabled]="priceOrDateInputDis"
         #dateInput
         *ngIf="param == 'users'"
         matInput
@@ -68,8 +61,12 @@
         (selectionChange)="setSort($event)"
       >
         <mat-option>None</mat-option>
-        <mat-option value="name">Name</mat-option>
-        <mat-option value="price">Price</mat-option>
+        <mat-option *ngIf="param == 'products'" value="name">Name</mat-option>
+        <mat-option *ngIf="param == 'users'" value="username"
+          >Username</mat-option
+        >
+        <mat-option *ngIf="param == 'products'" value="price">Price</mat-option>
+        <mat-option *ngIf="param == 'users'" value="createdAt">Date</mat-option>
         <mat-option value="id">Id</mat-option>
       </mat-select>
     </mat-form-field>

@@ -1,21 +1,20 @@
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
-import { Product } from '../../../../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FilterBarService {
-  public data: Product[] = [];
-  public copyArr: Product[] = [];
-  private baseData: Product[] = [];
+export class FilterBarService<T> {
+  public data: T[] = [];
+  public copyArr: T[] = [];
+  private baseData: T[] = [];
   public pageIndex: number = 0;
   public dataLength: number;
   private num: number;
 
   constructor() {}
 
-  setData(data: Product[], num: number) {
+  setData(data: T[], num: number) {
     this.data = data;
     this.baseData = [...data];
     this.copyArr = [...data];
@@ -26,17 +25,28 @@ export class FilterBarService {
     return this.data;
   }
 
-  changeData(elem: filterConfig) {
+  changeData(elem: filterConfig, param: 'price' | 'createdAt') {
+    let typeOfName = '';
+    if (param === 'createdAt') typeOfName = 'username';
+    else typeOfName = 'name';
+
     if (elem.search) {
-      this.setSearch(elem);
+      this.setSearch(elem, typeOfName);
     }
 
-    if (!elem.search && !elem.price) {
+    if (
+      (param === 'price' && !elem.search && !elem.price) ||
+      (param === 'createdAt' && !elem.search && !elem.createdAt)
+    ) {
       this.resetFilterData();
     }
 
     if (elem.price) {
       this.setFilterPrice(elem);
+    }
+
+    if (elem.createdAt) {
+      this.setFilterDate(elem);
     }
 
     if (elem.sort && elem.sortFrom) {
@@ -52,14 +62,23 @@ export class FilterBarService {
   }
 
   setFilterPrice(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((prod) =>
+    this.data = (el.search ? this.data : this.baseData).filter((prod: any) =>
       el.priceSelect == 'more' ? prod.price > el.price : prod.price < el.price
     );
   }
 
-  setSearch(el: filterConfig) {
+  setFilterDate(el: filterConfig) {
+    this.data = (el.search ? this.data : this.baseData).filter((user: any) =>
+      el.dateSelect == 'more'
+        ? user.createdAt > el.createdAt
+        : user.createdAt < el.createdAt
+    );
+  }
+
+  setSearch(el: filterConfig, searchBy: string) {
     this.data = this.baseData.filter(
-      (prod) => prod.name.toLowerCase().search(el.search.toLowerCase()) >= 0
+      (prod: any) =>
+        prod[searchBy].toLowerCase().search(el.search.toLowerCase()) >= 0
     );
   }
 

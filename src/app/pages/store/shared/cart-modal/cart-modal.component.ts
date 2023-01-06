@@ -1,6 +1,6 @@
-import { Product } from '../../../../../models/interfaces/products.interface';
-import { CartService } from '../../../../../shared/services/cart.service';
 import { Component, Input, OnChanges } from '@angular/core';
+import { HttpProduct } from 'src/app/models/interfaces/http-product.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-cart-modal',
@@ -8,7 +8,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./cart-modal.component.scss'],
 })
 export class CartModalComponent implements OnChanges {
-  public arrCart: Product[] = [];
+  public arrCart: HttpProduct[] = [];
   public totalPrice: number;
 
   @Input() className: string;
@@ -19,7 +19,7 @@ export class CartModalComponent implements OnChanges {
     this.updateData();
   }
 
-  deleteElem(elem: Product): void {
+  deleteElem(elem: HttpProduct): void {
     this.cartService.deleteProduct(elem);
     this.arrCart = this.cartService.getData();
   }

@@ -1,7 +1,8 @@
-import { ButtonTextEnum } from '../../../../../models/enums/button-text.enum';
-import { CartService } from '../../../../../shared/services/cart.service';
-import { Product } from '../../../../../models/interfaces/products.interface';
+
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ButtonTextEnum } from 'src/app/models/enums/button-text.enum';
+import { HttpProduct } from 'src/app/models/interfaces/http-product.interface';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -9,7 +10,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.scss'],
 })
 export class ProductItemComponent implements OnChanges, OnInit {
-  @Input() public productItem: Product;
+  @Input() public productItem: HttpProduct;
   public buttonText: string = ButtonTextEnum.add;
 
   constructor(private cartService: CartService) {}

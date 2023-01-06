@@ -1,6 +1,10 @@
 #Required:
 
+- Fix sorted username by unicode
+
 #Additional
+- Make lazy load on button load more
+- Add routing for errors module
 - Change README.md
 - Hide modal when it became empty
 - Sync the counter with buttons "Add to Cart"
@@ -10,4 +14,4 @@
 - Add github pages!
 
 #Questions
-- How to delete local-shared modules?
+- 404 page must have header & footer?

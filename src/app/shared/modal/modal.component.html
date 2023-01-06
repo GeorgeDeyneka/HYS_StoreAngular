@@ -1,6 +1,7 @@
 <div class="modal">
-  <h1 mat-dialog-title *ngIf="modalType === 'edit'">Edit object</h1>
-  <h1 mat-dialog-title *ngIf="modalType === 'create'">Create object</h1>
+  <h1 mat-dialog-title *ngIf="modalType !== 'delete'">
+    {{ modalText[modalType] }}
+  </h1>
 
   <div *ngIf="modalType === 'delete'" mat-dialog-title>
     <svg class="modal__icon-warning">
@@ -10,14 +11,16 @@
 
   <div mat-dialog-content>
     <form *ngIf="modalType !== 'delete'" [formGroup]="form" class="modal__form">
-      <mat-form-field *ngFor="let key of keys">
-        <mat-label>{{ key }}</mat-label>
-        <input [formControlName]="key" matInput />
-      </mat-form-field>
+      <ng-container *ngIf="keys">
+        <mat-form-field *ngFor="let key of keys">
+          <mat-label>{{ key }}</mat-label>
+          <input autocomplete="off" [formControlName]="key" matInput />
+        </mat-form-field>
+      </ng-container>
     </form>
 
     <h1 *ngIf="modalType === 'delete'" mat-dialog-content>
-      You will delete object #{{ data.keys.id }}. Continue?
+      {{ modalText[modalType] }}{{ data.id }}. Continue?
     </h1>
 
     <div mat-dialog-actions>
@@ -25,9 +28,26 @@
         mat-button
         [theme]="'aqua'"
         [text]="'Cancel'"
-        (click)="onNoClick()"
+        (click)="closeModal()"
       ></app-button>
-      <app-button mat-button [text]="'Okay'" (click)="onNoClick()"></app-button>
+      <app-button
+        *ngIf="modalType === 'create'"
+        mat-button
+        [text]="'Okay'"
+        (click)="createElem()"
+      ></app-button>
+      <app-button
+        *ngIf="modalType === 'edit'"
+        mat-button
+        [text]="'Okay'"
+        (click)="updateElem()"
+      ></app-button>
+      <app-button
+        *ngIf="modalType === 'delete'"
+        mat-button
+        [text]="'Okay'"
+        (click)="deleteElem()"
+      ></app-button>
     </div>
   </div>
 </div>

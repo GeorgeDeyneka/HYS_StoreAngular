@@ -1,4 +1,4 @@
-import { TableConfigService } from '../../services/table-config.service';
+import { TableConfigService } from '../../../pages/administration/shared/services/table-config.service';
 import {
   Component,
   ViewChild,
@@ -7,8 +7,10 @@ import {
   Input,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { debounceTime, fromEvent, map, pluck } from 'rxjs';
+import { debounceTime, fromEvent, map } from 'rxjs';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
+import { DataName } from 'src/app/models/enums/data-name.enum';
 
 @Component({
   selector: 'app-filter-bar',
@@ -23,10 +25,10 @@ export class FilterBarComponent implements AfterViewInit {
   @ViewChild('dateInput') dateInput: ElementRef;
 
   public sortDis: boolean = true;
-  public priceInputDis: boolean = true;
+  public priceOrDateInputDis: boolean = true;
   public sortValue: string;
   public sortFromVal: string;
-  public priceFromVal: string;
+  public priceOrDateFromVal: string;
 
   constructor(
     private tableConfigService: TableConfigService,
@@ -34,11 +36,12 @@ export class FilterBarComponent implements AfterViewInit {
   ) {}
 
   openCreateDialog() {
-    const dialogRef =
-      this.param == 'products'
-        ? this.matDialog.open(ModalComponent, {
+    const config: Object =
+      this.param == DataName.products
+        ? {
             data: {
-              typeOfModal: 'create',
+              typeOfData: this.param,
+              typeOfModal: ModalTypes.create,
               keys: {
                 name: '',
                 price: '',
@@ -47,25 +50,35 @@ export class FilterBarComponent implements AfterViewInit {
             },
             height: '450px',
             width: '400px',
-          })
-        : this.matDialog.open(ModalComponent, {
+          }
+        : {
             data: {
-              typeOfModal: 'create',
+              typeOfData: this.param,
+              typeOfModal: ModalTypes.create,
               keys: {
-                name: '',
-                description: '',
+                username: '',
               },
             },
-            height: '400px',
+            height: '250px',
             width: '400px',
-          });
+          };
+
+    const dialogRef = this.matDialog.open(ModalComponent, config);
   }
 
-  setPriceSelect(event: any) {
-    if (this.priceInput) this.priceInput.nativeElement.value = '';
-    this.tableConfigService.setPrice(0);
-    this.tableConfigService.setPriceSelect(event.value);
-    this.priceInputDis = !this.tableConfigService.DefaultConfig.priceSelect;
+  setInputDisabled(event: any) {
+    if (this.priceInput) {
+      this.priceInput.nativeElement.value = '';
+      this.tableConfigService.setPrice(0);
+      this.tableConfigService.setPriceSelect(event.value);
+    } else if (this.dateInput) {
+      this.dateInput.nativeElement.value = '';
+      this.tableConfigService.setDate('');
+      this.tableConfigService.setDateSelect(event.value);
+    }
+    this.priceOrDateInputDis =
+      !this.tableConfigService.DefaultConfig.priceSelect &&
+      !this.tableConfigService.DefaultConfig.dateSelect;
   }
 
   setSort(event: any) {
@@ -75,7 +88,7 @@ export class FilterBarComponent implements AfterViewInit {
   resetConfig() {
     this.tableConfigService.resetConfig();
     this.searchInput.nativeElement.value = '';
-    this.priceFromVal = '';
+    this.priceOrDateFromVal = '';
     this.sortFromVal = '';
     if (this.priceInput) this.priceInput.nativeElement.value = '';
     this.sortValue = '';
@@ -83,7 +96,7 @@ export class FilterBarComponent implements AfterViewInit {
 
   setSortFrom(event: any) {
     this.tableConfigService.setSortFrom(event.value);
-    this.sortDis = !this.tableConfigService.DefaultConfig.sortFrom;
+    this.sortDis = !!!this.tableConfigService.DefaultConfig.sortFrom;
     if (!event.value) this.sortValue = '';
   }
 
@@ -99,7 +112,7 @@ export class FilterBarComponent implements AfterViewInit {
       fromEvent(this.priceInput.nativeElement, 'input')
         .pipe(
           debounceTime(1000),
-          map((event: any) => event.target.value),
+          map((event: any) => event.target.value)
         )
         .subscribe((data) => this.tableConfigService.setPrice(+data));
     }

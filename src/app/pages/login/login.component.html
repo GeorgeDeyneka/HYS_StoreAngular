@@ -1,0 +1,22 @@
+<div class="modal">
+  <h1>Login</h1>
+  <form [formGroup]="form" class="modal__form">
+    <mat-form-field>
+      <mat-label>Login</mat-label>
+      <input formControlName="username" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput />
+    </mat-form-field>
+  </form>
+
+  <div class="modal__buttons">
+    <app-button (click)="onNoClose()" [text]="'Cancel'"></app-button>
+    <app-button
+      (click)="makeAuthRequest()"
+      [theme]="'aqua'"
+      [text]="'Okay'"
+    ></app-button>
+  </div>
+</div>

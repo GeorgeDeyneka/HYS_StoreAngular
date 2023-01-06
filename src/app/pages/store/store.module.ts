@@ -12,26 +12,32 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { SharedStoreModule } from './shared-store/shared-store.module';
+import { ProductItemComponent } from './shared/product-item/product-item.component';
+import { HeaderBarComponent } from './shared/header-bar/header-bar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
 
 @NgModule({
   declarations: [
     StoreComponent,
+    ProductItemComponent,
+    HeaderBarComponent,
+    FooterComponent,
     ProductDetailsComponent,
     ProductListComponent,
     CartComponent,
     CartItemComponent,
     WelcomePageComponent,
+    CartModalComponent
   ],
   imports: [
     CommonModule,
     StoreRoutingModule,
     SharedModule,
-    SharedStoreModule,
     RouterModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports: [StoreComponent],
 })

@@ -1,4 +1,21 @@
 <div class="container">
   <h2 class="users__title">Users</h2>
-  <app-filter-bar [param]="'users'" ></app-filter-bar>
+  <ng-container *ngIf="loading$ | async; else table">
+    <div class="spinner__wrapper">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-container>
+  <ng-template #table>
+    <app-filter-bar [param]="dataName"></app-filter-bar>
+    <app-table [typeOfTable]="dataName" [data]="data"></app-table>
+    <mat-paginator
+      [pageIndex]="pageIndex"
+      [hidePageSize]="true"
+      [length]="dataLength"
+      (page)="changePage($event)"
+      [pageSize]="5"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </ng-template>
 </div>

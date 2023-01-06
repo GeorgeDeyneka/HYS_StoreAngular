@@ -1,23 +1,22 @@
+import { HttpProduct } from './../../models/interfaces/http-product.interface';
 import { LocalStorageService } from './local-storage.service';
-import { Product } from './../../models/interfaces/products.interface';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  public arrCart: Product[] =
-    this.localStorageService.getData<Product[]>('cartData') || [];
+  public arrCart: HttpProduct[] =
+    this.localStorageService.getData<HttpProduct[]>('cartData') || [];
 
-  public arrCartCount: Product[];
+  public arrCartCount: HttpProduct[];
 
   constructor(private localStorageService: LocalStorageService) {}
 
-  setData(elem: Product): void {
+  setData(elem: HttpProduct): void {
     this.arrCart.push(elem);
-    this.transformData()
-    this.localStorageService.setData<Product[]>('cartData', this.arrCart);
+    this.transformData();
+    this.localStorageService.setData<HttpProduct[]>('cartData', this.arrCart);
   }
 
   transformData() {
@@ -35,21 +34,21 @@ export class CartService {
     return this.getData().reduce((acc, el) => (acc += el.price * el.count!), 0);
   }
 
-  checkProduct(prod: Product) {
+  checkProduct(prod: HttpProduct) {
     const data = this.arrCart;
     return data.filter((el) => el.id === prod.id).length;
   }
 
-  getData(): Product[] {
+  getData(): HttpProduct[] {
     this.transformData();
     return this.arrCartCount;
   }
 
-  plusCounter(elem: Product) {
+  plusCounter(elem: HttpProduct) {
     this.setData(elem);
   }
 
-  minusCounter(elem: Product) {
+  minusCounter(elem: HttpProduct) {
     let index: number = 0;
     this.arrCart.forEach((item, i) => {
       if (JSON.stringify(item) === JSON.stringify(elem)) {
@@ -57,18 +56,18 @@ export class CartService {
       }
     });
     this.arrCart.splice(index, 1);
-    this.transformData()
-    this.localStorageService.setData<Product[]>('cartData', this.arrCart);
+    this.transformData();
+    this.localStorageService.setData<HttpProduct[]>('cartData', this.arrCart);
   }
 
-  deleteProduct(prod: Product): void {
+  deleteProduct(prod: HttpProduct): void {
     this.arrCart = this.arrCart.filter((el) => el.id !== prod.id);
-    this.localStorageService.setData<Product[]>('cartData', this.arrCart);
+    this.localStorageService.setData<HttpProduct[]>('cartData', this.arrCart);
   }
 
-  addToCart(elem: Product): void {
+  addToCart(elem: HttpProduct): void {
     this.arrCart.push(elem);
-    this.localStorageService.setData<Product[]>('cartData', this.arrCart);
+    this.localStorageService.setData<HttpProduct[]>('cartData', this.arrCart);
   }
 
   clearCart() {
