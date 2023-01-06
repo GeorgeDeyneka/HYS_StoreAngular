@@ -9,6 +9,8 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, fromEvent, map } from 'rxjs';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
+import { DataName } from 'src/app/models/enums/data-name.enum';
 
 @Component({
   selector: 'app-filter-bar',
@@ -34,12 +36,12 @@ export class FilterBarComponent implements AfterViewInit {
   ) {}
 
   openCreateDialog() {
-    const dialogRef =
-      this.param == 'products'
-        ? this.matDialog.open(ModalComponent, {
+    const config: Object =
+      this.param == DataName.products
+        ? {
             data: {
               typeOfData: this.param,
-              typeOfModal: 'create',
+              typeOfModal: ModalTypes.create,
               keys: {
                 name: '',
                 price: '',
@@ -48,18 +50,20 @@ export class FilterBarComponent implements AfterViewInit {
             },
             height: '450px',
             width: '400px',
-          })
-        : this.matDialog.open(ModalComponent, {
+          }
+        : {
             data: {
               typeOfData: this.param,
-              typeOfModal: 'create',
+              typeOfModal: ModalTypes.create,
               keys: {
                 username: '',
               },
             },
-            height: '400px',
+            height: '250px',
             width: '400px',
-          });
+          };
+
+    const dialogRef = this.matDialog.open(ModalComponent, config);
   }
 
   setInputDisabled(event: any) {

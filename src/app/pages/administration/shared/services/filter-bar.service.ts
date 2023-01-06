@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FilterBarService<T> {
-  public data$: T[] = [];
+  public data: T[] = [];
   public copyArr: T[] = [];
   private baseData: T[] = [];
   public pageIndex: number = 0;
@@ -15,14 +15,14 @@ export class FilterBarService<T> {
   constructor() {}
 
   setData(data: T[], num: number) {
-    this.data$ = data;
+    this.data = data;
     this.baseData = [...data];
     this.copyArr = [...data];
     this.dataLength = data.length;
     this.num = num;
     this.sliceForFirstPage();
 
-    return this.data$;
+    return this.data;
   }
 
   changeData(elem: filterConfig, param: 'price' | 'createdAt') {
@@ -54,21 +54,21 @@ export class FilterBarService<T> {
     }
 
     this.pageIndex = 0;
-    this.dataLength = this.data$.length;
-    this.copyArr = [...this.data$];
+    this.dataLength = this.data.length;
+    this.copyArr = [...this.data];
     this.sliceForFirstPage();
 
-    return [this.data$, this.dataLength, this.pageIndex];
+    return { data: this.data, length: this.dataLength, index: this.pageIndex };
   }
 
   setFilterPrice(el: filterConfig) {
-    this.data$ = (el.search ? this.data$ : this.baseData).filter((prod: any) =>
+    this.data = (el.search ? this.data : this.baseData).filter((prod: any) =>
       el.priceSelect == 'more' ? prod.price > el.price : prod.price < el.price
     );
   }
 
   setFilterDate(el: filterConfig) {
-    this.data$ = (el.search ? this.data$ : this.baseData).filter((user: any) =>
+    this.data = (el.search ? this.data : this.baseData).filter((user: any) =>
       el.dateSelect == 'more'
         ? user.createdAt > el.createdAt
         : user.createdAt < el.createdAt
@@ -76,38 +76,38 @@ export class FilterBarService<T> {
   }
 
   setSearch(el: filterConfig, searchBy: string) {
-    this.data$ = this.baseData.filter(
+    this.data = this.baseData.filter(
       (prod: any) =>
         prod[searchBy].toLowerCase().search(el.search.toLowerCase()) >= 0
     );
   }
 
   setSortData(el: filterConfig) {
-    this.data$ = [...(el.search || el.price ? this.data$ : this.baseData)];
-    this.data$.sort(this.byField(el.sort, el.sortFrom));
+    this.data = [...(el.search || el.price ? this.data : this.baseData)];
+    this.data.sort(this.byField(el.sort, el.sortFrom));
   }
 
   resetFilterData() {
-    this.data$ = this.baseData;
+    this.data = this.baseData;
   }
 
   changePage(event: any) {
     let index = event.pageIndex;
     let lastIndex = event.previousPageIndex;
     if (index > lastIndex) {
-      this.data$ = this.copyArr.slice((lastIndex + 1) * 5, (index + 1) * 5);
+      this.data = this.copyArr.slice((lastIndex + 1) * 5, (index + 1) * 5);
       this.pageIndex++;
     }
     if (index < lastIndex) {
-      this.data$ = this.copyArr.slice(index * 5, lastIndex * 5);
+      this.data = this.copyArr.slice(index * 5, lastIndex * 5);
       this.pageIndex--;
     }
 
-    return [this.data$, this.pageIndex];
+    return { data: this.data, index: this.pageIndex };
   }
 
   sliceForFirstPage() {
-    this.data$ = this.copyArr.slice(0, this.num);
+    this.data = this.copyArr.slice(0, this.num);
   }
 
   byField(field: string, from: string) {

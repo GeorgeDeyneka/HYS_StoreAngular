@@ -6,8 +6,9 @@
 
   <div class="filter__price-or-date">
     <mat-form-field class="filter__option">
-      <mat-label *ngIf="param == 'users'">Date from...</mat-label>
-      <mat-label *ngIf="param == 'products'">Price from...</mat-label>
+      <mat-label>{{
+        param == "users" ? "Date From..." : "Price From..."
+      }}</mat-label>
       <mat-select
         [(value)]="priceOrDateFromVal"
         (selectionChange)="setInputDisabled($event)"
@@ -61,11 +62,11 @@
       >
         <mat-option>None</mat-option>
         <mat-option *ngIf="param == 'products'" value="name">Name</mat-option>
-        <mat-option *ngIf="param == 'users'" value="username">Username</mat-option>
-        <mat-option *ngIf="param == 'products'" value="price">Price</mat-option>
-        <mat-option *ngIf="param == 'users'" value="createdAt"
-          >Date</mat-option
+        <mat-option *ngIf="param == 'users'" value="username"
+          >Username</mat-option
         >
+        <mat-option *ngIf="param == 'products'" value="price">Price</mat-option>
+        <mat-option *ngIf="param == 'users'" value="createdAt">Date</mat-option>
         <mat-option value="id">Id</mat-option>
       </mat-select>
     </mat-form-field>
