@@ -1,6 +1,7 @@
 import { ProductType } from './../../../models/interfaces/http-product.interface';
 import { CartService } from '../../services/cart.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Select } from 'src/app/models/enums/select.enum';
 
 @Component({
   selector: 'app-counter',
@@ -16,7 +17,7 @@ export class CounterComponent implements OnInit {
   ngOnInit(): void {}
 
   changeCounter(doing: 'plus' | 'minus', elem: ProductType): void {
-    doing === 'plus'
+    doing == Select.plus
       ? this.cartService.plusCounter(elem)
       : this.cartService.minusCounter(elem);
   }

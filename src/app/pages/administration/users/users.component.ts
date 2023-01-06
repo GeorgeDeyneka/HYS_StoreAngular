@@ -1,8 +1,8 @@
+import { UsersFilterService } from './../shared/services/users-filter.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
 import { TableConfigService } from '../shared/services/table-config.service';
-import { FilterBarService } from '../shared/services/filter-bar.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
 import { UsersService } from '../shared/services/users.service';
 import { UserType } from 'src/app/models/interfaces/user.interface';
@@ -25,14 +25,14 @@ export class UsersComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private tableConfigService: TableConfigService,
-    private filterBarService: FilterBarService<UserType>
+    private usersFilterService: UsersFilterService,
   ) {}
 
   ngOnInit(): void {
     this.dataSubj$ = this.usersService.getList<UserType[]>().subscribe((data) => {
       if (data.length) {
         this.loading$.next(false);
-        this.data = this.filterBarService.setData(data, 5);
+        this.data = this.usersFilterService.setData(data, 5);
         this.dataLength = data.length;
       }
     });
@@ -43,13 +43,13 @@ export class UsersComponent implements OnInit {
   }
 
   changePage(event: any) {
-    let obj = this.filterBarService.changePage(event);
+    let obj = this.usersFilterService.changePage(event);
     this.data = obj.data;
     this.pageIndex = obj.index;
   }
 
   changeData(elem: filterConfig) {
-    let obj = this.filterBarService.changeData(elem, 'createdAt');
+    let obj = this.usersFilterService.changeData(elem, 'createdAt');
 
     this.data = obj.data;
     this.dataLength = obj.length;

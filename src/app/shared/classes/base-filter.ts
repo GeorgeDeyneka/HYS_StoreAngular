@@ -1,10 +1,8 @@
+import { DataFields } from 'src/app/models/enums/data-fields.enum';
+import { Select } from 'src/app/models/enums/select.enum';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
-import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class FilterBarService<T> {
+export class BaseFilter<T> {
   public data: T[] = [];
   public copyArr: T[] = [];
   private baseData: T[] = [];
@@ -26,17 +24,16 @@ export class FilterBarService<T> {
   }
 
   changeData(elem: filterConfig, param: 'price' | 'createdAt') {
-    let typeOfName = '';
-    if (param === 'createdAt') typeOfName = 'username';
-    else typeOfName = 'name';
+    const typeOfName: string =
+      param == DataFields.createdAt ? DataFields.username : DataFields.name;
 
     if (elem.search) {
       this.setSearch(elem, typeOfName);
     }
 
     if (
-      (param === 'price' && !elem.search && !elem.price) ||
-      (param === 'createdAt' && !elem.search && !elem.createdAt)
+      (param === DataFields.price && !elem.search && !elem.price) ||
+      (param === DataFields.createdAt && !elem.search && !elem.createdAt)
     ) {
       this.resetFilterData();
     }
@@ -63,13 +60,15 @@ export class FilterBarService<T> {
 
   setFilterPrice(el: filterConfig) {
     this.data = (el.search ? this.data : this.baseData).filter((prod: any) =>
-      el.priceSelect == 'more' ? prod.price > el.price : prod.price < el.price
+      el.priceSelect == Select.more
+        ? prod.price > el.price
+        : prod.price < el.price
     );
   }
 
   setFilterDate(el: filterConfig) {
     this.data = (el.search ? this.data : this.baseData).filter((user: any) =>
-      el.dateSelect == 'more'
+      el.dateSelect == Select.more
         ? user.createdAt > el.createdAt
         : user.createdAt < el.createdAt
     );
@@ -112,7 +111,7 @@ export class FilterBarService<T> {
 
   byField(field: string, from: string) {
     return (a: any, b: any) =>
-      from == 'more'
+      from == Select.more
         ? a[field] < b[field]
           ? 1
           : -1
