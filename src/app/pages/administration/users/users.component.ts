@@ -5,7 +5,7 @@ import { TableConfigService } from '../shared/services/table-config.service';
 import { FilterBarService } from '../shared/services/filter-bar.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
 import { UsersService } from '../shared/services/users.service';
-import { HttpUser } from 'src/app/models/interfaces/http-user.interface';
+import { UserType } from 'src/app/models/interfaces/user.interface';
 import { DataName } from 'src/app/models/enums/data-name.enum';
 
 @Component({
@@ -15,7 +15,7 @@ import { DataName } from 'src/app/models/enums/data-name.enum';
 })
 export class UsersComponent implements OnInit {
   public dataName = DataName.users
-  public data: HttpUser[] = [];
+  public data: UserType[] = [];
   private filterSubj$: Subscription;
   private dataSubj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
@@ -25,11 +25,11 @@ export class UsersComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private tableConfigService: TableConfigService,
-    private filterBarService: FilterBarService<HttpUser>
+    private filterBarService: FilterBarService<UserType>
   ) {}
 
   ngOnInit(): void {
-    this.dataSubj$ = this.usersService.getList<HttpUser[]>().subscribe((data) => {
+    this.dataSubj$ = this.usersService.getList<UserType[]>().subscribe((data) => {
       if (data.length) {
         this.loading$.next(false);
         this.data = this.filterBarService.setData(data, 5);

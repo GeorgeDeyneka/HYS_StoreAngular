@@ -1,4 +1,4 @@
-import { HttpProduct } from './../../../models/interfaces/http-product.interface';
+import { ProductType } from './../../../models/interfaces/http-product.interface';
 import { BehaviorSubject, first } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
@@ -9,14 +9,14 @@ import { StoreService } from '../store.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  protected productsData: HttpProduct[];
+  protected productsData: ProductType[];
   public loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
     this.storeService
-      .getList<HttpProduct[]>()
+      .getList<ProductType[]>()
       .pipe(first())
       .subscribe((data) => {
         this.productsData = data;

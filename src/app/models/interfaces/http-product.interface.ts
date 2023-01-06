@@ -1,4 +1,4 @@
-export interface HttpProduct {
+export interface ProductType {
   id: string;
   name: string;
   author: string;

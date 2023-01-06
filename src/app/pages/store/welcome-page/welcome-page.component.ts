@@ -1,4 +1,4 @@
-import { HttpProduct } from './../../../models/interfaces/http-product.interface';
+import { ProductType } from './../../../models/interfaces/http-product.interface';
 import { first, BehaviorSubject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
@@ -9,14 +9,14 @@ import { StoreService } from '../store.service';
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
-  public slicedData: HttpProduct[];
+  public slicedData: ProductType[];
   public loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private storeService: StoreService) {}
 
-  getCheapestProducts(count: number): HttpProduct[] {
+  getCheapestProducts(count: number): ProductType[] {
     this.storeService
-      .getList<HttpProduct[]>()
+      .getList<ProductType[]>()
       .pipe(first())
       .subscribe((data) => {
         this.slicedData = [...data]

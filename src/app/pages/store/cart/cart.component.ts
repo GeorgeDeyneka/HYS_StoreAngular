@@ -1,4 +1,4 @@
-import { HttpProduct } from './../../../models/interfaces/http-product.interface';
+import { ProductType } from './../../../models/interfaces/http-product.interface';
 import { CartService } from '../../../shared/services/cart.service';
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 
@@ -8,7 +8,7 @@ import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit{
-  public arrCart: HttpProduct[];
+  public arrCart: ProductType[];
   public totalPrice: number;
 
   constructor(private cartService: CartService) {}
@@ -21,7 +21,7 @@ export class CartComponent implements OnInit{
     this.arrCart = this.cartService.clearCart();
   }
 
-  deleteElem(elem: HttpProduct) {
+  deleteElem(elem: ProductType) {
     this.cartService.deleteProduct(elem);
     this.updateData();
   }

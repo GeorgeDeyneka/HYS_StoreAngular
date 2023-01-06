@@ -1,4 +1,4 @@
-export interface HttpUser {
+export interface UserType {
   username: string;
   password: string;
   createdAt: string;
