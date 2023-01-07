@@ -11,7 +11,8 @@ export class BaseHttpService {
 
   constructor(private http: HttpClient) {}
 
-  getList<T>(): Observable<T> {
+  getList<T>(params?: string): Observable<T> {
+    if (params) return this.http.get<T>(this.BASE_URL + this.path + params);
     return this.http.get<T>(this.BASE_URL + this.path);
   }
 

@@ -10,17 +10,28 @@ import { StoreService } from '../store.service';
 })
 export class ProductListComponent implements OnInit {
   protected productsData: ProductType[];
+  public limitCount: number = 8;
   public loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private storeService: StoreService) {}
 
-  ngOnInit(): void {
-    this.storeService
-      .getList<ProductType[]>()
+  loadMore(num: number) {
+    if (num > this.productsData.length) return;
+    this.limitCount += num;
+    this.serverData;
+  }
+
+  get serverData() {
+    return this.storeService
+      .getList<ProductType[]>(`?limit=${this.limitCount}`)
       .pipe(first())
       .subscribe((data) => {
         this.productsData = data;
         if (this.productsData.length) this.loading$.next(false);
       });
+  }
+
+  ngOnInit(): void {
+    this.serverData;
   }
 }
