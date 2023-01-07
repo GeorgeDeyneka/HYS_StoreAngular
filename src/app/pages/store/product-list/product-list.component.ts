@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   constructor(private storeService: StoreService) {}
 
   loadMore(num: number) {
-    if (num > this.productsData.length) return;
+    if (this.limitCount > this.productsData.length) return;
     this.limitCount += num;
     this.serverData;
   }
