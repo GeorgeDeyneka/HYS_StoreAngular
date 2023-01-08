@@ -20,6 +20,14 @@
           >Products</a
         >
       </li>
+      <li class="nav__item">
+        <a
+          class="nav__link"
+          [routerLink]="['/administration/orders']"
+          [routerLinkActive]="'nav__link-active'"
+          >Orders</a
+        >
+      </li>
     </ul>
     <a [routerLink]="['/']" (click)="removeToken()"
       ><span class="material-symbols-outlined"> login </span>LogOut</a

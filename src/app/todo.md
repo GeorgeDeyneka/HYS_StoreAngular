@@ -1,6 +1,7 @@
 #Required:
 - Fix sorted username by unicode
-- Make lazy load on button load more
+- Add orders
+- Add updating table on using CRUD?
 
 #Additional
 - Add animation on buttons

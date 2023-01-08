@@ -4,6 +4,6 @@ import { BaseHttpService } from 'src/app/shared/services/base-http.service';
 @Injectable({
   providedIn: 'root',
 })
-export class UsersService extends BaseHttpService {
-  override path: string = 'users/';
+export class OrdersService extends BaseHttpService {
+  override path: string = 'orders/';
 }

@@ -12,7 +12,7 @@ import { DataName } from 'src/app/models/enums/data-name.enum';
 })
 export class TableComponent implements OnInit {
   @Input() data: any[];
-  @Input() typeOfTable: 'users' | 'products';
+  @Input() typeOfTable: 'users' | 'products' | 'orders';
 
   constructor(public matDialog: MatDialog) {}
 

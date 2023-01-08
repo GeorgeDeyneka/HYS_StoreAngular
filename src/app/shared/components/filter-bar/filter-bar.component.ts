@@ -18,7 +18,7 @@ import { DataName } from 'src/app/models/enums/data-name.enum';
   styleUrls: ['./filter-bar.component.scss'],
 })
 export class FilterBarComponent implements AfterViewInit {
-  @Input() param: 'products' | 'users';
+  @Input() param: 'products' | 'users' | 'orders';
 
   @ViewChild('searchInput') searchInput: ElementRef;
   @ViewChild('priceInput') priceInput: ElementRef;
