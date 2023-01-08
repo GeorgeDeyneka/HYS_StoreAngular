@@ -74,7 +74,7 @@
   }
 
   &__order-details {
-    max-width: 250px;
+    max-width: -webkit-fill-available;
     display: flex;
     left: 65px;
     padding-top: 3.5px;

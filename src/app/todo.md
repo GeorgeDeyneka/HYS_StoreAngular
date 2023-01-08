@@ -2,6 +2,7 @@
 - Fix sorted username by unicode
 - Add orders
 - Add updating table on using CRUD?
+- Add profile page
 
 #Additional
 - Add animation on buttons

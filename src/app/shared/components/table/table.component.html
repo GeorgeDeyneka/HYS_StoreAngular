@@ -12,7 +12,7 @@
       <div class="item__order" *ngIf="typeOfTable === 'orders'">
         <h3>Order:</h3>
         <ul class="item__order-details">
-          <li class="item__order-elem test" *ngFor="let prod of elem.products">
+          <li class="item__order-elem" *ngFor="let prod of elem.products">
             <h4>Product: {{ prod.name }},</h4>
             <h4>Count: {{ prod.quantity }},</h4>
             <h4>Id: {{ prod.id }}</h4>

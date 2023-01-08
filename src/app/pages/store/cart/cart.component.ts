@@ -1,7 +1,6 @@
 import { ProductType } from './../../../models/interfaces/http-product.interface';
 import { CartService } from '../../../shared/services/cart.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +10,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class CartComponent implements OnInit {
   public arrCart: ProductType[];
   public totalPrice: number;
-  public form: FormGroup;
   public showOrder: boolean = false;
 
-  constructor(private cartService: CartService, private fb: FormBuilder) {}
+  constructor(private cartService: CartService) {}
 
   calcPrice(): number {
     return this.cartService.calculateTotalPrice();
@@ -22,11 +20,6 @@ export class CartComponent implements OnInit {
 
   showTemplate() {
     this.showOrder = true;
-    this.form = this.fb.group({
-      name: '',
-      phone: '',
-      message: '',
-    });
   }
 
   hideTemplate() {
@@ -46,8 +39,6 @@ export class CartComponent implements OnInit {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }
-
-  ngOnChanges() {}
 
   ngOnInit(): void {
     this.updateData();
