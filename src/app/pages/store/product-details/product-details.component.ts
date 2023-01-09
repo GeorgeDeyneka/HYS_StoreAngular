@@ -1,4 +1,4 @@
-import { ProductType } from './../../../models/interfaces/http-product.interface';
+import { ProductType } from '../../../models/interfaces/product.interface';
 import { ButtonTextEnum } from '../../../models/enums/button-text.enum';
 import { CartService } from '../../../shared/services/cart.service';
 import { Component, OnInit } from '@angular/core';

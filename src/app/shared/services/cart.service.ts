@@ -1,4 +1,4 @@
-import { ProductType } from './../../models/interfaces/http-product.interface';
+import { ProductType } from '../../models/interfaces/product.interface';
 import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
 

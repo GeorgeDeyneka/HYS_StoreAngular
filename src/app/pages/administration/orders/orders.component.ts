@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { DataName } from 'src/app/models/enums/data-name.enum';
 import { OrderType } from 'src/app/models/interfaces/order.interface';
+import { OrdersFilterService } from '../shared/services/orders-filter.service';
 import { OrdersService } from '../shared/services/orders.service';
 import { TableConfigService } from '../shared/services/table-config.service';
 
@@ -21,7 +22,8 @@ export class OrdersComponent implements OnInit {
 
   constructor(
     private ordersService: OrdersService,
-    private tableConfigService: TableConfigService
+    private tableConfigService: TableConfigService,
+    private ordersFilterService: OrdersFilterService
   ) {}
 
   ngOnInit(): void {

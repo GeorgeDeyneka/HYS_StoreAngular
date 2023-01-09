@@ -7,7 +7,11 @@
   <div class="filter__price-or-date">
     <mat-form-field class="filter__option">
       <mat-label>{{
-        param == "users" ? "Date From..." : "Price From..."
+        param == "users"
+          ? "Date From..."
+          : param == "products"
+          ? "Price From..."
+          : "Quantity From..."
       }}</mat-label>
       <mat-select
         [(value)]="priceOrDateFromVal"
@@ -36,6 +40,14 @@
         matInput
         type="date"
         placeholder="Date..."
+      />
+      <input
+        [disabled]="priceOrDateInputDis"
+        #dateInput
+        *ngIf="param == 'orders'"
+        matInput
+        type="number"
+        placeholder="Quantity..."
       />
     </mat-form-field>
   </div>

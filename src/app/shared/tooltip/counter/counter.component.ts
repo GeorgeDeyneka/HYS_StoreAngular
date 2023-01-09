@@ -1,4 +1,4 @@
-import { ProductType } from './../../../models/interfaces/http-product.interface';
+import { ProductType } from '../../../models/interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Select } from 'src/app/models/enums/select.enum';

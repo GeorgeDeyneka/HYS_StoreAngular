@@ -1,4 +1,4 @@
-import { ProductType } from './../../models/interfaces/http-product.interface';
+import { ProductType } from '../../models/interfaces/product.interface';
 import { BaseHttpService } from './../../shared/services/base-http.service';
 import { PRODUCTS_STATE } from '../../data/state';
 import { Injectable } from '@angular/core';

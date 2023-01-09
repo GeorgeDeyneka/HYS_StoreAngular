@@ -3,7 +3,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
-import { ProductType } from 'src/app/models/interfaces/http-product.interface';
+import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { ProductsFilterService } from '../shared/services/products-filter.service';
 
 @Component({

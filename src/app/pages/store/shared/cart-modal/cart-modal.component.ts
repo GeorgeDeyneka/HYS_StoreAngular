@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ProductType } from 'src/app/models/interfaces/http-product.interface';
+import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({

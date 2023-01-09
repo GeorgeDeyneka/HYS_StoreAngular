@@ -1,4 +1,4 @@
-import { ProductType } from '../models/interfaces/http-product.interface';
+import { ProductType } from '../models/interfaces/product.interface';
 
 export const PRODUCTS_STATE: ProductType[] = [
   {

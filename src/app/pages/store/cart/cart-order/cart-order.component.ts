@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductType } from 'src/app/models/interfaces/http-product.interface';
+import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
 import { CartComponent } from '../cart.component';
 
