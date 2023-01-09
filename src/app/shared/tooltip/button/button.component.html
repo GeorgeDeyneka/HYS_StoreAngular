@@ -1,6 +1,6 @@
 <button
   ngClass="{{ theme }} {{ size }}"
-  type="button"
+  [type]="buttonType"
   (click)="clickHandler.emit()"
 >
   {{ text }}

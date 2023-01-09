@@ -33,7 +33,8 @@ export class TableComponent implements OnInit {
             height: '450px',
             width: '400px',
           }
-        : {
+        : this.typeOfTable === DataName.users
+        ? {
             data: {
               typeOfData: this.typeOfTable,
               typeOfModal: ModalTypes.edit,
@@ -43,6 +44,20 @@ export class TableComponent implements OnInit {
               },
             },
             height: '250px',
+            width: '400px',
+          }
+        : {
+            data: {
+              typeOfData: this.typeOfTable,
+              typeOfModal: ModalTypes.edit,
+              products: elem.products,
+              id: elem.id,
+              keys: {
+                name: elem.name,
+                phone: elem.phone,
+              },
+            },
+            height: '450px',
             width: '400px',
           };
 

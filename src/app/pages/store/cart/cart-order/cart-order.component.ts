@@ -1,6 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -19,11 +27,14 @@ export interface LocalStorageOrderForm {
   templateUrl: './cart-order.component.html',
   styleUrls: ['./cart-order.component.scss'],
 })
-export class CartOrderComponent implements OnInit {
+export class CartOrderComponent implements OnInit, OnDestroy {
   @Output() hideClick = new EventEmitter();
   @Input() orderData: ProductType[];
   public serverData: any[];
   public storageForm: any;
+  public showLabel: boolean = false;
+  public formSub$: Subscription;
+
   constructor(
     private fb: FormBuilder,
     private ordersService: OrdersService,
@@ -52,10 +63,16 @@ export class CartOrderComponent implements OnInit {
           Validators.minLength(10),
           Validators.maxLength(13),
           Validators.required,
-          Validators.pattern(/^([+]?[0-9\s-\(\)]{3,13})*$/i),
+          Validators.pattern(/^([+]?[0-9\s-\(\)]{0,13})*$/i),
         ],
       ],
       message: this.storageForm.message || '',
+    });
+
+    this.formSub$ = this.form.valueChanges.subscribe((value) => {
+      if (value.name || value.phone) {
+        this.showLabel = false;
+      }
     });
   }
 
@@ -81,7 +98,10 @@ export class CartOrderComponent implements OnInit {
   }
 
   createOrder() {
-    if (this.nameForm?.invalid || this.phoneForm?.invalid) return;
+    if (this.nameForm?.invalid || this.phoneForm?.invalid) {
+      this.showLabel = true;
+      return;
+    }
 
     let { name, phone, message } = this.form.getRawValue();
     this.serverData = [...this.orderData];
@@ -107,5 +127,9 @@ export class CartOrderComponent implements OnInit {
         },
         error: (error) => {},
       });
+  }
+
+  ngOnDestroy(): void {
+    this.formSub$.unsubscribe();
   }
 }

@@ -102,7 +102,11 @@ export class ModalComponent implements OnInit {
               ...this.form.getRawValue(),
               author: 'George',
             })
-          : this.usersService.update(this.data.id, {
+          : this.data.typeOfData === DataName.users
+          ? this.usersService.update(this.data.id, {
+              ...this.form.getRawValue(),
+            })
+          : this.ordersService.update(this.data.id, {
               ...this.form.getRawValue(),
             })
       ).subscribe({
