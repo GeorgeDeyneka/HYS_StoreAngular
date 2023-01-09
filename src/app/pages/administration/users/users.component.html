@@ -9,6 +9,7 @@
     <app-filter-bar [param]="dataName"></app-filter-bar>
     <app-table [typeOfTable]="dataName" [data]="data"></app-table>
     <mat-paginator
+      class="admin__pagination"
       [pageIndex]="pageIndex"
       [hidePageSize]="true"
       [length]="dataLength"

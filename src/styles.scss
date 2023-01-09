@@ -63,6 +63,16 @@ a {
   cursor: pointer;
 }
 
+.admin {
+  &__pagination {
+    background-color: #23242a;
+    border-radius: 10px;
+    color: #a1a1a1;
+    width: 300px;
+    align-self: flex-end;
+  }
+}
+
 .material-symbols-outlined {
   padding-bottom: 2px;
 }

@@ -8,7 +8,8 @@
   <ng-template #table>
     <app-filter-bar [param]="dataName"></app-filter-bar>
     <app-table [typeOfTable]="dataName" [data]="data"></app-table>
-    <!-- <mat-paginator
+    <mat-paginator
+      class="admin__pagination"
       [pageIndex]="pageIndex"
       [hidePageSize]="true"
       [length]="dataLength"
@@ -16,6 +17,6 @@
       [pageSize]="5"
       aria-label="Select page"
     >
-    </mat-paginator> -->
+    </mat-paginator>
   </ng-template>
 </div>

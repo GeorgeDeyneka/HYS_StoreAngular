@@ -32,8 +32,8 @@ export class OrdersComponent implements OnInit {
       .subscribe((data) => {
         if (data.length) {
           this.loading$.next(false);
-          // this.data = this.usersFilterService.setData(data, 5);
-          this.data = data;
+          this.data = this.ordersFilterService.setData(data, 5);
+          // this.data = data;
           this.dataLength = data.length;
         }
       });
@@ -42,5 +42,11 @@ export class OrdersComponent implements OnInit {
       .subscribe
       // (elem) => this.changeData(elem)
       ();
+  }
+
+  changePage(event: any) {
+    let obj = this.ordersFilterService.changePage(event);
+    this.data = obj.data;
+    this.pageIndex = obj.index;
   }
 }
