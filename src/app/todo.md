@@ -1,8 +1,9 @@
 #Required:
 - Fix sorted username by unicode
-- Add orders
-- Add updating table on using CRUD?
-- Add profile page
+- Add filtering & pagination for orders
+- Add validation in orders & modals!!!
+- Add modal for orders
+- Add forms order data in localStorage
 
 #Additional
 - Add animation on buttons

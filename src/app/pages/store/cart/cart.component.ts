@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
 
   clearCart(): void {
     this.arrCart = this.cartService.clearCart();
+    this.hideTemplate()
   }
 
   deleteElem(elem: ProductType) {
