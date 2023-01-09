@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageForbiddenComponent } from './page-forbidden/page-forbidden.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageUnathorizedComponent } from './page-unathorized/page-unathorized.component';
 
@@ -15,7 +16,7 @@ const routes: Routes = [
       {
         path: 'error/403',
         pathMatch: 'full',
-        component: PageNotFoundComponent,
+        component: PageForbiddenComponent,
       },
       {
         path: '**',

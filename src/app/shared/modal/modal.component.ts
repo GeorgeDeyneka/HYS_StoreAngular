@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalText } from 'src/app/models/enums/modal-text.enum';
 import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
 import { DataName } from 'src/app/models/enums/data-name.enum';
+import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
 
 @Component({
   selector: 'app-modal',
@@ -19,6 +20,7 @@ export class ModalComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalComponent>,
     private storeService: StoreService,
     private usersService: UsersService,
+    private ordersService: OrdersService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
@@ -77,7 +79,9 @@ export class ModalComponent implements OnInit {
       const del = (
         this.data.typeOfData === DataName.products
           ? this.storeService.delete(this.data.id)
-          : this.usersService.delete(this.data.id)
+          : this.data.typeOfData === DataName.users
+          ? this.usersService.delete(this.data.id)
+          : this.ordersService.delete(this.data.id)
       ).subscribe({
         next: (response) => {},
         error: (error) => {

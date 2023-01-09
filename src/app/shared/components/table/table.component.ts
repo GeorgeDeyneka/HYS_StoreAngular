@@ -49,7 +49,7 @@ export class TableComponent implements OnInit {
     const dialogRef = this.matDialog.open(ModalComponent, config);
   }
 
-  openWarnDialog(elem: ProductType) {
+  openWarnDialog(elem: any) {
     const config: Object = {
       data: {
         typeOfData: this.typeOfTable,
