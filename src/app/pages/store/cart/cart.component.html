@@ -34,5 +34,5 @@
   <ng-template #elseBlock
     ><h2 class="page__alert">Your Cart Is Empty!</h2></ng-template
   >
-  <app-cart-order [orderData]="arrCart" (hideClick)="hideTemplate()" *ngIf="showOrder"></app-cart-order>
+  <app-cart-order [orderData]="arrCart" (hideClick)="hideTemplate($event)" *ngIf="showOrder"></app-cart-order>
 </main>

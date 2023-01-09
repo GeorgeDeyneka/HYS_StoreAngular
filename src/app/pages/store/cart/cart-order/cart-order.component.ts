@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { CartComponent } from '../cart.component';
 
@@ -20,25 +21,36 @@ export class CartOrderComponent implements OnInit {
   @Output() hideClick = new EventEmitter();
   @Input() orderData: ProductType[];
   public serverData: any[];
-  storageForm: any;
+  public storageForm: any;
   constructor(
     private fb: FormBuilder,
     private ordersService: OrdersService,
-    private cartComponent: CartComponent,
+    private cartService: CartService,
     private localStorageService: LocalStorageService
   ) {}
 
   public form: FormGroup;
 
   ngOnInit(): void {
-    this.storageForm =
-      this.localStorageService.getData('orderData');
+    this.storageForm = this.localStorageService.getData('orderData');
 
     this.form = this.fb.group({
-      name: [this.storageForm.name || '', Validators.pattern(/^[a-zA-Z]{0,20}$/)],
+      name: [
+        this.storageForm.name || '',
+        [
+          Validators.pattern(/^[a-zA-Z ]{0,20}$/),
+          Validators.required,
+          Validators.minLength(4),
+        ],
+      ],
       phone: [
         this.storageForm.phone || '',
-        Validators.pattern(/^\+\d{3}\d{3}\d{3}\d{3}$/),
+        [
+          Validators.minLength(10),
+          Validators.maxLength(13),
+          Validators.required,
+          Validators.pattern(/^([+]?[0-9\s-\(\)]{3,13})*$/i),
+        ],
       ],
       message: this.storageForm.message || '',
     });
@@ -74,12 +86,13 @@ export class CartOrderComponent implements OnInit {
         products: [...this.serverData],
       })
       .subscribe({
-        next: (response) => {},
+        next: (response) => {
+          this.serverData = [];
+          this.cartService.clearCart();
+          this.localStorageService.removeData('orderData');
+          this.hideClick.emit(false)
+        },
         error: (error) => {},
       });
-
-    this.serverData = [];
-    this.cartComponent.clearCart();
-    this.localStorageService.removeData('orderData');
   }
 }

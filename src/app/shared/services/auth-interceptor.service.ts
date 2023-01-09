@@ -36,7 +36,7 @@ export class AuthInterceptorService implements HttpInterceptor {
           next: (next) => {},
           error: (error) => {
             if (error instanceof HttpErrorResponse) {
-              if (error.status === 401) {
+              if (error.status === 401 && this.router.url != '/login') {
                 this.router.navigateByUrl('error/401');
                 this.localStorageService.removeData('authToken');
               }
@@ -57,7 +57,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         next: (next) => {},
         error: (error) => {
           if (error instanceof HttpErrorResponse) {
-            if (error.status === 401) {
+            if (error.status === 401 && this.router.url != '/login') {
               this.router.navigateByUrl('error/401');
               this.localStorageService.removeData('authToken');
             }

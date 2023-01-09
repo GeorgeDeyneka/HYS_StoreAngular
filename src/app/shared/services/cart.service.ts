@@ -1,6 +1,7 @@
 import { ProductType } from '../../models/interfaces/product.interface';
 import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,14 +9,15 @@ import { Injectable } from '@angular/core';
 export class CartService {
   public arrCart: ProductType[] =
     this.localStorageService.getData<ProductType[]>('cartData') || [];
-
-  public arrCartCount: ProductType[];
+  public subj$ = new Subject<ProductType[]>();
+  public arrCartCount: ProductType[] = [];
 
   constructor(private localStorageService: LocalStorageService) {}
 
   setData(elem: ProductType): void {
     this.arrCart.push(elem);
     this.transformData();
+    this.subj$.next(this.arrCartCount);
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
   }
 
@@ -57,12 +59,16 @@ export class CartService {
     });
     this.arrCart.splice(index, 1);
     this.transformData();
+    this.subj$.next(this.arrCartCount);
+
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
   }
 
   deleteProduct(prod: ProductType): void {
     this.arrCart = this.arrCart.filter((el) => el.id !== prod.id);
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
+    this.transformData();
+    this.subj$.next(this.arrCartCount);
   }
 
   addToCart(elem: ProductType): void {
@@ -72,6 +78,8 @@ export class CartService {
 
   clearCart() {
     this.localStorageService.removeData('cartData');
+    this.arrCartCount = [];
+    this.subj$.next(this.arrCartCount);
     return (this.arrCart = []);
   }
 }

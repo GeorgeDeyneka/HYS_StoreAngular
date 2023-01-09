@@ -3,11 +3,20 @@
   <form [formGroup]="form" class="order__form">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input (change)="setOrderInLocal()" formControlName="name" matInput required/>
+      <input (change)="setOrderInLocal()" formControlName="name" matInput />
     </mat-form-field>
+    <div *ngIf="nameForm?.invalid && (nameForm?.touched || nameForm?.dirty)">
+      <span *ngIf="nameForm?.errors?.['required']">Required field</span>
+      <span *ngIf="nameForm?.errors?.['minLength']"
+        >Name must be greater than 4 characters</span
+      >
+      <span *ngIf="nameForm?.errors?.['pattern']"
+        >Only english letters are allowed</span
+      >
+    </div>
     <mat-form-field>
       <mat-label>Phone</mat-label>
-      <input (change)="setOrderInLocal()" formControlName="phone" matInput required />
+      <input (change)="setOrderInLocal()" formControlName="phone" matInput />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Message</mat-label>
@@ -18,7 +27,11 @@
         [text]="'Order later'"
         (clickHandler)="hideClick.emit()"
       ></app-button>
-      <app-button [text]="'Submit form'" (click)="createOrder()" [theme]="'aqua'"></app-button>
+      <app-button
+        [text]="'Submit form'"
+        (click)="createOrder()"
+        [theme]="'aqua'"
+      ></app-button>
     </div>
   </form>
 </div>

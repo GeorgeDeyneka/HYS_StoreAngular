@@ -1,11 +1,10 @@
 #Required:
-- Fix bug with login redirect
-- Add validation in orders & modals!!!
+- Add validation in orders!!!
 - Add modal for orders (create & edit)
-- ? How to clear cart from service? (event emitter)
-
+- Add modal for completed order
 
 #Additional
+- Incapsulate delete modal
 - Change README.md
 - Hide modal when it became empty
 - Sync the counter with buttons "Add to Cart"

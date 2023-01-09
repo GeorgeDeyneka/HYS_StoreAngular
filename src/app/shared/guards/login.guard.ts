@@ -8,7 +8,7 @@ import { CanActivate, Router } from '@angular/router';
 export class LoginGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
   canActivate() {
-    if (this.authService.getAuthToken()) {
+    if (this.authService.getAuthToken().length) {
       this.router.navigateByUrl('administration');
       return false;
     } else {
