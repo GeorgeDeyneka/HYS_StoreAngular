@@ -109,6 +109,11 @@
     }
   }
 
+  &__message {
+    top: 5px;
+    min-width: 140px;
+  }
+
   @keyframes modal {
     0% {
       opacity: 0;

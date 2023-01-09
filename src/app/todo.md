@@ -1,5 +1,4 @@
 #Required:
-- Add filtering & pagination for orders
 - Fix bug with login redirect
 - Add validation in orders & modals!!!
 - Add modal for orders

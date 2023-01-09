@@ -27,9 +27,9 @@
           <h3 *ngIf="typeOfTable === 'users'" class="item__date">
             Date: {{ elem.createdAt }}
           </h3>
-          <h3 *ngIf="elem.message" class="item__message">
-            Message: {{ elem.message }}
-          </h3>
+          <h4 *ngIf="typeOfTable === 'orders'" class="item__message">
+            {{ elem.message ? elem.message : "No message" }}
+          </h4>
 
           <h3 class="item__id">Id: {{ elem.id }}</h3>
         </div>

@@ -23,7 +23,7 @@ export class BaseFilter<T> {
     return this.data;
   }
 
-  changeData(elem: filterConfig, param: 'price' | 'createdAt') {
+  changeData(elem: filterConfig, param: 'price' | 'createdAt' | 'phone') {
     const typeOfName: string =
       param == DataFields.createdAt ? DataFields.username : DataFields.name;
 
@@ -33,7 +33,8 @@ export class BaseFilter<T> {
 
     if (
       (param === DataFields.price && !elem.search && !elem.price) ||
-      (param === DataFields.createdAt && !elem.search && !elem.createdAt)
+      (param === DataFields.createdAt && !elem.search && !elem.createdAt) ||
+      (param === DataFields.phone && !elem.search && !elem.quantity)
     ) {
       this.resetFilterData();
     }
@@ -44,6 +45,10 @@ export class BaseFilter<T> {
 
     if (elem.createdAt) {
       this.setFilterDate(elem);
+    }
+
+    if (elem.quantity) {
+      this.setFilterQuantity(elem);
     }
 
     if (elem.sort && elem.sortFrom) {
@@ -66,6 +71,20 @@ export class BaseFilter<T> {
     );
   }
 
+  setFilterQuantity(el: filterConfig) {
+    this.data = (el.search ? this.data : this.baseData).filter((order: any) => {
+      const myKey = 'countOfAllProd';
+      order[myKey as keyof T] = order.products.reduce(
+        (acc: number, item: any) => (acc += item.quantity),
+        0
+      );
+
+      return el.quantitySelect == Select.more
+        ? order.countOfAllProd > el.quantity
+        : order.countOfAllProd < el.quantity;
+    });
+  }
+
   setFilterDate(el: filterConfig) {
     this.data = (el.search ? this.data : this.baseData).filter((user: any) =>
       el.dateSelect == Select.more
@@ -82,7 +101,11 @@ export class BaseFilter<T> {
   }
 
   setSortData(el: filterConfig) {
-    this.data = [...(el.search || el.price ? this.data : this.baseData)];
+    this.data = [
+      ...(el.search || el.price || el.createdAt || el.quantity
+        ? this.data
+        : this.baseData),
+    ];
     this.data.sort(this.byField(el.sort, el.sortFrom));
   }
 

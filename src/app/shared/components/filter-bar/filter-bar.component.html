@@ -43,7 +43,7 @@
       />
       <input
         [disabled]="priceOrDateInputDis"
-        #dateInput
+        #quantityInput
         *ngIf="param == 'orders'"
         matInput
         type="number"
@@ -73,7 +73,8 @@
         (selectionChange)="setSort($event)"
       >
         <mat-option>None</mat-option>
-        <mat-option *ngIf="param == 'products'" value="name">Name</mat-option>
+        <mat-option *ngIf="param != 'users'" value="name">Name</mat-option>
+        <mat-option *ngIf="param == 'orders'" value="phone">Phone</mat-option>
         <mat-option *ngIf="param == 'users'" value="username"
           >Username</mat-option
         >

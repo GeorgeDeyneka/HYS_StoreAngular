@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { DataName } from 'src/app/models/enums/data-name.enum';
+import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
 import { OrderType } from 'src/app/models/interfaces/order.interface';
 import { OrdersFilterService } from '../shared/services/orders-filter.service';
 import { OrdersService } from '../shared/services/orders.service';
@@ -33,20 +34,32 @@ export class OrdersComponent implements OnInit {
         if (data.length) {
           this.loading$.next(false);
           this.data = this.ordersFilterService.setData(data, 5);
-          // this.data = data;
           this.dataLength = data.length;
         }
       });
 
-    this.filterSubj$ = this.tableConfigService.configuration$
-      .subscribe
-      // (elem) => this.changeData(elem)
-      ();
+    this.filterSubj$ = this.tableConfigService.configuration$.subscribe(
+      (elem) => this.changeData(elem)
+    );
   }
 
   changePage(event: any) {
     let obj = this.ordersFilterService.changePage(event);
     this.data = obj.data;
     this.pageIndex = obj.index;
+  }
+
+  changeData(elem: filterConfig) {
+    let obj = this.ordersFilterService.changeData(elem, 'phone');
+
+    this.data = obj.data;
+    this.dataLength = obj.length;
+    this.pageIndex = obj.index;
+  }
+
+  ngOnDestroy() {
+    this.filterSubj$.unsubscribe();
+    this.dataSubj$.unsubscribe();
+    this.tableConfigService.resetConfig();
   }
 }
