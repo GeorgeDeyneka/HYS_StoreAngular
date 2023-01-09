@@ -51,7 +51,6 @@ export class ModalComponent implements OnInit {
         this.storeService
           .create({
             name: name,
-            author: 'George',
             price: +price,
             description: description,
           })
@@ -96,11 +95,13 @@ export class ModalComponent implements OnInit {
 
   updateElem() {
     if (this.form && this.modalType === ModalTypes.edit) {
+      let { name, price, description } = this.form.getRawValue();
       const upd = (
         this.data.typeOfData === DataName.products
           ? this.storeService.update(this.data.id, {
-              ...this.form.getRawValue(),
-              author: 'George',
+              name,
+              price: +price,
+              description,
             })
           : this.data.typeOfData === DataName.users
           ? this.usersService.update(this.data.id, {
