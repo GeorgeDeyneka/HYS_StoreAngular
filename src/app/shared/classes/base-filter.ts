@@ -110,6 +110,16 @@ export class BaseFilter<T> {
   }
 
   byField(field: string, from: string) {
+    if (field == DataFields.name || field == DataFields.username) {
+      return (a: any, b: any) =>
+        from == Select.more
+          ? a[field].toLowerCase() < b[field].toLowerCase()
+            ? 1
+            : -1
+          : a[field].toLowerCase() > b[field].toLowerCase()
+          ? 1
+          : -1;
+    }
     return (a: any, b: any) =>
       from == Select.more
         ? a[field] < b[field]

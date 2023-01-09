@@ -49,9 +49,9 @@ export class CartOrderComponent implements OnInit {
 
     this.ordersService
       .create({
-        name: name,
-        phone: phone,
-        message: message,
+        name,
+        phone,
+        message,
         products: [...this.serverData],
       })
       .subscribe({

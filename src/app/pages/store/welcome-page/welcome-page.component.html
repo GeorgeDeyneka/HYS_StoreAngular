@@ -15,6 +15,7 @@
     </div>
   </div>
   <app-button
+    *ngIf="slicedData"
     class="go-button"
     [routerLink]="['/products']"
     [text]="'Go Shopping!'"

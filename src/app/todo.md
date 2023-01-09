@@ -1,6 +1,6 @@
 #Required:
-- Fix sorted username by unicode
 - Add filtering & pagination for orders
+- Fix bug with login redirect
 - Add validation in orders & modals!!!
 - Add modal for orders
 - Add forms order data in localStorage
