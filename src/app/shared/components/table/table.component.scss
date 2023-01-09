@@ -9,7 +9,7 @@
     align-items: center;
     gap: 50px;
     padding: 15px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-radius: 10px;
     background-color: #23242a;
   }
@@ -23,8 +23,15 @@
     position: relative;
   }
 
+  &__order {
+    min-width: 300px;
+    position: relative;
+  }
+
   &__id,
-  &__date {
+  &__date,
+  &__message,
+  &__order-details {
     white-space: nowrap;
     overflow: hidden;
     max-width: 120px;
@@ -66,6 +73,28 @@
     }
   }
 
+  &__order-details {
+    max-width: -webkit-fill-available;
+    display: flex;
+    left: 65px;
+    padding-top: 3.5px;
+
+    &:hover {
+      max-width: 250px;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__order-elem {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__order-details:hover &__order-elem {
+    flex-direction: column;
+  }
+
   &__id {
     right: 0;
     &:hover {
@@ -78,6 +107,11 @@
     &:hover {
       left: 0;
     }
+  }
+
+  &__message {
+    top: 5px;
+    min-width: 140px;
   }
 
   @keyframes modal {

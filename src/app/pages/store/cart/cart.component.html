@@ -13,7 +13,6 @@
         <span>Reset All Cart</span>
       </button>
     </mat-menu>
-
   </div>
   <div class="cart__list" *ngIf="arrCart.length; else elseBlock">
     <app-cart-item
@@ -23,10 +22,17 @@
       (clickHandler)="deleteElem(prod)"
     ></app-cart-item>
     <div class="page__total-wrapper">
+      <app-button
+        [size]="'large'"
+        [theme]="'aqua'"
+        (click)="showTemplate()"
+        [text]="'Make order!'"
+      ></app-button>
       <h2 class="page__total">Total Cost: {{ totalPrice | UAH }}</h2>
     </div>
   </div>
   <ng-template #elseBlock
     ><h2 class="page__alert">Your Cart Is Empty!</h2></ng-template
   >
+  <app-cart-order [orderData]="arrCart" (hideClick)="hideTemplate()" *ngIf="showOrder"></app-cart-order>
 </main>

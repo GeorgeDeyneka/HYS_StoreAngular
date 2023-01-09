@@ -4,10 +4,12 @@ import { filterConfig } from 'src/app/models/interfaces/default-config.interface
 
 const DEFAULT_CONFIGURATION: filterConfig = {
   createdAt: '',
+  quantity: 0,
   price: 0,
   search: '',
   priceSelect: '',
   dateSelect: '',
+  quantitySelect: '',
   sort: '',
   sortFrom: '',
 };
@@ -44,6 +46,13 @@ export class TableConfigService {
     });
   }
 
+  setQuantity(quantity: number) {
+    this.configuration$.next({
+      ...this.DefaultConfig,
+      quantity,
+    });
+  }
+
   setDate(createdAt: string) {
     this.configuration$.next({
       ...this.DefaultConfig,
@@ -55,6 +64,13 @@ export class TableConfigService {
     this.configuration$.next({
       ...this.DefaultConfig,
       priceSelect,
+    });
+  }
+
+  setQuantitySelect(quantitySelect: string) {
+    this.configuration$.next({
+      ...this.DefaultConfig,
+      quantitySelect,
     });
   }
 

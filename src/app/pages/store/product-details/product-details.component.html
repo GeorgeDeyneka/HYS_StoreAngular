@@ -1,12 +1,16 @@
+<ng-container *ngIf="loading$ | async; else item">
+  <div class="spinner__wrapper">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-container>
+<ng-template #item>
 <main *ngIf="prod" class="container">
   <h2 class="page__title">Products/{{ prod.name }} #{{ prod.id }}</h2>
-  <div class="item">
-    <h1 class="item__title">{{ prod.name }}</h1>
-    <h4 class="item__description">About</h4>
-    <h2 class="item__price">Price: {{ prod.price | UAH }}</h2>
-    <app-button
-      [text]="buttonText"
-      (click)="addToCart()"
-    ></app-button>
-  </div>
-</main>
+    <div class="item">
+      <h1 class="item__title">{{ prod.name }}</h1>
+      <h4 class="item__description">About: {{ prod.description }}</h4>
+      <h2 class="item__price">Price: {{ prod.price | UAH }}</h2>
+      <app-button [text]="buttonText" (click)="addToCart()"></app-button>
+    </div>
+  </main>
+</ng-template>

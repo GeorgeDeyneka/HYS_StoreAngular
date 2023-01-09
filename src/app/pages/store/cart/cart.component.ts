@@ -1,15 +1,16 @@
-import { HttpProduct } from './../../../models/interfaces/http-product.interface';
+import { ProductType } from '../../../models/interfaces/product.interface';
 import { CartService } from '../../../shared/services/cart.service';
-import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit{
-  public arrCart: HttpProduct[];
+export class CartComponent implements OnInit {
+  public arrCart: ProductType[];
   public totalPrice: number;
+  public showOrder: boolean = false;
 
   constructor(private cartService: CartService) {}
 
@@ -17,11 +18,20 @@ export class CartComponent implements OnInit{
     return this.cartService.calculateTotalPrice();
   }
 
-  clearCart(): void {
-    this.arrCart = this.cartService.clearCart();
+  showTemplate() {
+    this.showOrder = true;
   }
 
-  deleteElem(elem: HttpProduct) {
+  hideTemplate() {
+    this.showOrder = false;
+  }
+
+  clearCart(): void {
+    this.arrCart = this.cartService.clearCart();
+    this.hideTemplate()
+  }
+
+  deleteElem(elem: ProductType) {
     this.cartService.deleteProduct(elem);
     this.updateData();
   }
@@ -30,8 +40,6 @@ export class CartComponent implements OnInit{
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }
-
-  ngOnChanges() {}
 
   ngOnInit(): void {
     this.updateData();

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UsersService } from '../../pages/administration/shared/services/users.service';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -6,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalText } from 'src/app/models/enums/modal-text.enum';
 import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
 import { DataName } from 'src/app/models/enums/data-name.enum';
+import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
 
 @Component({
   selector: 'app-modal',
@@ -18,6 +20,8 @@ export class ModalComponent implements OnInit {
     public dialogRef: MatDialogRef<ModalComponent>,
     private storeService: StoreService,
     private usersService: UsersService,
+    private ordersService: OrdersService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -51,14 +55,20 @@ export class ModalComponent implements OnInit {
             price: +price,
             description: description,
           })
-          .subscribe();
+          .subscribe({
+            next: (response) => {},
+            error: (error) => {},
+          });
       } else {
         this.usersService
           .create({
             password: '123123',
             ...this.form.getRawValue(),
           })
-          .subscribe();
+          .subscribe({
+            next: (response) => {},
+            error: (error) => {},
+          });
       }
     }
     this.closeModal();
@@ -66,31 +76,39 @@ export class ModalComponent implements OnInit {
 
   deleteElem() {
     if (this.modalType === ModalTypes.delete) {
-      if (this.data.typeOfData === DataName.products) {
-        this.storeService.delete(this.data.id).subscribe();
-      } else if (this.data.typeOfData === DataName.users) {
-        this.usersService.delete(this.data.id).subscribe();
-      }
+      const del = (
+        this.data.typeOfData === DataName.products
+          ? this.storeService.delete(this.data.id)
+          : this.data.typeOfData === DataName.users
+          ? this.usersService.delete(this.data.id)
+          : this.ordersService.delete(this.data.id)
+      ).subscribe({
+        next: (response) => {},
+        error: (error) => {
+          if (error.status === 403) {
+            this.router.navigateByUrl('error/403');
+          }
+        },
+      });
     }
     this.closeModal();
   }
 
   updateElem() {
     if (this.form && this.modalType === ModalTypes.edit) {
-      if (this.data.typeOfData === DataName.products) {
-        this.storeService
-          .update(this.data.id, {
-            ...this.form.getRawValue(),
-            author: 'George',
-          })
-          .subscribe();
-      } else if (this.data.typeOfData === DataName.users) {
-        this.usersService
-          .update(this.data.id, {
-            ...this.form.getRawValue(),
-          })
-          .subscribe();
-      }
+      const upd = (
+        this.data.typeOfData === DataName.products
+          ? this.storeService.update(this.data.id, {
+              ...this.form.getRawValue(),
+              author: 'George',
+            })
+          : this.usersService.update(this.data.id, {
+              ...this.form.getRawValue(),
+            })
+      ).subscribe({
+        next: (response) => {},
+        error: (error) => {},
+      });
     }
     this.closeModal();
   }

@@ -1,4 +1,5 @@
 export enum DataName {
     products = 'products',
-    users = 'users'
+    users = 'users',
+    orders = 'orders'
 }

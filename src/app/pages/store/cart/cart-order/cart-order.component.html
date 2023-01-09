@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <h2 class="title">Please, fill out the order form</h2>
+  <form [formGroup]="form" class="order__form">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input (change)="setOrderInLocal()" formControlName="name" matInput required/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input (change)="setOrderInLocal()" formControlName="phone" matInput required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <input (change)="setOrderInLocal()" formControlName="message" matInput />
+    </mat-form-field>
+    <div class="button-container">
+      <app-button
+        [text]="'Order later'"
+        (clickHandler)="hideClick.emit()"
+      ></app-button>
+      <app-button [text]="'Submit form'" (click)="createOrder()" [theme]="'aqua'"></app-button>
+    </div>
+  </form>
+</div>

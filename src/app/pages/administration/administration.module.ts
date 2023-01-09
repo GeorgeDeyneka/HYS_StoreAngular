@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { UsersModule } from './users/users.module';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [AdministrationComponent, SideBarComponent],

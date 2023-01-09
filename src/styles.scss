@@ -24,7 +24,9 @@ app-administration {
   display: flex;
 }
 
-app-products, app-users {
+app-products,
+app-users,
+app-orders {
   flex-grow: 1;
 }
 
@@ -37,6 +39,8 @@ app-side-bar {
 app-product-list,
 app-product-details,
 app-page-not-found,
+app-page-forbidden,
+app-page-unathorized,
 app-welcome-page,
 app-cart {
   flex: 1 1 auto;
@@ -44,6 +48,8 @@ app-cart {
 }
 
 app-page-not-found,
+app-page-forbidden,
+app-page-unathorized,
 app-cart {
   display: flex;
 }
@@ -55,6 +61,16 @@ a {
   align-items: center;
   gap: 5px;
   cursor: pointer;
+}
+
+.admin {
+  &__pagination {
+    background-color: #23242a;
+    border-radius: 10px;
+    color: #a1a1a1;
+    width: 300px;
+    align-self: flex-end;
+  }
 }
 
 .material-symbols-outlined {

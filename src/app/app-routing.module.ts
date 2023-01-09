@@ -15,11 +15,12 @@ const routes: Routes = [
       import('./pages/store/store.module').then((m) => m.StoreModule),
   },
   {
-    path: '**',
-    redirectTo: 'error',
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'error',
+    path: '',
     loadChildren: () =>
       import('./pages/errors-pages/errors-pages.module').then(
         (m) => m.ErrorsPagesModule

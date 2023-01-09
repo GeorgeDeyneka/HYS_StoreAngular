@@ -1,4 +1,4 @@
-import { HttpProduct } from '../../../models/interfaces/http-product.interface';
+import { ProductType } from '../../../models/interfaces/product.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
@@ -12,7 +12,7 @@ import { DataName } from 'src/app/models/enums/data-name.enum';
 })
 export class TableComponent implements OnInit {
   @Input() data: any[];
-  @Input() typeOfTable: 'users' | 'products';
+  @Input() typeOfTable: 'users' | 'products' | 'orders';
 
   constructor(public matDialog: MatDialog) {}
 
@@ -49,7 +49,7 @@ export class TableComponent implements OnInit {
     const dialogRef = this.matDialog.open(ModalComponent, config);
   }
 
-  openWarnDialog(elem: HttpProduct) {
+  openWarnDialog(elem: any) {
     const config: Object = {
       data: {
         typeOfData: this.typeOfTable,

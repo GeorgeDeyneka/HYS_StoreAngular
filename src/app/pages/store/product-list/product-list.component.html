@@ -15,8 +15,12 @@
   <div class="products__btn-wrapper">
     <app-button
       [theme]="'aqua'"
-      *ngIf="productsData"
+      *ngIf="productsData && buttonDis"
       [text]="'Load More'"
+      (click)="loadMore(8)"
     ></app-button>
+    <ng-container *ngIf="!buttonDis">
+      <h4>All products is loaded!</h4>
+    </ng-container>
   </div>
 </main>

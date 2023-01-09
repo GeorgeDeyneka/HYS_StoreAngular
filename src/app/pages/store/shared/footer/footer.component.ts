@@ -1,6 +1,4 @@
-import { LoginComponent } from '../../../login/login.component';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-footer',
@@ -8,14 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  constructor(private matDialog: MatDialog) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  openDialog(): void {
-    const dialogRef = this.matDialog.open(LoginComponent, {
-      height: '400px',
-      width: '400px',
-    })
-  }
 }

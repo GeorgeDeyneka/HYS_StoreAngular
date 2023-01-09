@@ -1,32 +1,41 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../shared/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { throwError, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   public form: FormGroup;
-
+  public showLabel: boolean;
+  public formSub$: Subscription;
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<LoginComponent>,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
-
-  onNoClose(): void {
-    this.dialogRef.close();
-  }
 
   makeAuthRequest() {
     this.authService
       .logIn<{ access_token: string }>(this.form.getRawValue())
-      .subscribe((responce) => {
-        this.authService.setAuthToken(responce.access_token);
-        this.dialogRef.close();
+      .subscribe({
+        next: (response) => {
+          this.authService.setAuthToken(response.access_token);
+          this.router.navigateByUrl('/administration');
+          this.showLabel = false;
+        },
+        error: (error) => {
+          if (error.error.statusCode === 401) {
+            this.form.patchValue({ username: '', password: '' });
+            this.showLabel = true;
+          } else {
+            throwError(() => error);
+          }
+        },
       });
   }
 
@@ -35,5 +44,15 @@ export class LoginComponent implements OnInit {
       username: '',
       password: '',
     });
+
+    this.formSub$ = this.form.valueChanges.subscribe((value) => {
+      if (value.password || value.username) {
+        this.showLabel = false;
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.formSub$.unsubscribe()
   }
 }

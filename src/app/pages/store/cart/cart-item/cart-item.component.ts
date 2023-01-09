@@ -1,4 +1,4 @@
-import { HttpProduct } from './../../../../models/interfaces/http-product.interface';
+import { ProductType } from '../../../../models/interfaces/product.interface';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent implements OnInit {
-  @Input() productItem: HttpProduct;
+  @Input() productItem: ProductType;
   @Output() countClick = new EventEmitter();
   @Output() clickHandler = new EventEmitter();
 

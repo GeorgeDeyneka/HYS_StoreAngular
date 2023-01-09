@@ -5,6 +5,5 @@ import { BaseHttpService } from 'src/app/shared/services/base-http.service';
   providedIn: 'root',
 })
 export class UsersService extends BaseHttpService {
-  
-  override path = 'users/';
+  override path: string = 'users/';
 }

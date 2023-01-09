@@ -1,0 +1,27 @@
+.container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-table {
+  flex: 1 1 auto;
+}
+
+.orders {
+  &__title {
+    padding: 12px;
+  }
+}
+
+.spinner__wrapper {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 58%;
+}
+
+::ng-deep .sort-field {
+  color: #fff;
+}

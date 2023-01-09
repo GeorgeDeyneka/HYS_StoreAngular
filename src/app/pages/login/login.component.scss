@@ -1,15 +1,40 @@
-::ng-deep .mat-dialog-container {
-  background-color: #23242a;
-  color: inherit;
-  border-radius: 5px;
-  border: 1px solid #5f5f5f;
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label,
+::ng-deep .mat-input-element::-webkit-input-placeholder {
+  color: #a1a1a1;
 }
 
-.modal {
-  height: 100%;
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline,
+::ng-deep
+  .mat-form-field-appearance-legacy.mat-form-field-disabled
+  .mat-form-field-underline {
+  background-color: #a1a1a1 !important;
+}
+
+.container {
+  min-height: 100%;
   display: flex;
+  margin: auto;
+}
+
+.error {
+  &__label {
+    font-size: 14px;
+    color: red;
+  }
+}
+
+.login {
+  margin: auto;
+  display: flex;
+  min-width: 450px;
+  height: 500px;
+  padding: 40px;
+  background-color: #23242a;
+  border-radius: 10px;
+  outline: 1px solid #5f5f5f;
   flex-direction: column;
   justify-content: space-around;
+  margin-top: 80px;
 
   &__form {
     display: flex;

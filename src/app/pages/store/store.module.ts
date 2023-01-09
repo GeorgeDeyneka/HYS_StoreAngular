@@ -16,6 +16,9 @@ import { ProductItemComponent } from './shared/product-item/product-item.compone
 import { HeaderBarComponent } from './shared/header-bar/header-bar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartOrderComponent } from './cart/cart-order/cart-order.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
     CartComponent,
     CartItemComponent,
     WelcomePageComponent,
-    CartModalComponent
+    CartModalComponent,
+    CartOrderComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,9 @@ import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
     MatProgressSpinnerModule,
     MatIconModule,
     MatMenuModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [StoreComponent],
 })

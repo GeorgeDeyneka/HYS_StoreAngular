@@ -18,10 +18,11 @@ import { DataName } from 'src/app/models/enums/data-name.enum';
   styleUrls: ['./filter-bar.component.scss'],
 })
 export class FilterBarComponent implements AfterViewInit {
-  @Input() param: 'products' | 'users';
+  @Input() param: 'products' | 'users' | 'orders';
 
   @ViewChild('searchInput') searchInput: ElementRef;
   @ViewChild('priceInput') priceInput: ElementRef;
+  @ViewChild('quantityInput') quantityInput: ElementRef;
   @ViewChild('dateInput') dateInput: ElementRef;
 
   public sortDis: boolean = true;
@@ -75,10 +76,15 @@ export class FilterBarComponent implements AfterViewInit {
       this.dateInput.nativeElement.value = '';
       this.tableConfigService.setDate('');
       this.tableConfigService.setDateSelect(event.value);
+    } else if (this.quantityInput) {
+      this.quantityInput.nativeElement.value = '';
+      this.tableConfigService.setQuantity(0);
+      this.tableConfigService.setQuantitySelect(event.value);
     }
     this.priceOrDateInputDis =
       !this.tableConfigService.DefaultConfig.priceSelect &&
-      !this.tableConfigService.DefaultConfig.dateSelect;
+      !this.tableConfigService.DefaultConfig.dateSelect &&
+      !this.tableConfigService.DefaultConfig.quantitySelect;
   }
 
   setSort(event: any) {
@@ -91,12 +97,13 @@ export class FilterBarComponent implements AfterViewInit {
     this.priceOrDateFromVal = '';
     this.sortFromVal = '';
     if (this.priceInput) this.priceInput.nativeElement.value = '';
+    if (this.quantityInput) this.quantityInput.nativeElement.value = '';
     this.sortValue = '';
   }
 
   setSortFrom(event: any) {
     this.tableConfigService.setSortFrom(event.value);
-    this.sortDis = !!!this.tableConfigService.DefaultConfig.sortFrom;
+    this.sortDis = !this.tableConfigService.DefaultConfig.sortFrom;
     if (!event.value) this.sortValue = '';
   }
 
@@ -115,6 +122,15 @@ export class FilterBarComponent implements AfterViewInit {
           map((event: any) => event.target.value)
         )
         .subscribe((data) => this.tableConfigService.setPrice(+data));
+    }
+
+    if (this.quantityInput) {
+      fromEvent(this.quantityInput.nativeElement, 'input')
+        .pipe(
+          debounceTime(1000),
+          map((event: any) => event.target.value)
+        )
+        .subscribe((data) => this.tableConfigService.setQuantity(+data));
     }
 
     if (this.dateInput) {

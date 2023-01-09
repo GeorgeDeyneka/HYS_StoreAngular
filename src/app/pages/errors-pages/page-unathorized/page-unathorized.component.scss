@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.error {
+  &__code {
+    font-size: 100px;
+    line-height: 1;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 50px;
+    gap: 50px;
+  }
+
+  &__description {
+    text-align: center;
+  }
+}
