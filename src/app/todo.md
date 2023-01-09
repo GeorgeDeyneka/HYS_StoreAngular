@@ -1,7 +1,6 @@
 #Required:
 - Add validation in orders!!!
-- Add modal for orders (create & edit)
-- Add modal for completed order
+- Add modal edit for orders
 
 #Additional
 - Incapsulate delete modal

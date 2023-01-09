@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+import { OrderModalComponent } from '../../shared/order-modal/order-modal.component';
 import { CartComponent } from '../cart.component';
 
 export interface LocalStorageOrderForm {
@@ -26,7 +28,8 @@ export class CartOrderComponent implements OnInit {
     private fb: FormBuilder,
     private ordersService: OrdersService,
     private cartService: CartService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    public matDialog: MatDialog
   ) {}
 
   public form: FormGroup;
@@ -68,6 +71,15 @@ export class CartOrderComponent implements OnInit {
     this.localStorageService.setData('orderData', this.form.getRawValue());
   }
 
+  openDialog() {
+    const config: Object = {
+      height: '300px',
+      width: '400px',
+    };
+
+    const dialogRef = this.matDialog.open(OrderModalComponent, config);
+  }
+
   createOrder() {
     if (this.nameForm?.invalid || this.phoneForm?.invalid) return;
 
@@ -90,7 +102,8 @@ export class CartOrderComponent implements OnInit {
           this.serverData = [];
           this.cartService.clearCart();
           this.localStorageService.removeData('orderData');
-          this.hideClick.emit(false)
+          this.hideClick.emit(false);
+          this.openDialog();
         },
         error: (error) => {},
       });

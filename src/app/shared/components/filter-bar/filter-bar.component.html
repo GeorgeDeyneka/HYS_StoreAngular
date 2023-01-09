@@ -94,7 +94,11 @@
       <mat-icon>sort</mat-icon>
       <span>Reset Filter</span>
     </button>
-    <button (click)="openCreateDialog()" mat-menu-item>
+    <button
+      *ngIf="param != 'orders'"
+      (click)="openCreateDialog()"
+      mat-menu-item
+    >
       <mat-icon>add</mat-icon>
       <span>Create New</span>
     </button>
