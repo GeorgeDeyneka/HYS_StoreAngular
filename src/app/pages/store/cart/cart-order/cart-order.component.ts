@@ -2,7 +2,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { OrdersService } from 'src/app/pages/administration/shared/services/orders.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { CartComponent } from '../cart.component';
+
+export interface LocalStorageOrderForm {
+  name: string;
+  phone: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-cart-order',
@@ -13,19 +20,27 @@ export class CartOrderComponent implements OnInit {
   @Output() hideClick = new EventEmitter();
   @Input() orderData: ProductType[];
   public serverData: any[];
+  storageForm: any;
   constructor(
     private fb: FormBuilder,
     private ordersService: OrdersService,
-    private cartComponent: CartComponent
+    private cartComponent: CartComponent,
+    private localStorageService: LocalStorageService
   ) {}
 
   public form: FormGroup;
 
   ngOnInit(): void {
+    this.storageForm =
+      this.localStorageService.getData('orderData');
+
     this.form = this.fb.group({
-      name: ['', Validators.pattern(/^[a-zA-Z]{0,20}$/)],
-      phone: ['', Validators.pattern(/^\+\d{3}\d{3}\d{3}\d{3}$/)],
-      message: '',
+      name: [this.storageForm.name || '', Validators.pattern(/^[a-zA-Z]{0,20}$/)],
+      phone: [
+        this.storageForm.phone || '',
+        Validators.pattern(/^\+\d{3}\d{3}\d{3}\d{3}$/),
+      ],
+      message: this.storageForm.message || '',
     });
   }
 
@@ -35,6 +50,10 @@ export class CartOrderComponent implements OnInit {
 
   get phoneForm() {
     return this.form.get('phone');
+  }
+
+  setOrderInLocal() {
+    this.localStorageService.setData('orderData', this.form.getRawValue());
   }
 
   createOrder() {
@@ -58,9 +77,9 @@ export class CartOrderComponent implements OnInit {
         next: (response) => {},
         error: (error) => {},
       });
-    
-      this.serverData = [];
-      this.cartComponent.clearCart()
-      // ? How to clear cart from service? (event emitter)
+
+    this.serverData = [];
+    this.cartComponent.clearCart();
+    this.localStorageService.removeData('orderData');
   }
 }

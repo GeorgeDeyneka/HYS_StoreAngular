@@ -3,15 +3,15 @@
   <form [formGroup]="form" class="order__form">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input formControlName="name" matInput required/>
+      <input (change)="setOrderInLocal()" formControlName="name" matInput required/>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Phone</mat-label>
-      <input formControlName="phone" matInput required />
+      <input (change)="setOrderInLocal()" formControlName="phone" matInput required />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Message</mat-label>
-      <input formControlName="message" matInput />
+      <input (change)="setOrderInLocal()" formControlName="message" matInput />
     </mat-form-field>
     <div class="button-container">
       <app-button
