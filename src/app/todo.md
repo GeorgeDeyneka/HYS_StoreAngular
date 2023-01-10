@@ -9,4 +9,3 @@
 - Work with adaptive design
 - Add photos and description of products
 - Hide pagination when it have less 5 elements
-- Add github pages!

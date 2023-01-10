@@ -4,8 +4,7 @@
   "newProjectRoot": "projects",
   "schematics": {
     "@schematics/angular": {
-      "component": {
-      }
+      "component": {}
     }
   },
   "projects": {
@@ -23,6 +22,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/HYS_StoreAngular/",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -111,6 +111,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
