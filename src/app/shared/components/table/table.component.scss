@@ -18,6 +18,15 @@
 // #23243A
 
 .item {
+  &__title-wrapper {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  &__title {
+    max-width: 350px;
+  }
+
   &__info {
     min-width: 300px;
     position: relative;
@@ -30,6 +39,7 @@
 
   &__id,
   &__date,
+  &__about,
   &__message,
   &__order-details {
     white-space: nowrap;
@@ -70,6 +80,8 @@
       max-width: min-content;
       white-space: normal;
       text-overflow: clip;
+      max-height: 300px;
+      overflow-y: scroll;
     }
   }
 
@@ -107,6 +119,11 @@
     &:hover {
       left: 0;
     }
+  }
+
+  &__about {
+    right: 0;
+    min-width: 200px;
   }
 
   &__message {
