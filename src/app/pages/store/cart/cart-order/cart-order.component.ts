@@ -119,11 +119,11 @@ export class CartOrderComponent implements OnInit, OnDestroy {
       })
       .subscribe({
         next: (response) => {
+          this.openDialog();
           this.serverData = [];
           this.cartService.clearCart();
           this.localStorageService.removeData('orderData');
           this.hideClick.emit(false);
-          this.openDialog();
         },
         error: (error) => {},
       });

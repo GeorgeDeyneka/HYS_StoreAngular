@@ -18,8 +18,10 @@
 
 .error {
   &__label {
+    position: absolute;
     font-size: 14px;
     color: red;
+    bottom: -15px;
   }
 }
 
@@ -39,6 +41,7 @@
   &__form {
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   &__buttons {
