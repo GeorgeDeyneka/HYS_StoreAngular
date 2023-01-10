@@ -9,7 +9,7 @@ import { StoreService } from '../store.service';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  protected productsData: ProductType[];
+  protected productsData: ProductType[] = [];
   public limitCount: number = 8;
   public serverDataFullLength: number;
   public loading$ = new BehaviorSubject<boolean>(true);

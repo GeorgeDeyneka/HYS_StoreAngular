@@ -19,6 +19,7 @@ import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartOrderComponent } from './cart/cart-order/cart-order.component';
+import { OrderModalComponent } from './shared/order-modal/order-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CartOrderComponent } from './cart/cart-order/cart-order.component';
     WelcomePageComponent,
     CartModalComponent,
     CartOrderComponent,
+    OrderModalComponent,
   ],
   imports: [
     CommonModule,

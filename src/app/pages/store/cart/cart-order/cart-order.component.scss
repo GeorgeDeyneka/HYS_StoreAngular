@@ -7,8 +7,30 @@
   padding: 12px;
 }
 
+.form {
+  &__errors {
+    font-size: 14px;
+    color: rebeccapurple;
+    position: relative;
+  }
+
+  &__error {
+    position: absolute;
+    top: 15px;
+  }
+
+  &__label {
+    color: rebeccapurple;
+    font-size: 15px;
+    position: absolute;
+    bottom: 80px;
+    left: 60px;
+  }
+}
+
 .order {
   &__form {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;

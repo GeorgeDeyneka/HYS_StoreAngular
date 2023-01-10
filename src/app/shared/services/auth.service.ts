@@ -16,7 +16,7 @@ export class AuthService {
   setAuthToken(token: String) {
     this.localStorageService.setData('authToken', token);
   }
-  getAuthToken() {
+  getAuthToken(): string | [] {
     return this.localStorageService.getData('authToken');
   }
   logIn<T>(data: any) {

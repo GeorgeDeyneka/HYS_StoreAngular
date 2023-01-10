@@ -6,9 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "predeploy": "ng build",
-    "deploy": "gh-pages -d docs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +20,7 @@
     "@angular/platform-browser": "^15.0.4",
     "@angular/platform-browser-dynamic": "^15.0.4",
     "@angular/router": "^15.0.4",
+    "angular-cli-ghpages": "^1.0.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,0 +1,14 @@
+<div class="modal">
+  <h1 mat-dialog-title>Thanks for your order!</h1>
+
+  <div mat-dialog-content>
+    <div mat-dialog-actions>
+      <app-button
+        mat-button
+        [text]="'Okay'"
+        [size]="'large'"
+        (click)="closeModal()"
+      ></app-button>
+    </div>
+  </div>
+</div>

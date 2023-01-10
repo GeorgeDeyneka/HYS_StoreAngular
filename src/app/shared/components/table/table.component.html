@@ -8,6 +8,9 @@
         <h4 class="item__phone" *ngIf="typeOfTable === 'orders'">
           Phone: {{ elem.phone }}
         </h4>
+        <h4 class="item__about" *ngIf="typeOfTable === 'products'">
+          About: {{ elem.description }}
+        </h4>
       </div>
       <div class="item__order" *ngIf="typeOfTable === 'orders'">
         <h3>Order:</h3>

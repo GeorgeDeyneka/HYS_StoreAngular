@@ -1,4 +1,3 @@
-import { ProductType } from '../../../models/interfaces/product.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
@@ -33,16 +32,32 @@ export class TableComponent implements OnInit {
             height: '450px',
             width: '400px',
           }
-        : {
+        : this.typeOfTable === DataName.users
+        ? {
             data: {
               typeOfData: this.typeOfTable,
               typeOfModal: ModalTypes.edit,
               id: elem.id,
-              keys: {
-                password: elem.password,
+            keys: {
+                password: '',
               },
             },
             height: '250px',
+            width: '400px',
+          }
+        : {
+            data: {
+              typeOfData: this.typeOfTable,
+              typeOfModal: ModalTypes.edit,
+              products: elem.products,
+              id: elem.id,
+              keys: {
+                name: elem.name,
+                phone: elem.phone,
+                message: elem.message
+              },
+            },
+            height: '450px',
             width: '400px',
           };
 

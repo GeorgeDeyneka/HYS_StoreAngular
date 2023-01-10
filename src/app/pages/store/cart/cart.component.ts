@@ -1,16 +1,18 @@
 import { ProductType } from '../../../models/interfaces/product.interface';
 import { CartService } from '../../../shared/services/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
-  public arrCart: ProductType[];
+export class CartComponent implements OnInit, OnDestroy {
+  public arrCart: ProductType[] = [];
   public totalPrice: number;
   public showOrder: boolean = false;
+  public subj$: Subscription;
 
   constructor(private cartService: CartService) {}
 
@@ -22,18 +24,16 @@ export class CartComponent implements OnInit {
     this.showOrder = true;
   }
 
-  hideTemplate() {
-    this.showOrder = false;
+  hideTemplate(event: any) {
+    this.showOrder = event;
   }
 
   clearCart(): void {
     this.arrCart = this.cartService.clearCart();
-    this.hideTemplate()
   }
 
   deleteElem(elem: ProductType) {
     this.cartService.deleteProduct(elem);
-    this.updateData();
   }
 
   updateData() {
@@ -43,5 +43,12 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateData();
+    this.subj$ = this.cartService.subj$.subscribe((data) => {
+      this.arrCart = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.subj$.unsubscribe();
   }
 }
