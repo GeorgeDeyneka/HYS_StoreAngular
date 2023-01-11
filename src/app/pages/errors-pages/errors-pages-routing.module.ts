@@ -9,6 +9,11 @@ const routes: Routes = [
     path: '',
     children: [
       {
+        path: 'error/404',
+        pathMatch: 'full',
+        component: PageNotFoundComponent,
+      },
+      {
         path: 'error/401',
         pathMatch: 'full',
         component: PageUnathorizedComponent,
@@ -22,11 +27,6 @@ const routes: Routes = [
         path: '**',
         pathMatch: 'full',
         redirectTo: 'error/404',
-      },
-      {
-        path: 'error/404',
-        pathMatch: 'full',
-        component: PageNotFoundComponent,
       },
     ],
   },

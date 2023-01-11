@@ -9,7 +9,7 @@ import { delay, Observable, of } from 'rxjs';
 })
 export class StoreService extends BaseHttpService {
 
-  override path = 'products/'
+  override path = 'products'
 
   private staticData: ProductType[] = PRODUCTS_STATE || this.createRandomData(8);
 
