@@ -22,7 +22,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/HYS_StoreAngular/",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
