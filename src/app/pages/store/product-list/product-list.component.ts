@@ -20,14 +20,14 @@ export class ProductListComponent implements OnInit {
   loadMore(num: number) {
     if (this.limitCount > this.productsData.length) return;
     this.limitCount += num;
-    this.serverData;
+    this.getServerData();
   }
 
   checkDisabled() {
     if (this.limitCount >= this.serverDataFullLength) this.buttonDis = false;
   }
 
-  get serverData() {
+  getServerData() {
     return this.storeService
       .getList<ProductType[]>(`?limit=${this.limitCount}`)
       .pipe(first())
@@ -38,7 +38,7 @@ export class ProductListComponent implements OnInit {
       });
   }
 
-  get lengthData() {
+  getLengthData() {
     return this.storeService
       .getList<ProductType[]>()
       .pipe(first())
@@ -48,7 +48,7 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.serverData;
-    this.lengthData;
+    this.getServerData();
+    this.getLengthData();
   }
 }
