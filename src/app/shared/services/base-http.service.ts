@@ -12,23 +12,24 @@ export class BaseHttpService {
   constructor(private http: HttpClient) {}
 
   getList<T>(params?: string): Observable<T> {
-    if (params) return this.http.get<T>(this.BASE_URL + this.path + params);
-    return this.http.get<T>(this.BASE_URL + this.path);
+    if (params)
+      return this.http.get<T>(this.BASE_URL + this.path + params);
+    return this.http.get<T>(this.BASE_URL + this.path + '/');
   }
 
   getById<T>(id: string | number): Observable<T> {
-    return this.http.get<T>(this.BASE_URL + this.path + id);
+    return this.http.get<T>(this.BASE_URL + this.path + '/' + id);
   }
 
   create<T>(data: T): Observable<T> {
-    return this.http.post<T>(this.BASE_URL + this.path, data);
+    return this.http.post<T>(this.BASE_URL + this.path + '/', data);
   }
 
   delete<T>(id: string | number): Observable<T> {
-    return this.http.delete<T>(this.BASE_URL + this.path + id)
+    return this.http.delete<T>(this.BASE_URL + this.path + '/' + id);
   }
 
   update<T>(id: string | number, data: T) {
-    return this.http.put<T>(this.BASE_URL + this.path + id, data)
+    return this.http.put<T>(this.BASE_URL + this.path + '/' + id, data);
   }
 }
