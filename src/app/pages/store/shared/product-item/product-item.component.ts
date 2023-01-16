@@ -1,5 +1,5 @@
-
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ButtonTextEnum } from 'src/app/models/enums/button-text.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -9,26 +9,43 @@ import { CartService } from 'src/app/shared/services/cart.service';
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.scss'],
 })
-export class ProductItemComponent implements OnChanges, OnInit {
+export class ProductItemComponent implements OnInit, OnDestroy {
   @Input() public productItem: ProductType;
   public buttonText: string = ButtonTextEnum.add;
+  private subj$: Subscription;
+  public arrCart: ProductType[];
 
   constructor(private cartService: CartService) {}
 
-  checkProduct() {
-    this.cartService.checkProduct(this.productItem) > 0
-      ? (this.buttonText = ButtonTextEnum.inCart)
-      : (this.buttonText = ButtonTextEnum.add);
+  checkProduct(data: ProductType[]) {
+    if (!data.length) {
+      this.buttonText = ButtonTextEnum.add;
+    }
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].id === this.productItem.id && data[i].count) {
+        this.buttonText = ButtonTextEnum.inCart;
+        return;
+      }
+      this.buttonText = ButtonTextEnum.add;
+    }
   }
 
   ngOnInit(): void {
-    this.checkProduct();
-  }
+    this.arrCart = this.cartService.getData();
+    this.checkProduct(this.arrCart);
 
-  ngOnChanges(): void {}
+    this.subj$ = this.cartService.subj$.subscribe((elem) => {
+      this.checkProduct(elem);
+    });
+  }
 
   addToCart(): void {
     this.cartService.addToCart(this.productItem);
-    this.checkProduct();
+    this.buttonText = ButtonTextEnum.inCart;
+  }
+
+  ngOnDestroy() {
+    this.subj$.unsubscribe();
   }
 }

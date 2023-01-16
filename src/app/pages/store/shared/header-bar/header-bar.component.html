@@ -13,16 +13,21 @@
         </li>
         <li
           (mouseenter)="onHover()"
-          (click)="onHover()"
           (mouseleave)="onLeave()"
           class="header__nav-item"
         >
-          <a [routerLink]="['/products/cart']" class="header__link"
+          <a
+            [routerLink]="['/products/cart']"
+            (click)="onHover()"
+            class="header__link"
             ><span class="material-symbols-outlined">
               shopping_cart_checkout</span
             >Cart</a
           >
-          <app-cart-modal [className]="modalClassName"></app-cart-modal>
+          <app-cart-modal
+            (mouseClick)="onLeave()"
+            [className]="modalClassName"
+          ></app-cart-modal>
         </li>
       </ul>
     </nav>

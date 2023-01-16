@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -12,11 +18,14 @@ export class CartModalComponent implements OnChanges {
   public totalPrice: number;
 
   @Input() className: string;
+  @Output() mouseClick = new EventEmitter();
 
   constructor(private cartService: CartService) {}
 
   ngOnChanges(): void {
-    this.updateData();
+    // this.updateData();
+    this.arrCart = this.cartService.getData();
+    this.totalPrice = this.calcPrice();
   }
 
   deleteElem(elem: ProductType): void {
@@ -27,6 +36,10 @@ export class CartModalComponent implements OnChanges {
   updateData(): void {
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
+
+    if (!this.arrCart.length) {
+      this.mouseClick.emit();
+    }
   }
 
   calcPrice(): number {
