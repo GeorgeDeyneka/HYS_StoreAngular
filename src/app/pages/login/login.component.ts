@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           if (error.error.statusCode === 401) {
-            this.form.patchValue({ username: '', password: '' });
             this.showLabel = true;
           } else {
             throwError(() => error);

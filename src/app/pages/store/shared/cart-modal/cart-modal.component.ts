@@ -23,14 +23,13 @@ export class CartModalComponent implements OnChanges {
   constructor(private cartService: CartService) {}
 
   ngOnChanges(): void {
-    // this.updateData();
     this.arrCart = this.cartService.getData();
     this.totalPrice = this.calcPrice();
   }
 
   deleteElem(elem: ProductType): void {
     this.cartService.deleteProduct(elem);
-    this.arrCart = this.cartService.getData();
+    this.updateData()
   }
 
   updateData(): void {

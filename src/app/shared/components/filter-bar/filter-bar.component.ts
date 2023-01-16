@@ -25,8 +25,8 @@ export class FilterBarComponent implements AfterViewInit {
   @ViewChild('quantityInput') quantityInput: ElementRef;
   @ViewChild('dateInput') dateInput: ElementRef;
 
-  public sortDis: boolean = true;
-  public priceOrDateInputDis: boolean = true;
+  public selectDis: boolean = true;
+  public inputDis: boolean = true;
   public sortValue: string;
   public sortFromVal: string;
   public priceOrDateFromVal: string;
@@ -81,7 +81,7 @@ export class FilterBarComponent implements AfterViewInit {
       this.tableConfigService.setQuantity(0);
       this.tableConfigService.setQuantitySelect(event.value);
     }
-    this.priceOrDateInputDis =
+    this.inputDis =
       !this.tableConfigService.DefaultConfig.priceSelect &&
       !this.tableConfigService.DefaultConfig.dateSelect &&
       !this.tableConfigService.DefaultConfig.quantitySelect;
@@ -99,11 +99,14 @@ export class FilterBarComponent implements AfterViewInit {
     if (this.priceInput) this.priceInput.nativeElement.value = '';
     if (this.quantityInput) this.quantityInput.nativeElement.value = '';
     this.sortValue = '';
+
+    this.inputDis = true;
+    this.selectDis = true;
   }
 
   setSortFrom(event: any) {
     this.tableConfigService.setSortFrom(event.value);
-    this.sortDis = !this.tableConfigService.DefaultConfig.sortFrom;
+    this.selectDis = !this.tableConfigService.DefaultConfig.sortFrom;
     if (!event.value) this.sortValue = '';
   }
 

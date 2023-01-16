@@ -25,7 +25,7 @@
 
     <mat-form-field class="filter__params">
       <input
-        [disabled]="priceOrDateInputDis"
+        [disabled]="inputDis"
         #priceInput
         *ngIf="param == 'products'"
         matInput
@@ -34,7 +34,7 @@
         placeholder="Price..."
       />
       <input
-        [disabled]="priceOrDateInputDis"
+        [disabled]="inputDis"
         #dateInput
         *ngIf="param == 'users'"
         matInput
@@ -42,7 +42,7 @@
         placeholder="Date..."
       />
       <input
-        [disabled]="priceOrDateInputDis"
+        [disabled]="inputDis"
         #quantityInput
         *ngIf="param == 'orders'"
         matInput
@@ -69,7 +69,7 @@
       <mat-label>Sort by...</mat-label>
       <mat-select
         [(value)]="sortValue"
-        [disabled]="sortDis"
+        [disabled]="selectDis"
         (selectionChange)="setSort($event)"
       >
         <mat-option>None</mat-option>
