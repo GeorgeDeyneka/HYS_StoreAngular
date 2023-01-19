@@ -1,12 +1,13 @@
-#Additional
-- Make header sticky
-- Add variables css
-- Add mixins scss
+# Additional tasks
+
+## SCSS:
+- Add CSS variables
+- Add SCSS mixins
+- Work with adaptive design
+## TS
 - Add search in the store page
-- Add message when search not give any result
 - Add posibility to edit products in orders
 - Incapsulate delete modal
-- Change README.md
-- Work with adaptive design
 - Add photos of products
-- Hide pagination when it have less 5 elements
+## Other
+- Change README.md

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
+import { HeaderColor } from 'src/app/models/enums/header-color.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -37,8 +38,8 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
     const opacityHeader = this.header.nativeElement;
 
     this.scrollPosition > 35
-      ? (opacityHeader.style.opacity = '0.75')
-      : (opacityHeader.style.opacity = '1');
+      ? (opacityHeader.style.backgroundColor = HeaderColor.opacity)
+      : (opacityHeader.style.backgroundColor = HeaderColor.basic);
   }
 
   onHover() {
