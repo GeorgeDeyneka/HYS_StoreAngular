@@ -17,7 +17,7 @@ export class CartService {
   setData(elem: ProductType): void {
     this.arrCart.push(elem);
     this.transformData();
-    this.subj$.next(this.arrCartCount);
+    this.reloadData();
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
   }
 
@@ -30,6 +30,10 @@ export class CartService {
     this.arrCartCount = [
       ...new Set(copyArr.map((el) => JSON.stringify(el))),
     ].map((el) => JSON.parse(el));
+  }
+
+  reloadData() {
+    this.subj$.next(this.arrCartCount);
   }
 
   calculateTotalPrice() {
@@ -59,7 +63,7 @@ export class CartService {
     });
     this.arrCart.splice(index, 1);
     this.transformData();
-    this.subj$.next(this.arrCartCount);
+    this.reloadData();
 
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
   }
@@ -68,7 +72,7 @@ export class CartService {
     this.arrCart = this.arrCart.filter((el) => el.id !== prod.id);
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
     this.transformData();
-    this.subj$.next(this.arrCartCount);
+    this.reloadData();
   }
 
   addToCart(elem: ProductType): void {
@@ -79,7 +83,7 @@ export class CartService {
   clearCart() {
     this.localStorageService.removeData('cartData');
     this.arrCartCount = [];
-    this.subj$.next(this.arrCartCount);
+    this.reloadData();
     return (this.arrCart = []);
   }
 }
