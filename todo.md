@@ -1,6 +1,8 @@
 #Additional
+- Make header sticky
+- Add variables css
+- Add mixins scss
 - Add search in the store page
-- Add in cart logo circle wuth count of all products
 - Add message when search not give any result
 - Add posibility to edit products in orders
 - Incapsulate delete modal

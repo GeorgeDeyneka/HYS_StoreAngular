@@ -28,6 +28,9 @@
             (mouseClick)="onLeave()"
             [className]="modalClassName"
           ></app-cart-modal>
+          <div *ngIf="counter" class="header__cart-counter">
+            {{ counter > 10 ? "10+" : counter }}
+          </div>
         </li>
       </ul>
     </nav>

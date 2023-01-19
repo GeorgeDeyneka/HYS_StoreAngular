@@ -78,6 +78,8 @@ export class CartService {
   addToCart(elem: ProductType): void {
     this.arrCart.push(elem);
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
+    this.transformData()
+    this.reloadData()
   }
 
   clearCart() {
