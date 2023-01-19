@@ -1,5 +1,6 @@
 @media (min-width: 320px) {
   .header {
+    transition: all 500ms ease-in 0s;
     background-color: #0f0f10;
 
     &__nav {

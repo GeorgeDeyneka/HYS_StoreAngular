@@ -1,6 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { debounceTime, fromEvent, Subscription } from 'rxjs';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -12,10 +18,28 @@ import { CartService } from 'src/app/shared/services/cart.service';
 export class HeaderBarComponent implements OnInit, OnDestroy {
   public modalClassName: string = 'unvisible';
   public subj$: Subscription;
-  public counter: number | string;
+  public scrollSubj$: Subscription;
+  public counter: number;
   public arrCart: ProductType[];
+  public scrollPosition = 0;
 
   constructor(private router: Router, private cartService: CartService) {}
+
+  @ViewChild('header') header: ElementRef;
+
+  onWindowScroll() {
+    this.scrollPosition =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
+    const opacityHeader = this.header.nativeElement;
+
+    this.scrollPosition > 35
+      ? (opacityHeader.style.opacity = '0.75')
+      : (opacityHeader.style.opacity = '1');
+  }
 
   onHover() {
     this.router.url === '/products/cart'
@@ -35,12 +59,17 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
     this.arrCart = this.cartService.getData();
     this.getCountOfProds(this.arrCart);
 
-    this.cartService.subj$.subscribe((data) => {
+    this.subj$ = this.cartService.subj$.subscribe((data) => {
       this.getCountOfProds(data);
     });
+
+    this.scrollSubj$ = fromEvent(window, 'scroll')
+      .pipe(debounceTime(50))
+      .subscribe(() => this.onWindowScroll());
   }
 
   ngOnDestroy(): void {
+    this.scrollSubj$.unsubscribe();
     this.subj$.unsubscribe();
   }
 }

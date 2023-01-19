@@ -36,6 +36,11 @@ app-side-bar {
   width: 270px;
 }
 
+app-header-bar {
+  position: sticky;
+  top: 0;
+}
+
 app-product-list,
 app-product-details,
 app-page-not-found,
