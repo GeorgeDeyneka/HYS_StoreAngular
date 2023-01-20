@@ -34,6 +34,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   deleteElem(elem: ProductType) {
     this.cartService.deleteProduct(elem);
+    this.totalPrice = this.calcPrice();
   }
 
   updateData() {
