@@ -13,7 +13,6 @@ export class ProductItemComponent implements OnInit, OnDestroy {
   @Input() public productItem: ProductType;
   public buttonText: string = ButtonTextEnum.add;
   private subj$: Subscription;
-  public arrCart: ProductType[];
 
   constructor(private cartService: CartService) {}
 
@@ -32,9 +31,6 @@ export class ProductItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.arrCart = this.cartService.getData();
-    this.checkProduct(this.arrCart);
-
     this.subj$ = this.cartService.subj$.subscribe((elem) => {
       this.checkProduct(elem);
     });

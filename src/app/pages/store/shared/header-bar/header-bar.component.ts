@@ -21,7 +21,6 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
   public subj$: Subscription;
   public scrollSubj$: Subscription;
   public counter: number;
-  public arrCart: ProductType[];
   public scrollPosition = 0;
 
   constructor(private router: Router, private cartService: CartService) {}
@@ -57,9 +56,6 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.arrCart = this.cartService.getData();
-    this.getCountOfProds(this.arrCart);
-
     this.subj$ = this.cartService.subj$.subscribe((data) => {
       this.getCountOfProds(data);
     });

@@ -9,10 +9,6 @@
       gap: 30px;
     }
 
-    &__nav-item {
-      position: relative;
-    }
-
     &__cart-counter {
       width: 22px;
       height: 22px;
@@ -20,7 +16,7 @@
       background-color: #9551ff;
       position: absolute;
       text-align: center;
-      top: -15px;
+      top: 3px;
       right: 0px;
       line-height: 20px;
       color: #23242a;
@@ -42,7 +38,7 @@
 @media (min-width: 768px) {
   .header {
     &__cart-counter {
-      top: -7px;
+      top: 5px;
       right: -20px;
     }
   }

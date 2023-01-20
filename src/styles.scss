@@ -39,6 +39,7 @@ app-side-bar {
 app-header-bar {
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 app-product-list,
