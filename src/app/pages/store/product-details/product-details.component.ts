@@ -33,16 +33,15 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .subscribe((item) => {
         if (item) {
           this.prod = item;
-          this.cartService.reloadData();
           this.loading$.next(false);
         } else {
           this.router.navigateByUrl('/**');
         }
-      });
 
-    this.subj$ = this.cartService.subj$.subscribe((elem) => {
-      this.checkProduct(elem);
-    });
+        this.subj$ = this.cartService.subj$.subscribe((elem) => {
+          this.checkProduct(elem);
+        });
+      });
   }
 
   checkProduct(data: ProductType[]) {

@@ -1,4 +1,4 @@
-<header class="header">
+<header #header class="header">
   <div class="container">
     <nav class="header__nav">
       <a [routerLink]="['/']" class="header__logo"
@@ -28,6 +28,9 @@
             (mouseClick)="onLeave()"
             [className]="modalClassName"
           ></app-cart-modal>
+          <div *ngIf="counter" class="header__cart-counter">
+            {{ counter > 10 ? "10+" : counter }}
+          </div>
         </li>
       </ul>
     </nav>

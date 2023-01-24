@@ -7,9 +7,14 @@
   </ng-container>
   <ng-template #table>
     <app-filter-bar [param]="dataName"></app-filter-bar>
-    <app-table [typeOfTable]="dataName" [data]="data"></app-table>
+    <app-table
+      *ngIf="dataLength"
+      [typeOfTable]="dataName"
+      [data]="data"
+    ></app-table>
     <mat-paginator
       class="admin__pagination"
+      *ngIf="dataLength; else anyRes"
       [pageIndex]="pageIndex"
       [hidePageSize]="true"
       [length]="dataLength"
@@ -18,5 +23,8 @@
       aria-label="Select page"
     >
     </mat-paginator>
+    <ng-template #anyRes>
+      <h4 class="search-title">The search has not given any results.</h4>
+    </ng-template>
   </ng-template>
 </div>

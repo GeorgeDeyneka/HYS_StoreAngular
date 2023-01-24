@@ -1,7 +1,7 @@
 import { ProductType } from '../../models/interfaces/product.interface';
 import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +9,8 @@ import { Subject } from 'rxjs';
 export class CartService {
   public arrCart: ProductType[] =
     this.localStorageService.getData<ProductType[]>('cartData') || [];
-  public subj$ = new Subject<ProductType[]>();
-  public arrCartCount: ProductType[] = [];
+    public arrCartCount: ProductType[] = [];
+    public subj$ = new BehaviorSubject<ProductType[]>(this.getData());
 
   constructor(private localStorageService: LocalStorageService) {}
 
@@ -78,6 +78,8 @@ export class CartService {
   addToCart(elem: ProductType): void {
     this.arrCart.push(elem);
     this.localStorageService.setData<ProductType[]>('cartData', this.arrCart);
+    this.transformData()
+    this.reloadData()
   }
 
   clearCart() {
