@@ -42,7 +42,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
   }
 
   onHover() {
-    this.router.url === '/products/cart'
+    this.router.url === '/products/cart' || window.innerWidth < 1024
       ? (this.modalClassName = 'unvisible')
       : (this.modalClassName = 'modal');
   }

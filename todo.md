@@ -3,7 +3,7 @@
 ## SCSS:
 - Add CSS variables
 - Add SCSS mixins
-- Work with adaptive design
+- Work with adaptive design (add burger-menu?)
 ## TS
 - Add search in the store page
 - Add posibility to edit products in orders
