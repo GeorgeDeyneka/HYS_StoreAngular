@@ -35,17 +35,19 @@
       <mat-label>Message</mat-label>
       <input (change)="setOrderInLocal()" formControlName="message" matInput />
     </mat-form-field>
-      <mat-label class="form__label" *ngIf="showLabel"
-        >Please, fill the form correctly and retry</mat-label
-      >
+    <mat-label class="form__label" *ngIf="showLabel"
+      >Please, fill the form correctly and retry</mat-label
+    >
     <div class="button-container">
       <app-button
         [text]="'Order later'"
+        [otherStyles]="'full-width'"
         (clickHandler)="hideClick.emit()"
       ></app-button>
       <app-button
         [buttonType]="'submit'"
         [text]="'Submit form'"
+        [otherStyles]="'full-width'"
         (click)="createOrder()"
         [theme]="'aqua'"
       ></app-button>

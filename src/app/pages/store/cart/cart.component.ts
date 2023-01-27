@@ -30,6 +30,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   clearCart(): void {
     this.arrCart = this.cartService.clearCart();
+    this.showOrder = false;
   }
 
   deleteElem(elem: ProductType) {
