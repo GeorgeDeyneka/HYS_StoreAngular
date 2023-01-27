@@ -1,10 +1,12 @@
 <div class="item">
-  <h4 class="item__title">
-    Product, which you want to buy:
-    <a class="item__link" [routerLink]="['/products', productItem.id]"
-      >{{ productItem.name }} #{{ productItem.id }}</a
-    >
-  </h4>
+  <div class="item__title">
+    <h4>Product, which you want to buy:</h4>
+    <h4>
+      <a class="item__link" [routerLink]="['/products', productItem.id]"
+        >{{ productItem.name }} #{{ productItem.id }}</a
+      >
+    </h4>
+  </div>
   <div class="item__interface-wrapper">
     <app-counter
       [prod]="productItem"
