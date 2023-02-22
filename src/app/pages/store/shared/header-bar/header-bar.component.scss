@@ -43,3 +43,11 @@
     }
   }
 }
+
+@media (min-width: 1200px) {
+  .header {
+    &__cart-counter {
+      right: -20px;
+    }
+  }
+}
