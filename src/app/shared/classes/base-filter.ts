@@ -94,9 +94,9 @@ export class BaseFilter<T> {
   }
 
   setSearch(el: filterConfig, searchBy: string) {
+    const regExp = new RegExp(el.search, 'i');
     this.data = this.baseData.filter(
-      (prod: any) =>
-        prod[searchBy].toLowerCase().search(el.search.toLowerCase()) >= 0
+      (prod: any) => prod[searchBy].search(regExp) >= 0
     );
   }
 
