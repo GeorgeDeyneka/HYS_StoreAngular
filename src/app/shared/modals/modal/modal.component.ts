@@ -1,5 +1,4 @@
-import { Router } from '@angular/router';
-import { UsersService } from '../../pages/administration/shared/services/users.service';
+import { UsersService } from '../../../pages/administration/shared/services/users.service';
 import { StoreService } from 'src/app/pages/store/store.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -21,7 +20,6 @@ export class ModalComponent implements OnInit {
     private storeService: StoreService,
     private usersService: UsersService,
     private ordersService: OrdersService,
-    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -38,11 +36,7 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.modalType !== ModalTypes.delete) {
-      this.form = this.fb.group({
-        ...this.data.keys,
-      });
-    }
+    this.form = this.fb.group(this.data.keys);
   }
 
   uploadImages(event: any) {
@@ -52,55 +46,25 @@ export class ModalComponent implements OnInit {
   }
 
   createElem() {
-    if (this.form && this.modalType === ModalTypes.create) {
-      if (this.data.typeOfData === DataName.products) {
+    if (this.data.typeOfData === DataName.products) {
+      for (let item of Object.keys(this.form.getRawValue())) {
+        this.formData.append(`${item}`, this.form.getRawValue()[item]);
+      }
 
-        let keys = Object.keys(this.form.getRawValue());
-        let values = this.form.getRawValue();
-
-        for (let item of keys) {
-          this.formData.append(`${item}`, values[item]);
-        }
-
-        // for (let item of this.form.getRawValue()) {
-        // this.formData.append(`${Object.keys(item)}`, item);
-        // }
-
-        this.storeService.create(this.formData).subscribe({
+      this.storeService.create(this.formData).subscribe({
+        next: (response) => {},
+        error: (error) => {},
+      });
+    } else {
+      this.usersService
+        .create({
+          password: '123123',
+          ...this.form.getRawValue(),
+        })
+        .subscribe({
           next: (response) => {},
           error: (error) => {},
         });
-      } else {
-        this.usersService
-          .create({
-            password: '123123',
-            ...this.form.getRawValue(),
-          })
-          .subscribe({
-            next: (response) => {},
-            error: (error) => {},
-          });
-      }
-    }
-    this.closeModal();
-  }
-
-  deleteElem() {
-    if (this.modalType === ModalTypes.delete) {
-      const del = (
-        this.data.typeOfData === DataName.products
-          ? this.storeService.delete(this.data.id)
-          : this.data.typeOfData === DataName.users
-          ? this.usersService.delete(this.data.id)
-          : this.ordersService.delete(this.data.id)
-      ).subscribe({
-        next: (response) => {},
-        error: (error) => {
-          if (error.status === 403) {
-            this.router.navigateByUrl('error/403');
-          }
-        },
-      });
     }
     this.closeModal();
   }
@@ -111,6 +75,8 @@ export class ModalComponent implements OnInit {
       const upd = (
         this.data.typeOfData === DataName.products
           ? this.storeService.update(this.data.id, {
+              // rewrite this block
+
               name,
               price: +price,
               description,

@@ -1,0 +1,29 @@
+@import "../../../../styles/mixins.scss";
+
+::ng-deep .mat-dialog-container {
+  @include modal-general-theme;
+}
+
+.modal {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  &__icon-warning {
+    display: block;
+    fill: #a1a1a1;
+    width: 150px;
+    height: 130px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+
+.mat-dialog-actions {
+  justify-content: space-around;
+}
+
+.mat-dialog-content {
+  word-break: break-all;
+}

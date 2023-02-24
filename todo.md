@@ -8,7 +8,6 @@
 - Change types in ProductType
 - Add images in preview, adaptive images in details section
 - Add slider
-- Incapsulate delete modal
 - Change API
 - Change guard on 404
 - Add search in the store page

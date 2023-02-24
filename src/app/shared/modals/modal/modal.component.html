@@ -1,16 +1,10 @@
 <div class="modal">
-  <h1 mat-dialog-title *ngIf="modalType !== 'delete'">
+  <h1 mat-dialog-title>
     {{ modalText[modalType] }}
   </h1>
 
-  <div *ngIf="modalType === 'delete'" mat-dialog-title>
-    <svg class="modal__icon-warning">
-      <use href="assets/sprite.svg#icon-warning"></use>
-    </svg>
-  </div>
-
   <div mat-dialog-content>
-    <form *ngIf="modalType !== 'delete'" [formGroup]="form" class="modal__form">
+    <form [formGroup]="form" class="modal__form">
       <ng-container *ngIf="keys">
         <mat-form-field *ngFor="let key of keys">
           <mat-label>{{ key }}</mat-label>
@@ -19,10 +13,6 @@
       </ng-container>
     </form>
 
-    <h1 *ngIf="modalType === 'delete'" mat-dialog-content>
-      {{ modalText[modalType] }}{{ data.id }}. Continue?
-    </h1>
-
     <div mat-dialog-actions>
       <app-button
         mat-button
@@ -30,7 +20,12 @@
         [text]="'Cancel'"
         (click)="closeModal()"
       ></app-button>
-      <input multiple (change)="uploadImages($event)" *ngIf="modalType === 'create'" type="file" />
+      <input
+        multiple
+        (change)="uploadImages($event)"
+        *ngIf="modalType === 'create'"
+        type="file"
+      />
       <app-button
         *ngIf="modalType === 'create'"
         mat-button
@@ -42,12 +37,6 @@
         mat-button
         [text]="'Okay'"
         (click)="updateElem()"
-      ></app-button>
-      <app-button
-        *ngIf="modalType === 'delete'"
-        mat-button
-        [text]="'Okay'"
-        (click)="deleteElem()"
       ></app-button>
     </div>
   </div>

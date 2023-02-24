@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { ModalComponent } from 'src/app/shared/modals/modal/modal.component';
 import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
 import { DataName } from 'src/app/models/enums/data-name.enum';
 

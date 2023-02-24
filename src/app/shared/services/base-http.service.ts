@@ -30,6 +30,6 @@ export class BaseHttpService {
   }
 
   update<T>(id: string | number, data: T) {
-    return this.http.put<T>(this.BASE_URL + this.path + id, data);
+    return this.http.patch<T>(this.BASE_URL + this.path + id, data);
   }
 }

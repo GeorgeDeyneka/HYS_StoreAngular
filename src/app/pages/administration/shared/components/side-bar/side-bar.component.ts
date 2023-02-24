@@ -10,7 +10,7 @@ export class SideBarComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService) {}
 
   removeToken() {
-    this.localStorageService.removeData('authToken');
+    this.localStorageService.removeData('token');
   }
 
   ngOnInit(): void {}
