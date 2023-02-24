@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   makeAuthRequest() {
     this.authService
-      .logIn<{ access_token: string }>(this.form.getRawValue())
+      .logIn<{ token: string }>(this.form.getRawValue())
       .subscribe({
         next: (response) => {
-          this.authService.setAuthToken(response.access_token);
+          this.authService.setAuthToken(response.token);
           this.router.navigateByUrl('/administration');
           this.showLabel = false;
         },
@@ -40,12 +40,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username: '',
+      email: '',
       password: '',
     });
 
     this.formSub$ = this.form.valueChanges.subscribe((value) => {
-      if (value.password || value.username) {
+      if (value.password || value.email) {
         this.showLabel = false;
       }
     });

@@ -2,12 +2,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+export const BASE_URL = 'http://localhost:3000/';
+
 @Injectable({
   providedIn: 'root',
 })
 export class BaseHttpService {
   protected path: string = '';
-  private BASE_URL: string = 'https://hys-fe-course-api.vercel.app/';
+  private BASE_URL: string = BASE_URL;
 
   constructor(private http: HttpClient) {}
 

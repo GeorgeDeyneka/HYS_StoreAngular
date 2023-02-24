@@ -5,6 +5,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from '../store.service';
 import { BehaviorSubject, first, Subscription } from 'rxjs';
+import { BASE_URL } from 'src/app/shared/services/base-http.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,6 +17,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   public buttonText: string = ButtonTextEnum.add;
   public subj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
+  public url: string = BASE_URL;
 
   constructor(
     private storeService: StoreService,

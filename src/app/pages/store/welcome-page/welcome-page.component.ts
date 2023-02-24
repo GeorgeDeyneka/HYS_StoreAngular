@@ -16,13 +16,13 @@ export class WelcomePageComponent implements OnInit {
 
   getCheapestProducts(count: number): ProductType[] {
     this.storeService
-      .getList<ProductType[]>()
+      .getList<[ProductType[], number]>()
       .pipe(first())
       .subscribe((data) => {
-        this.slicedData = [...data]
+        this.slicedData = [...data[0]]
           .sort((a, b) => a.price - b.price)
           .slice(0, count);
-        if (this.slicedData.length) this.loading$.next(false);
+        if (data[1]) this.loading$.next(false);
       });
 
     return this.slicedData;

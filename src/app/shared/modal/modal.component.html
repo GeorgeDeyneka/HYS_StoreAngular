@@ -30,6 +30,7 @@
         [text]="'Cancel'"
         (click)="closeModal()"
       ></app-button>
+      <input multiple (change)="uploadImages($event)" *ngIf="modalType === 'create'" type="file" />
       <app-button
         *ngIf="modalType === 'create'"
         mat-button

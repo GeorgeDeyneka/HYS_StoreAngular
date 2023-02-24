@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
-  public URL = 'https://hys-fe-course-api.vercel.app/auth/login';
+  public URL = 'http://localhost:3000/auth/';
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -14,12 +14,12 @@ export class AuthService {
   ) {}
 
   setAuthToken(token: String) {
-    this.localStorageService.setData('authToken', token);
+    this.localStorageService.setData('token', token);
   }
   getAuthToken(): string | [] {
-    return this.localStorageService.getData('authToken');
+    return this.localStorageService.getData('token');
   }
   logIn<T>(data: any) {
-    return this.http.post<T>(this.URL, data);
+    return this.http.post<T>(this.URL + 'login', data);
   }
 }

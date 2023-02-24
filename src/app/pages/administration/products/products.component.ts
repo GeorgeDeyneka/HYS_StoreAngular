@@ -27,12 +27,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dataSubj$ = this.storeService
-      .getList<ProductType[]>()
+      .getList<[ProductType[], number]>()
       .subscribe((data) => {
-        if (data.length) {
+        if (data[1]) {
           this.loading$.next(false);
-          this.data = this.productsFilterService.setData(data, 5);
-          this.dataLength = data.length;
+          this.data = this.productsFilterService.setData(data[0], 5);
+          this.dataLength = data[1];
         }
       });
 

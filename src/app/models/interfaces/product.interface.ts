@@ -6,4 +6,5 @@ export interface ProductType {
   description: string;
   extraInfo?: any;
   count?: number;
+  images?: string[]
 }

@@ -31,6 +31,7 @@ export class ModalComponent implements OnInit {
   public form: FormGroup;
   public modalType: string = this.data.typeOfModal;
   public modalText: any = ModalText;
+  private formData: FormData = new FormData();
 
   closeModal(): void {
     this.dialogRef.close();
@@ -44,20 +45,31 @@ export class ModalComponent implements OnInit {
     }
   }
 
+  uploadImages(event: any) {
+    [...event.target.files].forEach((elem: File) => {
+      this.formData.append('files', elem, elem.name);
+    });
+  }
+
   createElem() {
     if (this.form && this.modalType === ModalTypes.create) {
       if (this.data.typeOfData === DataName.products) {
-        let { name, price, description } = this.form.getRawValue();
-        this.storeService
-          .create({
-            name: name,
-            price: +price,
-            description: description,
-          })
-          .subscribe({
-            next: (response) => {},
-            error: (error) => {},
-          });
+
+        let keys = Object.keys(this.form.getRawValue());
+        let values = this.form.getRawValue();
+
+        for (let item of keys) {
+          this.formData.append(`${item}`, values[item]);
+        }
+
+        // for (let item of this.form.getRawValue()) {
+        // this.formData.append(`${Object.keys(item)}`, item);
+        // }
+
+        this.storeService.create(this.formData).subscribe({
+          next: (response) => {},
+          error: (error) => {},
+        });
       } else {
         this.usersService
           .create({

@@ -29,10 +29,10 @@ export class ProductListComponent implements OnInit {
 
   getServerData() {
     return this.storeService
-      .getList<ProductType[]>(`?limit=${this.limitCount}`)
+      .getList<[ProductType[], number]>(`?limit=${this.limitCount}`)
       .pipe(first())
       .subscribe((data) => {
-        this.productsData = data;
+        this.productsData = data[0];
         if (this.productsData.length) this.loading$.next(false);
         this.checkDisabled();
       });
