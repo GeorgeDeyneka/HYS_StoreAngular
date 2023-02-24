@@ -46,6 +46,4 @@ export class WarnModalComponent {
   closeModal(): void {
     this.dialogRef.close();
   }
-
-  // ? Remove horizontal scroll!
 }

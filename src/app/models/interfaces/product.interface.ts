@@ -5,6 +5,14 @@ export interface ProductType {
   price: number;
   description: string;
   extraInfo?: any;
+  images?: string[];
   count?: number;
-  images?: string[]
+
+  counter?: number;
+  quantity?: number;
+  comments?: any[];
+  guarantee?: string;
+  color?: string;
+  cssColor?: string;
+  otherIds?: string[];
 }

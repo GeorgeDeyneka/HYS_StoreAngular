@@ -1,4 +1,14 @@
 <div class="product-item">
+  <div class="swiper" #swiper>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let imgPath of productItem.images">
+        <img [src]="url + imgPath" loading="lazy" />
+        <div class="swiper-lazy-preloader"></div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
   <h3 class="product-item__title">
     <a [routerLink]="['/products', productItem.id]">
       {{ productItem.name }}
@@ -7,8 +17,5 @@
   <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
     {{ productItem.price | UAH }}
   </h4>
-  <app-button
-    (click)="addToCart()"
-    [text]="buttonText"
-  ></app-button>
+  <app-button (click)="addToCart()" [text]="buttonText"></app-button>
 </div>

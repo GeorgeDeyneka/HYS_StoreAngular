@@ -4,13 +4,28 @@
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  padding: 20px;
+  padding-bottom: 20px;
   background-color: #23242a;
   border-radius: 5px;
-  height: 200px;
+  gap: 10px;
   max-width: 280px;
 
   &__title {
     font-weight: 400;
   }
+}
+
+.swiper {
+  width: 280px;
+  height: 280px;
+  &-slide {
+    display: flex;
+    justify-content: center;
+    img {
+      transform: scale(0.75);
+      border-radius: 5px;
+    }
+  }
+
+  --swiper-pagination-color: #9551ff;
 }

@@ -26,8 +26,12 @@ export class TableComponent implements OnInit {
               id: elem.id,
               keys: {
                 name: elem.name,
-                price: elem.price,
+                price: +elem.price,
                 description: elem.description,
+                quantity: elem.quantity,
+                color: elem.color,
+                cssColor: elem.cssColor,
+                guarantee: elem.guarantee,
               },
             },
             height: '450px',
@@ -39,7 +43,7 @@ export class TableComponent implements OnInit {
               typeOfData: this.typeOfTable,
               typeOfModal: ModalTypes.edit,
               id: elem.id,
-            keys: {
+              keys: {
                 password: '',
               },
             },
@@ -55,7 +59,7 @@ export class TableComponent implements OnInit {
               keys: {
                 name: elem.name,
                 phone: elem.phone,
-                message: elem.message
+                message: elem.message,
               },
             },
             height: '450px',

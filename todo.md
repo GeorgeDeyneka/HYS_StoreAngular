@@ -3,11 +3,9 @@
 ## SCSS:
 - Add CSS variables
 - Add SCSS mixins
-- Work with adaptive design (add burger-menu?)
 ## TS
-- Change types in ProductType
-- Add images in preview, adaptive images in details section
-- Add slider
+- Fix bug with posibility update products
+- Adaptive images in details section, add slider
 - Change API
 - Change guard on 404
 - Add search in the store page

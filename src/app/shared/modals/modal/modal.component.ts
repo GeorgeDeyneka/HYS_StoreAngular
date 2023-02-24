@@ -71,28 +71,46 @@ export class ModalComponent implements OnInit {
 
   updateElem() {
     if (this.form && this.modalType === ModalTypes.edit) {
-      let { name, price, description } = this.form.getRawValue();
       const upd = (
         this.data.typeOfData === DataName.products
-          ? this.storeService.update(this.data.id, {
-              // rewrite this block
-
-              name,
-              price: +price,
-              description,
-            })
+          ? this.storeService
           : this.data.typeOfData === DataName.users
-          ? this.usersService.update(this.data.id, {
-              ...this.form.getRawValue(),
-            })
-          : this.ordersService.update(this.data.id, {
-              ...this.form.getRawValue(),
-            })
-      ).subscribe({
-        next: (response) => {},
-        error: (error) => {},
-      });
+          ? this.usersService
+          : this.ordersService
+      )
+        .update(this.data.id, {
+          ...this.form.getRawValue(),
+        })
+        .subscribe({
+          next: (response) => {},
+          error: (error) => {},
+        });
     }
     this.closeModal();
   }
+
+  // updateElem() {
+  //   if (this.form && this.modalType === ModalTypes.edit) {
+  //     let { name, price, description } = this.form.getRawValue();
+  //     const upd = (
+  //       this.data.typeOfData === DataName.products
+  //         ? this.storeService.update(this.data.id, {
+  //             name,
+  //             price: +price,
+  //             description,
+  //           })
+  //         : this.data.typeOfData === DataName.users
+  //         ? this.usersService.update(this.data.id, {
+  //             ...this.form.getRawValue(),
+  //           })
+  //         : this.ordersService.update(this.data.id, {
+  //             ...this.form.getRawValue(),
+  //           })
+  //     ).subscribe({
+  //       next: (response) => {},
+  //       error: (error) => {},
+  //     });
+  //   }
+  //   this.closeModal();
+  // }
 }
