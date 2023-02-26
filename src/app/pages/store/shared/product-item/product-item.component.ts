@@ -12,7 +12,7 @@ import { ButtonTextEnum } from 'src/app/models/enums/button-text.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { BASE_URL } from 'src/app/shared/services/base-http.service';
 import { CartService } from 'src/app/shared/services/cart.service';
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Pagination } from 'swiper';
 
 @Component({
   selector: 'app-product-item',
@@ -20,7 +20,7 @@ import Swiper, { Navigation, Pagination } from 'swiper';
   styleUrls: ['./product-item.component.scss'],
 })
 export class ProductItemComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('swiper') swipe: ElementRef<HTMLElement>;
+  @ViewChild('swiper') swiperRef: ElementRef<HTMLElement>;
   @Input() public productItem: ProductType;
   public buttonText: string = ButtonTextEnum.add;
   private subj$: Subscription;
@@ -50,23 +50,15 @@ export class ProductItemComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.swiper = new Swiper(this.swipe.nativeElement, {
-      modules: [Navigation, Pagination],
+    this.swiper = new Swiper(this.swiperRef.nativeElement, {
+      modules: [Pagination],
       slidesPerView: 1,
-      grabCursor: true,
       loop: true,
       speed: 500,
-      spaceBetween: 10,
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
         clickable: true,
-      },
-      navigation: {
-        enabled: false,
-      },
-      breakpoints: {
-        720: {},
       },
     });
   }

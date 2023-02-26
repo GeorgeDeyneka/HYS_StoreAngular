@@ -1,11 +1,19 @@
 import { ProductType } from '../../../models/interfaces/product.interface';
 import { ButtonTextEnum } from '../../../models/enums/button-text.enum';
 import { CartService } from '../../../shared/services/cart.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from '../store.service';
 import { BehaviorSubject, first, Subscription } from 'rxjs';
 import { BASE_URL } from 'src/app/shared/services/base-http.service';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-product-details',
@@ -13,11 +21,16 @@ import { BASE_URL } from 'src/app/shared/services/base-http.service';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
+  // @ViewChild('swiper') set swiperRef(element: ElementRef<HTMLElement>) {
+    // this.swiper = new Swiper(element.nativeElement, {});
+  // }
+
   public prod: ProductType;
   public buttonText: string = ButtonTextEnum.add;
   public subj$: Subscription;
   public loading$ = new BehaviorSubject<boolean>(true);
   public url: string = BASE_URL;
+  // public swiper: Swiper;
 
   constructor(
     private storeService: StoreService,

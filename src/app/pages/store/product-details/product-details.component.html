@@ -7,7 +7,15 @@
   <main *ngIf="prod" class="container">
     <h2 class="page__title">Products/{{ prod.name }} #{{ prod.id }}</h2>
     <div class="item">
-      <!-- <img *ngFor="let imgPath of prod.images" [src]="url + imgPath" alt="image" /> -->
+      <div class="swiper" #swiper>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let imgPath of prod.images">
+            <img [src]="url + imgPath" alt="image" />
+            <!-- <div class="swiper-lazy-preloader"></div> -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
       <h1 class="item__title">{{ prod.name }}</h1>
       <h4 class="item__description">About: {{ prod.description }}</h4>
       <h2 class="item__price">Price: {{ prod.price | UAH }}</h2>
