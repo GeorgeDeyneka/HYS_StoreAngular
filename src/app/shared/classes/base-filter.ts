@@ -5,7 +5,7 @@ import { filterConfig } from 'src/app/models/interfaces/default-config.interface
 export class BaseFilter<T> {
   public data: T[] = [];
   public copyArr: T[] = [];
-  private baseData: T[] = [];
+  public baseData: T[] = [];
   public pageIndex: number = 0;
   public dataLength: number;
   private num: number;
@@ -39,18 +39,6 @@ export class BaseFilter<T> {
       this.resetFilterData();
     }
 
-    if (elem.price) {
-      this.setFilterPrice(elem);
-    }
-
-    if (elem.createdAt) {
-      this.setFilterDate(elem);
-    }
-
-    if (elem.quantity) {
-      this.setFilterQuantity(elem);
-    }
-
     if (elem.sort && elem.sortFrom) {
       this.setSortData(elem);
     }
@@ -61,36 +49,6 @@ export class BaseFilter<T> {
     this.sliceForFirstPage();
 
     return { data: this.data, length: this.dataLength, index: this.pageIndex };
-  }
-
-  setFilterPrice(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((prod: any) =>
-      el.priceSelect == Select.more
-        ? prod.price > el.price
-        : prod.price < el.price
-    );
-  }
-
-  setFilterQuantity(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((order: any) => {
-      const myKey = 'countOfAllProd';
-      order[myKey as keyof T] = order.products.reduce(
-        (acc: number, item: any) => (acc += item.quantity),
-        0
-      );
-
-      return el.quantitySelect == Select.more
-        ? order.countOfAllProd > el.quantity
-        : order.countOfAllProd < el.quantity;
-    });
-  }
-
-  setFilterDate(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((user: any) =>
-      el.dateSelect == Select.more
-        ? user.createdAt > el.createdAt
-        : user.createdAt < el.createdAt
-    );
   }
 
   setSearch(el: filterConfig, searchBy: string) {

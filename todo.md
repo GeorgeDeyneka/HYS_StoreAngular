@@ -9,7 +9,7 @@
 - Change API
 - Change guard on 404
 - Add search in the store page
-- Make refactoring for table
+- Fix Angular Material styles on input
 - Add posibility to edit products in orders
 ## Other
 - Change README.md
