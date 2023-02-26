@@ -16,9 +16,7 @@ export class UsersFilterService extends BaseFilter<UserType> {
       this.setFilterDate(elem);
     }
 
-    let data = super.changeData(elem, param);
-
-    return data;
+    return super.changeData(elem, param);
   }
 
   setFilterDate(el: filterConfig) {

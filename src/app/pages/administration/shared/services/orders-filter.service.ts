@@ -16,9 +16,7 @@ export class OrdersFilterService extends BaseFilter<OrderType> {
       this.setFilterQuantity(elem);
     }
 
-    let data = super.changeData(elem, param);
-
-    return data;
+    return super.changeData(elem, param);
   }
 
   setFilterQuantity(el: filterConfig) {
