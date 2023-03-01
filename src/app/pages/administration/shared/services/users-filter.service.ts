@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Select } from 'src/app/models/enums/select.enum';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
+import { ParamFilterKeys } from 'src/app/models/types/param-filter-keys.type';
 import { UserType } from 'src/app/models/interfaces/user.interface';
 import { BaseFilter } from 'src/app/shared/classes/base-filter';
 
@@ -8,10 +9,7 @@ import { BaseFilter } from 'src/app/shared/classes/base-filter';
   providedIn: 'root',
 })
 export class UsersFilterService extends BaseFilter<UserType> {
-  override changeData(
-    elem: filterConfig,
-    param: 'price' | 'createdAt' | 'phone'
-  ): any {
+  override changeData(elem: filterConfig, param: ParamFilterKeys): any {
     if (elem.createdAt) {
       this.setFilterDate(elem);
     }

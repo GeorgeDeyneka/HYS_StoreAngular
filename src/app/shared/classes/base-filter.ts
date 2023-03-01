@@ -1,6 +1,7 @@
 import { DataFields } from 'src/app/models/enums/data-fields.enum';
 import { Select } from 'src/app/models/enums/select.enum';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
+import { ParamFilterKeys } from 'src/app/models/types/param-filter-keys.type';
 
 export class BaseFilter<T> {
   public data: T[] = [];
@@ -23,7 +24,7 @@ export class BaseFilter<T> {
     return this.data;
   }
 
-  changeData(elem: filterConfig, param: 'price' | 'createdAt' | 'phone') {
+  changeData(elem: filterConfig, param: ParamFilterKeys) {
     const typeOfName: string =
       param == DataFields.createdAt ? DataFields.username : DataFields.name;
 
@@ -31,11 +32,7 @@ export class BaseFilter<T> {
       this.setSearch(elem, typeOfName);
     }
 
-    if (
-      (param === DataFields.price && !elem.search && !elem.price) ||
-      (param === DataFields.createdAt && !elem.search && !elem.createdAt) ||
-      (param === DataFields.phone && !elem.search && !elem.quantity)
-    ) {
+    if (DataFields[param] && !elem.search && !elem[param]) {
       this.resetFilterData();
     }
 

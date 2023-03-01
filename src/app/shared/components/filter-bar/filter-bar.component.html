@@ -6,13 +6,9 @@
 
   <div class="filter__price-or-date">
     <mat-form-field class="filter__option">
-      <mat-label>{{
-        param == "users"
-          ? "Date From..."
-          : param == "products"
-          ? "Price From..."
-          : "Quantity From..."
-      }}</mat-label>
+      <mat-label>
+        {{ filterLabel[param] }}
+      </mat-label>
       <mat-select
         [(value)]="priceOrDateFromVal"
         (selectionChange)="setInputDisabled($event)"
@@ -23,28 +19,28 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="filter__params">
+    <mat-form-field [ngSwitch]="param" class="filter__params">
       <input
+        *ngSwitchCase="'products'"
         [disabled]="inputDis"
         #priceInput
-        *ngIf="param == 'products'"
         matInput
         autocomplete="off"
         type="number"
         placeholder="Price..."
       />
       <input
+        *ngSwitchCase="'users'"
         [disabled]="inputDis"
         #dateInput
-        *ngIf="param == 'users'"
         matInput
         type="date"
         placeholder="Date..."
       />
       <input
+        *ngSwitchCase="'orders'"
         [disabled]="inputDis"
         #quantityInput
-        *ngIf="param == 'orders'"
         matInput
         type="number"
         placeholder="Quantity..."
@@ -68,18 +64,19 @@
     <mat-form-field>
       <mat-label>Sort by...</mat-label>
       <mat-select
+        [ngSwitch]="param"
         [(value)]="sortValue"
         [disabled]="selectDis"
         (selectionChange)="setSort($event)"
       >
         <mat-option>None</mat-option>
-        <mat-option *ngIf="param != 'users'" value="name">Name</mat-option>
-        <mat-option *ngIf="param == 'orders'" value="phone">Phone</mat-option>
-        <mat-option *ngIf="param == 'users'" value="username"
-          >Username</mat-option
+        <mat-option [value]="param === 'users' ? 'username' : 'name'"
+          >Name</mat-option
         >
-        <mat-option *ngIf="param == 'products'" value="price">Price</mat-option>
-        <mat-option *ngIf="param == 'users'" value="createdAt">Date</mat-option>
+        <mat-option *ngSwitchCase="'users'" value="createdAt">Date</mat-option>
+        <mat-option *ngSwitchCase="'products'" value="price">Price</mat-option>
+        <mat-option *ngSwitchCase="'orders'" value="phone">Phone</mat-option>
+        <!-- Check it when orders will exist! (There may be quantity) -->
         <mat-option value="id">Id</mat-option>
       </mat-select>
     </mat-form-field>
@@ -89,6 +86,7 @@
     [matMenuTriggerFor]="menu"
     aria-label="menu"
   ></app-button-menu>
+
   <mat-menu #menu="matMenu">
     <button (click)="resetConfig()" mat-menu-item>
       <mat-icon>sort</mat-icon>

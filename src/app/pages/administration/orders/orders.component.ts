@@ -50,7 +50,7 @@ export class OrdersComponent implements OnInit {
   }
 
   changeData(elem: filterConfig) {
-    let obj = this.ordersFilterService.changeData(elem, 'phone');
+    let obj = this.ordersFilterService.changeData(elem, 'quantity');
 
     this.data = obj.data;
     this.dataLength = obj.length;
