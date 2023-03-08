@@ -54,6 +54,7 @@ Future plans include developing my own API and adding the ability to upload imag
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+### Main Page
 <div>
   <ul>
     <li>
@@ -72,6 +73,7 @@ By clicking on the "Add to Cart" buttons, you can add products to the cart and s
 
 ---
 
+### Cart Page
 <div>
   <ul>
     <li>
@@ -86,6 +88,26 @@ Once on the shopping cart page, you can change the number of products or delete 
 
 ---
 
+### About Page
+<div>
+  <ul>
+    <li>
+When you click on the product name, you go to the "About" page. Here you can see the description and information about the product, as well as add it to the cart.
+    </li>
+    </br>
+    <li>
+      By the way, you can view product information from any page by simply clicking on its name.
+    </li>
+  </ul>
+  </br>
+<img src="demo-images/about-page.png" alt="order-page-demo" width="1000" height="555">
+</div>
+
+</br>
+
+---
+
+### Order Page
 <div>
   <ul>
     <li>
@@ -100,20 +122,7 @@ descr
 
 ---
 
-<div>
-  <ul>
-    <li>
-descr
-    </li>
-  </ul>
-  </br>
-<img src="demo-images/about-page.png" alt="order-page-demo" width="1000" height="555">
-</div>
-
-</br>
-
----
-
+### Admin Page
 <div>
   <ul>
     <li>
