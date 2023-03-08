@@ -70,6 +70,9 @@ By clicking on the "Add to Cart" buttons, you can add products to the cart and s
 
 </br>
 ---
+***
+___
+
 <div>
   <ul>
     <li>
