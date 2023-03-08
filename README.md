@@ -1,6 +1,6 @@
 # HYS Angular Store
 
-<a name="readme-top"></a>
+<-- <a name="readme-top"></a>
  
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -32,7 +32,7 @@
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
-</div>
+</div> -->
 
 
 
