@@ -96,6 +96,7 @@ ng serve -o
 ```
 
 
+
 ## About project
 
 This is my pet project, written during the training course from HYS Enterprise. It is an online store where you can view products, add them to your cart, and create an order.
@@ -103,6 +104,7 @@ This is my pet project, written during the training course from HYS Enterprise. 
 However, if you have administrator rights and are logged in, you can filter or sort products, users, and orders using the filter bar. You also have the ability to interact with the server and perform CRUD operations.
 
 Future plans include developing my own API and adding the ability to upload images, as well as adding more detailed product information.
+
 
 ### Built With
 
@@ -127,6 +129,7 @@ Future plans include developing my own API and adding the ability to upload imag
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
+
 
 
 ## Contributing
