@@ -1,14 +1,5 @@
 # HYS Angular Store
 
-<!-- <a name="readme-top"></a>
- 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
@@ -19,7 +10,7 @@
 
 ## Get Started
 
-If you want to see the project without deploying it locally, you can follow this link to GitHub Pages: https://georgedeyneka.github.io/HYS_StoreAngular/
+If you want to see the project without deploying it locally, you can follow this link to GitHub Pages: [gh-pages-link]
 
 So, if you want to look at the project's code and deploy it, follow the steps below in the "Installation" section.
 
@@ -27,7 +18,7 @@ So, if you want to look at the project's code and deploy it, follow the steps be
 
 1. Clone the repo
 ```sh
-git clone https://github.com/GeorgeDeyneka/HYS_StoreAngular.git
+git clone [repo-link]
 ```
 2. Install NPM packages
 ```sh
@@ -107,7 +98,8 @@ I'd like to thank to @Bormash1991 for helping me improve the project and help wr
 
 I would also like to say thanks to @alexsednev for regular code reviews and advice on keeping the code structure correct.
  
-
+[gh-pages-link]: https://georgedeyneka.github.io/HYS_StoreAngular/
+[repo-link]: https://github.com/GeorgeDeyneka/HYS_StoreAngular.git
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
