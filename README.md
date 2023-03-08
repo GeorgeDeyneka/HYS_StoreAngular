@@ -164,6 +164,7 @@ By clicking on the corresponding "Edit" and "Delete" buttons, you can delete and
   </br>
 <img src="demo-images/admin-page.png" alt="order-page-demo" width="1000" height="555">
   </br>
+  </br>
   <ul>
     <li>
 As a result, this interface allows you to easily manipulate data on the server.
