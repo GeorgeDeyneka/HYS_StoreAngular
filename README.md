@@ -146,12 +146,7 @@ If you click on the "Login" button at the bottom of the page, you will be redire
     </li>
     </br>
     <li>
-When you get to this page, you will be presented with several sections:
-Users, Products and Orders.
-    </li>
-    </br>
-    <li>
-Before you will be an interface in the form of a table with information about products, as well as a panel for filtering objects.
+When you get to this page, you will be presented with several sections: Users, Products and Orders. Before you will be an interface in the form of a table with information about products, as well as a panel for filtering objects.
     </li>
     </br>
     <li>
@@ -159,23 +154,21 @@ So, you can search and filter objects by different categories: it can be a name,
     </li>
     </br>
     <li>
-You can also reset your filter configuration by opening the menu in the upper right corner of the filter bar.
-    </li>
-    </br>
-    <li>
-You can also create a new object from the same menu. A form will open in front of you and you can add your own item or product.
+You can also reset your filter configuration by opening the menu in the upper right corner of the filter bar. Being in this menu, you can also create your own object, and a form with the necessary fields for creating an object will open in front of you.
     </li>
     </br>
     <li>
 You can also delete and edit objects in the table. All described actions (adding, editing and deleting) are carried out using CRUD operations.
     </li>
-    </br>
+  </ul>
+  </br>
+<img src="demo-images/admin-page.png" alt="order-page-demo" width="1000" height="555">
+  </br>
+  <ul>
     <li>
 As a result, this interface allows you to easily manipulate data on the server.
     </li>
   </ul>
-  </br>
-<img src="demo-images/admin-page.png" alt="order-page-demo" width="1000" height="555">
 </div>
 
 </br>
