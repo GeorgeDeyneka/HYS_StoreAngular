@@ -98,6 +98,12 @@ ng serve -o
 
 ## About project
 
+This is my pet project, written during the training course from HYS Enterprise. It is an online store where you can view products, add them to your cart, and create an order.
+
+However, if you have administrator rights and are logged in, you can filter or sort products, users, and orders using the filter bar. You also have the ability to interact with the server and perform CRUD operations.
+
+Future plans include developing my own API and adding the ability to upload images, as well as adding more detailed product information.
+
 ### Built With
 
 - [![Angular][Angular.io]][Angular-url]
@@ -110,8 +116,6 @@ ng serve -o
 - ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 
-<!-- GETTING STARTED -->
-
 
 <!-- USAGE EXAMPLES -->
 <!-- ## Usage -->
@@ -122,38 +126,24 @@ ng serve -o
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
-
-
-<!-- ROADMAP -->
-<!-- ## Roadmap -->
-
-<!-- - [x] Add Changelog -->
-<!-- - [x] Add back to top links -->
-<!-- - [ ] Add Additional Templates w/ Examples -->
-<!-- - [ ] Add "components" document to easily copy & paste sections of the readme -->
-<!-- - [ ] Multi-language Support -->
-<!--     - [ ] Chinese -->
-<!--     - [ ] Spanish -->
-
 <!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
 
-<!-- CONTRIBUTING -->
-<!-- ## Contributing -->
+## Contributing
 
-<!-- Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. -->
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-<!-- If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". -->
-<!-- Don't forget to give the project a star! Thanks again! -->
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-<!-- 1. Fork the Project -->
-<!-- 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`) -->
-<!-- 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`) -->
-<!-- 4. Push to the Branch (`git push origin feature/AmazingFeature`) -->
-<!-- 5. Open a Pull Request -->
+If you want to improve the project code, you need to:
 
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
+Don't forget to give the project a star! Thanks again!
 
 <!-- ## Contact -->
 
