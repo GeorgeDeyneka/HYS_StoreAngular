@@ -77,7 +77,15 @@ By clicking on the "Add to Cart" buttons, you can add products to the cart and s
 <div>
   <ul>
     <li>
-Once on the shopping cart page, you can change the number of products or delete product categories altogether. Also, you can empty the trash completely. At the bottom is the "Make Order" button and the total amount of your order.
+Once on the shopping cart page, you can change the number of products or delete product categories altogether.
+    </li>
+    </br>
+    <li>
+Also, you can empty the trash completely. At the bottom is the "Make Order" button and the total amount of your order.
+    </li>
+    </br>
+    <li>
+      You can also click on the product name to find out information about it.
     </li>
   </ul>
   </br>
@@ -96,7 +104,7 @@ When you click on the product name, you go to the "About" page. Here you can see
     </li>
     </br>
     <li>
-      By the way, you can view product information from any page by simply clicking on its name.
+By the way, you can view product information from any page by simply clicking on its name.
     </li>
   </ul>
   </br>
