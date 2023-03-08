@@ -158,7 +158,7 @@ You can also reset your filter configuration by opening the menu in the upper ri
     </li>
     </br>
     <li>
-You can also delete and edit objects in the table. All described actions (adding, editing and deleting) are carried out using CRUD operations.
+By clicking on the corresponding "Edit" and "Delete" buttons, you can delete and edit objects in the table. All described actions (adding, editing and deleting) are carried out using CRUD operations.
     </li>
   </ul>
   </br>
