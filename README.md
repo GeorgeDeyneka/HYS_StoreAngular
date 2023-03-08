@@ -78,7 +78,11 @@
 
 ## Get Started
 
-To get a local copy up and running follow these simple example steps.
+If you want to see the project without deploying it locally, you can follow this link to GitHub Pages: https://georgedeyneka.github.io/HYS_StoreAngular/
+
+So, if you want to look at the project's code and deploy it, follow the steps below in the "Installation" section.
+
+
 
 ### Installation
 
