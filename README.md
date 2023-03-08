@@ -52,7 +52,12 @@ Future plans include developing my own API and adding the ability to upload imag
 
 
 <!-- USAGE EXAMPLES -->
-<!-- ## Usage -->
+## Usage
+
+<img src="demo-images/main-page.png" alt="main-page-demo" width="400" height="250">
+<img src="demo-images/cart-page.png" alt="main-page-demo" width="400" height="250">
+<img src="demo-images/about-page.png" alt="main-page-demo" width="400" height="250">
+<img src="demo-images/admin-page.png" alt="main-page-demo" width="400" height="250">
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
