@@ -69,9 +69,8 @@ By clicking on the "Add to Cart" buttons, you can add products to the cart and s
 </div>
 
 </br>
+
 ---
-***
-___
 
 <div>
   <ul>
@@ -84,7 +83,9 @@ Once on the shopping cart page, you can change the number of products or delete 
 </div>
 
 </br>
+
 ---
+
 <div>
   <ul>
     <li>
@@ -96,7 +97,9 @@ descr
 </div>
 
 </br>
+
 ---
+
 <div>
   <ul>
     <li>
@@ -108,7 +111,9 @@ descr
 </div>
 
 </br>
+
 ---
+
 <div>
   <ul>
     <li>
