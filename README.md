@@ -54,7 +54,7 @@ Future plans include developing my own API and adding the ability to upload imag
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<div display="flex" flex-direction="column" gap="50px">
+<div display="flex" flex-direction="column" gap="500px">
   <ul>
     <li>
 First of all, when you go from the start page by clicking the "Go Shopping!" you are taken to the main page. This is a product catalog. By clicking on the "Load More" button, you can additionally load products.
