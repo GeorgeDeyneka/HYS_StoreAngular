@@ -130,7 +130,7 @@ If you want to improve the project code, you need to:
 
 Don't forget to give the project a star! Thanks again!
 
-## My Contacts
+## My Contacts (Links)
 
 - <a href="https://www.linkedin.com/in/george-deyneka-910003238/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
@@ -141,8 +141,7 @@ Don't forget to give the project a star! Thanks again!
 - <a href="mailto: zhoradeynecka@gmail.com">
     <img src="https://img.shields.io/badge/Email-white?style=for-the-badge&logo=gmail&logoColor=red" alt="Email Badge"/>
   </a> 
-
-<!-- Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name) -->
+- Project Link: [https://github.com/GeorgeDeyneka/HYS_StoreAngular](https://github.com/GeorgeDeyneka/HYS_StoreAngular)
 
 
 <!-- ## Acknowledgments -->
