@@ -29,7 +29,6 @@ npm install
 ng serve -o
 ```
 
-</br>
 ## About project
 
 This is my pet project, written during the training course from HYS Enterprise. It is an online store where you can view products, add them to your cart, and create an order.
@@ -63,7 +62,6 @@ Future plans include developing my own API and adding the ability to upload imag
 
 <!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
-</br>
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -81,7 +79,6 @@ If you want to improve the project code, you need to:
 Don't forget to give the project a star! Thanks again!
 
 
-</br>
 ## My Contacts (Links)
 
 - <a href="https://www.linkedin.com/in/george-deyneka-910003238/">
@@ -95,7 +92,6 @@ Don't forget to give the project a star! Thanks again!
   </a> 
 
 
-</br>
 ## Acknowledgments
 
 I'd like to thank to @Bormash1991 for helping me improve the project and help write the functionality.
