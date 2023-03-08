@@ -54,18 +54,17 @@ Future plans include developing my own API and adding the ability to upload imag
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<img src="demo-images/main-page.png" alt="main-page-demo" width="400" height="250">
-<img src="demo-images/cart-page.png" alt="main-page-demo" width="400" height="250">
-<img src="demo-images/about-page.png" alt="main-page-demo" width="400" height="250">
-<img src="demo-images/admin-page.png" alt="main-page-demo" width="400" height="250">
+First of all, when you go from the start page by clicking the "Go Shopping!" you are taken to the main page. This is a product catalog. By clicking on the "Load More" button, you can additionally load products.
 
-<!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
+By clicking on the "Add to Cart" buttons, you can add products to the cart and see in the modal window (you can hover over the "Cart" link at the top of the page). Clicking on the link will redirect you to the shopping cart page.
 
-<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
+<img src="demo-images/main-page.png" alt="main-page-demo" width="900" height="500">
+  
+<img src="demo-images/cart-page.png" alt="main-page-demo" width="456" height="250">
+<img src="demo-images/order-page.png" alt="main-page-demo" width="456" height="250">
+<img src="demo-images/about-page.png" alt="main-page-demo" width="456" height="250">
+<img src="demo-images/admin-page.png" alt="main-page-demo" width="456" height="250">
 
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
 ## Contributing
 
