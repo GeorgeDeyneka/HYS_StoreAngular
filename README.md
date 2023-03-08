@@ -83,17 +83,17 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/GeorgeDeyneka/HYS_StoreAngular.git
-   ```
+```sh
+git clone https://github.com/GeorgeDeyneka/HYS_StoreAngular.git
+```
 2. Install NPM packages
-   ```sh
-   npm install
-   ```
+```sh
+npm install
+```
 3. Run this command for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-   ```sh
-   ng serve -o
-   ```
+```sh
+ng serve -o
+```
 
 
 ## About project
