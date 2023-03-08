@@ -119,7 +119,15 @@ By the way, you can view product information from any page by simply clicking on
 <div>
   <ul>
     <li>
-descr
+You can fill out the form, and when you click the "Submit Form" button, your order will be generated, and all your items from the basket will fall into it.
+    </li>
+    </br>
+    <li>
+After placing an order, you will see a modal window stating that your order has been formed. Your shopping cart will be cleared automatically.
+    </li>
+    </br>
+    <li>
+If you filled out the form, but do not want to place an order right now, you can click on the "Order Later" button and your data will be stored in memory. Therefore, the form, however, your data will still be stored in it for future checkout.
     </li>
   </ul>
   </br>
@@ -134,7 +142,20 @@ descr
 <div>
   <ul>
     <li>
-descr
+If you click on the "Login" button at the bottom of the page, you will be redirected to the login page. In order to get to the administration page, you need to know your username and password.
+    </li>
+    </br>
+    <li>
+When you get to this page, you will be presented with several sections:
+Users, Products and Orders.
+    </li>
+    </br>
+    <li>
+Before you will be an interface in the form of a table with information about products, as well as a panel for filtering objects.
+    </li>
+    </br>
+    <li>
+So, you can search and filter objects by different categories: it can be a name, id, price or other parameters. It all works in conjunction with each other so that you don't run into the problem of knocking down your filter when choosing a different filter parameter.
     </li>
   </ul>
   </br>
