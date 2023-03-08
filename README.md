@@ -67,18 +67,60 @@ By clicking on the "Add to Cart" buttons, you can add products to the cart and s
   </br>
 <img src="demo-images/main-page.png" alt="main-page-demo" width="1000" height="555">
 </div>
-    </br>
+
+</br>
+
 <div>
-  
+  <ul>
+    <li>
 Once on the shopping cart page, you can change the number of products or delete product categories altogether. Also, you can empty the trash completely. At the bottom is the "Make Order" button and the total amount of your order.
-
-<img src="demo-images/cart-page.png" alt="main-page-demo" width="1000" height="555">
+    </li>
+  </ul>
+  </br>
+<img src="demo-images/cart-page.png" alt="cart-page-demo" width="1000" height="555">
 </div>
-  
 
-<img src="demo-images/order-page.png" alt="main-page-demo" width="456" height="250">
-<img src="demo-images/about-page.png" alt="main-page-demo" width="456" height="250">
-<img src="demo-images/admin-page.png" alt="main-page-demo" width="456" height="250">
+</br>
+
+<div>
+  <ul>
+    <li>
+descr
+    </li>
+  </ul>
+  </br>
+<img src="demo-images/order-page.png" alt="order-page-demo" width="1000" height="555">
+</div>
+
+</br>
+
+</br>
+
+<div>
+  <ul>
+    <li>
+descr
+    </li>
+  </ul>
+  </br>
+<img src="demo-images/order-page.png" alt="order-page-demo" width="1000" height="555">
+</div>
+
+</br>
+
+</br>
+
+<div>
+  <ul>
+    <li>
+descr
+    </li>
+  </ul>
+  </br>
+<img src="demo-images/order-page.png" alt="order-page-demo" width="1000" height="555">
+</div>
+
+</br>
 
 
 ## Contributing
