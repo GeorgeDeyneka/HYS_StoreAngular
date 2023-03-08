@@ -54,13 +54,15 @@ Future plans include developing my own API and adding the ability to upload imag
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-First of all, when you go from the start page by clicking the "Go Shopping!" you are taken to the main page. This is a product catalog. By clicking on the "Load More" button, you can additionally load products.
+1. First of all, when you go from the start page by clicking the "Go Shopping!" you are taken to the main page. This is a product catalog. By clicking on the "Load More" button, you can additionally load products.
+2. By clicking on the "Add to Cart" buttons, you can add products to the cart and see in the modal window (you can hover over the "Cart" link at the top of the page). Clicking on the link will redirect you to the shopping cart page.
 
-By clicking on the "Add to Cart" buttons, you can add products to the cart and see in the modal window (you can hover over the "Cart" link at the top of the page). Clicking on the link will redirect you to the shopping cart page.
-
-<img src="demo-images/main-page.png" alt="main-page-demo" width="900" height="500">
+<img src="demo-images/main-page.png" alt="main-page-demo" width="1000" height="555">
   
-<img src="demo-images/cart-page.png" alt="main-page-demo" width="456" height="250">
+3.Once on the shopping cart page, you can change the number of products or delete product categories altogether. Also, you can empty the trash completely. At the bottom is the "Make Order" button and the total amount of your order.
+
+<img src="demo-images/cart-page.png" alt="main-page-demo" width="1000" height="555">
+
 <img src="demo-images/order-page.png" alt="main-page-demo" width="456" height="250">
 <img src="demo-images/about-page.png" alt="main-page-demo" width="456" height="250">
 <img src="demo-images/admin-page.png" alt="main-page-demo" width="456" height="250">
