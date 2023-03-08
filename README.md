@@ -157,6 +157,18 @@ Before you will be an interface in the form of a table with information about pr
     <li>
 So, you can search and filter objects by different categories: it can be a name, id, price or other parameters. It all works in conjunction with each other so that you don't run into the problem of knocking down your filter when choosing a different filter parameter.
     </li>
+    <li>
+You can also reset your filter configuration by opening the menu in the upper right corner of the filter bar.
+    </li>
+    <li>
+You can also create a new object from the same menu. A form will open in front of you and you can add your own item or product.
+    </li>
+    <li>
+You can also delete and edit objects in the table. All described actions (adding, editing and deleting) are carried out using CRUD operations.
+    </li>
+    <li>
+As a result, this interface allows you to easily manipulate data on the server.
+    </li>
   </ul>
   </br>
 <img src="demo-images/admin-page.png" alt="order-page-demo" width="1000" height="555">
