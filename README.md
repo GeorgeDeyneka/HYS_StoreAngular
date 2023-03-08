@@ -58,31 +58,11 @@
   </ol>
 </details> -->
 
-
-
-<!-- ABOUT THE PROJECT --> 
-<!-- ## About The Project  -->
-
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-
-<!-- There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it. -->
-
-<!-- Here's why: -->
-<!-- * Your time should be focused on creating something amazing. A project that solves a problem and helps others -->
-<!-- * You shouldn't be doing the same tasks over and over like creating a README from scratch -->
-<!-- * You should implement DRY principles to the rest of your life :smile: -->
-
-<!-- Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template! -->
-
-<!-- Use the `BLANK_README.md` to get started. -->
-
 ## Get Started
 
 If you want to see the project without deploying it locally, you can follow this link to GitHub Pages: https://georgedeyneka.github.io/HYS_StoreAngular/
 
 So, if you want to look at the project's code and deploy it, follow the steps below in the "Installation" section.
-
-
 
 ### Installation
 
@@ -98,8 +78,6 @@ npm install
 ```sh
 ng serve -o
 ```
-
-
 
 ## About project
 
@@ -152,13 +130,19 @@ If you want to improve the project code, you need to:
 
 Don't forget to give the project a star! Thanks again!
 
-<!-- ## Contact -->
+## My Contacts
 
-<!-- Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com -->
+- <a href="https://www.linkedin.com/in/george-deyneka-910003238/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a> 
+- <a href="https://t.me/Deyneka_George">
+    <img src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram Badge"/>
+  </a> 
+- <a href="mailto: zhoradeynecka@gmail.com">
+    <img src="https://img.shields.io/badge/Email-white?style=for-the-badge&logo=gmail&logoColor=red" alt="Email Badge"/>
+  </a> 
 
 <!-- Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name) -->
-
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 <!-- ## Acknowledgments -->
