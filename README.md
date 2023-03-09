@@ -209,11 +209,11 @@ Don't forget to give the project a star! Thanks again!
 
 <ul>
 <li>
-I'd like to thank to <a target="_blank" href="https://github.com/Bormash1991">@Bormash1991</a> for helping me improve the project and help write the functionality.
+I'd like to thank to <a href="https://github.com/Bormash1991">@Bormash1991</a> for helping me improve the project and help write the functionality.
 <li/>
 </br>
 <li>
-I would also like to say thanks to <a target="_blank" href="https://github.com/alexsednev">@alexsednev</a> for regular code reviews and advice on keeping the code structure correct.
+I would also like to say thanks to <a href="https://github.com/alexsednev">@alexsednev</a> for regular code reviews and advice on keeping the code structure correct.
 <li/>
 <ul>
  
