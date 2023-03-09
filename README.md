@@ -66,7 +66,7 @@ By clicking on the "Add to Cart" buttons, you can add products to the cart and s
     </li>
   </ul>
   </br>
-<img src="demo-images/main-page.png" alt="main-page-demo" width="1000" height="500">
+<img src="demo-images/main-page.png" alt="main-page-demo" width="1000">
 </div>
 
 </br>
@@ -89,7 +89,7 @@ Also, you can empty the trash completely. At the bottom is the "Make Order" butt
     </li>
   </ul>
   </br>
-<img src="demo-images/cart-page.png" alt="cart-page-demo" width="1000" height="500">
+<img src="demo-images/cart-page.png" alt="cart-page-demo" width="1000">
 </div>
 
 </br>
@@ -108,7 +108,7 @@ By the way, you can view product information from any page by simply clicking on
     </li>
   </ul>
   </br>
-<img src="demo-images/about-page.png" alt="order-page-demo" width="1000" height="500">
+<img src="demo-images/about-page.png" alt="order-page-demo" width="1000">
 </div>
 
 </br>
@@ -131,7 +131,7 @@ If you filled out the form, but do not want to place an order right now, you can
     </li>
   </ul>
   </br>
-<img src="demo-images/order-page.png" alt="order-page-demo" width="1000" height="500">
+<img src="demo-images/order-page.png" alt="order-page-demo" width="1000">
 </div>
 
 </br>
@@ -162,7 +162,7 @@ By clicking on the corresponding "Edit" and "Delete" buttons, you can delete and
     </li>
   </ul>
   </br>
-<img src="demo-images/admin-page.png" alt="order-page-demo" width="1000" height="500">
+<img src="demo-images/admin-page.png" alt="order-page-demo" width="1000">
   </br>
   </br>
   <ul>
