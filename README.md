@@ -99,7 +99,7 @@ By the way, you can view product information from any page by simply clicking on
     </li>
   </ul>
   </br>
-<img src="demo-images/about-page.png" alt="order-page-demo" width="1000">
+<img src="demo-images/about-page.png" alt="about-page-demo" width="1000">
 </div>
 
 </br>
@@ -153,7 +153,7 @@ By clicking on the corresponding "Edit" and "Delete" buttons, you can delete and
     </li>
   </ul>
   </br>
-<img src="demo-images/admin-page.png" alt="order-page-demo" width="1000">
+<img src="demo-images/admin-page.png" alt="admin-page-demo" width="1000">
   </br>
   </br>
   <ul>
