@@ -1,13 +1,5 @@
 # HYS Angular Store
 
-<!-- <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Online Store</h3>
-</div>  -->
-
 ## Get Started
 
 If you want to see the project without deploying it locally, you can follow this link to GitHub Pages: https://georgedeyneka.github.io/HYS_StoreAngular/
@@ -211,7 +203,7 @@ Don't forget to give the project a star! Thanks again!
 
 - I would also like to say thanks to <a href="https://github.com/alexsednev" target="_blank">@alexsednev</a> for regular code reviews and advice on keeping the code structure correct.
  
-[product-screenshot]: images/screenshot.png
+ 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
