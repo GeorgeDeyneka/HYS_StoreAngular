@@ -207,15 +207,9 @@ Don't forget to give the project a star! Thanks again!
 
 ## Acknowledgments
 
-<!-- <ul> -->
-<!-- <li> -->
-- I'd like to thank to <a href="https://github.com/Bormash1991">@Bormash1991</a> for helping me improve the project and help write the functionality.
-<!-- <li/> -->
-</br>
-<!-- <li> -->
-- I would also like to say thanks to <a href="https://github.com/alexsednev">@alexsednev</a> for regular code reviews and advice on keeping the code structure correct.
-<!-- <li/> -->
-<!-- <ul> -->
+- I'd like to thank to <a href="https://github.com/Bormash1991" target="_blank">@Bormash1991</a> for helping me improve the project and help write the functionality.
+
+- I would also like to say thanks to <a href="https://github.com/alexsednev" target="_blank">@alexsednev</a> for regular code reviews and advice on keeping the code structure correct.
  
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
