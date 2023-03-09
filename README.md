@@ -43,8 +43,6 @@ Future plans include developing my own API and adding the ability to upload imag
 - ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 
-
-<!-- USAGE EXAMPLES -->
 ## Usage
 
 ### Main Page
