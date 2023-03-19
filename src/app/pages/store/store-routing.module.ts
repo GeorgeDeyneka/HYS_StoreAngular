@@ -7,6 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { StoreComponent } from './store.component';
 import { CartComponent } from './cart/cart.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { DetailsGuard } from 'src/app/shared/guards/details.guard';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       {
         path: 'products/:id',
         pathMatch: 'full',
+        canActivate: [DetailsGuard],
         component: ProductDetailsComponent,
       },
     ],

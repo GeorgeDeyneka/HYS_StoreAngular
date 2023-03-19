@@ -2,7 +2,10 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-export const BASE_URL = 'http://localhost:3000/';
+export const BASE_URL =
+'http://localhost:3000/';
+// 'https://hys-fe-course-apl.vercel.app/'
+
 
 @Injectable({
   providedIn: 'root',
