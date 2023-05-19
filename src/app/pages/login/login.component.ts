@@ -40,18 +40,18 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username: '',
+      email: '',
       password: '',
     });
 
     this.formSub$ = this.form.valueChanges.subscribe((value) => {
-      if (value.password || value.username) {
+      if (value.password || value.email) {
         this.showLabel = false;
       }
     });
   }
 
   ngOnDestroy(): void {
-    this.formSub$.unsubscribe()
+    this.formSub$.unsubscribe();
   }
 }
