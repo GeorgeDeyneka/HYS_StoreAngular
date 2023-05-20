@@ -1,8 +1,7 @@
+@import "../../../../styles/mixins.scss";
+
 ::ng-deep .mat-dialog-container {
-  background-color: #23242a;
-  color: inherit;
-  border-radius: 5px;
-  border: 1px solid #5f5f5f;
+  @include modal-general-theme;
 }
 
 .modal {
@@ -14,15 +13,6 @@
   &__form {
     display: flex;
     flex-direction: column;
-  }
-
-  &__icon-warning {
-    display: block;
-    fill: #a1a1a1;
-    width: 150px;
-    height: 130px;
-    margin: 0 auto;
-    margin-bottom: 20px;
   }
 }
 

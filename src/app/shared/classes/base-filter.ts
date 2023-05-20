@@ -1,11 +1,12 @@
 import { DataFields } from 'src/app/models/enums/data-fields.enum';
 import { Select } from 'src/app/models/enums/select.enum';
 import { filterConfig } from 'src/app/models/interfaces/default-config.interface';
+import { ParamFilterKeys } from 'src/app/models/types/param-filter-keys.type';
 
 export class BaseFilter<T> {
   public data: T[] = [];
   public copyArr: T[] = [];
-  private baseData: T[] = [];
+  public baseData: T[] = [];
   public pageIndex: number = 0;
   public dataLength: number;
   private num: number;
@@ -19,11 +20,10 @@ export class BaseFilter<T> {
     this.dataLength = data.length;
     this.num = num;
     this.sliceForFirstPage();
-
     return this.data;
   }
 
-  changeData(elem: filterConfig, param: 'price' | 'createdAt' | 'phone') {
+  changeData(elem: filterConfig, param: ParamFilterKeys) {
     const typeOfName: string =
       param == DataFields.createdAt ? DataFields.username : DataFields.name;
 
@@ -31,24 +31,8 @@ export class BaseFilter<T> {
       this.setSearch(elem, typeOfName);
     }
 
-    if (
-      (param === DataFields.price && !elem.search && !elem.price) ||
-      (param === DataFields.createdAt && !elem.search && !elem.createdAt) ||
-      (param === DataFields.phone && !elem.search && !elem.quantity)
-    ) {
+    if (DataFields[param] && !elem.search && !elem[param]) {
       this.resetFilterData();
-    }
-
-    if (elem.price) {
-      this.setFilterPrice(elem);
-    }
-
-    if (elem.createdAt) {
-      this.setFilterDate(elem);
-    }
-
-    if (elem.quantity) {
-      this.setFilterQuantity(elem);
     }
 
     if (elem.sort && elem.sortFrom) {
@@ -61,36 +45,6 @@ export class BaseFilter<T> {
     this.sliceForFirstPage();
 
     return { data: this.data, length: this.dataLength, index: this.pageIndex };
-  }
-
-  setFilterPrice(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((prod: any) =>
-      el.priceSelect == Select.more
-        ? prod.price > el.price
-        : prod.price < el.price
-    );
-  }
-
-  setFilterQuantity(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((order: any) => {
-      const myKey = 'countOfAllProd';
-      order[myKey as keyof T] = order.products.reduce(
-        (acc: number, item: any) => (acc += item.quantity),
-        0
-      );
-
-      return el.quantitySelect == Select.more
-        ? order.countOfAllProd > el.quantity
-        : order.countOfAllProd < el.quantity;
-    });
-  }
-
-  setFilterDate(el: filterConfig) {
-    this.data = (el.search ? this.data : this.baseData).filter((user: any) =>
-      el.dateSelect == Select.more
-        ? user.createdAt > el.createdAt
-        : user.createdAt < el.createdAt
-    );
   }
 
   setSearch(el: filterConfig, searchBy: string) {

@@ -5,35 +5,31 @@
     border-radius: 10px;
     padding: 4px 20px;
     justify-content: space-between;
-    align-items: center;
   }
 
   &__price-or-date,
   &__search,
   &__sort {
+    &:not(:first-child) {
+      gap: 10px;
+    }
     display: flex;
-    gap: 10px;
     padding: 4px;
     border-radius: 10px;
   }
 }
 
-::ng-deep .mat-select-arrow,
-::ng-deep .mat-input-element:disabled,
-::ng-deep .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow,
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label,
-::ng-deep .mat-input-element::-webkit-input-placeholder {
-  color: #a1a1a1;
+app-button-menu {
+  align-self: center;
 }
 
-::ng-deep .mat-select-value {
-  color: #fff;
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  height: 0;
 }
 
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline,
-::ng-deep .mat-form-field-appearance-legacy.mat-form-field-disabled
-  .mat-form-field-underline {
-  background-color: #a1a1a1 !important;
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled),
+::ng-deep .mdc-text-field--disabled.mdc-text-field--filled {
+  background-color: #23242a;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
