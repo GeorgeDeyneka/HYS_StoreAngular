@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
 import { DataName } from 'src/app/models/enums/data-name.enum';
+import { WarnModalComponent } from '../../modals/warn-modal/warn-modal.component';
+import { ModalComponent } from '../../modals/modal/modal.component';
 
 @Component({
   selector: 'app-table',
@@ -38,7 +39,7 @@ export class TableComponent implements OnInit {
               typeOfData: this.typeOfTable,
               typeOfModal: ModalTypes.edit,
               id: elem.id,
-            keys: {
+              keys: {
                 password: '',
               },
             },
@@ -54,7 +55,7 @@ export class TableComponent implements OnInit {
               keys: {
                 name: elem.name,
                 phone: elem.phone,
-                message: elem.message
+                message: elem.message,
               },
             },
             height: '450px',
@@ -71,11 +72,11 @@ export class TableComponent implements OnInit {
         typeOfModal: ModalTypes.delete,
         id: elem.id,
       },
-      height: '520px',
+      height: '450px',
       width: '400px',
     };
 
-    const dialogRef = this.matDialog.open(ModalComponent, config);
+    const dialogRef = this.matDialog.open(WarnModalComponent, config);
   }
 
   ngOnInit(): void {}

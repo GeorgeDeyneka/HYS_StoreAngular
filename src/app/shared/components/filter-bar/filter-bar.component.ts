@@ -8,9 +8,10 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { ModalTypes } from 'src/app/models/enums/modal-types.enum';
 import { DataName } from 'src/app/models/enums/data-name.enum';
+import { FilterLabel } from 'src/app/models/enums/filter-label.enum';
+import { ModalComponent } from '../../modals/modal/modal.component';
 
 @Component({
   selector: 'app-filter-bar',
@@ -30,6 +31,7 @@ export class FilterBarComponent implements AfterViewInit {
   public sortValue: string;
   public sortFromVal: string;
   public priceOrDateFromVal: string;
+  public filterLabel: any = FilterLabel;
 
   constructor(
     private tableConfigService: TableConfigService,

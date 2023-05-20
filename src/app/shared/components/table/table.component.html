@@ -1,36 +1,37 @@
 <div class="table">
   <ul class="table__list">
     <li *ngFor="let elem of data" class="table__item item">
-      <div class="item__title-wrapper">
+      <div class="item__title-wrapper" [ngSwitch]="typeOfTable">
         <h4 class="item__title">
           Name: {{ typeOfTable === "users" ? elem.username : elem.name }}
         </h4>
-        <h4 class="item__phone" *ngIf="typeOfTable === 'orders'">
+        <h4 class="item__phone" *ngSwitchCase="'orders'">
           Phone: {{ elem.phone }}
         </h4>
-        <h4 class="item__about" *ngIf="typeOfTable === 'products'">
+        <h4 class="item__about" *ngSwitchCase="'products'">
           About: {{ elem.description }}
         </h4>
+        <div class="item__order" *ngSwitchCase="'orders'">
+          <h3>Order:</h3>
+          <ul class="item__order-details">
+            <li class="item__order-elem" *ngFor="let prod of elem.products">
+              <h4>Product: {{ prod.name }},</h4>
+              <h4>Count: {{ prod.quantity }},</h4>
+              <h4>Id: {{ prod.id }}</h4>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="item__order" *ngIf="typeOfTable === 'orders'">
-        <h3>Order:</h3>
-        <ul class="item__order-details">
-          <li class="item__order-elem" *ngFor="let prod of elem.products">
-            <h4>Product: {{ prod.name }},</h4>
-            <h4>Count: {{ prod.quantity }},</h4>
-            <h4>Id: {{ prod.id }}</h4>
-          </li>
-        </ul>
-      </div>
+
       <div class="item__info-wrapper">
-        <div class="item__info">
-          <h3 *ngIf="typeOfTable === 'products'" class="item__price">
+        <div class="item__info" [ngSwitch]="typeOfTable">
+          <h3 *ngSwitchCase="'products'" class="item__price">
             Price: {{ elem.price | UAH }}
           </h3>
-          <h3 *ngIf="typeOfTable === 'users'" class="item__date">
+          <h3 *ngSwitchCase="'users'" class="item__date">
             Date: {{ elem.createdAt }}
           </h3>
-          <h4 *ngIf="typeOfTable === 'orders'" class="item__message">
+          <h4 *ngSwitchCase="'orders'" class="item__message">
             {{ elem.message ? elem.message : "No message" }}
           </h4>
 
