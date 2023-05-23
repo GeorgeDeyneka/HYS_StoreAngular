@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {}
 
   makeAuthRequest() {
+    console.log(this.form.getRawValue())
     this.authService
       .logIn<{ access_token: string }>(this.form.getRawValue())
       .subscribe({
@@ -40,12 +41,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: '',
+      username: '',
       password: '',
     });
 
     this.formSub$ = this.form.valueChanges.subscribe((value) => {
-      if (value.password || value.email) {
+      if (value.password || value.username) {
         this.showLabel = false;
       }
     });

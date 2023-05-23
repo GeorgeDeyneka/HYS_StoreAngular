@@ -1,13 +1,16 @@
 <header #header class="header">
   <div class="container">
     <nav class="header__nav">
-      <a [routerLink]="['/']" class="header__logo"
-        ><span class="material-symbols-outlined"> shopping_bag </span>Store</a
+      <a [routerLink]="['/']" class="link-logo">
+        <svg class="small-icon">
+          <use href="assets/sprite.svg#icon-bag"></use></svg
+        >Store</a
       >
       <ul class="header__nav-list">
         <li class="header__nav-item">
-          <a [routerLink]="['/products']" class="header__link"
-            ><span class="material-symbols-outlined"> computer </span
+          <a [routerLink]="['/products']" class="link-logo">
+            <svg class="small-icon">
+              <use href="assets/sprite.svg#icon-laptop"></use></svg
             >Products</a
           >
         </li>
@@ -19,10 +22,12 @@
           <a
             [routerLink]="['/products/cart']"
             (click)="onLeave()"
-            class="header__link"
-            ><span class="material-symbols-outlined">
-              shopping_cart_checkout</span
-            >Cart</a
+            class="link-logo"
+          >
+            <svg class="small-icon">
+              <use href="assets/sprite.svg#icon-cart"></use>
+            </svg>
+            Cart</a
           >
           <app-cart-modal
             (mouseClick)="onLeave()"

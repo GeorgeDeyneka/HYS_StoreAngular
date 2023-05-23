@@ -29,11 +29,16 @@
         >
       </li>
     </ul>
-    <a [routerLink]="['/']" (click)="removeToken()"
-      ><span class="material-symbols-outlined"> login </span>LogOut</a
+    <a [routerLink]="['/']" (click)="removeToken()" class="link-logo">
+      <svg class="small-icon">
+        <use href="assets/sprite.svg#icon-logout"></use>
+      </svg>
+      LogOut</a
     >
-    <a [routerLink]="['/']"
-      ><span class="material-symbols-outlined"> home </span>Go Back</a
+    <a [routerLink]="['/']" class="link-logo">
+      <svg class="small-icon">
+        <use href="assets/sprite.svg#icon-home"></use></svg
+      >Go Back</a
     >
   </nav>
 </div>

@@ -63,10 +63,18 @@ app-cart {
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.link-logo {
   display: flex;
   align-items: center;
-  gap: 5px;
-  cursor: pointer;
+  gap: 8px;
+}
+
+.small-icon {
+  fill: #fff;
+  width: 24px;
+  height: 24px;
 }
 
 .admin {
