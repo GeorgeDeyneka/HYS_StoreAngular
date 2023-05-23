@@ -1,6 +1,7 @@
 @import "./styles/reset.scss";
 @import "./styles/typography.scss";
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "./styles/ang-mat-normalize.scss";
 
 $purple: #9551ff;
 $aqua: #5ec7ff;
@@ -91,10 +92,8 @@ a {
   padding-bottom: 2px;
 }
 
-@media (min-width: 320px) {
-  .container {
-    padding: 20px;
-  }
+.container {
+  padding: 20px;
 }
 
 @media (min-width: 768px) {

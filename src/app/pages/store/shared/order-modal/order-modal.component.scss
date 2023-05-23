@@ -1,11 +1,7 @@
-::ng-deep .mat-dialog-container {
-  background-color: #23242a;
-  color: inherit;
-  border-radius: 5px;
-  border: 1px solid #5f5f5f;
-}
+@import "src/styles/mixins.scss";
 
 .modal {
+  @include modal-general-theme;
   height: 100%;
   text-align: center;
   display: flex;

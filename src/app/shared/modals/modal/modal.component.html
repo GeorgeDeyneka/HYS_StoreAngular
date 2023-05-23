@@ -1,36 +1,37 @@
 <div class="modal">
-  <h1 mat-dialog-title>
+  <h1 mat-dialog-title class="modal__title">
     {{ modalText[modalType] }}
   </h1>
 
-  <div mat-dialog-content>
-    <form [formGroup]="form" class="modal__form">
+  <div mat-dialog-content class="modal__content">
+    <form [formGroup]="form" class="modal__form form">
       <ng-container *ngIf="keys">
-        <mat-form-field *ngFor="let key of keys">
+        <mat-form-field *ngFor="let key of keys" class="form__field">
           <mat-label>{{ key }}</mat-label>
-          <input autocomplete="off" [formControlName]="key" matInput />
+          <input
+            autocomplete="off"
+            [formControlName]="key"
+            class="form__input"
+            matInput
+          />
         </mat-form-field>
       </ng-container>
     </form>
 
-    <div mat-dialog-actions>
+    <div mat-dialog-actions class="modal__buttons">
       <app-button
         mat-button
-        [theme]="'aqua'"
-        [text]="'Cancel'"
+        theme="aqua"
+        text="Cancel"
+        size="large"
         (click)="closeModal()"
       ></app-button>
+
       <app-button
-        *ngIf="modalType === 'create'"
         mat-button
-        [text]="'Okay'"
-        (click)="createElem()"
-      ></app-button>
-      <app-button
-        *ngIf="modalType === 'edit'"
-        mat-button
-        [text]="'Okay'"
-        (click)="updateElem()"
+        text="Okay"
+        size="large"
+        (click)="modalType === 'create' ? createElem() : updateElem()"
       ></app-button>
     </div>
   </div>

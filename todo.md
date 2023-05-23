@@ -1,11 +1,11 @@
 # Tasks
 
 ## SCSS:
-- Make adaptive for login page
-- Fix Angular Material styles for input & modal windows
-- Make SCSS refactoring for components (add mixins, variables, delete useless styles)
+- Make SCSS refactoring for components (add mixins, variables)
 
 ## TS
+- Make spinner other component
+- Delete brackets in some props
 - Add templates, delete hardcode in the HTML fields
 - Make smooth transition on the page-routing and scroll-up
 - Add validation to order form
