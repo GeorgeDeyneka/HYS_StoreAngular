@@ -1,14 +1,14 @@
 <header #header class="header">
   <div class="container">
     <nav class="header__nav">
-      <a [routerLink]="['/']" class="link-logo">
+      <a routerLink="/" class="link-logo">
         <svg class="small-icon">
           <use href="assets/sprite.svg#icon-bag"></use></svg
         >Store</a
       >
       <ul class="header__nav-list">
         <li class="header__nav-item">
-          <a [routerLink]="['/products']" class="link-logo">
+          <a routerLink="/products" class="link-logo">
             <svg class="small-icon">
               <use href="assets/sprite.svg#icon-laptop"></use></svg
             >Products</a
@@ -19,11 +19,7 @@
           (mouseleave)="onLeave()"
           class="header__nav-item"
         >
-          <a
-            [routerLink]="['/products/cart']"
-            (click)="onLeave()"
-            class="link-logo"
-          >
+          <a routerLink="/products/cart" (click)="onLeave()" class="link-logo">
             <svg class="small-icon">
               <use href="assets/sprite.svg#icon-cart"></use>
             </svg>

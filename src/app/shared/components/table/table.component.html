@@ -40,13 +40,10 @@
         <div class="item__buttons">
           <app-button
             (click)="openEditDialog(elem)"
-            [theme]="'aqua'"
-            [text]="'Edit'"
+            theme="aqua"
+            text="Edit"
           ></app-button>
-          <app-button
-            (click)="openWarnDialog(elem)"
-            [text]="'Delete'"
-          ></app-button>
+          <app-button (click)="openWarnDialog(elem)" text="Delete"></app-button>
         </div>
       </div>
     </li>

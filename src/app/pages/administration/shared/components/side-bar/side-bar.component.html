@@ -7,35 +7,35 @@
       <li class="nav__item">
         <a
           class="nav__link"
-          [routerLink]="['/administration/users']"
-          [routerLinkActive]="'nav__link-active'"
+          routerLink="/administration/users"
+          routerLinkActive="nav__link-active"
           >Users</a
         >
       </li>
       <li class="nav__item">
         <a
           class="nav__link"
-          [routerLink]="['/administration/products']"
-          [routerLinkActive]="'nav__link-active'"
+          routerLink="/administration/products"
+          routerLinkActive="nav__link-active"
           >Products</a
         >
       </li>
       <li class="nav__item">
         <a
           class="nav__link"
-          [routerLink]="['/administration/orders']"
-          [routerLinkActive]="'nav__link-active'"
+          routerLink="/administration/orders"
+          routerLinkActive="nav__link-active"
           >Orders</a
         >
       </li>
     </ul>
-    <a [routerLink]="['/']" (click)="removeToken()" class="link-logo">
+    <a routerLink="/" (click)="removeToken()" class="link-logo">
       <svg class="small-icon">
         <use href="assets/sprite.svg#icon-logout"></use>
       </svg>
       LogOut</a
     >
-    <a [routerLink]="['/']" class="link-logo">
+    <a routerLink="/" class="link-logo">
       <svg class="small-icon">
         <use href="assets/sprite.svg#icon-home"></use></svg
       >Go Back</a

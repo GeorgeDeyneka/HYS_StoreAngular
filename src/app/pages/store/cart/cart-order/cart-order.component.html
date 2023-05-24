@@ -40,16 +40,16 @@
     >
     <div class="button-container">
       <app-button
-        [text]="'Order later'"
-        [otherStyles]="'full-width'"
+        text="Order later"
+        otherStyles="full-width"
         (clickHandler)="hideClick.emit()"
       ></app-button>
       <app-button
-        [buttonType]="'submit'"
-        [text]="'Submit form'"
-        [otherStyles]="'full-width'"
+        buttonType="submit"
+        text="Submit form"
+        otherStyles="full-width"
+        theme="aqua"
         (click)="createOrder()"
-        [theme]="'aqua'"
       ></app-button>
     </div>
   </form>
