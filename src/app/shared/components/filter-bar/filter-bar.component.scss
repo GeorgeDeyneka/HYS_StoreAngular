@@ -1,7 +1,7 @@
 .filter {
   &__bar {
     display: flex;
-    background-color: #23242a;
+    background-color: var(--gray-bg);
     border-radius: 10px;
     padding: 4px 20px;
     justify-content: space-between;

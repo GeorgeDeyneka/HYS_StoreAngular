@@ -1,6 +1,6 @@
 .header {
   transition: all 500ms ease-in 0s;
-  background-color: #0f0f10;
+  background-color: var(--black-transparent);
 
   &__nav {
     display: flex;
@@ -12,13 +12,13 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background-color: #9551ff;
+    background-color: var(--purple-accent);
     position: absolute;
     text-align: center;
     top: 3px;
     right: 0px;
     line-height: 20px;
-    color: #23242a;
+    color: var(--gray-bg);
     font-size: 14px;
     transition: all 500ms ease-in;
   }

@@ -1,6 +1,6 @@
 .item {
   padding: 13px 17px;
-  background-color: #23242a;
+  background-color: var(--gray-bg);
   border-radius: 10px;
   margin-bottom: 20px;
   display: flex;
@@ -9,7 +9,7 @@
 
   &__title {
     padding-bottom: 10px;
-    border-bottom: 1px solid #a1a1a1;
+    border-bottom: 1px solid var(--light-gray);
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     max-width: 245px;
-    color: #a1a1a1;
+    color: var(--light-gray);
   }
 
   &__link {
@@ -86,7 +86,7 @@
         background: linear-gradient(
           to right,
           rgba(35, 36, 42, 0.2),
-          #23242a 100%
+          var(--gray-bg) 100%
         );
       }
 

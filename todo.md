@@ -1,7 +1,7 @@
 # Tasks
 
 ## SCSS:
-- Make SCSS refactoring for components (add mixins, variables)
+- Add mixins
 
 ## TS
 - Make spinner other component

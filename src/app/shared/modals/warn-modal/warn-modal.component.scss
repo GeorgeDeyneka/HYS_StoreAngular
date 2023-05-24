@@ -10,13 +10,13 @@
   padding: 10px 20px;
 
   &__content {
-    color: #a1a1a1;
+    color: var(--light-gray);
     line-height: 1.3;
     font-family: inherit;
   }
 
   &__icon-warning {
-    fill: #a1a1a1;
+    fill: var(--light-gray);
     width: 150px;
     margin: 0 auto;
   }

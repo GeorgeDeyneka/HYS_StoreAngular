@@ -8,7 +8,7 @@
   flex-direction: column;
 
   &__title {
-    color: #d1d1d1;
+    color: var(--gray-text);
   }
 
   &__content {
@@ -28,6 +28,6 @@
   flex-direction: column;
 
   &__input {
-    color: #d1d1d1;
+    color: var(--gray-text);
   }
 }

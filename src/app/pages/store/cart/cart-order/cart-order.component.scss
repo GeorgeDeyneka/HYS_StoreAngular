@@ -1,6 +1,6 @@
 .wrapper {
   padding: 30px;
-  border-top: 1px solid #a1a1a1;
+  border-top: 1px solid var(--light-gray);
 }
 
 .title {
@@ -30,7 +30,7 @@
 
 .order {
   &__form-control {
-    background-color: #23242a;
+    background-color: var(--gray-bg);
     padding: 10px;
     border-radius: 10px;
   }
@@ -48,7 +48,7 @@
 .button-container {
   display: flex;
   flex-direction: column;
-  background-color: #23242a;
+  background-color: var(--gray-bg);
   padding: 10px;
   border-radius: 10px;
   justify-content: space-between;

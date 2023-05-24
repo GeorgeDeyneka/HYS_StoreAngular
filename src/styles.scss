@@ -1,17 +1,14 @@
 @import "./styles/reset.scss";
+@import "./styles/variables.scss";
 @import "./styles/typography.scss";
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "./styles/ang-mat-normalize.scss";
 
-$purple: #9551ff;
-$aqua: #5ec7ff;
-$red: #f41a1a;
-
 body {
   font-family: "Raleway";
   font-weight: 400;
-  background-color: #1b1c22;
-  color: #fff;
+  background-color: var(--dark-gray-bg);
+  color: var(--white);
 }
 
 app-store {
@@ -32,7 +29,7 @@ app-orders {
 }
 
 app-side-bar {
-  background-color: #000;
+  background-color: var(--black);
   min-height: 100%;
   width: 270px;
 }
@@ -63,7 +60,7 @@ app-cart {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
 }
 
 .link-logo {
@@ -73,16 +70,16 @@ a {
 }
 
 .small-icon {
-  fill: #fff;
+  fill: var(--white);
   width: 24px;
   height: 24px;
 }
 
 .admin {
   &__pagination {
-    background-color: #23242a;
+    background-color: var(--gray-bg);
     border-radius: 10px;
-    color: #a1a1a1;
+    color: var(--light-gray);
     width: 300px;
     align-self: flex-end;
   }

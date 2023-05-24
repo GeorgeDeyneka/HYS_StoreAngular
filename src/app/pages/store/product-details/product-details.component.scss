@@ -17,7 +17,7 @@
   padding: 40px;
   margin: 24px 0px;
   gap: 30px;
-  background-color: #23242a;
+  background-color: var(--gray-bg);
   border-radius: 10px;
 }
 
@@ -46,7 +46,7 @@
         background: linear-gradient(
           to right,
           rgba(27, 28, 34, 0.2),
-          #1b1c22 100%
+          var(--dark-gray-bg) 100%
         );
       }
 
