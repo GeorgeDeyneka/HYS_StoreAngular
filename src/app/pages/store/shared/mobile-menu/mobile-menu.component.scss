@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__link {
+    display: inline-flex;
+    padding: 2.5px;
+    background-color: #71717117;
+    border-radius: 2px;
+  }
+
+  &__icon {
+    fill: var(--light-gray);
+    width: 35px;
+    height: 35px;
+  }
+}

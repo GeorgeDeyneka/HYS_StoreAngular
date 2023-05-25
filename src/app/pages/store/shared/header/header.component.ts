@@ -8,14 +8,7 @@ import {
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 import { HeaderColor } from 'src/app/models/enums/header-color.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
-import { RouteItem } from 'src/app/models/interfaces/route-item.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
-
-const NAV_DATA: RouteItem[] = [
-  { route: '/', page: 'Store', iconPath: 'icon-bag' },
-  { route: '/products', page: 'Products', iconPath: 'icon-laptop' },
-  { route: '/products/cart', page: 'Cart', iconPath: 'icon-cart' },
-];
 
 @Component({
   selector: 'app-header',
@@ -23,7 +16,6 @@ const NAV_DATA: RouteItem[] = [
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  public navData: RouteItem[] = NAV_DATA;
   public countSubj$: Subscription;
   public scrollSubj$: Subscription;
   public resizeSubscription$: Subscription;

@@ -20,10 +20,11 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartOrderComponent } from './cart/cart-order/cart-order.component';
 import { OrderModalComponent } from './shared/order-modal/order-modal.component';
-import { BurgerMenuComponent } from './shared/burger-menu/burger-menu.component';
-import { OpenBtnComponent } from './shared/burger-menu/open-btn/open-btn.component';
-import { CloseBtnComponent } from './shared/burger-menu/close-btn/close-btn.component';
+import { BurgerMenuComponent } from './shared/mobile-menu/burger-menu/burger-menu.component';
+import { OpenBtnComponent } from './shared/mobile-menu/burger-menu/open-btn/open-btn.component';
+import { CloseBtnComponent } from './shared/mobile-menu/burger-menu/close-btn/close-btn.component';
 import { PcMenuComponent } from './shared/pc-menu/pc-menu.component';
+import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { PcMenuComponent } from './shared/pc-menu/pc-menu.component';
     OpenBtnComponent,
     CloseBtnComponent,
     PcMenuComponent,
+    MobileMenuComponent,
   ],
   imports: [
     CommonModule,
