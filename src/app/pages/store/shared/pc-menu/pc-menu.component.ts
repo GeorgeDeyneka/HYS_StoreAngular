@@ -13,7 +13,7 @@ export class PcMenuComponent {
   constructor(private router: Router) {}
 
   onHover() {
-    this.router.url === '/products/cart'
+    this.router.url === '/products/cart' || window.innerWidth < 1024
       ? (this.modalClassName = 'unvisible')
       : (this.modalClassName = 'modal');
   }

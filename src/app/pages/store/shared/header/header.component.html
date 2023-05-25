@@ -1,6 +1,9 @@
 <header #header class="header">
-  <app-burger-menu [routesData]="navData"></app-burger-menu>
   <div class="container">
-    <app-pc-menu [counter]="counter"></app-pc-menu>
+    <app-burger-menu
+      *ngIf="windowWidth <= 768"
+      [routesData]="navData"
+    ></app-burger-menu>
+    <app-pc-menu *ngIf="windowWidth > 768" [counter]="counter"></app-pc-menu>
   </div>
 </header>

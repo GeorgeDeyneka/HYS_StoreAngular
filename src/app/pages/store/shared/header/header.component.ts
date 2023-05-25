@@ -26,12 +26,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public navData: RouteItem[] = NAV_DATA;
   public countSubj$: Subscription;
   public scrollSubj$: Subscription;
+  public resizeSubscription$: Subscription;
+  public windowWidth: number = window.innerWidth;
   public counter: number;
   public scrollPosition = 0;
 
   constructor(private cartService: CartService) {}
 
   @ViewChild('header') header: ElementRef;
+
+  ngOnInit(): void {
+    this.initSubscriptions();
+  }
 
   onWindowScroll() {
     this.scrollPosition =
@@ -47,11 +53,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
       : (opacityHeader.style.backgroundColor = HeaderColor.basic);
   }
 
+  onWindowResize() {
+    this.windowWidth = window.innerWidth;
+    console.log(this.windowWidth);
+  }
+
   getCountOfProds(data: ProductType[]) {
     return (this.counter = data.reduce((acc, el) => (acc += el.count!), 0));
   }
 
-  ngOnInit(): void {
+  initSubscriptions() {
+    this.resizeSubscription$ = fromEvent(window, 'resize')
+      .pipe(debounceTime(200))
+      .subscribe(() => {
+        this.onWindowResize();
+      });
+
     this.countSubj$ = this.cartService.subj$.subscribe((data) => {
       this.getCountOfProds(data);
     });
