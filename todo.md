@@ -5,13 +5,14 @@
 
 ## TS
 - Make spinner other component
-- Delete brackets in some props
-- Add div-wrapper for router-outlets
 - Add templates, delete hardcode in the HTML fields
 - Make smooth transition on the page-routing and scroll-up
 - Add validation to order form
 - Add guard on 404
 - Add search in the store page
+- Add burger menu
+- Fix bug with 'More than' on admin
+- Add 'Liked' category
 
 ## Refactoring 
 - Make sycle for sidebar links
