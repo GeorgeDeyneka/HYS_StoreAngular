@@ -1,0 +1,26 @@
+<app-open-btn (click)="toggleMenu()" />
+
+<div [ngClass]="{ opened: isOpen }" class="navbar">
+  <app-close-btn (click)="toggleMenu()" />
+
+  <nav class="navbar__nav">
+    <ul class="navbar__list">
+      <li class="navbar__item" *ngFor="let link of routesData">
+        <a
+          [routerLink]="[link.route]"
+          class="navbar__link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="navbar__link_active"
+          (click)="toggleMenu()"
+        >
+          <svg *ngIf="link.iconPath" class="navbar__icon">
+            <use [attr.href]="'assets/sprite.svg#' + link.iconPath"></use>
+          </svg>
+          {{ link.page }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div *ngIf="isOpen" (click)="toggleMenu()" class="navbar__overlay"></div>

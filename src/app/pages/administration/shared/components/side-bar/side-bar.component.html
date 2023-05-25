@@ -4,28 +4,12 @@
       <li class="nav__item">
         <div class="nav__logo"></div>
       </li>
-      <li class="nav__item">
+      <li class="nav__item" *ngFor="let link of navData">
         <a
           class="nav__link"
-          routerLink="/administration/users"
+          [routerLink]="['/administration' + link.route]"
           routerLinkActive="nav__link-active"
-          >Users</a
-        >
-      </li>
-      <li class="nav__item">
-        <a
-          class="nav__link"
-          routerLink="/administration/products"
-          routerLinkActive="nav__link-active"
-          >Products</a
-        >
-      </li>
-      <li class="nav__item">
-        <a
-          class="nav__link"
-          routerLink="/administration/orders"
-          routerLinkActive="nav__link-active"
-          >Orders</a
+          >{{ link.page }}</a
         >
       </li>
     </ul>

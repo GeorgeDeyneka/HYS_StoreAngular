@@ -4,3 +4,19 @@
   border-radius: 5px;
   border: 1px solid var(--gray-border);
 }
+
+@mixin burger-line {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--white);
+}
+
+@mixin burger-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  flex-shrink: 0;
+}

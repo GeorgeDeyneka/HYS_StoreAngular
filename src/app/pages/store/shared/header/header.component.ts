@@ -9,14 +9,22 @@ import { Router } from '@angular/router';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 import { HeaderColor } from 'src/app/models/enums/header-color.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
+import { RouteItem } from 'src/app/models/interfaces/route-item.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
+const NAV_DATA: RouteItem[] = [
+  { route: '/', page: 'Store', iconPath: 'icon-bag' },
+  { route: '/products', page: 'Products', iconPath: 'icon-laptop' },
+  { route: '/products/cart', page: 'Cart', iconPath: 'icon-cart' },
+];
+
 @Component({
-  selector: 'app-header-bar',
-  templateUrl: './header-bar.component.html',
-  styleUrls: ['./header-bar.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderBarComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
+  public navData: RouteItem[] = NAV_DATA;
   public modalClassName: string = 'unvisible';
   public subj$: Subscription;
   public scrollSubj$: Subscription;
