@@ -1,4 +1,4 @@
 export enum HeaderColor {
-  basic = 'var(--black-transparent)',
-  opacity = '#0f0f10bf',
+  basic = 'var(--black)',
+  opacity = 'var(--black-transparent)',
 }
