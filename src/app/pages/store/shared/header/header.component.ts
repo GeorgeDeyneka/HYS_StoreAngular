@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public countSubj$: Subscription;
   public scrollSubj$: Subscription;
   public resizeSubscription$: Subscription;
-  public windowWidth: number = window.innerWidth;
+  public windowWidth: number;
   public counter: number;
   public scrollPosition = 0;
 
@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initSubscriptions();
+    this.onWindowResize();
   }
 
   onWindowScroll() {
@@ -47,7 +48,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onWindowResize() {
     this.windowWidth = window.innerWidth;
-    console.log(this.windowWidth);
   }
 
   getCountOfProds(data: ProductType[]) {
