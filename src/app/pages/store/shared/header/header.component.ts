@@ -5,7 +5,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 import { HeaderColor } from 'src/app/models/enums/header-color.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
@@ -25,13 +24,12 @@ const NAV_DATA: RouteItem[] = [
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   public navData: RouteItem[] = NAV_DATA;
-  public modalClassName: string = 'unvisible';
-  public subj$: Subscription;
+  public countSubj$: Subscription;
   public scrollSubj$: Subscription;
   public counter: number;
   public scrollPosition = 0;
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(private cartService: CartService) {}
 
   @ViewChild('header') header: ElementRef;
 
@@ -49,22 +47,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       : (opacityHeader.style.backgroundColor = HeaderColor.basic);
   }
 
-  onHover() {
-    this.router.url === '/products/cart' || window.innerWidth < 1024
-      ? (this.modalClassName = 'unvisible')
-      : (this.modalClassName = 'modal');
-  }
-
-  onLeave() {
-    this.modalClassName = 'unvisible';
-  }
-
   getCountOfProds(data: ProductType[]) {
     return (this.counter = data.reduce((acc, el) => (acc += el.count!), 0));
   }
 
   ngOnInit(): void {
-    this.subj$ = this.cartService.subj$.subscribe((data) => {
+    this.countSubj$ = this.cartService.subj$.subscribe((data) => {
       this.getCountOfProds(data);
     });
 
@@ -75,6 +63,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.scrollSubj$.unsubscribe();
-    this.subj$.unsubscribe();
+    this.countSubj$.unsubscribe();
   }
 }

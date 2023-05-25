@@ -1,0 +1,48 @@
+.header {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__cart-counter {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--purple-accent);
+    position: absolute;
+    text-align: center;
+    top: 3px;
+    right: 0px;
+    line-height: 20px;
+    color: var(--gray-bg);
+    font-size: 14px;
+    transition: all 500ms ease-in;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    &__cart-counter {
+      top: 5px;
+      right: 30px;
+    }
+
+    &__nav-list {
+      gap: 40px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    &__cart-counter {
+      right: -20px;
+    }
+  }
+}

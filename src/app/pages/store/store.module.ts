@@ -23,6 +23,7 @@ import { OrderModalComponent } from './shared/order-modal/order-modal.component'
 import { BurgerMenuComponent } from './shared/burger-menu/burger-menu.component';
 import { OpenBtnComponent } from './shared/burger-menu/open-btn/open-btn.component';
 import { CloseBtnComponent } from './shared/burger-menu/close-btn/close-btn.component';
+import { PcMenuComponent } from './shared/pc-menu/pc-menu.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CloseBtnComponent } from './shared/burger-menu/close-btn/close-btn.comp
     BurgerMenuComponent,
     OpenBtnComponent,
     CloseBtnComponent,
+    PcMenuComponent,
   ],
   imports: [
     CommonModule,
