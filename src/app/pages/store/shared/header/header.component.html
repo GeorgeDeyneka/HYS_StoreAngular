@@ -1,6 +1,9 @@
 <header #header class="header">
   <div class="container">
-    <app-mobile-menu *ngIf="windowWidth <= 768"></app-mobile-menu>
+    <app-mobile-menu
+      *ngIf="windowWidth <= 768"
+      [counter]="counter"
+    ></app-mobile-menu>
     <app-pc-menu *ngIf="windowWidth > 768" [counter]="counter"></app-pc-menu>
   </div>
 </header>

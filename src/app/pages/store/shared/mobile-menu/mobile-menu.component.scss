@@ -3,7 +3,23 @@
   align-items: center;
   justify-content: space-between;
 
+  &__cart-counter {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--purple-accent);
+    position: absolute;
+    text-align: center;
+    top: -3px;
+    right: -6px;
+    line-height: 20px;
+    color: var(--gray-bg);
+    font-size: 14px;
+    transition: all 500ms ease-in;
+  }
+
   &__link {
+    position: relative;
     display: inline-flex;
     padding: 2.5px;
     background-color: #71717117;

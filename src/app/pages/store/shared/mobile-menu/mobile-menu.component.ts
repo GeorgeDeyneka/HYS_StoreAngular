@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouteItem } from 'src/app/models/interfaces/route-item.interface';
 
 const NAV_DATA: RouteItem[] = [
@@ -13,5 +13,6 @@ const NAV_DATA: RouteItem[] = [
   styleUrls: ['./mobile-menu.component.scss'],
 })
 export class MobileMenuComponent {
+  @Input() counter: number;
   public navData: RouteItem[] = NAV_DATA;
 }
