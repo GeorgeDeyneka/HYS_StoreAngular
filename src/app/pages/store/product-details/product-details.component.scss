@@ -19,6 +19,10 @@
   gap: 30px;
   background-color: var(--gray-bg);
   border-radius: 10px;
+
+  &__description {
+    word-break: break-word;
+  }
 }
 
 .spinner {
