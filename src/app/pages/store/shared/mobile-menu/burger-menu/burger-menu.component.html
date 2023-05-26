@@ -35,6 +35,7 @@
           (click)="toggleMenu()"
         >
           <app-svg-icon
+            [ngClassObject]="{ 'active-route': link.route === currentUrl }"
             *ngIf="link.iconPath"
             fill="var(--white)"
             size="30"

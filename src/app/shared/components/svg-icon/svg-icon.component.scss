@@ -1,5 +1,5 @@
 .icon {
-  display: flex;
+  display: block;
   transition: all 300ms ease-in;
   width: var(--iconSize);
   height: var(--iconSize);
@@ -18,4 +18,8 @@
   &:hover {
     fill: var(--white);
   }
+}
+
+.active-route {
+  fill: var(--light-purple);
 }
