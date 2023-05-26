@@ -1,0 +1,51 @@
+<app-open-btn (click)="toggleMenu()" />
+
+<div [ngClass]="{ opened: isOpen }" class="navbar">
+  <div class="navbar__head">
+    <h2 routerLink="/" (click)="toggleMenu()" class="navbar__title">
+      <app-svg-icon
+        fill="var(--white)"
+        size="30"
+        path="icon-box"
+      ></app-svg-icon>
+      OnStore
+    </h2>
+    <app-close-btn (click)="toggleMenu()" />
+  </div>
+
+  <div (click)="toggleMenu()" routerLink="/login" class="navbar__login login">
+    <div class="login__image">
+      <app-svg-icon
+        fill="var(--white)"
+        size="30"
+        path="icon-user"
+      ></app-svg-icon>
+    </div>
+    <h3>Sign In (for admin)</h3>
+  </div>
+
+  <nav class="navbar__nav">
+    <ul class="navbar__list">
+      <li class="navbar__item" *ngFor="let link of routesData">
+        <a
+          [routerLink]="[link.route]"
+          class="navbar__link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="navbar__link_active"
+          (click)="toggleMenu()"
+        >
+          <app-svg-icon
+            [ngClassObject]="{ 'active-route': link.route === currentUrl }"
+            *ngIf="link.iconPath"
+            fill="var(--white)"
+            size="30"
+            [path]="link.iconPath"
+          ></app-svg-icon>
+          {{ link.page }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div *ngIf="isOpen" (click)="toggleMenu()" class="navbar__overlay"></div>

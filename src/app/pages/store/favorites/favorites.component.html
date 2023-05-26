@@ -1,0 +1,15 @@
+<div class="container">
+  <h2 class="favorites__title">Products/Favorites</h2>
+  <div class="favorites__table" *ngIf="arrFav.length; else elseBlock">
+    <app-product-item
+      *ngFor="let item of arrFav"
+      [productItem]="item"
+    ></app-product-item>
+  </div>
+
+  <ng-template #elseBlock
+    ><h2 class="favorites__alert">
+      There are no products in favorites yet...
+    </h2></ng-template
+  >
+</div>

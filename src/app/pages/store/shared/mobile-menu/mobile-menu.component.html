@@ -1,0 +1,14 @@
+<div class="header">
+  <app-burger-menu [routesData]="navData"></app-burger-menu>
+
+  <a class="header__link" routerLink="/products/cart">
+    <app-svg-icon
+      fill="var(--light-gray)"
+      size="35"
+      path="icon-cart"
+    ></app-svg-icon>
+    <div *ngIf="counter" class="header__cart-counter">
+      {{ counter > 10 ? "10+" : counter }}
+    </div>
+  </a>
+</div>

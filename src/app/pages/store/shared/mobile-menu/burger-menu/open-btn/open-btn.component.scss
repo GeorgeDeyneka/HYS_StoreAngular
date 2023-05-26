@@ -1,0 +1,27 @@
+@import "src/styles/mixins.scss";
+
+.open-btn {
+  @include burger-button;
+  margin: 0 10px;
+
+  &__line {
+    position: relative;
+    @include burger-line;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      @include burger-line;
+      left: 0;
+    }
+
+    &::before {
+      top: -11px;
+    }
+
+    &::after {
+      bottom: -11px;
+    }
+  }
+}

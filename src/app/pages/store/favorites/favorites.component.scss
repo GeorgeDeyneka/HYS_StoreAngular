@@ -1,0 +1,15 @@
+@import "src/styles/mixins.scss";
+
+.favorites {
+  &__title {
+    padding: 12px;
+  }
+
+  &__table {
+    @include table-grid;
+  }
+
+  &__alert {
+    @include page-alert;
+  }
+}

@@ -1,17 +1,19 @@
 # Tasks
 
 ## SCSS:
-- Add CSS variables
-- Add SCSS mixins
-- Fix styles for modal window
+- Add mixins
 
 ## TS
-- Replace filter-bar & table into shared admin
-- Make scss refactoring for components
+- Make counter other component
+- Make spinner other component
+- Think about like button slot
 - Add templates, delete hardcode in the HTML fields
-- Adaptive images in details section, add slider
-- Change API to firebases
-- Change guard on 404
+- Make smooth transition on the page-routing
+- Add validation to order form
+- Add guard on 404
 - Add search in the store page
-- Fix Angular Material styles on input
-- Add posibility to edit products in orders
+- Fix bug with 'More than' on admin
+
+## API
+- Change API to firebase
+- Add posibility to edit products in admin-orders

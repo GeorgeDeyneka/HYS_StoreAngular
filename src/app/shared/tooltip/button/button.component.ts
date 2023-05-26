@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -12,7 +6,7 @@ import {
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  @Input() text: string;
+  @Input() text: string = 'Okay';
   @Input() otherStyles: 'full-width';
   @Input() theme: 'blue' | 'aqua' | 'violet' = 'violet';
   @Input() size: 'small' | 'medium' | 'large' = 'medium';

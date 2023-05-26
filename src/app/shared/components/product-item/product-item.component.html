@@ -1,0 +1,22 @@
+<div class="product-item">
+  <h3 class="product-item__title">
+    <a [routerLink]="['/products', productItem.id]">
+      {{ productItem.name }}
+    </a>
+  </h3>
+  <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
+    {{ productItem.price | UAH }}
+  </h4>
+  <div class="product-item__actions">
+    <app-button (click)="addToCart()" [text]="buttonText"></app-button>
+    <button class="product-item__fav-btn" (click)="makeFavActive()">
+      <app-svg-icon
+        fill="none"
+        stroke="var(--black)"
+        hoverStroke="var(--white)"
+        path="icon-liked"
+        [ngClassObject]="likedStyles"
+      ></app-svg-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.mdc-text-field--filled:not(.mdc-text-field--disabled),
+.mdc-text-field--disabled.mdc-text-field--filled {
+  background-color: var(--gray-bg);
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: var(--gray-text);
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 0;
+}

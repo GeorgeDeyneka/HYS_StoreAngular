@@ -1,25 +1,33 @@
-@import "../../../../styles/mixins.scss";
-
-::ng-deep .mat-dialog-container {
-  @include modal-general-theme;
-}
+@import "src/styles/mixins.scss";
 
 .modal {
+  @include modal-general-theme;
   height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
 
-  &__form {
+  &__title {
+    color: var(--gray-text);
+  }
+
+  &__content {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
   }
 }
 
-.mat-dialog-actions {
-  justify-content: space-around;
-}
+.form {
+  display: flex;
+  flex-direction: column;
 
-.mat-dialog-content {
-  overflow: inherit;
+  &__input {
+    color: var(--gray-text);
+  }
 }

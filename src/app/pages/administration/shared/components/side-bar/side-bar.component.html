@@ -4,36 +4,22 @@
       <li class="nav__item">
         <div class="nav__logo"></div>
       </li>
-      <li class="nav__item">
+      <li class="nav__item" *ngFor="let link of navData">
         <a
           class="nav__link"
-          [routerLink]="['/administration/users']"
-          [routerLinkActive]="'nav__link-active'"
-          >Users</a
-        >
-      </li>
-      <li class="nav__item">
-        <a
-          class="nav__link"
-          [routerLink]="['/administration/products']"
-          [routerLinkActive]="'nav__link-active'"
-          >Products</a
-        >
-      </li>
-      <li class="nav__item">
-        <a
-          class="nav__link"
-          [routerLink]="['/administration/orders']"
-          [routerLinkActive]="'nav__link-active'"
-          >Orders</a
+          [routerLink]="['/administration' + link.route]"
+          routerLinkActive="nav__link-active"
+          >{{ link.page }}</a
         >
       </li>
     </ul>
-    <a [routerLink]="['/']" (click)="removeToken()"
-      ><span class="material-symbols-outlined"> login </span>LogOut</a
+    <a routerLink="/" (click)="removeToken()" class="link-logo">
+      <app-svg-icon fill="var(--white)" path="icon-logout"></app-svg-icon>
+      LogOut</a
     >
-    <a [routerLink]="['/']"
-      ><span class="material-symbols-outlined"> home </span>Go Back</a
+    <a routerLink="/" class="link-logo">
+      <app-svg-icon fill="var(--white)" path="icon-home"></app-svg-icon>
+      Go Back</a
     >
   </nav>
 </div>

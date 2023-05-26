@@ -5,27 +5,32 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
 import { HeaderColor } from 'src/app/models/enums/header-color.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
-  selector: 'app-header-bar',
-  templateUrl: './header-bar.component.html',
-  styleUrls: ['./header-bar.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderBarComponent implements OnInit, OnDestroy {
-  public modalClassName: string = 'unvisible';
-  public subj$: Subscription;
+export class HeaderComponent implements OnInit, OnDestroy {
+  public countSubj$: Subscription;
   public scrollSubj$: Subscription;
+  public resizeSubscription$: Subscription;
+  public windowWidth: number;
   public counter: number;
   public scrollPosition = 0;
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(private cartService: CartService) {}
 
   @ViewChild('header') header: ElementRef;
+
+  ngOnInit(): void {
+    this.initSubscriptions();
+    this.onWindowResize();
+  }
 
   onWindowScroll() {
     this.scrollPosition =
@@ -41,22 +46,22 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
       : (opacityHeader.style.backgroundColor = HeaderColor.basic);
   }
 
-  onHover() {
-    this.router.url === '/products/cart' || window.innerWidth < 1024
-      ? (this.modalClassName = 'unvisible')
-      : (this.modalClassName = 'modal');
-  }
-
-  onLeave() {
-    this.modalClassName = 'unvisible';
+  onWindowResize() {
+    this.windowWidth = window.innerWidth;
   }
 
   getCountOfProds(data: ProductType[]) {
     return (this.counter = data.reduce((acc, el) => (acc += el.count!), 0));
   }
 
-  ngOnInit(): void {
-    this.subj$ = this.cartService.subj$.subscribe((data) => {
+  initSubscriptions() {
+    this.resizeSubscription$ = fromEvent(window, 'resize')
+      .pipe(debounceTime(200))
+      .subscribe(() => {
+        this.onWindowResize();
+      });
+
+    this.countSubj$ = this.cartService.subj$.subscribe((data) => {
       this.getCountOfProds(data);
     });
 
@@ -67,6 +72,6 @@ export class HeaderBarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.scrollSubj$.unsubscribe();
-    this.subj$.unsubscribe();
+    this.countSubj$.unsubscribe();
   }
 }

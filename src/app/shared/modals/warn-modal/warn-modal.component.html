@@ -1,13 +1,23 @@
 <div class="modal">
-  <div mat-dialog-title>
-    <svg class="modal__icon-warning">
-      <use href="assets/sprite.svg#icon-warning"></use>
-    </svg>
+  <app-svg-icon
+    class="modal__icon"
+    fill="var(--light-gray)"
+    size="150"
+    path="icon-warning"
+  ></app-svg-icon>
+  <div class="modal__content">
+    <h2>{{ modalText[modalType] }}{{ data.id }}. Continue?</h2>
   </div>
 
-  <h1 mat-dialog-content>{{ modalText[modalType] }}{{ data.id }}. Continue?</h1>
+  <div class="modal__buttons">
+    <app-button
+      mat-button
+      text="Cancel"
+      size="large"
+      theme="aqua"
+      (click)="closeModal()"
+    ></app-button>
 
-  <div mat-dialog-actions>
-    <app-button mat-button [text]="'Okay'" (click)="deleteElem()"></app-button>
+    <app-button mat-button size="large" (click)="deleteElem()"></app-button>
   </div>
 </div>

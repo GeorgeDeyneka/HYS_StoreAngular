@@ -12,20 +12,24 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { ProductItemComponent } from './shared/product-item/product-item.component';
-import { HeaderBarComponent } from './shared/header-bar/header-bar.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartModalComponent } from './shared/cart-modal/cart-modal.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartOrderComponent } from './cart/cart-order/cart-order.component';
 import { OrderModalComponent } from './shared/order-modal/order-modal.component';
+import { BurgerMenuComponent } from './shared/mobile-menu/burger-menu/burger-menu.component';
+import { OpenBtnComponent } from './shared/mobile-menu/burger-menu/open-btn/open-btn.component';
+import { CloseBtnComponent } from './shared/mobile-menu/burger-menu/close-btn/close-btn.component';
+import { PcMenuComponent } from './shared/pc-menu/pc-menu.component';
+import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
     StoreComponent,
-    ProductItemComponent,
-    HeaderBarComponent,
+    HeaderComponent,
     FooterComponent,
     ProductDetailsComponent,
     ProductListComponent,
@@ -35,6 +39,12 @@ import { OrderModalComponent } from './shared/order-modal/order-modal.component'
     CartModalComponent,
     CartOrderComponent,
     OrderModalComponent,
+    BurgerMenuComponent,
+    OpenBtnComponent,
+    CloseBtnComponent,
+    PcMenuComponent,
+    MobileMenuComponent,
+    FavoritesComponent,
   ],
   imports: [
     CommonModule,

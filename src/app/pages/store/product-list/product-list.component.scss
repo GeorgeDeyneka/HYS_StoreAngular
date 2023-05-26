@@ -1,14 +1,12 @@
+@import "src/styles/mixins.scss";
+
 .products {
   &__title {
     padding: 12px;
   }
 
   &__wrapper {
-    justify-content: center;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
-    gap: 20px 26.5px;
-    margin: 24px 0;
+    @include table-grid;
   }
 
   &__btn-wrapper {

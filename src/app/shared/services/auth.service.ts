@@ -13,12 +13,14 @@ export class AuthService {
     private http: HttpClient
   ) {}
 
-  setAuthToken(token: String) {
+  setAuthToken(token: string) {
     this.localStorageService.setData('authToken', token);
   }
+
   getAuthToken(): string | [] {
     return this.localStorageService.getData('authToken');
   }
+
   logIn<T>(data: any) {
     return this.http.post<T>(this.URL, data);
   }

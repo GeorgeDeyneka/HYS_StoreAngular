@@ -5,51 +5,55 @@ button {
   cursor: pointer;
   font-weight: 500;
   transition: all 300ms ease-in;
-  color: #000;
+  color: var(--black);
 
   &:hover {
     background-color: transparent;
-    outline: 2px solid #fff;
-    color: #fff;
+    outline: 2px solid var(--white);
+    color: var(--white);
   }
 
   &:active {
     transition: none;
     background-color: rgb(255, 255, 255, 0.1);
-    color: #fff;
+    color: var(--white);
   }
 }
 
 .medium {
   padding: 4px 10px;
 }
+
 .large {
   padding: 8px 18px;
   font-size: 18px;
 }
+
 .small {
   padding: 1px 4px;
 }
 
 .violet {
-  background-color: #9551ff;
+  background-color: var(--purple-accent);
 
   &:hover {
-    outline: 2px solid #9551ff;
+    outline: 2px solid var(--purple-accent);
   }
 }
+
 .aqua {
-  background-color: #5ec7ff;
+  background-color: var(--aqua);
 
   &:hover {
-    outline: 2px solid #5ec7ff;
+    outline: 2px solid var(--aqua);
   }
 }
+
 .blue {
-  background-color: #4949ff;
+  background-color: var(--blue);
 
   &:hover {
-    outline: 2px solid #4949ff;
+    outline: 2px solid var(--blue);
   }
 }
 

@@ -4,7 +4,7 @@
     <form [formGroup]="form" class="login__form">
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input formControlName="email" matInput />
+        <input formControlName="username" matInput />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
@@ -18,12 +18,14 @@
     <div class="login__buttons">
       <app-button
         routerLink="/products"
-        [text]="'Cancel'"
+        text="Cancel"
+        size="large"
       ></app-button>
       <app-button
         (click)="makeAuthRequest()"
-        [theme]="'aqua'"
-        [text]="'Login'"
+        theme="aqua"
+        size="large"
+        text="Login"
       ></app-button>
     </div>
   </div>

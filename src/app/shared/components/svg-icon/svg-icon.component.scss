@@ -1,0 +1,25 @@
+.icon {
+  display: block;
+  transition: all 300ms ease-in;
+  width: var(--iconSize);
+  height: var(--iconSize);
+  stroke: var(--strokeColor);
+  fill: var(--fillColor);
+
+  &:hover {
+    fill: var(--hoverFill);
+    stroke: var(--hoverStroke);
+  }
+}
+
+.liked {
+  fill: var(--black);
+
+  &:hover {
+    fill: var(--white);
+  }
+}
+
+.active-route {
+  fill: var(--light-purple);
+}

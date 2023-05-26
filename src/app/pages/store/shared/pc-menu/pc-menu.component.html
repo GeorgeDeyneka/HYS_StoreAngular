@@ -1,0 +1,37 @@
+<nav class="header__nav">
+  <a routerLink="/" class="link-logo">
+    <app-svg-icon fill="var(--white)" path="icon-bag"></app-svg-icon>
+    Store</a
+  >
+  <ul class="header__nav-list">
+    <li class="header__nav-item">
+      <a routerLink="/products" class="link-logo">
+        <app-svg-icon fill="var(--white)" path="icon-laptop"></app-svg-icon>
+        Products</a
+      >
+    </li>
+    <li class="header__nav-item">
+      <a routerLink="/products/favorites" class="link-logo">
+        <app-svg-icon fill="var(--white)" path="icon-favorites"></app-svg-icon>
+        Favorites</a
+      >
+    </li>
+    <li
+      (mouseenter)="onHover()"
+      (mouseleave)="onLeave()"
+      class="header__nav-item"
+    >
+      <a routerLink="/products/cart" (click)="onLeave()" class="link-logo">
+        <app-svg-icon fill="var(--white)" path="icon-cart"></app-svg-icon>
+        Cart</a
+      >
+      <app-cart-modal
+        (mouseClick)="onLeave()"
+        [className]="modalClassName"
+      ></app-cart-modal>
+      <div *ngIf="counter" class="header__cart-counter">
+        {{ counter > 10 ? "10+" : counter }}
+      </div>
+    </li>
+  </ul>
+</nav>

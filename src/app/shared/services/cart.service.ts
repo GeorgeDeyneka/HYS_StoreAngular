@@ -1,7 +1,7 @@
 import { ProductType } from '../../models/interfaces/product.interface';
 import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

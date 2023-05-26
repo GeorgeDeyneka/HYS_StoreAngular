@@ -17,19 +17,20 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #23242a;
+    background-color: var(--gray-bg);
     margin-bottom: 20px;
   }
 
   &__link {
+    display: flex;
     padding: 10px;
     font-size: 24px;
   }
 
   &__link-active {
     transition: all 500ms ease;
-    color: #b07eff;
-    background-color: #23242a;
+    color: var(--light-purple);
+    background-color: var(--gray-bg);
     border-radius: 5px;
   }
 }

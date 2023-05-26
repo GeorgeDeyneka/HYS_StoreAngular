@@ -46,7 +46,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   checkProduct(data: ProductType[]) {
     for (let i = 0; i < data.length; i++) {
-      if (data[i].id === this.prod.id) {
+      if (data[i].id === this.prod?.id) {
         this.prod = data[i];
         this.buttonText = ButtonTextEnum.inCart;
         return;
