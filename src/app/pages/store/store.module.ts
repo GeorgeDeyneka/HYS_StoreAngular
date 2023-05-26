@@ -12,7 +12,6 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { ProductItemComponent } from '../../shared/components/product-item/product-item.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartModalComponent } from './shared/cart-modal/cart-modal.component';

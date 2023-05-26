@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { FavoritesService } from 'src/app/shared/services/favorites.service';
@@ -8,7 +8,7 @@ import { FavoritesService } from 'src/app/shared/services/favorites.service';
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss'],
 })
-export class FavoritesComponent {
+export class FavoritesComponent implements OnInit, OnDestroy {
   public arrFav: ProductType[] = [];
   public subj$: Subscription;
 
@@ -18,5 +18,9 @@ export class FavoritesComponent {
     this.subj$ = this.favoritesService.subj$.subscribe((data) => {
       this.arrFav = data;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subj$.unsubscribe();
   }
 }
