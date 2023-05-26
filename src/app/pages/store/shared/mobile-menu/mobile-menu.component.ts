@@ -4,6 +4,11 @@ import { RouteItem } from 'src/app/models/interfaces/route-item.interface';
 const NAV_DATA: RouteItem[] = [
   { route: '/products', page: 'Products', iconPath: 'icon-laptop' },
   { route: '/products/cart', page: 'Cart', iconPath: 'icon-cart' },
+  {
+    route: '/products/favorites',
+    page: 'Favorites',
+    iconPath: 'icon-favorites',
+  },
 ];
 
 @Component({

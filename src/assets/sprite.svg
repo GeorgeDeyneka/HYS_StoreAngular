@@ -28,6 +28,16 @@
         stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
     </symbol>
 
+    <symbol id="icon-favorites" viewBox="0 0 32 32">
+      <path
+        d="M16,29.41,4.34,17.77a8.13,8.13,0,0,1,0-11.41,8,8,0,0,1,11.33,0L16,6.7l.33-.34a8,8,0,0,1,11.33,0,8.14,8.14,0,0,1,0,11.41ZM10,6A5.94,5.94,0,0,0,5.75,7.77a6.13,6.13,0,0,0,0,8.59L16,26.59,26.25,16.36a6.13,6.13,0,0,0,0-8.59,6,6,0,0,0-8.49,0L16,9.51,14.25,7.78A6,6,0,0,0,10,6Z" />
+    </symbol>
+
+    <symbol id="icon-liked" viewBox="0 0 256 256">
+      <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z"
+        stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+    </symbol>
+
     <symbol id="icon-user" viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="8" r="5" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
       <path d="M20 21C20 16.5817 16.4183 13 12 13C7.58172 13 4 16.5817 4 21" stroke="white" stroke-linecap="round"

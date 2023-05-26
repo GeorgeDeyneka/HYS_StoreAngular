@@ -1,35 +1,42 @@
-    <nav class="header__nav">
-      <a routerLink="/" class="link-logo">
+<nav class="header__nav">
+  <a routerLink="/" class="link-logo">
+    <svg class="small-icon">
+      <use href="assets/sprite.svg#icon-bag"></use></svg
+    >Store</a
+  >
+  <ul class="header__nav-list">
+    <li class="header__nav-item">
+      <a routerLink="/products" class="link-logo">
         <svg class="small-icon">
-          <use href="assets/sprite.svg#icon-bag"></use></svg
-        >Store</a
+          <use href="assets/sprite.svg#icon-laptop"></use></svg
+        >Products</a
       >
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <a routerLink="/products" class="link-logo">
-            <svg class="small-icon">
-              <use href="assets/sprite.svg#icon-laptop"></use></svg
-            >Products</a
-          >
-        </li>
-        <li
-          (mouseenter)="onHover()"
-          (mouseleave)="onLeave()"
-          class="header__nav-item"
-        >
-          <a routerLink="/products/cart" (click)="onLeave()" class="link-logo">
-            <svg class="small-icon">
-              <use href="assets/sprite.svg#icon-cart"></use>
-            </svg>
-            Cart</a
-          >
-          <app-cart-modal
-            (mouseClick)="onLeave()"
-            [className]="modalClassName"
-          ></app-cart-modal>
-          <div *ngIf="counter" class="header__cart-counter">
-            {{ counter > 10 ? "10+" : counter }}
-          </div>
-        </li>
-      </ul>
-    </nav>
+    </li>
+    <li class="header__nav-item">
+      <a routerLink="/products/favorites" class="link-logo">
+        <svg class="small-icon">
+          <use href="assets/sprite.svg#icon-favorites"></use></svg
+        >Favorites</a
+      >
+    </li>
+    <li
+      (mouseenter)="onHover()"
+      (mouseleave)="onLeave()"
+      class="header__nav-item"
+    >
+      <a routerLink="/products/cart" (click)="onLeave()" class="link-logo">
+        <svg class="small-icon">
+          <use href="assets/sprite.svg#icon-cart"></use>
+        </svg>
+        Cart</a
+      >
+      <app-cart-modal
+        (mouseClick)="onLeave()"
+        [className]="modalClassName"
+      ></app-cart-modal>
+      <div *ngIf="counter" class="header__cart-counter">
+        {{ counter > 10 ? "10+" : counter }}
+      </div>
+    </li>
+  </ul>
+</nav>

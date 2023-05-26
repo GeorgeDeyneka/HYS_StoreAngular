@@ -4,15 +4,17 @@
 - Add mixins
 
 ## TS
+- Make SVG other component
 - Make counter other component
 - Make spinner other component
+- Think about like button slot
+- Make 'Favorite' page
 - Add templates, delete hardcode in the HTML fields
 - Make smooth transition on the page-routing
 - Add validation to order form
 - Add guard on 404
 - Add search in the store page
 - Fix bug with 'More than' on admin
-- Add 'Liked' category
 
 ## API
 - Change API to firebase

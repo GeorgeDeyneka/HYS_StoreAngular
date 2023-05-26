@@ -7,8 +7,12 @@
   <h4 appHighlightPrice [price]="productItem.price" class="product-item__price">
     {{ productItem.price | UAH }}
   </h4>
-  <app-button
-    (click)="addToCart()"
-    [text]="buttonText"
-  ></app-button>
+  <div class="product-item__actions">
+    <app-button (click)="addToCart()" [text]="buttonText"></app-button>
+    <button class="product-item__fav-btn" (click)="makeFavActive()">
+      <svg [ngClass]="{ liked: isFavorite }" class="product-item__icon">
+        <use href="assets/sprite.svg#icon-liked"></use>
+      </svg>
+    </button>
+  </div>
 </div>

@@ -25,6 +25,7 @@ import { OpenBtnComponent } from './shared/mobile-menu/burger-menu/open-btn/open
 import { CloseBtnComponent } from './shared/mobile-menu/burger-menu/close-btn/close-btn.component';
 import { PcMenuComponent } from './shared/pc-menu/pc-menu.component';
 import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component'
     CloseBtnComponent,
     PcMenuComponent,
     MobileMenuComponent,
+    FavoritesComponent,
   ],
   imports: [
     CommonModule,

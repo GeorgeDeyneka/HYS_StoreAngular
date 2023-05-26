@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ButtonTextEnum } from 'src/app/models/enums/button-text.enum';
 import { ProductType } from 'src/app/models/interfaces/product.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { FavoritesService } from 'src/app/shared/services/favorites.service';
 
 @Component({
   selector: 'app-product-item',
@@ -12,11 +13,16 @@ import { CartService } from 'src/app/shared/services/cart.service';
 export class ProductItemComponent implements OnInit, OnDestroy {
   @Input() public productItem: ProductType;
   public buttonText: string = ButtonTextEnum.add;
-  private subj$: Subscription;
+  private cartSubj$: Subscription;
+  private favSubj$: Subscription;
+  protected isFavorite: boolean;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private favoritesService: FavoritesService
+  ) {}
 
-  checkProduct(data: ProductType[]) {
+  isProductInCart(data: ProductType[]) {
     if (!data.length) {
       this.buttonText = ButtonTextEnum.add;
     }
@@ -30,10 +36,32 @@ export class ProductItemComponent implements OnInit, OnDestroy {
     }
   }
 
+  makeFavActive() {
+    this.isFavorite = !this.isFavorite;
+
+    this.isFavorite ? this.addToFav() : this.removeFromFav();
+  }
+
+  isProductInFav(data: ProductType[]) {
+    this.isFavorite = data.some((elem) => elem.id === this.productItem.id);
+  }
+
   ngOnInit(): void {
-    this.subj$ = this.cartService.subj$.subscribe((elem) => {
-      this.checkProduct(elem);
+    this.cartSubj$ = this.cartService.subj$.subscribe((data) => {
+      this.isProductInCart(data);
     });
+
+    this.favSubj$ = this.favoritesService.subj$.subscribe((data) => {
+      this.isProductInFav(data);
+    });
+  }
+
+  addToFav(): void {
+    this.favoritesService.addToFavorites(this.productItem);
+  }
+
+  removeFromFav(): void {
+    this.favoritesService.deleteFromFavorites(this.productItem);
   }
 
   addToCart(): void {
@@ -42,6 +70,7 @@ export class ProductItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subj$.unsubscribe();
+    this.cartSubj$.unsubscribe();
+    this.favSubj$.unsubscribe();
   }
 }
