@@ -1,7 +1,23 @@
 <app-open-btn (click)="toggleMenu()" />
 
 <div [ngClass]="{ opened: isOpen }" class="navbar">
-  <app-close-btn (click)="toggleMenu()" />
+  <div class="navbar__head">
+    <h2 class="navbar__title">
+      <svg class="navbar__icon">
+        <use href="assets/sprite.svg#icon-box"></use></svg
+      >OnStore
+    </h2>
+    <app-close-btn (click)="toggleMenu()" />
+  </div>
+
+  <div (click)="toggleMenu()" routerLink="/login" class="navbar__login login">
+    <div class="login__image">
+      <svg class="navbar__icon">
+        <use href="assets/sprite.svg#icon-user"></use>
+      </svg>
+    </div>
+    <h3>Sign In (for admin)</h3>
+  </div>
 
   <nav class="navbar__nav">
     <ul class="navbar__list">
