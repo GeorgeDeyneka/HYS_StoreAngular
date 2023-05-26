@@ -1,3 +1,5 @@
+@import "src/styles/mixins.scss";
+
 .container {
   flex-grow: 1;
   display: flex;
@@ -13,11 +15,7 @@
   }
 
   &__alert {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 0;
-    flex-grow: 1;
+    @include page-alert;
   }
 
   &__total-wrapper {

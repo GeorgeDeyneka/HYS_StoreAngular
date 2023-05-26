@@ -7,7 +7,6 @@
 - Make counter other component
 - Make spinner other component
 - Think about like button slot
-- Make 'Favorite' page
 - Add templates, delete hardcode in the HTML fields
 - Make smooth transition on the page-routing
 - Add validation to order form

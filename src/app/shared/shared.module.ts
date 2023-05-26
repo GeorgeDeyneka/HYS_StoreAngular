@@ -17,6 +17,7 @@ import { FilterBarComponent } from './components/filter-bar/filter-bar.component
 import { WarnModalComponent } from './modals/warn-modal/warn-modal.component';
 import { ModalComponent } from './modals/modal/modal.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
     FilterBarComponent,
     WarnModalComponent,
     SvgIconComponent,
+    ProductItemComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
     TableComponent,
     FilterBarComponent,
     WarnModalComponent,
-    SvgIconComponent
+    SvgIconComponent,
+    ProductItemComponent,
   ],
 })
 export class SharedModule {}

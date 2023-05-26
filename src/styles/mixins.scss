@@ -20,3 +20,22 @@
   background-color: transparent;
   flex-shrink: 0;
 }
+
+@mixin table-grid {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  gap: 20px 26.5px;
+  margin: 24px 0;
+}
+
+@mixin page-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0;
+  flex-grow: 1;
+  text-align: center;
+  font-weight: 400;
+  font-size: 22px;
+}
