@@ -16,6 +16,7 @@ export class ProductItemComponent implements OnInit, OnDestroy {
   private cartSubj$: Subscription;
   private favSubj$: Subscription;
   protected isFavorite: boolean;
+  protected likedStyles: { [key: string]: boolean };
 
   constructor(
     private cartService: CartService,
@@ -38,12 +39,12 @@ export class ProductItemComponent implements OnInit, OnDestroy {
 
   makeFavActive() {
     this.isFavorite = !this.isFavorite;
-
     this.isFavorite ? this.addToFav() : this.removeFromFav();
   }
 
   isProductInFav(data: ProductType[]) {
     this.isFavorite = data.some((elem) => elem.id === this.productItem.id);
+    this.likedStyles = { liked: this.isFavorite };
   }
 
   ngOnInit(): void {

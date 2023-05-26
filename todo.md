@@ -4,7 +4,6 @@
 - Add mixins
 
 ## TS
-- Make SVG other component
 - Make counter other component
 - Make spinner other component
 - Think about like button slot

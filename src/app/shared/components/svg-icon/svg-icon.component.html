@@ -1,0 +1,13 @@
+<svg
+  [ngStyle]="{
+    '--iconSize': size + 'px',
+    '--fillColor': fill,
+    '--strokeColor': stroke,
+    '--hoverFill': hoverFill || fill,
+    '--hoverStroke': hoverStroke || stroke
+  }"
+  [ngClass]="ngClassObject"
+  class="icon"
+>
+  <use [attr.href]="baseHref + path"></use>
+</svg>

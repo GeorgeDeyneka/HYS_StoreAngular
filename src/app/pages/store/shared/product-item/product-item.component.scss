@@ -26,14 +26,6 @@
       background-color: transparent;
       outline: 2px solid var(--purple-accent);
       color: var(--white);
-
-      & > .product-item__icon {
-        stroke: var(--white);
-      }
-
-      & > .liked {
-        fill: var(--white);
-      }
     }
   }
 
@@ -41,17 +33,5 @@
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  &__icon {
-    fill: none;
-    stroke: var(--black);
-    transition: all 300ms ease-in;
-    width: 24px;
-    height: 24px;
-  }
-
-  .liked {
-    fill: var(--black);
   }
 }

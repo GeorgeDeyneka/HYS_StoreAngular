@@ -1,8 +1,10 @@
 <div class="modal">
-  <svg class="modal__icon-warning">
-    <use href="assets/sprite.svg#icon-warning"></use>
-  </svg>
-
+  <app-svg-icon
+    class="modal__icon"
+    fill="var(--light-gray)"
+    size="150"
+    path="icon-warning"
+  ></app-svg-icon>
   <div class="modal__content">
     <h2>{{ modalText[modalType] }}{{ data.id }}. Continue?</h2>
   </div>

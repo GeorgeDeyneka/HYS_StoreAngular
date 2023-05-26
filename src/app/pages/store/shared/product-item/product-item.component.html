@@ -10,9 +10,13 @@
   <div class="product-item__actions">
     <app-button (click)="addToCart()" [text]="buttonText"></app-button>
     <button class="product-item__fav-btn" (click)="makeFavActive()">
-      <svg [ngClass]="{ liked: isFavorite }" class="product-item__icon">
-        <use href="assets/sprite.svg#icon-liked"></use>
-      </svg>
+      <app-svg-icon
+        fill="none"
+        stroke="var(--black)"
+        hoverStroke="var(--white)"
+        path="icon-liked"
+        [ngClassObject]="likedStyles"
+      ></app-svg-icon>
     </button>
   </div>
 </div>

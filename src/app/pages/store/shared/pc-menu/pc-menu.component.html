@@ -1,22 +1,19 @@
 <nav class="header__nav">
   <a routerLink="/" class="link-logo">
-    <svg class="small-icon">
-      <use href="assets/sprite.svg#icon-bag"></use></svg
-    >Store</a
+    <app-svg-icon fill="var(--white)" path="icon-bag"></app-svg-icon>
+    Store</a
   >
   <ul class="header__nav-list">
     <li class="header__nav-item">
       <a routerLink="/products" class="link-logo">
-        <svg class="small-icon">
-          <use href="assets/sprite.svg#icon-laptop"></use></svg
-        >Products</a
+        <app-svg-icon fill="var(--white)" path="icon-laptop"></app-svg-icon>
+        Products</a
       >
     </li>
     <li class="header__nav-item">
       <a routerLink="/products/favorites" class="link-logo">
-        <svg class="small-icon">
-          <use href="assets/sprite.svg#icon-favorites"></use></svg
-        >Favorites</a
+        <app-svg-icon fill="var(--white)" path="icon-favorites"></app-svg-icon>
+        Favorites</a
       >
     </li>
     <li
@@ -25,9 +22,7 @@
       class="header__nav-item"
     >
       <a routerLink="/products/cart" (click)="onLeave()" class="link-logo">
-        <svg class="small-icon">
-          <use href="assets/sprite.svg#icon-cart"></use>
-        </svg>
+        <app-svg-icon fill="var(--white)" path="icon-cart"></app-svg-icon>
         Cart</a
       >
       <app-cart-modal
