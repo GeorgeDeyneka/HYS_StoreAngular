@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { RouteItem } from 'src/app/models/interfaces/route-item.interface';
 
 const NAV_DATA: RouteItem[] = [
-  { route: '/', page: 'Store', iconPath: 'icon-bag' },
   { route: '/products', page: 'Products', iconPath: 'icon-laptop' },
   { route: '/products/cart', page: 'Cart', iconPath: 'icon-cart' },
 ];

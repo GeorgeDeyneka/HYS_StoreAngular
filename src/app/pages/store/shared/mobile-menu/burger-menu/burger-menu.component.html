@@ -1,7 +1,7 @@
 <app-open-btn (click)="toggleMenu()" />
 
 <div [ngClass]="{ opened: isOpen }" class="navbar">
-  <div class="navbar__head">
+  <div (click)="toggleMenu()" routerLink="/" class="navbar__head">
     <h2 class="navbar__title">
       <svg class="navbar__icon">
         <use href="assets/sprite.svg#icon-box"></use></svg
