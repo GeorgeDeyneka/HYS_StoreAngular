@@ -13,5 +13,9 @@ export class CartItemComponent implements OnInit {
 
   constructor() {}
 
+  roundPrice(num: number): number {
+    return Number(num.toFixed(2));
+  }
+
   ngOnInit(): void {}
 }

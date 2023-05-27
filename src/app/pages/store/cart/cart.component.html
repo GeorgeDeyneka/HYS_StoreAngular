@@ -32,7 +32,9 @@
         text="Make order!"
       ></app-button>
 
-      <h2 class="page__total">Total Cost: {{ totalPrice | UAH }}</h2>
+      <h2 class="page__total">
+        Total Cost: {{ roundPrice(totalPrice) | UAH }}
+      </h2>
     </div>
   </div>
 

@@ -20,6 +20,10 @@ export class CartComponent implements OnInit, OnDestroy {
     return this.cartService.calculateTotalPrice();
   }
 
+  roundPrice(num: number): number {
+    return Number(num.toFixed(2));
+  }
+
   showTemplate() {
     this.showOrder = true;
   }
